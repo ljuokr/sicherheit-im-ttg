@@ -3,7 +3,7 @@ import os
 HIER = os.path.dirname(os.path.abspath(__file__)) + '/'
 PROJ = os.path.dirname(HIER.rstrip('/')) + '/'
 SRC = PROJ + 'inhalt.html'
-OUT = sys.argv[1] if len(sys.argv) > 1 else PROJ + 'sicherheit-im-gestalten.html'
+OUT = sys.argv[1] if len(sys.argv) > 1 else PROJ + 'sicherheit-im-ttg.html'
 S = open(SRC, encoding='utf-8').read()
 # Abschnitte über Textmarken statt Zeilennummern, damit Änderungen an der Quelle nichts verschieben
 def zw(a, b, mit_a=True):

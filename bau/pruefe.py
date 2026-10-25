@@ -3,7 +3,7 @@ from html.parser import HTMLParser
 import os, tempfile
 HIER = os.path.dirname(os.path.abspath(__file__)) + '/'
 SRC = HIER + '../inhalt.html'
-NEU = sys.argv[1] if len(sys.argv) > 1 else HIER + '../sicherheit-im-gestalten.html'
+NEU = sys.argv[1] if len(sys.argv) > 1 else HIER + '../sicherheit-im-ttg.html'
 JS = os.path.join(tempfile.gettempdir(), 'sig-pruefe.js')
 src = open(SRC, encoding='utf-8').read(); neu = open(NEU, encoding='utf-8').read()
 
