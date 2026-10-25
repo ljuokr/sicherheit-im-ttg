@@ -1,18 +1,18 @@
 /* Layout: haftende Leiste (Finder, darunter Register), darunter eine Textspalte. Eine Schrift, drei Grössen, schwarz. */
 :root{
   --bg:#ffffff; --fg:#111111; --muted:#5a5a5a; --line:#d9d9d9; --tint:#f3f3f1;
-  --a:#dcefdc; --b:#fbf0c8; --c:#f6d9d6;
-  --pa:#1f7a35; --pb:#f0c419; --pc:#c3362b; --on-a:#ffffff; --on-b:#111111; --on-c:#ffffff;
+  --a:#c6ece3; --b:#faf2b5; --c:#f9d0cb;
+  --pa:#3dbfa3; --pb:#f7e57e; --pc:#f08576; --on-a:#ffffff; --on-b:#4a4100; --on-c:#6b1f16;
   --font:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
   --s1:2rem; --s2:1.25rem; --s3:1rem;
   --hh:8rem;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
   --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#3a3a3a; --tint:#1e1e1e;
-  --a:#234a2a; --b:#5a4a14; --c:#5c2a26; --pa:#4cb862; --pb:#f2c94c; --pc:#e5574c; --on-a:#0b1a0e; --on-b:#111111; --on-c:#111111; color-scheme:dark } }
+  --a:#1d4a40; --b:#4f4818; --c:#5a2e29; --pa:#3dbfa3; --pb:#f7e57e; --pc:#f08576; --on-a:#0b1a0e; --on-b:#4a4100; --on-c:#6b1f16; color-scheme:dark } }
 :root[data-theme="dark"]{
   --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#3a3a3a; --tint:#1e1e1e;
-  --a:#234a2a; --b:#5a4a14; --c:#5c2a26; --pa:#4cb862; --pb:#f2c94c; --pc:#e5574c; --on-a:#0b1a0e; --on-b:#111111; --on-c:#111111; color-scheme:dark }
+  --a:#1d4a40; --b:#4f4818; --c:#5a2e29; --pa:#3dbfa3; --pb:#f7e57e; --pc:#f08576; --on-a:#0b1a0e; --on-b:#4a4100; --on-c:#6b1f16; color-scheme:dark }
 
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-padding-top:calc(var(--hh) + 1rem)}
@@ -172,20 +172,27 @@ table.kantone td:first-child{white-space:nowrap}
 @media (min-width:60rem){ .plakat{grid-template-columns:1fr 1fr} }
 .p-spalte{min-width:0}
 .p-gruppe{margin:0 0 1.75rem}
-.p-kopf{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;border-bottom:2px solid var(--fg);padding-bottom:.3rem}
-.p-kopf h3{margin:0;font-size:var(--s2)}
+.p-titel{margin:0 0 1.25rem;line-height:1.15;font-size:var(--s1)}
+.p-titel span{display:block;color:var(--muted)}
+.p-zk{margin:0 0 .9rem;font-size:.875rem;font-weight:600;line-height:1.3}
+.p-zk p{margin:0}
+.p-gruppe{border-bottom:1px solid var(--fg);padding-bottom:.7rem}
+.p-kopf{padding-left:calc(4.8rem + 1.1rem);margin:0 0 .2rem}
+.p-kopf h3{margin:0;font-size:var(--s3)}
 .p-kopf h3 a{text-decoration:none}
 .p-kopf h3 a:hover{text-decoration:underline}
-.p-zyk,.dots{display:grid;grid-template-columns:repeat(3,2.1rem);justify-items:center;flex:none}
-.p-zyk{color:var(--muted)}
+.p-zyk,.dots{display:grid;grid-template-columns:repeat(3,1.6rem);justify-items:center;flex:none}
+.p-zyk{justify-items:start}
+.p-zyk span{width:1.6rem;text-align:left}
 .p-liste{list-style:none;margin:0;padding:0;max-width:none}
 .p-liste li{margin:0}
-.m-zeile{font:inherit;color:inherit;background:none;border:0;border-bottom:1px solid var(--line);width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.4rem 0;text-align:left;cursor:pointer}
+.m-zeile{font:inherit;color:inherit;background:none;border:0;width:100%;display:flex;align-items:center;gap:1.1rem;padding:.2rem 0;text-align:left;cursor:pointer}
 .m-zeile:hover .m-name{text-decoration:underline;text-underline-offset:.2em}
-.m-zeile[aria-expanded="true"]{border-bottom-color:transparent}
 .m-name{min-width:0}
-.dot{width:1.6rem;height:1.6rem;border-radius:50%;display:inline-grid;place-items:center;font-weight:600;line-height:1;flex:none}
-.dot.A{background:var(--pa);color:var(--on-a)} .dot.B{background:var(--pb);color:var(--on-b)} .dot.C{background:var(--pc);color:var(--on-c)}
+/* Punkte wie auf dem Plakat: A gefüllt, B mit Ring, C mit Mittelpunkt */
+.dot{width:.95rem;height:.95rem;border-radius:50%;display:inline-grid;place-items:center;font-size:0;flex:none}
+.dot.A{background:var(--pa)} .dot.B{background:var(--pb);box-shadow:inset 0 0 0 1.5px var(--on-b)} .dot.C{background:var(--pc)}
+.dot.C::after{content:"";width:.28rem;height:.28rem;border-radius:50%;background:var(--on-c)}
 .plakat[data-z="1"] .dots .dot:nth-child(n+2),.plakat[data-z="2"] .dots .dot:not(:nth-child(2)),.plakat[data-z="3"] .dots .dot:nth-child(-n+2){opacity:.15}
 .plakat[data-z="1"] .p-zyk span:nth-child(n+2),.plakat[data-z="2"] .p-zyk span:not(:nth-child(2)),.plakat[data-z="3"] .p-zyk span:nth-child(-n+2){opacity:.3}
 .karte{background:var(--tint);padding:.75rem 1rem;margin:0 0 .5rem;border-bottom:1px solid var(--line)}
@@ -193,7 +200,6 @@ table.kantone td:first-child{white-space:nowrap}
 .kz div{display:flex;gap:.6rem;align-items:center}
 .kz dt{min-width:4.5rem;color:var(--muted)}
 .kz dd{margin:0;display:flex;gap:.5rem;align-items:center}
-.kz .dot{width:1.4rem;height:1.4rem}
 .k-titel{margin:.4rem 0 .1rem;color:var(--muted)}
 .k-links{margin:0 0 .5rem}
 .k-extra,.k-fuss{margin:.3rem 0 0}
@@ -202,9 +208,12 @@ table.kantone td:first-child{white-space:nowrap}
 .z-hl-l{color:var(--muted);margin-right:.3rem}
 .z-hl button{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);padding:.3rem .8rem;min-height:2.25rem;cursor:pointer}
 .z-hl button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.p-legende{display:grid;gap:.75rem 2rem;margin:0 0 1.5rem}
+.p-legende{display:grid;gap:0;margin:0 0 1.5rem}
 @media (min-width:48rem){ .p-legende{grid-template-columns:repeat(3,1fr)} }
-.p-leg{display:flex;gap:.7rem;align-items:flex-start}
+.p-leg{display:flex;gap:.5rem;align-items:baseline;padding:.5rem .75rem;font-size:.875rem;line-height:1.35}
+.p-leg:nth-child(1){background:var(--a)} .p-leg:nth-child(2){background:var(--b)} .p-leg:nth-child(3){background:var(--c)}
+.p-leg .dot{position:relative;top:.1rem}
+.p-unten{font-size:.875rem;color:var(--muted)}
 .p-leg p{margin:0}
 .p-leg-t{font-weight:600}
 .drei{padding-left:1.4rem;max-width:68ch}
@@ -212,7 +221,7 @@ table.kantone td:first-child{white-space:nowrap}
 .frage{font-weight:600}
 
 /* Links zu den Quelldokumenten am Ende jeder Quellenzeile */
-.ql{margin-left:.4rem;white-space:nowrap;color:var(--muted)}
+.ql{white-space:nowrap;color:var(--muted)}
 .ql:hover{color:var(--fg)}
 
 /* Begriffe: antippbare Wörter, Karte als Popover, Glossar */
@@ -241,7 +250,7 @@ table.kantone td:first-child{white-space:nowrap}
 .rand .hinweis{margin-top:1.5rem}
 @media (min-width:64rem){
   #grundlage > .text.mit-rand{grid-template-columns:minmax(0,48rem) 18rem}
-  .rand{grid-column:2;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh) + 1rem);margin-top:3.75rem;max-height:calc(100vh - var(--hh) - 2rem);overflow-y:auto}
+  .rand{grid-column:2;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh) + 1rem);margin-top:3.75rem}
   .rand .hinweis{margin:0}
   .rand ul{padding-left:1rem}
   .rand li{margin:.15rem 0}
@@ -268,3 +277,20 @@ table.vergleich th[scope=row]{width:9rem;color:var(--muted);font-weight:600}
 .lernort figcaption{grid-column:1/-1;color:var(--muted);font-size:.875rem;display:flex;flex-wrap:wrap;gap:.3rem 1rem;align-items:center}
 .lo-leg{padding-left:.5rem;border-left:4px solid}
 .lo-leg-f{border-left-color:var(--pa)} .lo-leg-l{border-left-color:var(--pb)} .lo-leg-a{border-left-color:var(--muted)}
+
+/* Maschinen und Verfahren: das Plakat ersetzt die Tabellen je Verfahren (ohne Skript bleiben sie sichtbar) */
+html.js #verfahren section.verfahren > .wrap,
+html.js #verfahren section.verfahren > .wrap + ul,
+html.js #verfahren section.verfahren > .wrap + p.quelle,
+html.js #verfahren section.verfahren > .wrap + ul + p.quelle{display:none}
+
+html.js #aufsicht .legende{display:none}
+.k-hinweise{margin:0 0 .5rem}
+.k-hinweise .ql,.k-eigen{font-size:.875rem}
+.k-eigen{color:var(--muted);font-style:italic}
+.reg-zeile{display:flex;align-items:center;gap:.75rem}
+.reg-zeile .tabs{flex:1 1 auto;min-width:0}
+.suche-klein{flex:0 0 auto;margin:0}
+.suche-klein input{font:inherit;font-size:.875rem;width:8.5rem;min-height:2rem;padding:.2rem .5rem;border:1px solid var(--line);border-radius:0;background:var(--bg);color:var(--fg)}
+.suche-klein input:focus{width:12rem;border-color:var(--fg)}
+@media (max-width:40rem){ .suche-klein input{width:6.5rem} .suche-klein input:focus{width:9rem} }

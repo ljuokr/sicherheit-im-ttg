@@ -60,14 +60,16 @@
   function themaTitel(id){ var t=document.getElementById(id); return t?$('h3',t).textContent:id; }
   function punkte(k){
     var d=el('span','dots');
-    k.forEach(function(K,i){ var p=el('span','dot '+K,K); p.setAttribute('aria-hidden','true'); d.appendChild(p); });
+    k.forEach(function(K,i){ var p=el('span','dot '+K); p.setAttribute('aria-hidden','true'); d.appendChild(p); });
     d.appendChild(el('span','sr',k.map(function(K,i){ return 'Zyklus '+(i+1)+' '+K; }).join(', ')));
     return d;
   }
   (function(){
     var ziel=$('#plakat-ziel'), nr=0;
     GRUPPEN.forEach(function(spalte){
-      var sp=el('div','p-spalte');
+      var sp=el('div','p-spalte'), zk=el('div','p-zk'), zz=el('span','p-zyk');
+      zk.setAttribute('aria-hidden','true'); zk.appendChild(el('p',null,'Zyklus'));
+      ['1','2','3'].forEach(function(z){ zz.appendChild(el('span',null,z)); }); zk.appendChild(zz); sp.appendChild(zk);
       spalte.forEach(function(g){
         var sec=document.getElementById(g.sec), tab=$('table.mtab',sec), drin=!g.gruppe, rows=[];
         $$('tbody tr',tab).forEach(function(r){
@@ -76,23 +78,31 @@
         });
         var box=el('section','p-gruppe'), kopf=el('div','p-kopf'), h=el('h3'), a=el('a',null,g.titel);
         a.href='#'+g.sec; h.appendChild(a); kopf.appendChild(h);
-        var zk=el('span','p-zyk'); zk.setAttribute('aria-hidden','true');
-        ['1','2','3'].forEach(function(z){ zk.appendChild(el('span',null,z)); }); kopf.appendChild(zk);
         box.appendChild(kopf);
         var ul=el('ul','p-liste');
         rows.forEach(function(r){
           var li=el('li'), b=el('button','m-zeile'), kid='karte-'+(++nr);
           b.type='button'; b.setAttribute('aria-expanded','false'); b.setAttribute('aria-controls',kid);
-          b.appendChild(el('span','m-name',r.name)); b.appendChild(punkte(r.k));
+          b.appendChild(punkte(r.k)); b.appendChild(el('span','m-name',r.name));
           var k=el('div','karte'); k.id=kid; k.hidden=true;
           var dl=el('dl','kz');
           r.k.forEach(function(K,i){
             var row=el('div'); row.appendChild(el('dt',null,'Zyklus '+(i+1)));
-            var dd=el('dd'); var p=el('span','dot '+K,K); p.setAttribute('aria-hidden','true'); dd.appendChild(p);
+            var dd=el('dd'); var p=el('span','dot '+K); p.setAttribute('aria-hidden','true'); dd.appendChild(p);
             dd.appendChild(el('span','sr',K+', ')); dd.appendChild(document.createTextNode(KURZ[K])); row.appendChild(dd); dl.appendChild(row);
           });
           k.appendChild(dl);
           var z=ZUORDNUNG[r.name]||{};
+          if(z.hinweis&&z.hinweis.length){
+            var hw=el('ul','k-hinweise');
+            z.hinweis.forEach(function(h){
+              var x=el('li',null,h[0]+' ');
+              if(h[1]){ var q=el('a','ql',h[1]+'\u00a0\u2197'); q.href=h[2]; x.appendChild(q); }
+              else x.appendChild(el('span','k-eigen','Hinweis dieser Seite'));
+              hw.appendChild(x);
+            });
+            k.appendChild(hw);
+          }
           if(z.themen&&z.themen.length){
             k.appendChild(el('p','k-titel','Regeln dazu'));
             var tl=el('ul','k-links');
@@ -112,7 +122,7 @@
               if(t.indexOf(stern+' ')===0) k.appendChild(el('p','k-fuss',t));
             });
           }
-          if(!z.themen && !z.video) k.appendChild(el('p','k-fuss','Zu dieser Maschine nennen die Quellen keine eigenen Regeln. Es gelten die allgemeinen Regeln unter Grundlage.'));
+          if(!z.themen && !z.video && !z.hinweis) k.appendChild(el('p','k-fuss','Zu dieser Maschine nennen die Quellen keine eigenen Regeln. Es gelten die allgemeinen Regeln unter «Für jeden Fachraum».'));
           b.addEventListener('click',function(){
             var offen=b.getAttribute('aria-expanded')!=='true';
             b.setAttribute('aria-expanded',offen?'true':'false'); k.hidden=!offen;
@@ -126,8 +136,8 @@
     // Legende wie auf dem Plakat
     var lg=$('#p-legende');
     ['A','B','C'].forEach(function(K){
-      var d=el('div','p-leg'), p=el('span','dot '+K,K); p.setAttribute('aria-hidden','true');
-      var t=el('div'); t.appendChild(el('p','p-leg-t','Gruppe '+K)); t.appendChild(el('p',null,LEG[K]));
+      var d=el('div','p-leg'), p=el('span','dot '+K); p.setAttribute('aria-hidden','true');
+      var t=el('p'); t.appendChild(el('b',null,K+' ')); t.appendChild(document.createTextNode(LEG[K]));
       d.appendChild(p); d.appendChild(t); lg.appendChild(d);
     });
     // Zyklus hervorheben
@@ -139,7 +149,7 @@
   })();
 
   /* Material: Themen nach data-mat, als Klon */
-  $$('#material .sub').forEach(function(sub){
+  $$('#material section[data-key]').forEach(function(sub){
     var key=sub.getAttribute('data-key'), ziel=$('.slot',sub), n=0;
     verfahren.forEach(function(sec){
       var th=$$('.thema',sec).filter(function(t){ return t.getAttribute('data-mat').split(' ').indexOf(key)>-1; });
@@ -204,7 +214,7 @@
   tastatur($('#tl-haupt'));
 
   /* Finder */
-  var form=$('#finder'), fv=$('#f-v'), fm=$('#f-m'), fz=$('#f-z'), fq=$('#f-q'), kurz=$('#f-kurz'), finden=$('#finden');
+  var form=$('#finder'), fv={value:''}, fm={value:''}, fz={value:''}, fq=$('#f-q'), tlHaupt=$('#tl-haupt');
   var erg=$('#ergebnis'), titel=$('#erg-titel'), status=$('#erg-status'), inhalt=$('#erg-inhalt');
   var warAktiv=false;
 
@@ -222,10 +232,8 @@
   function render(){
     var s={v:fv.value,m:fm.value,z:fz.value,q:fq.value.trim()}, q=s.q.toLowerCase();
     var aktiv=!!(s.v||s.m||s.z||q);
-    [fv,fm,fz].forEach(function(x){ x.classList.toggle('gesetzt',!!x.value); });
-    erg.hidden=!aktiv; register.hidden=aktiv; reg.hidden=aktiv;
+    erg.hidden=!aktiv; register.hidden=aktiv; tlHaupt.hidden=aktiv;
     var teile=[]; if(s.v) teile.push(VNAME[s.v]); if(s.m) teile.push(MAT[s.m]); if(s.z) teile.push('Zyklus '+s.z); if(q) teile.push('«'+s.q+'»');
-    kurz.textContent=aktiv?teile.join(' · '):'Verfahren, Material, Zyklus oder Suche';
     if(!aktiv){ inhalt.textContent=''; status.textContent=''; if(warAktiv){ warAktiv=false; hoehe(); } return; }
     if(!warAktiv){ warAktiv=true; hoehe(); nachOben(); }
     titel.textContent='Ergebnis für '+teile.join(' · ');
@@ -309,10 +317,7 @@
   fq.addEventListener('input',function(){ clearTimeout(timer); timer=setTimeout(render,200); });
   form.addEventListener('submit',function(e){ e.preventDefault(); render(); });
   form.addEventListener('reset',function(){ setTimeout(render,0); });
-  finden.addEventListener('click',function(){
-    var offen=form.classList.toggle('offen'); finden.setAttribute('aria-expanded',offen?'true':'false');
-    hoehe(); if(offen) fv.focus();
-  });
+
   $('#zurueck').addEventListener('click',function(){
     beenden(); var t=$('#tl-haupt [aria-selected=true]'); if(t) t.focus();
   });
@@ -327,7 +332,7 @@
     var muster=new RegExp('(^|[^\\wäöüÄÖÜ\u00df-])('+woerter.map(function(x){ return esc(x.w); }).join('|')+')(?![\\wäöüÄÖÜ\u00df-])');
     var idVon={}; woerter.forEach(function(x){ idVon[x.w]=x.id; });
     // Abschnitte, in denen je Begriff nur das erste Vorkommen verlinkt wird
-    var bloecke=$$('#register .thema, #register .sub:not(#material .sub), #grundlage, #unterricht > .text > section, #hintergrund');
+    var bloecke=$$('#register .thema, #register .sub:not(#material .sub), #grundlage, #verfahren > .text > section:not(.verfahren), #fachraum, #notfall, #unterricht, #recht, #quellen');
     var NICHT=['A','BUTTON','H2','H3','H4','TH','FIGCAPTION','LABEL','OPTION','SCRIPT','STYLE'];
     bloecke.forEach(function(blk){
       if(blk.closest('.begriff')) return;
