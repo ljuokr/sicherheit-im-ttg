@@ -1,0 +1,169 @@
+<title>Varianten Sicherheit im Gestalten</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: eine Spalte mit fünf gleich gebauten Varianten-Karten, ruhig wie die Seite selbst */
+:root{
+  --bg:#ffffff; --fg:#111111; --muted:#5a5a5a; --line:#d9d9d9; --tint:#f3f3f1;
+  --a:#dcefdc; --c:#f6d9d6;
+  --font:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --s1:2rem; --s2:1.25rem; --s3:1rem;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#3a3a3a; --tint:#1e1e1e;
+  --a:#234a2a; --c:#5c2a26; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#3a3a3a; --tint:#1e1e1e;
+  --a:#234a2a; --c:#5c2a26; color-scheme:dark }
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:var(--s3);line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 4rem}
+main{max-width:52rem;margin:0 auto}
+h1{font-size:var(--s1);font-weight:600;line-height:1.15;margin:3rem 0 .5rem;text-wrap:balance}
+h2{font-size:var(--s2);font-weight:600;margin:0;text-wrap:balance}
+p{margin:0;max-width:68ch}
+.lead{color:var(--muted);margin-bottom:2rem}
+.liste{display:grid;gap:1.25rem;margin:0;padding:0;list-style:none}
+.variante{border-top:1px solid var(--line);padding-top:1.25rem;display:grid;grid-template-columns:3rem 1fr;gap:.25rem 1rem}
+.nr{font-size:var(--s2);color:var(--muted);font-variant-numeric:tabular-nums}
+.inhalt{display:grid;gap:.6rem;min-width:0}
+.plusminus{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.5rem}
+.plusminus p{padding-left:.7rem;border-left:3px solid var(--a)}
+.plusminus p.minus{border-left-color:var(--c)}
+.label{display:block;color:var(--muted)}
+a{color:var(--fg);text-underline-offset:.2em}
+a.oeffnen{display:inline-block;margin-top:.2rem;padding:.4rem .9rem;border:1px solid var(--fg);text-decoration:none}
+a.oeffnen:hover{background:var(--fg);color:var(--bg)}
+a:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.basis{margin-top:2.5rem;color:var(--muted)}
+.mass{color:var(--muted);font-variant-numeric:tabular-nums}
+h2.gruppe{color:var(--muted);font-weight:400;margin:2.5rem 0 1rem}
+@media (max-width:560px){ .variante{grid-template-columns:1fr} .plusminus{grid-template-columns:1fr} }
+</style>
+
+<main>
+<h1>Sicherheit im Gestalten: Varianten</h1>
+<p class="lead">Gleicher Inhalt, verschiedene Arten, ihn zu ordnen. Die heutige Seite ist 28 Bildschirmhöhen lang, alles ist offen und gleich gewichtet. Jede Variante öffnet sich als eigene Seite.</p>
+
+<h2 class="gruppe">Neu: Plakat als Einstieg</h2>
+<ol class="liste" start="8">
+<li class="variante">
+<span class="nr">8</span>
+<div class="inhalt">
+<h2>Kombi mit bfu-Plakat</h2>
+<p>Aufbau wie Variante 6, aber «Maschinen und Verfahren» beginnt mit dem nachgebauten bfu-Plakat: gleiche Gruppen, zwei Spalten, grüne, gelbe und rote Punkte je Zyklus, mit Buchstaben für Farbenblinde. Eine Maschine antippen öffnet eine Karte mit Einteilung, passenden Regeln, Video und Checkliste. Ein Gruppentitel führt zum Verfahren. Material bleibt nach chemsuisse geordnet. Unter Grundlage stehen neu die drei Fragen Verfahren, Material, Situation. Neu sind auch 25 Begriffskarten mit Bild (z. B. GHS-Piktogramme, FFP2, Quellenabsaugung), die sich im Text antippen lassen, Links mit Pfeil an jeder Quellenzeile und die erweiterte Kantonsübersicht. Das Register Fachraum ist nach Aufgaben gegliedert: Notfall, Betreiben und warten, Planen und einrichten, Zuständigkeiten. Dazu kommen das Thema Gasflaschen und Gasanlagen und der Abschnitt «Sicher unterrichten».</p>
+<div class="plusminus">
+<p><span class="label">Stärke</span>Wiedererkennung vom Aushang im Werkraum, Maschine als natürlicher Einstieg, eine Ansicht statt Tabelle und Register.</p>
+<p class="minus"><span class="label">Schwäche</span>Welche Regeln zu welcher Maschine gehören, ist eigene Zuordnung. Lasercutter und 3D-Drucker fehlen auf dem Plakat und sind separat verlinkt.</p>
+</div>
+<p class="mass">Gemessen: 48 Maschinen in 6 Gruppen, 31 mit Karte voller Verweise. Plakat auf dem Desktop etwa 2 Bildschirmhöhen.</p>
+<a class="oeffnen" href="8-plakat.html#maschinen">Variante 8 öffnen</a>
+</div>
+</li>
+</ol>
+
+<h2 class="gruppe">Finder und Register kombiniert</h2>
+<ol class="liste" start="6">
+<li class="variante">
+<span class="nr">6</span>
+<div class="inhalt">
+<h2>Kombi, Unterricht als Aufgaben</h2>
+<p>Oben ein Finder in einer Zeile (Verfahren, Material, Zyklus, Suche), darunter sieben Register: Grundlage, Unterricht, Maschinen, Verfahren, Material, Fachraum, Hintergrund. «Unterricht» sammelt, was die Lehrperson tun muss: Aufsicht nach A, B, C, alle Pflichten zu Instruktion und Aufsicht im Wortlaut, «Was hergestellt wird», Lehrplan 21.</p>
+<div class="plusminus">
+<p><span class="label">Stärke</span>Finder für konkrete Fragen, Register zum Stöbern, Material als eigene Sicht.</p>
+<p class="minus"><span class="label">Schwäche</span>Die Auswahl der Pflichten unter «Unterricht» ist eine Zusammenstellung und muss gegengelesen werden. Auf dem Handy ist die Kopfleiste zwei Zeilen hoch.</p>
+</div>
+<p class="mass">Gemessen: ein Register etwa 2 bis 5 Bildschirmhöhen. 37 Punkte als Verbot markiert, nach einer von Hand festgelegten Liste.</p>
+<a class="oeffnen" href="6-kombi-aufgaben.html">Variante 6 öffnen</a>
+</div>
+</li>
+
+<li class="variante">
+<span class="nr">7</span>
+<div class="inhalt">
+<h2>Kombi, Unterricht nach Zyklus</h2>
+<p>Der Finder ist ein Satz: «Ich arbeite mit … an … in …». Darunter dieselben sieben Register. «Unterricht» hat die Unterregister Zyklus 1, 2 und 3 und zeigt pro Zyklus alle Maschinen nach A, B und C, jede mit Link zu ihrem Verfahren. Lehrplan 21 steht unter Hintergrund.</p>
+<div class="plusminus">
+<p><span class="label">Stärke</span>Beantwortet «Was darf meine Klasse?» auf einen Blick, Kopfleiste auf dem Handy nur eine Zeile.</p>
+<p class="minus"><span class="label">Schwäche</span>Die Zyklus-Sicht zeigt nur die Maschinen, die Stoffregeln sind nicht nach Zyklus unterschieden, weil die Quellen das nicht tun.</p>
+</div>
+<p class="mass">Gemessen: Zyklus 2 zeigt 12 A, 10 B, 26 C. 37 Punkte als Verbot markiert, nach derselben Liste.</p>
+<a class="oeffnen" href="7-kombi-zyklus.html">Variante 7 öffnen</a>
+</div>
+</li>
+</ol>
+
+<h2 class="gruppe">Erste Runde</h2>
+<ol class="liste">
+<li class="variante">
+<span class="nr">1</span>
+<div class="inhalt">
+<h2>Register</h2>
+<p>Eine haftende Registerleiste mit Grundlage, Maschinen, Verfahren, Fachraum und Hintergrund. Es ist immer nur ein Bereich sichtbar, Verfahren und Fachraum haben eine zweite Registerzeile. Alle Maschinen stehen in einer Gesamttabelle.</p>
+<div class="plusminus">
+<p><span class="label">Stärke</span>Kurz pro Ansicht, vertrautes Muster, gute Übersicht über die Bereiche.</p>
+<p class="minus"><span class="label">Schwäche</span>Inhalte über mehrere Register hinweg zu vergleichen braucht viele Klicks.</p>
+</div>
+<p class="mass">Gemessen: ein Register wie «Verbinden» ist 4 Bildschirmhöhen lang. 22 Punkte als Verbot markiert.</p>
+<a class="oeffnen" href="1-register.html">Variante 1 öffnen</a>
+</div>
+</li>
+
+<li class="variante">
+<span class="nr">2</span>
+<div class="inhalt">
+<h2>Akkordeon</h2>
+<p>Die Seite bleibt eine Spalte, fast alles ist zugeklappt. Jedes Thema ist eine Zeile mit Materialmarken und der Zahl der Verbote. Aufgeklappt stehen die Verbote zuerst. Die Suche öffnet Treffer automatisch.</p>
+<div class="plusminus">
+<p><span class="label">Stärke</span>Kleinster Umbau, alles bleibt auf einer Seite, Verbote springen ins Auge.</p>
+<p class="minus"><span class="label">Schwäche</span>Wer vieles öffnet, hat wieder einen langen Bandwurm.</p>
+</div>
+<p class="mass">Gemessen: zugeklappt 5 Bildschirmhöhen statt 28. 33 Punkte als Verbot markiert.</p>
+<a class="oeffnen" href="2-akkordeon.html">Variante 2 öffnen</a>
+</div>
+</li>
+
+<li class="variante">
+<span class="nr">3</span>
+<div class="inhalt">
+<h2>Nachschlagewerk</h2>
+<p>Aufbau wie eine Dokumentation: links ein haftendes Inhaltsverzeichnis mit allen Themen, Suche und Filtern, rechts der Inhalt. Die Quellen stehen als Randnotiz neben dem Text. Mobil öffnet sich das Verzeichnis als Schublade.</p>
+<div class="plusminus">
+<p><span class="label">Stärke</span>Nutzt die Desktop-Breite, man sieht jederzeit, wo man ist.</p>
+<p class="minus"><span class="label">Schwäche</span>Der Text bleibt lang, die Seite wird nur besser navigierbar.</p>
+</div>
+<p class="mass">Gemessen: weiterhin 28 Bildschirmhöhen, dafür immer mit Verzeichnis daneben. 29 Punkte als Verbot markiert.</p>
+<a class="oeffnen" href="3-nachschlagewerk.html">Variante 3 öffnen</a>
+</div>
+</li>
+
+<li class="variante">
+<span class="nr">4</span>
+<div class="inhalt">
+<h2>Kacheln</h2>
+<p>Die Startseite ist eine Übersicht: die Grundregeln kompakt, darunter alle Themen als Kacheln, nach Verfahren gruppiert. Ein Klick öffnet die Detailansicht eines Themas mit Vor und Zurück. Die Maschinen haben eine eigene Gesamtansicht.</p>
+<div class="plusminus">
+<p><span class="label">Stärke</span>Ganzer Inhalt auf einen Blick, jedes Detail kurz und für sich.</p>
+<p class="minus"><span class="label">Schwäche</span>Lesen am Stück geht nicht mehr, ein Ausdruck der ganzen Seite fällt weg.</p>
+</div>
+<p class="mass">Gemessen: Übersicht 4 Bildschirmhöhen, ein Thema meist eine. 29 Punkte als Verbot markiert.</p>
+<a class="oeffnen" href="4-kacheln.html">Variante 4 öffnen</a>
+</div>
+</li>
+
+<li class="variante">
+<span class="nr">5</span>
+<div class="inhalt">
+<h2>Finder</h2>
+<p>Einstieg mit der Frage «Was hast du vor?»: Verfahren, Material und Zyklus wählen. Das Ergebnis zeigt nur die passenden Maschinen mit A, B oder C und die passenden Regeln, Verbote zuerst. Alles Weitere steht darunter zum Nachschlagen.</p>
+<div class="plusminus">
+<p><span class="label">Stärke</span>Beantwortet konkrete Fragen direkt, auch im Unterricht auf dem Handy.</p>
+<p class="minus"><span class="label">Schwäche</span>Wer sich einen Überblick verschaffen will, muss ihn sich zusammenklicken.</p>
+</div>
+<p class="mass">Gemessen: ein Ergebnis wie «Verbinden, Metall, Zyklus 3» ist 4 Bildschirmhöhen lang. 35 Punkte als Verbot markiert.</p>
+<a class="oeffnen" href="5-finder.html">Variante 5 öffnen</a>
+</div>
+</li>
+</ol>
+
+<p class="basis">Alle Varianten enthalten dieselben Aussagen, Tabellenwerte und Quellenangaben wie die heutige Seite. Neu sind nur Anordnung, Bedienung und kurze Bedienhinweise. Welche Punkte als Verbot markiert sind, hat jede Variante nach einem Wortmuster bestimmt. Das muss vor dem Ausbau inhaltlich gegengelesen werden.</p>
+</main>
