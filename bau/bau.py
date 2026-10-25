@@ -149,6 +149,7 @@ sicher = h3zu2(teil('<h3 id="sicher-unterrichten">', '<h3>Für jeden Fachraum</h
 allg = h3zu2(teil('<h3>Für jeden Fachraum</h3>', '<h3 id="schutzausruestung">'), {'<h3>Für jeden Fachraum</h3>': '<h3 id="fuer-jeden-fachraum">Für jeden Fachraum</h3>', '<h3>STOP-Prinzip</h3>': '<h3 id="stop">STOP-Prinzip</h3>'})
 stoffe = h3zu2(teil('<h3 id="schutzausruestung">', None))
 grund_ohne = grund_ohne[:grund_ohne.index('<h3 id="sicher-unterrichten">')]
+grund_ohne = re.sub(r'<h2 id="grundsatz">.*?</h2>\n', '', grund_ohne).replace('<h3 id="drei-fragen">Drei Fragen vor jeder Arbeit</h3>', '<h2 id="drei-fragen">Drei Fragen vor jeder Arbeit</h2>')
 def sprung(html): return '<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % m for m in re.findall(r'<h2 id="([^"]+)"[^>]*>(.*?)</h2>', html)) + '\n</ul>'
 def ohne_erste_id(html, i): return html.replace('<h2 id="%s">' % i, '<h2>', 1)
 einleitung_verf = re.search(r'<p>Die folgenden Abschnitte.*?</p>', S).group(0)
@@ -238,6 +239,10 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="verfahren"><div class="text">
+<ul class="sprung" aria-label="In diesem Register">
+<li><a href="#maschinen">Maschinen nach Zyklus</a></li>
+{chr(10).join('<li><a href="#%s">%s</a></li>' % v for v in VERF)}
+</ul>
 <section class="sub" id="plakat" data-titel="Übersicht">
 <h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen <span>Gefahrenkategorien nach Zyklus</span></h2>
 <noscript><p>Die Maschinentabellen stehen bei den einzelnen Verfahren.</p></noscript>
@@ -252,10 +257,6 @@ body = f'''<header class="kopf"><div class="in">
 {aufsicht_txt}
 </section>
 </section>
-<h2 id="regeln-verfahren">Regeln nach Verfahren</h2>
-<ul class="sprung" aria-label="Verfahren">
-{chr(10).join('<li><a href="#%s">%s</a></li>' % v for v in VERF)}
-</ul>
 {chr(10).join(verf_html)}
 </div></section>
 
@@ -273,19 +274,19 @@ body = f'''<header class="kopf"><div class="in">
 
 <section class="panel" id="unterricht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
-<li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
-<li class="nurjs"><a href="#instruktion">Instruktion und Aufsicht</a></li>
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
+<li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
+<li class="nurjs"><a href="#instruktion">Instruktion und Aufsicht</a></li>
 </ul>
+{didaktik}
+{lehrplan}
 {sicher}
 <section id="instruktion" class="nurjs">
 <h2>Instruktion und Aufsicht im Unterricht</h2>
 <p class="einleitung">Alle Stellen dieser Seite, an denen die Quellen Instruktion, Aufsicht oder Handeln der Lehrperson verlangen, im Wortlaut. Der Link führt zum Thema.</p>
 <div id="instr-liste"></div>
 </section>
-{didaktik}
-{lehrplan}
 </div></section>
 
 <section class="panel" id="recht"><div class="text">
