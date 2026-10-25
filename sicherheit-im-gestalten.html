@@ -252,11 +252,14 @@ table.kantone td:first-child{white-space:nowrap}
 .rand .hinweis{margin-top:1.5rem}
 @media (min-width:64rem){
   #grundlage > .text.mit-rand{grid-template-columns:minmax(0,48rem) 18rem}
-  .rand{grid-column:2;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh) + 1rem)}
-  .rand .hinweis{margin-top:3.75rem}
+  .rand{grid-column:2;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh) + 1rem);margin-top:3.75rem;max-height:calc(100vh - var(--hh) - 2rem);overflow-y:auto}
+  .rand .hinweis{margin:0}
+  .rand ul{padding-left:1rem}
+  .rand li{margin:.15rem 0}
   .haupt{grid-column:1;grid-row:1}
 }
-.g-k{font-weight:600;margin:.6rem 0 .2rem}
+.g-k{font-weight:600;margin:0 0 .2rem}
+.g-k ~ .g-k{margin-top:.6rem}
 .g-mehr{margin:.6rem 0 0}
 
 /* Didaktik: Vergleichstabelle und Lernort nach B. Wyss */
@@ -379,19 +382,18 @@ table.vergleich th[scope=row]{width:9rem;color:var(--muted);font-weight:600}
 <section class="panel" id="grundlage"><div class="text mit-rand">
 <aside class="rand" aria-label="Was diese Seite ist und was nicht">
 <div class="hinweis" id="geltung">
-<h3>Was diese Seite ist und was nicht</h3>
 <p class="g-k">Diese Seite ist</p>
 <ul>
-<li>eine Zusammenfassung von Merkblättern und Leitfäden zur Sicherheit im TTG, mit Quellenangabe bei jeder Aussage.</li>
-<li>ein Einstieg, um die richtigen Fragen zu stellen und die Originale schnell zu finden.</li>
+<li>eine Zusammenfassung von Merkblättern und Leitfäden, mit Quelle bei jeder Aussage.</li>
+<li>ein Einstieg, um die Originale zu finden.</li>
 </ul>
 <p class="g-k">Diese Seite ist nicht</p>
 <ul>
-<li>verbindlich. Massgebend sind die Originale und die Vorgaben des eigenen Kantons.</li>
+<li>verbindlich. Massgebend sind die Originale und der eigene Kanton.</li>
 <li>vollständig. Auch die Listen der bfu sind nicht abschliessend.</li>
-<li>ein Ersatz für die eigene Beurteilung. Gesetze und Richtlinien sind bewusst offen formuliert, was nötig ist, entscheidet sich vor Ort und oft erst in der Situation. Die Verantwortung im Unterricht trägt die Lehrperson.</li>
+<li>ein Ersatz für die eigene Beurteilung. Was nötig ist, entscheidet sich vor Ort, die Verantwortung trägt die Lehrperson.</li>
 </ul>
-<p class="g-mehr">Belege und Erklärungen unter <a href="#recht">Rechtlicher Rahmen</a>.</p>
+<p class="g-mehr">Mehr unter <a href="#recht">Rechtlicher Rahmen</a>.</p>
 </div>
 
 </aside>
@@ -405,68 +407,35 @@ table.vergleich th[scope=row]{width:9rem;color:var(--muted);font-weight:600}
 </ol>
 <p class="quelle">Eigene Gliederung. Grundlage: bfu 4.302, S. 2 (Gefahrenpotenzial von Werkzeugen, Maschinen, Geräten, Materialien und Hilfsstoffen, Lernvoraussetzungen, situative Bedingungen, Fachraumeinrichtung). Merkblatt BKD Bern, Abschnitte 3 und 4 <span class="qlinks"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302&nbsp;↗</a> <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern&nbsp;↗</a></span></p>
 
-<p>chemsuisse stellt dem Leitfaden eine Kurzfassung voran. Im Zentrum steht, die Exposition gegenüber gesundheitsgefährdenden Stoffen zu reduzieren. Für jeden Fachraum gilt:</p>
+<h3>Für jeden Fachraum</h3>
 <ul>
-<li class="verbot"><span class="vb">Verbot</span> Kein Essen und Trinken in Fachräumen.</li>
-<li>Hände waschen vor den Pausen und am Ende des Unterrichts.</li>
-<li>Stäube aller Art möglichst wenig erzeugen, aufwirbeln und verschleppen.</li>
-<li>Verbotene, alte und nicht mehr gebrauchte Materialien und Hilfsstoffe entsorgen.</li>
-<li>Möglichst lösungsmittelfreie Farben, Lacke und Klebstoffe verwenden, keine chlorierten Kohlenwasserstoffe.</li>
-<li>Quellenabsaugung oder Raumlüftung passend zum Umfang der Arbeit, besonders wo Staub, Rauch, Aerosole oder Dämpfe entstehen.</li>
-<li>Arbeitskleidung tragen, die nach dem Verlassen des Fachraums abgelegt wird.</li>
+<li class="verbot"><span class="vb">Verbot</span> Kein Essen und Trinken im Fachraum. Hände waschen vor den Pausen und am Ende des Unterrichts.</li>
+<li>Möglichst wenig Staub erzeugen, aufwirbeln und verschleppen.</li>
+<li>Absaugen oder lüften, wo Staub, Rauch, Dämpfe oder Sprühnebel entstehen.</li>
+<li>Lösungsmittelfreie Farben, Lacke und Klebstoffe bevorzugen, keine chlorierten Kohlenwasserstoffe.</li>
+<li>Verbotene, alte und nicht mehr gebrauchte Materialien entsorgen.</li>
+<li>Arbeitskleidung tragen und beim Verlassen des Fachraums ablegen.</li>
 </ul>
 <p class="quelle">chemsuisse 2024, «Das Wichtigste in Kürze», S. V <span class="qlinks"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse&nbsp;↗</a></span></p>
 
 <h3>STOP-Prinzip</h3>
-<p>Die bfu ordnet Schutzmassnahmen nach dem STOP-Prinzip. Die Reihenfolge ist die Rangfolge: zuerst ersetzen, dann technisch absichern, dann organisieren, zuletzt die Person ausrüsten.</p>
+<p>Schutzmassnahmen in dieser Reihenfolge:</p>
 <ul>
-<li>Substitution: gefährliche Verfahren und Materialien durch ungefährlichere ersetzen (z. B. Weichholz statt Eiche und Buche, lösungsmittelfreie Farben).</li>
-<li>Technische Schutzmassnahmen: Schutzvorrichtungen, Absaugeinrichtungen, belüftete Schränke.</li>
-<li>Organisatorische Schutzmassnahmen: Dauer und Höhe der Exposition reduzieren.</li>
-<li>Personenbezogene Schutzmassnahmen: Schutzbrille, Gehörschutz, Atemschutz, Handschuhe, wo sie passen.</li>
+<li>Substitution: Ungefährlicheres wählen, z. B. Weichholz statt Eiche und Buche, lösungsmittelfreie Farben.</li>
+<li>Technik: Schutzvorrichtungen, Absaugung, belüftete Schränke.</li>
+<li>Organisation: Dauer und Höhe der Belastung senken.</li>
+<li>Person: Schutzbrille, Gehörschutz, Atemschutz, Handschuhe.</li>
 </ul>
-<p class="quelle">bfu 2.524, S. 18 (STOP-Prinzip und Massnahmenliste). Beispiel Holzwahl: bfu 4.323, S. 25. Gehör- und Atemschutz: bfu 4.302, S. 3 <span class="qlinks"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524&nbsp;↗</a> <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302&nbsp;↗</a> <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323&nbsp;↗</a></span></p>
+<p class="quelle">bfu 2.524, S. 18. bfu 4.302, S. 3 <span class="qlinks"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524&nbsp;↗</a> <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302&nbsp;↗</a></span></p>
 
 <h3 id="schutzausruestung">Schutzausrüstung</h3>
 <ul>
-<li data-instr="instruktion">Welche Schutzausrüstung ein Stoff verlangt, steht in Abschnitt 8 des Sicherheitsdatenblatts. Die Schülerinnen und Schüler werden im korrekten Umgang damit instruiert.</li>
-<li>Schutzbrille bei reizenden oder ätzenden Stoffen und bei allen Arbeiten mit Gefahr für die Augen, etwa am Brenner oder an schnell laufenden Maschinen. Bei Splitter- oder Spritzgefahr tragen alle Personen im Gefahrenbereich eine Schutzbrille, oder es wird eine Schutzscheibe eingesetzt.</li>
-<li>Handschuhe sind Chemikalienschutz: Nitril oder Neopren gegen Säuren und Laugen, Einweghandschuhe gegen einzelne Spritzer. Dicke Lederhandschuhe bis über den Unterarm schützen vor Hitze und Feuer.</li>
-<li>In Werkstätten sind geschlossene Schuhe grundsätzlich erforderlich. Kleidervorgaben gelten auch für Lehrpersonen.</li>
-<li>Gegen Rauch, Gase, Dämpfe und Aerosole hilft zuerst die Absaugung. Erst wenn das nicht möglich ist, kann Atemschutz nötig sein.</li>
+<li data-instr="instruktion">Welche Schutzausrüstung ein Stoff verlangt, steht in Abschnitt 8 des Sicherheitsdatenblatts.</li>
+<li>Schutzbrille bei reizenden oder ätzenden Stoffen und bei Gefahr für die Augen, etwa am Brenner oder an schnell laufenden Maschinen. Bei Splittern oder Spritzern auch für alle im Gefahrenbereich.</li>
+<li>Handschuhe aus Nitril oder Neopren gegen Säuren und Laugen, Lederhandschuhe gegen Hitze und Funken. Geschlossene Schuhe, auch für Lehrpersonen.</li>
+<li>Gegen Rauch, Dämpfe und Sprühnebel hilft zuerst die Absaugung, Atemschutz erst, wenn das nicht reicht.</li>
 </ul>
-<p class="quelle">chemsuisse 2024, Abschnitt 3.5.4 (Persönliche Schutzausrüstung), S. 41 <span class="qlinks"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse&nbsp;↗</a></span></p>
-
-<h2 id="recht">Rechtlicher Rahmen</h2>
-<h3>Gesetze sind bewusst offen formuliert</h3>
-<p>Das Unfallversicherungsgesetz formuliert die Grundpflicht zur Unfallverhütung als Generalklausel: Zu treffen sind die Massnahmen, die nach der Erfahrung notwendig, nach dem Stand der Technik anwendbar und den Verhältnissen angemessen sind (UVG Art. 82 Abs. 1). Was das im Einzelfall heisst, konkretisieren Richtlinien der EKAS und Merkblätter wie jene von bfu, Suva und chemsuisse. Das Berner Merkblatt übernimmt diese drei Kriterien für den Schutz der Lehrpersonen. Ob jemand seine Pflichten verletzt hat, wird immer im Einzelfall beurteilt. Was im konkreten Fall nötig ist, muss deshalb vor Ort beurteilt werden, teilweise erst in der Situation und abhängig von den Schülerinnen und Schülern. Die bfu nennt dazu die individuellen Lernvoraussetzungen, die Klassengrösse, die Heterogenität und die Klassendynamik, chemsuisse die nötige Fachkompetenz.</p>
-<p class="quelle">UVG Art. 82 Abs. 1. Merkblatt BKD Bern, Abschnitt 1. bfu, Rechtsfrage zur Obhutspflicht. bfu 4.302, S. 2. chemsuisse 2024, «Das Wichtigste in Kürze», S. V <span class="qlinks"><a class="ql" href="https://www.fedlex.admin.ch/eli/cc/1982/1676_1676_1676/de">UVG&nbsp;↗</a> <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern&nbsp;↗</a> <a class="ql" href="https://www.bfu.ch/de/services/rechtsfragen/was-genau-bedeutet-die-obhutspflicht-von-lehrpersonen-welche-verantwortung-tragen-lehrerinnen-und-lehrer">bfu Rechtsfrage&nbsp;↗</a> <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302&nbsp;↗</a> <a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse&nbsp;↗</a></span></p>
-<h3>Was die Schulgesetze sagen</h3>
-<p>Die kantonalen Schulgesetze verpflichten die Schule auf das Wohl und den Schutz der Kinder, unterschiedlich ausdrücklich. Einige Beispiele:</p>
-<ul>
-<li>Bern: Die Volksschule schützt die seelisch-geistige und körperliche Integrität der Schülerinnen und Schüler (VSG Art. 2 Abs. 3).</li>
-<li>Zürich: Der Schulbetrieb orientiert sich am Wohl der Schülerinnen und Schüler (VSG § 50 Abs. 1).</li>
-<li>Aargau: Die Schulträger sorgen für eine angemessene Unfallverhütung (VSG § 39 Abs. 1).</li>
-<li>Luzern: Die Lehrpersonen unterrichten und erziehen die Lernenden und beaufsichtigen sie angemessen (VBG § 24 Abs. 1).</li>
-</ul>
-<p class="quelle">VSG Bern (BSG 432.210), VSG Zürich (LS 412.100), VSG Aargau (SAR 421.100), VBG Luzern (SRL 400a), Stand Oktober 2026 <span class="qlinks"><a class="ql" href="https://www.belex.sites.be.ch/app/de/texts_of_law/432.210">VSG Bern&nbsp;↗</a> <a class="ql" href="https://www.zh.ch/de/politik-staat/gesetze-beschluesse/gesetzessammlung/zhlex-ls/erlass-412_100-2005_02_07-2006_08_21-126.html">VSG Zürich&nbsp;↗</a> <a class="ql" href="https://gesetzessammlungen.ag.ch/app/de/texts_of_law/421.100">VSG Aargau&nbsp;↗</a> <a class="ql" href="https://srl.lu.ch/app/de/texts_of_law/400a">VBG Luzern&nbsp;↗</a></span></p>
-<h3>Sorgfalts- und Obhutspflicht der Lehrperson</h3>
-<ul>
-<li data-instr="selbst">Lehrpersonen haben während der Unterrichtszeit eine Sorgfalts- und Obhutspflicht. Laut bfu ergibt sie sich aus dem Strafgesetzbuch, dem kantonalen Schulrecht, dem Arbeitsverhältnis und der tatsächlich übernommenen Aufsicht. Sie gilt also in allen Kantonen.</li>
-<li>Im kantonalen Recht ist sie unterschiedlich gefasst: in Bern im Berufsauftrag (LAV Art. 52 bis 60), im Aargau als Pflicht, die Aufgaben sorgfältig und gewissenhaft auszuführen (GAL § 25 Abs. 1), in Luzern als Pflicht zur angemessenen Aufsicht (VBG § 24 Abs. 1).</li>
-<li data-instr="selbst">Werkzeuge, Geräte und Maschinen wählen und einführen dürfen nur Lehrpersonen mit entsprechenden Fachkenntnissen.</li>
-<li>Wie viel Aufsicht nötig ist, richtet sich laut bfu nach Alter und Entwicklungsstand, Charakter und Verhalten der Kinder und nach der Tätigkeit. Die Lage ist laufend zu beurteilen. Wird eine Situation unkontrollierbar, wird eingegriffen, Hilfe angefordert oder die Aktivität abgebrochen. Gute Vorbereitung allein genügt nicht, so das Bundesgericht in einem Urteil vom 26. September 1996.</li>
-</ul>
-<p class="quelle">bfu 4.302, S. 2. bfu, Rechtsfrage zur Obhutspflicht. LAV Bern (BSG 430.251.0), GAL Aargau (SAR 411.200), VBG Luzern. Merkblatt BKD Bern, Abschnitt 3 <span class="qlinks"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302&nbsp;↗</a> <a class="ql" href="https://www.bfu.ch/de/services/rechtsfragen/was-genau-bedeutet-die-obhutspflicht-von-lehrpersonen-welche-verantwortung-tragen-lehrerinnen-und-lehrer">bfu Rechtsfrage&nbsp;↗</a> <a class="ql" href="https://www.belex.sites.be.ch/app/de/texts_of_law/430.251.0">LAV Bern&nbsp;↗</a> <a class="ql" href="https://gesetzessammlungen.ag.ch/app/de/texts_of_law/411.200">GAL Aargau&nbsp;↗</a> <a class="ql" href="https://srl.lu.ch/app/de/texts_of_law/400a">VBG Luzern&nbsp;↗</a> <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern&nbsp;↗</a></span></p>
-<h3>Haftung und Folgen</h3>
-<p>Bei einem Unfall haftet in der Regel zuerst der öffentliche Schulträger. Bei einer groben Pflichtverletzung kann er auf die Lehrperson Rückgriff nehmen. Eine Pflichtverletzung kann strafrechtliche Folgen haben (z. B. eine Geldstrafe), zu Schadenersatzforderungen führen oder disziplinarisch geahndet werden (z. B. mit einem Verweis). Ob eine Haftung besteht, wird immer im Einzelfall beurteilt.</p>
-<p class="quelle">bfu, Rechtsfrage zur Obhutspflicht <span class="qlinks"><a class="ql" href="https://www.bfu.ch/de/services/rechtsfragen/was-genau-bedeutet-die-obhutspflicht-von-lehrpersonen-welche-verantwortung-tragen-lehrerinnen-und-lehrer">bfu Rechtsfrage&nbsp;↗</a></span></p>
-<h3>Arbeitgeber und Schutz der Lehrpersonen</h3>
-<ul>
-<li>Volksschul-Lehrpersonen sind in der Regel bei der Gemeinde oder beim Schulträger angestellt, die Anstellungsbedingungen regelt aber der Kanton. In Bern ist die Schulkommission oder die Schulleitung Anstellungsbehörde (LAG Art. 7 Abs. 2), in Luzern stellt die Schulleitung an (VBG § 48 Abs. 2), in St. Gallen schliessen Schulträger und Lehrperson einen öffentlich-rechtlichen Vertrag (VSG Art. 64 Abs. 1). Im Aargau ist Arbeitgeber der Kanton oder die Gemeinde (GAL § 3 Abs. 1), die Löhne zahlt der Kanton aus (VSG § 100 Abs. 3).</li>
-<li>Für Arbeitssicherheit und Gesundheitsschutz der Lehrpersonen trägt der Arbeitgeber die Hauptverantwortung. Er trifft die Massnahmen, die erfahrungsgemäss notwendig sind, dem Stand der Technik entsprechen und den Verhältnissen der Schule angemessen sind. Die Lehrpersonen sind verpflichtet, bei der Umsetzung Mitverantwortung zu übernehmen. Das Berner Merkblatt stützt das auf das Obligationenrecht (OR Art. 328 Abs. 2) und das Arbeitsgesetz (ArG Art. 6 Abs. 3).</li>
-</ul>
-<p class="quelle">LAG Bern (BSG 430.250), VBG Luzern, VSG St. Gallen (sGS 213.1), GAL und VSG Aargau. Merkblatt BKD Bern, Abschnitt 1 <span class="qlinks"><a class="ql" href="https://www.belex.sites.be.ch/app/de/texts_of_law/430.250">LAG Bern&nbsp;↗</a> <a class="ql" href="https://srl.lu.ch/app/de/texts_of_law/400a">VBG Luzern&nbsp;↗</a> <a class="ql" href="https://www.gesetzessammlung.sg.ch/app/de/texts_of_law/213.1">VSG St. Gallen&nbsp;↗</a> <a class="ql" href="https://gesetzessammlungen.ag.ch/app/de/texts_of_law/411.200">GAL Aargau&nbsp;↗</a> <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern&nbsp;↗</a> <a class="ql" href="https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de">OR&nbsp;↗</a> <a class="ql" href="https://www.fedlex.admin.ch/eli/cc/1966/57_57_57/de">ArG&nbsp;↗</a></span></p>
+<p class="quelle">chemsuisse 2024, Abschnitt 3.5.4, S. 41 <span class="qlinks"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse&nbsp;↗</a></span></p>
 </div>
 </div></section>
 
@@ -1220,10 +1189,39 @@ table.vergleich th[scope=row]{width:9rem;color:var(--muted);font-weight:600}
 
 <section class="panel" id="hintergrund"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
+<li><a href="#recht">Rechtlicher Rahmen</a></li>
 <li><a href="#kantone">Kantonale Vorgaben</a></li>
 <li><a href="#quellen">Quellen und Downloads</a></li>
 <li><a href="#begriffe">Begriffe</a></li>
 </ul>
+<h2 id="recht">Rechtlicher Rahmen</h2>
+<h3>Bewusst offen formuliert</h3>
+<p>Das Unfallversicherungsgesetz verlangt die Massnahmen, die nach der Erfahrung notwendig, nach dem Stand der Technik anwendbar und den Verhältnissen angemessen sind (UVG Art. 82 Abs. 1). Was das konkret heisst, beschreiben Richtlinien und Merkblätter. Beurteilt wird immer der Einzelfall, abhängig von den Lernvoraussetzungen, der Klasse und der Situation.</p>
+<p class="quelle">UVG Art. 82. Merkblatt Bern, Abschnitt 1. bfu 4.302, S. 2. bfu Rechtsfrage <span class="qlinks"><a class="ql" href="https://www.fedlex.admin.ch/eli/cc/1982/1676_1676_1676/de">UVG&nbsp;↗</a> <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern&nbsp;↗</a> <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302&nbsp;↗</a> <a class="ql" href="https://www.bfu.ch/de/services/rechtsfragen/was-genau-bedeutet-die-obhutspflicht-von-lehrpersonen-welche-verantwortung-tragen-lehrerinnen-und-lehrer">bfu Rechtsfrage&nbsp;↗</a></span></p>
+<h3>Schulgesetze</h3>
+<ul>
+<li>Bern: Die Volksschule schützt die seelisch-geistige und körperliche Integrität der Schülerinnen und Schüler (VSG Art. 2 Abs. 3).</li>
+<li>Zürich: Der Schulbetrieb orientiert sich am Wohl der Schülerinnen und Schüler (VSG § 50 Abs. 1).</li>
+<li>Aargau: Die Schulträger sorgen für eine angemessene Unfallverhütung (VSG § 39 Abs. 1).</li>
+<li>Luzern: Die Lehrpersonen unterrichten und erziehen die Lernenden und beaufsichtigen sie angemessen (VBG § 24 Abs. 1).</li>
+</ul>
+<p class="quelle">Stand Oktober 2026 <span class="qlinks"><a class="ql" href="https://www.belex.sites.be.ch/app/de/texts_of_law/432.210">VSG Bern&nbsp;↗</a> <a class="ql" href="https://www.zh.ch/de/politik-staat/gesetze-beschluesse/gesetzessammlung/zhlex-ls/erlass-412_100-2005_02_07-2006_08_21-126.html">VSG Zürich&nbsp;↗</a> <a class="ql" href="https://gesetzessammlungen.ag.ch/app/de/texts_of_law/421.100">VSG Aargau&nbsp;↗</a> <a class="ql" href="https://srl.lu.ch/app/de/texts_of_law/400a">VBG Luzern&nbsp;↗</a></span></p>
+<h3>Sorgfalts- und Obhutspflicht</h3>
+<ul>
+<li data-instr="selbst">Lehrpersonen haben während der Unterrichtszeit eine Sorgfalts- und Obhutspflicht. Sie ergibt sich aus Strafrecht, kantonalem Schulrecht und Arbeitsverhältnis und gilt in allen Kantonen, z. B. Bern LAV Art. 52 bis 60, Aargau GAL § 25, Luzern VBG § 24.</li>
+<li data-instr="selbst">Werkzeuge, Geräte und Maschinen wählen und einführen dürfen nur Lehrpersonen mit entsprechenden Fachkenntnissen.</li>
+<li>Wie viel Aufsicht nötig ist, hängt von Alter, Entwicklungsstand und Verhalten der Kinder und von der Tätigkeit ab. Die Lage ist laufend zu beurteilen, bei Bedarf wird eingegriffen oder abgebrochen. Gute Vorbereitung allein genügt nicht, so das Bundesgericht in einem Urteil vom 26. September 1996.</li>
+</ul>
+<p class="quelle">bfu 4.302, S. 2. bfu Rechtsfrage. Merkblatt Bern, Abschnitt 3 <span class="qlinks"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302&nbsp;↗</a> <a class="ql" href="https://www.bfu.ch/de/services/rechtsfragen/was-genau-bedeutet-die-obhutspflicht-von-lehrpersonen-welche-verantwortung-tragen-lehrerinnen-und-lehrer">bfu Rechtsfrage&nbsp;↗</a> <a class="ql" href="https://www.belex.sites.be.ch/app/de/texts_of_law/430.251.0">LAV Bern&nbsp;↗</a> <a class="ql" href="https://gesetzessammlungen.ag.ch/app/de/texts_of_law/411.200">GAL Aargau&nbsp;↗</a> <a class="ql" href="https://srl.lu.ch/app/de/texts_of_law/400a">VBG Luzern&nbsp;↗</a> <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern&nbsp;↗</a></span></p>
+<h3>Haftung</h3>
+<p>Bei einem Unfall haftet in der Regel zuerst der öffentliche Schulträger. Bei grober Pflichtverletzung kann er auf die Lehrperson Rückgriff nehmen. Möglich sind auch strafrechtliche und disziplinarische Folgen. Beurteilt wird der Einzelfall.</p>
+<p class="quelle">bfu Rechtsfrage <span class="qlinks"><a class="ql" href="https://www.bfu.ch/de/services/rechtsfragen/was-genau-bedeutet-die-obhutspflicht-von-lehrpersonen-welche-verantwortung-tragen-lehrerinnen-und-lehrer">bfu Rechtsfrage&nbsp;↗</a></span></p>
+<h3>Arbeitgeber</h3>
+<ul>
+<li>Volksschul-Lehrpersonen sind meist bei der Gemeinde oder beim Schulträger angestellt, die Bedingungen regelt der Kanton, z. B. Bern LAG Art. 7, Luzern VBG § 48, St. Gallen VSG Art. 64, Aargau GAL § 3.</li>
+<li>Der Arbeitgeber ist hauptverantwortlich für den Schutz der Lehrpersonen (OR Art. 328), die Lehrpersonen wirken bei der Umsetzung mit (ArG Art. 6).</li>
+</ul>
+<p class="quelle">Merkblatt Bern, Abschnitt 1 <span class="qlinks"><a class="ql" href="https://www.belex.sites.be.ch/app/de/texts_of_law/430.250">LAG Bern&nbsp;↗</a> <a class="ql" href="https://srl.lu.ch/app/de/texts_of_law/400a">VBG Luzern&nbsp;↗</a> <a class="ql" href="https://www.gesetzessammlung.sg.ch/app/de/texts_of_law/213.1">VSG St. Gallen&nbsp;↗</a> <a class="ql" href="https://gesetzessammlungen.ag.ch/app/de/texts_of_law/411.200">GAL Aargau&nbsp;↗</a> <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern&nbsp;↗</a> <a class="ql" href="https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de">OR&nbsp;↗</a> <a class="ql" href="https://www.fedlex.admin.ch/eli/cc/1966/57_57_57/de">ArG&nbsp;↗</a></span></p>
 <h2 id="kantone">Kantonale Vorgaben</h2>
 <p>Massgebend sind die Vorgaben des eigenen Kantons. Eine Suche in allen Deutschschweizer Kantonen ergab nur wenige eigene, öffentlich zugängliche Dokumente zur Sicherheit im TTG. Die meisten Kantone verweisen auf bfu, Suva und chemsuisse. Dass hier kein Dokument steht, heisst nicht, dass es keine Regelung gibt. Im Zweifel beim Volksschulamt oder bei der Fachberatung des Kantons nachfragen.</p>
 <div class="wrap">

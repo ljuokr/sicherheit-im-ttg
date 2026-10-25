@@ -241,11 +241,14 @@ table.kantone td:first-child{white-space:nowrap}
 .rand .hinweis{margin-top:1.5rem}
 @media (min-width:64rem){
   #grundlage > .text.mit-rand{grid-template-columns:minmax(0,48rem) 18rem}
-  .rand{grid-column:2;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh) + 1rem)}
-  .rand .hinweis{margin-top:3.75rem}
+  .rand{grid-column:2;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh) + 1rem);margin-top:3.75rem;max-height:calc(100vh - var(--hh) - 2rem);overflow-y:auto}
+  .rand .hinweis{margin:0}
+  .rand ul{padding-left:1rem}
+  .rand li{margin:.15rem 0}
   .haupt{grid-column:1;grid-row:1}
 }
-.g-k{font-weight:600;margin:.6rem 0 .2rem}
+.g-k{font-weight:600;margin:0 0 .2rem}
+.g-k ~ .g-k{margin-top:.6rem}
 .g-mehr{margin:.6rem 0 0}
 
 /* Didaktik: Vergleichstabelle und Lernort nach B. Wyss */

@@ -135,7 +135,8 @@ lehrplan = zw('<h2 id="lehrplan">', '<h2 id="quellen">')
 kantone = zw('<h2 id="kantone">', '<h2 id="erschliessen">')
 didaktik = zw('<h2 id="erschliessen">', '<h2 id="sicher-unterrichten">')
 sicher = zw('<h2 id="sicher-unterrichten">', '<h2 id="lehrplan">')
-begriffe = zw('<h2 id="begriffe">', '<h2 id="kantone">')
+begriffe = zw('<h2 id="begriffe">', '<h2 id="recht">')
+recht = zw('<h2 id="recht">', '<h2 id="kantone">')
 BILDER = HIER + 'bilder/'
 import os, base64
 try: NACHWEIS = json.load(open(BILDER + 'nachweis.json', encoding='utf-8'))
@@ -303,10 +304,12 @@ body = f'''<header class="kopf"><div class="in">
 
 <section class="panel" id="hintergrund"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
+<li><a href="#recht">Rechtlicher Rahmen</a></li>
 <li><a href="#kantone">Kantonale Vorgaben</a></li>
 <li><a href="#quellen">Quellen und Downloads</a></li>
 <li><a href="#begriffe">Begriffe</a></li>
 </ul>
+{recht}
 {kantone}
 @@QUELLEN@@
 </div></section>
