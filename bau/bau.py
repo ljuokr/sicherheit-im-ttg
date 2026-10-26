@@ -241,12 +241,6 @@ body = f'''<header class="kopf"><div class="in">
 </aside>
 <div class="haupt">
 {grund_ohne}
-<h2 id="was-wo">Ausserdem</h2>
-<ul class="uebersicht">
-<li><a href="#kantone">Kantone</a> Merkblätter und Vorgaben der Deutschschweizer Kantone</li>
-<li><a href="#recht">Recht</a> Sorgfaltspflicht, Haftung, Schulgesetze, Zuständigkeiten</li>
-<li><a href="#quellen">Quellen</a> Alle Originaldokumente und Begriffe</li>
-</ul>
 </div>
 </div></section>
 
