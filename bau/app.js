@@ -296,6 +296,34 @@
       if(da) inhalt.appendChild(box);
     });
 
+    // Suche auch in den übrigen Registern: Treffer nach Abschnitt gruppiert, mit Link zum Abschnitt
+    var weitere=0;
+    if(q){
+      ['grundlage','fachraum','unterricht','recht','quellen'].forEach(function(pid){
+        var kopf=null, gruppen=[], akt=null;
+        $$('h2,h3,li,p:not(.quelle):not(.g-k):not(.g-mehr),tr',document.getElementById(pid)).forEach(function(x){
+          if(x.closest('#instr-liste, .rand')) return;
+          if(/^H[23]$/.test(x.tagName)){ kopf=x; akt=null; if(x.textContent.toLowerCase().indexOf(q)>-1){ akt={kopf:x,treffer:[]}; gruppen.push(akt); weitere++; } return; }
+          if(x.tagName==='P' && x.closest('li,td')) return;
+          if(x.textContent.toLowerCase().indexOf(q)<0) return;
+          if(!akt){ akt={kopf:kopf,treffer:[]}; gruppen.push(akt); }
+          akt.treffer.push(x);
+        });
+        gruppen.forEach(function(g){
+          var box=el('section','erg-v'), h=el('h3'), ziel=g.kopf&&(g.kopf.id?g.kopf:g.kopf.closest('[id]'));
+          var titel=g.kopf?g.kopf.textContent:document.getElementById('t-'+pid).textContent;
+          if(ziel){ var l=el('a',null,titel); l.href='#'+ziel.id; h.appendChild(l); } else h.textContent=titel;
+          box.appendChild(h);
+          if(g.treffer.length){
+            var ul=el('ul');
+            g.treffer.forEach(function(x){ ul.appendChild(el('li',null,x.textContent.replace(/\s+/g,' ').trim())); weitere++; });
+            box.appendChild(ul);
+          }
+          inhalt.appendChild(box);
+        });
+      });
+    }
+
     if(mitTabelle){
       if(!s.z) inhalt.insertBefore(kopie(legende),inhalt.firstChild);
       var mq=kopie(legQuelle); mq.insertBefore(document.createTextNode('Einteilung A, B, C: '),mq.firstChild); inhalt.appendChild(mq);
@@ -306,9 +334,11 @@
       inhalt.appendChild(l);
     }
     var tx=[];
-    if(wantTab){ var t2=mz(n.mas,'Maschine','Maschinen'); if(s.z && n.mas) t2+=' ('+n.A+' A, '+n.B+' B, '+n.C+' C)'; tx.push(t2); }
-    if(wantTh){ tx.push(mz(n.th,'Thema','Themen')); tx.push(mz(n.vb,'Verbot','Verbote')); }
-    status.textContent=tx.join(', ')+'.';
+    if(n.mas){ var t2=mz(n.mas,'Maschine','Maschinen'); if(s.z) t2+=' ('+n.A+' A, '+n.B+' B, '+n.C+' C)'; tx.push(t2); }
+    if(n.th) tx.push(mz(n.th,'Thema','Themen'));
+    if(n.vb) tx.push(mz(n.vb,'Verbot','Verbote'));
+    if(weitere) tx.push(mz(weitere,'Treffer in anderen Registern','Treffer in anderen Registern'));
+    status.textContent=tx.length?tx.join(', ')+'.':'Keine Treffer.';
   }
 
   function beenden(){ form.reset(); render(); }
@@ -332,14 +362,14 @@
     var muster=new RegExp('(^|[^\\wäöüÄÖÜ\u00df-])('+woerter.map(function(x){ return esc(x.w); }).join('|')+')(?![\\wäöüÄÖÜ\u00df-])');
     var idVon={}; woerter.forEach(function(x){ idVon[x.w]=x.id; });
     // Abschnitte, in denen je Begriff nur das erste Vorkommen verlinkt wird
-    var bloecke=$$('#register .thema, #register .sub:not(#material .sub), #grundlage, #verfahren > .text > section:not(.verfahren), #fachraum, #notfall, #unterricht, #recht, #quellen');
+    var bloecke=$$('#register .thema, #register .sub:not(#material .sub), #grundlage, #verfahren > .text > section:not(.verfahren), #fachraum, #unterricht, #recht, #quellen');
     var NICHT=['A','BUTTON','H2','H3','H4','TH','FIGCAPTION','LABEL','OPTION','SCRIPT','STYLE'];
     bloecke.forEach(function(blk){
       if(blk.closest('.begriff')) return;
       var gesehen={};
       var walker=document.createTreeWalker(blk,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
         var p=n.parentNode;
-        while(p && p!==blk){ if(NICHT.indexOf(p.tagName)>-1 || (p.classList && (p.classList.contains('quelle')||p.classList.contains('begriff')||p.classList.contains('vb')))) return NodeFilter.FILTER_REJECT; p=p.parentNode; }
+        while(p && p!==blk){ if(NICHT.indexOf(p.tagName)>-1 || (p.classList && (p.classList.contains('quelle')||p.classList.contains('begriff')||p.classList.contains('vb')||p.classList.contains('uebersicht')))) return NodeFilter.FILTER_REJECT; p=p.parentNode; }
         return NodeFilter.FILTER_ACCEPT;
       }});
       var knoten=[]; while(walker.nextNode()) knoten.push(walker.currentNode);

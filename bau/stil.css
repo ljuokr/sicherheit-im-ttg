@@ -8,10 +8,10 @@
   --hh:8rem;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#3a3a3a; --tint:#1e1e1e;
+  --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#3a3a3a; --tint:#242424;
   --a:#1d4a40; --b:#4f4818; --c:#5a2e29; --pa:#3dbfa3; --pb:#f7e57e; --pc:#f08576; --on-a:#0b1a0e; --on-b:#4a4100; --on-c:#6b1f16; color-scheme:dark } }
 :root[data-theme="dark"]{
-  --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#3a3a3a; --tint:#1e1e1e;
+  --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#3a3a3a; --tint:#242424;
   --a:#1d4a40; --b:#4f4818; --c:#5a2e29; --pa:#3dbfa3; --pb:#f7e57e; --pc:#f08576; --on-a:#0b1a0e; --on-b:#4a4100; --on-c:#6b1f16; color-scheme:dark }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -32,34 +32,13 @@ a{color:var(--fg);text-underline-offset:.2em}
 .lead{color:var(--muted);margin-bottom:1.5rem}
 .quelle{color:var(--muted);margin-top:-.5rem;font-size:.875rem}
 blockquote{margin:0 0 1rem;padding-left:1rem;border-left:2px solid var(--line);max-width:68ch}
-.hinweis{background:var(--tint);padding:.9rem 1rem;margin:0 0 1rem;max-width:68ch}
+.hinweis{background:var(--tint);border-left:3px solid var(--line);padding:.9rem 1rem;margin:0 0 1rem;max-width:68ch}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .knopf{font:inherit;font-weight:600;color:var(--fg);background:var(--bg);border:1px solid var(--fg);border-radius:0;padding:.4rem .8rem;min-height:2.5rem;cursor:pointer}
 .knopf:hover{background:var(--tint)}
 
 /* Haftende Leiste: Finder und Register */
 .leiste{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--bg);border-bottom:1px solid var(--line);max-height:100vh;overflow-y:auto}
-.finder{background:var(--tint);border-bottom:1px solid var(--line)}
-.finder form{display:flex;align-items:center;gap:.5rem;padding-block:.55rem;margin:0}
-.finder .titel{flex:none;font-weight:600;margin-right:.25rem}
-.felder{display:flex;align-items:center;gap:.5rem;flex:1 1 auto;min-width:0}
-.felder select,.felder input{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--muted);border-radius:0;padding:.4rem .5rem;min-height:2.5rem;min-width:0}
-.felder select{flex:1 1 9rem}
-.felder input{flex:1.5 1 12rem}
-.felder .gesetzt{border:2px solid var(--fg);font-weight:600}
-.felder .knopf{flex:none}
-.finden,.kurz{display:none}
-@media (max-width:52rem){
-  .finder form{flex-wrap:wrap}
-  .finder .titel{display:none}
-  .finden{display:inline-block;flex:none}
-  .finden[aria-expanded=true]{background:var(--fg);color:var(--bg)}
-  .kurz{display:block;flex:1 1 0;min-width:0;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .felder{display:none;flex:1 1 100%;flex-direction:column;align-items:stretch;padding-bottom:.25rem}
-  .finder form.offen .felder{display:flex}
-  .felder select,.felder input{flex:none;width:100%}
-  .felder .knopf{align-self:flex-start}
-}
 
 .tabs{display:flex;overflow-x:auto;scrollbar-width:none;margin-inline:-.5rem}
 .tabs::-webkit-scrollbar{display:none}
@@ -91,7 +70,7 @@ html:not(.js) .panel h2:first-child{margin-top:0}
 .thema{margin:0 0 1.75rem;padding-top:1rem;border-top:1px solid var(--line)}
 .thema h3{margin-top:0}
 .mat{color:var(--muted);margin:-.1rem 0 .5rem}
-li.verbot{list-style:none;margin-left:-1.2rem;padding:.35rem .6rem .35rem .75rem;border-left:4px solid var(--c);background:var(--tint)}
+li.verbot{list-style:none;margin-left:-1.2rem;padding:.35rem .6rem .35rem .75rem;border-left:4px solid var(--pc);background:var(--tint)}
 li.verbot+li.verbot{margin-top:.25rem}
 li.verbot+li:not(.verbot){margin-top:.6rem}
 .vb{display:inline-block;font-weight:600;background:var(--c);color:var(--fg);padding:0 .4rem;margin-right:.45rem;line-height:1.45}
@@ -172,7 +151,7 @@ table.kantone td:first-child{white-space:nowrap}
 @media (min-width:60rem){ .plakat{grid-template-columns:1fr 1fr} }
 .p-spalte{min-width:0}
 .p-gruppe{margin:0 0 1.75rem}
-.p-titel{margin:0 0 1.25rem;line-height:1.15;font-size:var(--s1)}
+.p-titel{margin:0 0 1.25rem;line-height:1.15;font-size:1.6rem}
 .p-titel span{display:block;color:var(--muted)}
 .p-zk{margin:0 0 .9rem;font-size:.875rem;font-weight:600;line-height:1.3}
 .p-zk p{margin:0}
@@ -193,8 +172,6 @@ table.kantone td:first-child{white-space:nowrap}
 .dot{width:.95rem;height:.95rem;border-radius:50%;display:inline-grid;place-items:center;font-size:0;flex:none}
 .dot.A{background:var(--pa)} .dot.B{background:var(--pb);box-shadow:inset 0 0 0 1.5px var(--on-b)} .dot.C{background:var(--pc)}
 .dot.C::after{content:"";width:.28rem;height:.28rem;border-radius:50%;background:var(--on-c)}
-.plakat[data-z="1"] .dots .dot:nth-child(n+2),.plakat[data-z="2"] .dots .dot:not(:nth-child(2)),.plakat[data-z="3"] .dots .dot:nth-child(-n+2){opacity:.15}
-.plakat[data-z="1"] .p-zyk span:nth-child(n+2),.plakat[data-z="2"] .p-zyk span:not(:nth-child(2)),.plakat[data-z="3"] .p-zyk span:nth-child(-n+2){opacity:.3}
 .karte{background:var(--tint);padding:.75rem 1rem;margin:0 0 .5rem;border-bottom:1px solid var(--line)}
 .kz{margin:0 0 .6rem;display:grid;gap:.3rem}
 .kz div{display:flex;gap:.6rem;align-items:center}
@@ -204,10 +181,6 @@ table.kantone td:first-child{white-space:nowrap}
 .k-links{margin:0 0 .5rem}
 .k-extra,.k-fuss{margin:.3rem 0 0}
 .k-fuss{color:var(--muted)}
-.z-hl{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:0 0 .5rem}
-.z-hl-l{color:var(--muted);margin-right:.3rem}
-.z-hl button{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);padding:.3rem .8rem;min-height:2.25rem;cursor:pointer}
-.z-hl button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .p-legende{display:grid;gap:0;margin:0 0 1.5rem}
 @media (min-width:48rem){ .p-legende{grid-template-columns:repeat(3,1fr)} }
 .p-leg{display:flex;gap:.5rem;align-items:baseline;padding:.5rem .75rem;font-size:.875rem;line-height:1.35}
@@ -234,7 +207,7 @@ table.kantone td:first-child{white-space:nowrap}
 .b-zu{font:inherit;color:var(--fg);background:var(--tint);border:1px solid var(--line);padding:.2rem .7rem;cursor:pointer;flex:none}
 .b-pop .quelle{margin-top:.5rem}
 .b-pop-alle{margin:.6rem 0 0}
-.begriff{margin:0 0 2rem;max-width:68ch}
+.begriff{margin:0 0 2rem;max-width:68ch;padding-top:1rem;border-top:1px solid var(--line)}
 .begriff h3{margin-top:0}
 .b-bild{margin:.2rem 0 .6rem}
 .b-bild img{display:block;max-width:min(14rem,100%);max-height:10rem;width:auto;height:auto;border:1px solid var(--line)}
@@ -291,6 +264,26 @@ html.js #aufsicht .legende{display:none}
 .reg-zeile{display:flex;align-items:center;gap:.75rem}
 .reg-zeile .tabs{flex:1 1 auto;min-width:0}
 .suche-klein{flex:0 0 auto;margin:0}
-.suche-klein input{font:inherit;font-size:.875rem;width:8.5rem;min-height:2rem;padding:.2rem .5rem;border:1px solid var(--line);border-radius:0;background:var(--bg);color:var(--fg)}
+.suche-klein input{font:inherit;font-size:.875rem;width:8.5rem;min-height:2rem;padding:.2rem .5rem;border:1px solid var(--muted);border-radius:0;background:var(--bg);color:var(--fg)}
 .suche-klein input:focus{width:12rem;border-color:var(--fg)}
 @media (max-width:40rem){ .suche-klein input{width:6.5rem} .suche-klein input:focus{width:9rem} }
+/* Fingerbedienung: grössere Ziele, Suchfeld ohne Zoom auf iOS */
+@media (pointer:coarse){
+  .suche-klein input{font-size:1rem;min-height:2.5rem}
+  .m-zeile{padding:.5rem 0}
+  .b-zu{min-height:2.5rem}
+  .sprung{gap:.6rem 1.2rem}
+}
+/* Handy: Register umbrechen statt versteckt seitlich scrollen */
+@media (max-width:40rem){
+  .reg-zeile{flex-wrap:wrap;gap:0 .75rem}
+  .reg-zeile .tabs{flex-wrap:wrap;overflow-x:visible}
+  .reg-zeile [role=tab]{padding:.55rem .55rem .45rem;min-height:2.5rem}
+  .suche-klein{flex:1 1 100%;padding-bottom:.5rem}
+  .suche-klein input,.suche-klein input:focus{width:100%}
+}
+details.mehr{margin:0 0 1rem;max-width:68ch}
+details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2.5rem}
+.uebersicht{list-style:none;padding:0;margin:0 0 1.5rem;display:grid;gap:.5rem}
+.uebersicht li{margin:0}
+.uebersicht a{font-weight:600;margin-right:.4rem}

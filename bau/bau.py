@@ -68,7 +68,7 @@ MATS = [('holz','Holz','holz'),('metall','Metall','metall'),('kunststoff','Kunst
 FACH = [('<h2 id="fachraum">','<h2 id="planen">'),('<h2 id="lagerung">','<h2 id="entsorgung">'),('<h2 id="entsorgung">','<h2 id="notfall">'),
         ('<h2 id="zustaendig">','<h2 id="begriffe">'),('<h2 id="planen">','<h2 id="zustaendig">')]
 HAUPT = [('grundlage','Grundlage'),('verfahren','Maschinen und Verfahren'),('material','Material'),('fachraum','Fachraum'),
-         ('notfall','Notfall'),('unterricht','Unterricht'),('recht','Recht'),('quellen','Quellen')]
+         ('unterricht','Unterricht'),('recht','Recht'),('quellen','Quellen')]
 
 # Eigene Zuordnung: welche Themen, Videos und Checklisten zu einer Maschine des Plakats passen
 TUD = 'https://www.tud.ch/lernvideos/verfahren/#'
@@ -185,9 +185,10 @@ for k, (vid, name) in enumerate(VERF):
     verf_html.append(s)
 # Fachraum ohne Unterreiter: eine Sprungliste, darunter Betreiben und Planen
 fach_teile = [zw(x, y).replace('<h2 id="fachraum">', '<h2 id="fachraum-betreiben">', 1) for x, y in FACH]
+notfall = zw('<h2 id="notfall">', '<h2 id="fachraum">')
+fach_teile.insert(1, notfall)
 fach_html = [allg] + fach_teile + [lernort]
 fach_html = [sprung('\n'.join(fach_html))] + fach_html
-notfall = zw('<h2 id="notfall">', '<h2 id="fachraum">')
 mat_html = []
 for mid, name, key in MATS:
     hint = '' if key == 'alle' else '\n<p class="einleitung">Themen aus allen Verfahren, die %s betreffen. Für jedes Material gelten zusätzlich die Themen unter <a href="#alle-materialien">«Alle Materialien»</a>.</p>' % ('«%s»' % name)
@@ -235,6 +236,15 @@ body = f'''<header class="kopf"><div class="in">
 </aside>
 <div class="haupt">
 {grund_ohne}
+<h2 id="was-wo">Was wo steht</h2>
+<ul class="uebersicht">
+<li><a href="#verfahren">Maschinen und Verfahren</a> Welche Maschine ab welchem Zyklus, Regeln je Verfahren</li>
+<li><a href="#material">Material</a> Regeln für Holz, Metall, Kunststoff, Keramik und Textil, Schutzausrüstung</li>
+<li><a href="#fachraum">Fachraum</a> Grundregeln, STOP-Prinzip, Notfälle vorbereiten, Lagerung, Entsorgung, Planung</li>
+<li><a href="#unterricht">Unterricht</a> Sicher unterrichten, Instruktion, kantonale Vorgaben, Lehrplan 21</li>
+<li><a href="#recht">Recht</a> Sorgfaltspflicht, Haftung, Schulgesetze</li>
+<li><a href="#quellen">Quellen</a> Alle Originaldokumente und Begriffe</li>
+</ul>
 </div>
 </div></section>
 
@@ -247,10 +257,11 @@ body = f'''<header class="kopf"><div class="in">
 <h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen <span>Gefahrenkategorien nach Zyklus</span></h2>
 <noscript><p>Die Maschinentabellen stehen bei den einzelnen Verfahren.</p></noscript>
 <div class="p-legende nurjs" id="p-legende"></div>
+<p class="p-unten nurjs">Zyklus 1: Kindergarten bis 2. Klasse · Zyklus 2: 3. bis 6. Klasse · Zyklus 3: 7. bis 9. Klasse (Lehrplan 21)</p>
 <div class="plakat nurjs" id="plakat-ziel"></div>
 <p class="p-unten nurjs">Aufgebaut wie das bfu-Plakat «Umgang mit Maschinen und Anlagen». Eine Maschine antippen zeigt die Einteilung und die Regeln dazu. Ein Gruppentitel führt zum Verfahren.</p>
 <p class="quelle">Nachgebaut nach <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301, 09.2020&nbsp;↗</a> · Regeln, Videos und Checklisten je Maschine: eigene Zusammenstellung</p>
-<p>Nicht auf dem Plakat: <a href="#flaechen">Flächen bilden</a> (Stricken, Häkeln, Weben, 3D-Druck) und der Lasercutter (<a href="#lasercutten">Lasercutten</a>).</p>
+<p>Nicht auf dem Plakat: <a href="#flaechen">Flächen bilden</a> (Stricken, Häkeln, Weben, 3D-Druck) und der Lasercutter (<a href="#lasercutten">Lasercutten</a>). Einzelne Kantone, etwa Zürich und Luzern, teilen in eigenen Listen anders ein, siehe <a href="#kantone">Kantonale Vorgaben</a>.</p>
 {leer}
 <section id="aufsicht">
 <h3>Gefahrenkategorien A, B, C</h3>
@@ -268,34 +279,27 @@ body = f'''<header class="kopf"><div class="in">
 {chr(10).join(fach_html)}
 </div></section>
 
-<section class="panel" id="notfall"><div class="text">
-{ohne_erste_id(notfall, 'notfall')}
-</div></section>
-
 <section class="panel" id="unterricht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
-<li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
-<li><a href="#lehrplan">Lehrplan 21</a></li>
 <li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
 <li class="nurjs"><a href="#instruktion">Instruktion und Aufsicht</a></li>
+<li><a href="#kantone">Kantonale Vorgaben</a></li>
+<li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
+<li><a href="#lehrplan">Lehrplan 21</a></li>
 </ul>
-{didaktik}
-{lehrplan}
 {sicher}
 <section id="instruktion" class="nurjs">
 <h2>Instruktion und Aufsicht im Unterricht</h2>
 <p class="einleitung">Alle Stellen dieser Seite, an denen die Quellen Instruktion, Aufsicht oder Handeln der Lehrperson verlangen, im Wortlaut. Der Link führt zum Thema.</p>
 <div id="instr-liste"></div>
 </section>
+{kantone}
+{didaktik}
+{lehrplan}
 </div></section>
 
 <section class="panel" id="recht"><div class="text">
-<ul class="sprung" aria-label="In diesem Register">
-<li><a href="#recht">Rechtlicher Rahmen</a></li>
-<li><a href="#kantone">Kantonale Vorgaben</a></li>
-</ul>
 {ohne_erste_id(recht, 'recht')}
-{kantone}
 </div></section>
 
 <section class="panel" id="quellen"><div class="text">
