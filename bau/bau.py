@@ -147,7 +147,8 @@ def h3zu2(x, ids={}):
     return re.sub(r'<h3( id="[^"]+")?>(.*?)</h3>', r'<h2\1>\2</h2>', x)
 sicher = h3zu2(teil('<h3 id="sicher-unterrichten">', '<h3>Für jeden Fachraum</h3>'))
 allg = h3zu2(teil('<h3>Für jeden Fachraum</h3>', '<h3 id="schutzausruestung">'), {'<h3>Für jeden Fachraum</h3>': '<h3 id="fuer-jeden-fachraum">Für jeden Fachraum</h3>', '<h3>STOP-Prinzip</h3>': '<h3 id="stop">STOP-Prinzip</h3>'})
-stoffe = h3zu2(teil('<h3 id="schutzausruestung">', None))
+stoffe = h3zu2(teil('<h3 id="schutzausruestung">', '<h3 id="emissionen">'))
+emissionen = h3zu2(teil('<h3 id="emissionen">', None))
 grund_ohne = grund_ohne[:grund_ohne.index('<h3 id="sicher-unterrichten">')]
 grund_ohne = re.sub(r'<h2 id="grundsatz">.*?</h2>\n', '', grund_ohne).replace('<h3 id="drei-fragen">Drei Fragen vor jeder Arbeit</h3>', '<h2 id="drei-fragen">Drei Fragen vor jeder Arbeit</h2>')
 def sprung(html): return '<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % m for m in re.findall(r'<h2 id="([^"]+)"[^>]*>(.*?)</h2>', html)) + '\n</ul>'
@@ -200,7 +201,8 @@ for mid, name, key in MATS:
     hint = '' if key == 'alle' else '\n<p class="einleitung">Themen aus allen Verfahren, die %s betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>.</p>' % ('«%s»' % name)
     if key == 'alle': hint = '\n' + re.sub(r'<h2( id="[^"]+")?>(.*?)</h2>', r'<h3\1>\2</h3>', stoffe) + '\n<p class="einleitung">Dazu diese Themen aus den Verfahren:</p>'
     mat_html.append('<section class="mat-teil" id="%s" data-key="%s">\n<h2>%s</h2>%s\n<div class="slot"></div>\n</section>' % (mid, key, name, hint))
-mat_html = ['<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % (m[0], m[1]) for m in MATS) + '\n</ul>'] + mat_html
+mat_html.insert(1, '<section class="mat-teil">\n' + emissionen + '</section>')
+mat_html = ['<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % (m[0], m[1]) for m in MATS[:1] + [('emissionen', 'Emissionen')] + MATS[1:]) + '\n</ul>'] + mat_html
 
 body = f'''<header class="kopf"><div class="in">
 {kopf}
@@ -255,7 +257,7 @@ body = f'''<header class="kopf"><div class="in">
 <p class="quelle">Nachgebaut nach <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301, 09.2020&nbsp;↗</a> · Regeln, Videos und Checklisten je Maschine: eigene Zusammenstellung</p>
 <p>Nicht auf dem Plakat: <a href="#flaechen">Flächen bilden</a> (Stricken, Häkeln, Weben, 3D-Druck) und der Lasercutter (<a href="#lasercutten">Lasercutten</a>). Einzelne Kantone, etwa Zürich und Luzern, teilen in eigenen Listen anders ein, siehe <a href="#kantone">Kantonale Vorgaben</a>.</p>
 {leer}
-<section id="aufsicht">
+<section id="aufsicht" hidden>
 <h3>Gefahrenkategorien A, B, C</h3>
 {aufsicht_txt}
 </section>

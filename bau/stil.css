@@ -316,3 +316,5 @@ details.abschnitt>summary::before{content:"\25B8";color:var(--muted);flex:none}
 details.abschnitt[open]>summary::before{content:"\25BE"}
 details.abschnitt>summary h2{margin:0}
 details.abschnitt[open]{padding-bottom:1rem}
+.emissionen li{margin-bottom:.5rem}
+.emissionen b{margin-right:.3rem}
