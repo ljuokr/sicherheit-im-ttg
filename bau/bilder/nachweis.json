@@ -1,16 +1,62 @@
 {
- "ffp-maske.jpg": {"alt": "Einweg-Atemschutzmaske FFP3 mit Ausatemventil", "credit": "Foto: Rudolf Goldhammer, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:Atemluftfilter_Einwegmaske.jpg\">Wikimedia Commons</a>"},
- "industriesauger.jpg": {"alt": "Industriesauger, Beispielbild", "credit": "Beispielbild, Staubklasse nicht erkennbar. Foto: Bjoertvedt, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:Cleantex_Festool_CTL_36_IMG_2485_antistatic_vacuumcleaner_(cropped).JPG\">Wikimedia Commons</a>"},
- "absaugung.jpg": {"alt": "Absaugung für Lötrauch direkt am Arbeitsplatz", "credit": "Foto: Jens Eickhoff, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:L%C3%B6trauchabsaugung.jpg\">Wikimedia Commons</a>"},
- "mig-schweissen.jpg": {"alt": "Schutzgasschweissen mit Schweisshelm und Lederhandschuhen", "credit": "Foto: William M. Plate Jr., US Air Force, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:GMAW.welding.af.ncs.jpg\">Wikimedia Commons</a>"},
- "laser-warnzeichen.svg": {"alt": "Warnzeichen Laserstrahl", "credit": "Warnzeichen ISO 7010 W004, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:ISO_7010_W004.svg\">Wikimedia Commons</a>"},
- "ce-zeichen.svg": {"alt": "CE-Zeichen", "credit": "Gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:Conformit%C3%A9_Europ%C3%A9enne_(logo).svg\">Wikimedia Commons</a>"},
- "fi-schalter.jpg": {"alt": "FI-Schutzschalter im Sicherungskasten", "credit": "Foto: Raimond Spekking, CC BY-SA 4.0, <a href=\"https://commons.wikimedia.org/wiki/File:Moeller_Xpole_PXF-40-4-003-A-2288.jpg\">Wikimedia Commons</a>"},
- "schluesselschalter.jpg": {"alt": "Schlüsselschalter mit den Stellungen Aus und Ein", "credit": "Foto: Karlo, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:Key_switch.jpg\">Wikimedia Commons</a>"},
- "flammenrueckschlag.jpg": {"alt": "Sicherheitseinrichtungen gegen Flammenrückschlag, Beispielbild", "credit": "Beispielbild ohne Gasflasche. Foto: GasSafetyExpert, CC BY-SA 4.0, <a href=\"https://commons.wikimedia.org/wiki/File:Gebrauchsstellenvorlagen.jpg\">Wikimedia Commons</a>"},
- "fdm-drucker.jpg": {"alt": "3D-Drucker im Schmelzschichtverfahren", "credit": "Foto: John Abella, CC BY 2.0, <a href=\"https://commons.wikimedia.org/wiki/File:Prusa_i3_3D_Printer_-_Reprap_-_Completed.jpg\">Wikimedia Commons</a>"},
- "spritzkabine.jpg": {"alt": "Kleine Spritzkabine mit Absaugung, Beispielbild", "credit": "Beispielbild einer Tisch-Spritzkabine. Foto: Leehitchens, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:Spray_booth_designed_for_application_of_conformal_coatings,_lacquers_and_RFI_shielding_paints.png\">Wikimedia Commons</a>"},
- "glasur.jpg": {"alt": "Musterplättchen mit verschiedenen Glasuren", "credit": "Foto: Juan de Vojníkov, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:Vzorkovn%C3%ADk_glazur.JPG\">Wikimedia Commons</a>"},
- "bindemittel.jpg": {"alt": "Bindemittel auf einer verschütteten Flüssigkeit, Beispielbild", "credit": "Beispielbild mit Ölbindemittel. Foto: Flominator, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:Smear_of_oil.jpg\">Wikimedia Commons</a>"},
- "etikett.jpg": {"alt": "Muster einer Produktetikette mit drei GHS-Piktogrammen", "credit": "Grafik: Dr.cueppers, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:GHS_Diethylzink.png\">Wikimedia Commons</a>"}
+ "ffp-maske.jpg": {
+  "alt": "Einweg-Atemschutzmaske FFP3 mit Ausatemventil",
+  "credit": "Foto: Rudolf Goldhammer, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:Atemluftfilter_Einwegmaske.jpg\">Wikimedia Commons</a>"
+ },
+ "industriesauger.jpg": {
+  "alt": "Industriesauger, Beispielbild",
+  "credit": "Beispielbild, Staubklasse nicht erkennbar. Foto: Bjoertvedt, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:Cleantex_Festool_CTL_36_IMG_2485_antistatic_vacuumcleaner_(cropped).JPG\">Wikimedia Commons</a>"
+ },
+ "absaugung.jpg": {
+  "alt": "Absaugung für Lötrauch direkt am Arbeitsplatz",
+  "credit": "Foto: Jens Eickhoff, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:L%C3%B6trauchabsaugung.jpg\">Wikimedia Commons</a>"
+ },
+ "mig-schweissen.jpg": {
+  "alt": "Schutzgasschweissen mit Schweisshelm und Lederhandschuhen",
+  "credit": "Foto: William M. Plate Jr., US Air Force, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:GMAW.welding.af.ncs.jpg\">Wikimedia Commons</a>"
+ },
+ "laser-warnzeichen.svg": {
+  "alt": "Warnzeichen Laserstrahl",
+  "credit": "Warnzeichen ISO 7010 W004, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:ISO_7010_W004.svg\">Wikimedia Commons</a>"
+ },
+ "ce-zeichen.svg": {
+  "alt": "CE-Zeichen",
+  "credit": "Gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:Conformit%C3%A9_Europ%C3%A9enne_(logo).svg\">Wikimedia Commons</a>"
+ },
+ "fi-schalter.jpg": {
+  "alt": "FI-Schutzschalter im Sicherungskasten",
+  "credit": "Foto: Raimond Spekking, CC BY-SA 4.0, <a href=\"https://commons.wikimedia.org/wiki/File:Moeller_Xpole_PXF-40-4-003-A-2288.jpg\">Wikimedia Commons</a>"
+ },
+ "schluesselschalter.jpg": {
+  "alt": "Schlüsselschalter mit den Stellungen Aus und Ein",
+  "credit": "Foto: Karlo, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:Key_switch.jpg\">Wikimedia Commons</a>"
+ },
+ "flammenrueckschlag.jpg": {
+  "alt": "Sicherheitseinrichtungen gegen Flammenrückschlag, Beispielbild",
+  "credit": "Beispielbild ohne Gasflasche. Foto: GasSafetyExpert, CC BY-SA 4.0, <a href=\"https://commons.wikimedia.org/wiki/File:Gebrauchsstellenvorlagen.jpg\">Wikimedia Commons</a>"
+ },
+ "fdm-drucker.jpg": {
+  "alt": "3D-Drucker im Schmelzschichtverfahren",
+  "credit": "Foto: John Abella, CC BY 2.0, <a href=\"https://commons.wikimedia.org/wiki/File:Prusa_i3_3D_Printer_-_Reprap_-_Completed.jpg\">Wikimedia Commons</a>"
+ },
+ "spritzkabine.jpg": {
+  "alt": "Kleine Spritzkabine mit Absaugung, Beispielbild",
+  "credit": "Beispielbild einer Tisch-Spritzkabine. Foto: Leehitchens, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:Spray_booth_designed_for_application_of_conformal_coatings,_lacquers_and_RFI_shielding_paints.png\">Wikimedia Commons</a>"
+ },
+ "glasur.jpg": {
+  "alt": "Musterplättchen mit verschiedenen Glasuren",
+  "credit": "Foto: Juan de Vojníkov, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:Vzorkovn%C3%ADk_glazur.JPG\">Wikimedia Commons</a>"
+ },
+ "bindemittel.jpg": {
+  "alt": "Bindemittel auf einer verschütteten Flüssigkeit, Beispielbild",
+  "credit": "Beispielbild mit Ölbindemittel. Foto: Flominator, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:Smear_of_oil.jpg\">Wikimedia Commons</a>"
+ },
+ "etikett.jpg": {
+  "alt": "Muster einer Produktetikette mit drei GHS-Piktogrammen",
+  "credit": "Grafik: Dr.cueppers, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:GHS_Diethylzink.png\">Wikimedia Commons</a>"
+ },
+ "ce-vergleich.svg": {
+  "alt": "Links das CE-Zeichen mit Abstand zwischen C und E, rechts ein verwechselbares Zeichen mit eng stehenden Buchstaben",
+  "credit": "Eigene Darstellung nach dem gemeinfreien CE-Zeichen, <a href=\"https://commons.wikimedia.org/wiki/File:Conformit%C3%A9_Europ%C3%A9enne_(logo).svg\">Wikimedia Commons</a>"
+ }
 }

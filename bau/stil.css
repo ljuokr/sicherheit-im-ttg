@@ -287,3 +287,4 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 .uebersicht{list-style:none;padding:0;margin:0 0 1.5rem;display:grid;gap:.5rem}
 .uebersicht li{margin:0}
 .uebersicht a{font-weight:600;margin-right:.4rem}
+#b-ce .b-bild img,.b-pop #b-ce-bild img{max-width:min(26rem,100%);max-height:none}

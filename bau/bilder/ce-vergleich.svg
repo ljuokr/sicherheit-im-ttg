@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="190" viewBox="0 0 560 190">
+  <rect width="560" height="190" fill="#fff"/>
+  <!-- Links: CE-Kennzeichnung nach EU-Vorgabe, Buchstaben mit Abstand -->
+  <g transform="translate(40,20) scale(0.6)" fill="#000">
+    <path d="M110,199.498744A100,100 0 0 1 100,200A100,100 0 0 1 100,0A100,100 0 0 1 110,0.501256L110,30.501256A70,70 0 0 0 100,30A70,70 0 0 0 100,170A70,70 0 0 0 110,169.498744Z"/>
+    <path d="M280,199.498744A100,100 0 0 1 270,200A100,100 0 0 1 270,0A100,100 0 0 1 280,0.501256L280,30.501256A70,70 0 0 0 270,30A70,70 0 0 0 201.620283,85L260,85L260,115L201.620283,115A70,70 0 0 0 270,170A70,70 0 0 0 280,169.498744Z"/>
+  </g>
+  <!-- Rechts: verwechselbares Zeichen, E dicht an C gerückt -->
+  <g transform="translate(340,20) scale(0.6)" fill="#000">
+    <path d="M110,199.498744A100,100 0 0 1 100,200A100,100 0 0 1 100,0A100,100 0 0 1 110,0.501256L110,30.501256A70,70 0 0 0 100,30A70,70 0 0 0 100,170A70,70 0 0 0 110,169.498744Z"/>
+    <path transform="translate(-55,0)" d="M280,199.498744A100,100 0 0 1 270,200A100,100 0 0 1 270,0A100,100 0 0 1 280,0.501256L280,30.501256A70,70 0 0 0 270,30A70,70 0 0 0 201.620283,85L260,85L260,115L201.620283,115A70,70 0 0 0 270,170A70,70 0 0 0 280,169.498744Z"/>
+  </g>
+  <line x1="280" y1="15" x2="280" y2="175" stroke="#999" stroke-width="1"/>
+  <text x="124" y="180" font-family="Arial, sans-serif" font-size="15" text-anchor="middle" fill="#000">CE-Kennzeichnung</text>
+  <text x="413" y="180" font-family="Arial, sans-serif" font-size="15" text-anchor="middle" fill="#000">verwechselbar: Buchstaben eng</text>
+</svg>
