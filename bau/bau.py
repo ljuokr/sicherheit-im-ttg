@@ -67,9 +67,9 @@ MATS = [('holz','Holz','holz'),('metall','Metall','metall'),('kunststoff','Kunst
 MATS = [('alle-materialien','Für alle Materialien','alle')] + MATS
 # Fachraum: Betreiben und warten, dann Planen und einrichten
 FACH = [('<h2 id="fachraum">','<h2 id="planen">'),('<h2 id="lagerung">','<h2 id="entsorgung">'),('<h2 id="entsorgung">','<h2 id="notfall">'),
-        ('<h2 id="zustaendig">','<h2 id="begriffe">'),('<h2 id="planen">','<h2 id="zustaendig">')]
+        ('<h2 id="planen">','<h2 id="zustaendig">')]
 HAUPT = [('grundlage','Grundlage'),('verfahren','Maschinen und Verfahren'),('material','Material'),('fachraum','Fachraum'),
-         ('unterricht','Unterricht'),('recht','Recht'),('quellen','Quellen')]
+         ('unterricht','Unterricht'),('kantone','Kantone'),('recht','Recht'),('quellen','Quellen')]
 
 # Eigene Zuordnung: welche Themen, Videos und Checklisten zu einer Maschine des Plakats passen
 TUD = 'https://www.tud.ch/lernvideos/verfahren/#'
@@ -156,8 +156,8 @@ einleitung_verf = re.search(r'<p>Die folgenden Abschnitte.*?</p>', S).group(0)
 leer = re.search(r'<p id="leer" hidden>.*?</p>', S).group(0)
 lehrplan = zw('<h2 id="lehrplan">', '<h2 id="quellen">')
 kantone = zw('<h2 id="kantone">', '<h2 id="erschliessen">')
-didaktik = zw('<h2 id="erschliessen">', '<h3>Fachraum als Lernort</h3>')
-lernort = zw('<h3>Fachraum als Lernort</h3>', '<h2 id="lehrplan">')
+didaktik = zw('<h2 id="erschliessen">', '<h3 id="lernort">Fachraum als Lernort</h3>')
+lernort = zw('<h3 id="lernort">Fachraum als Lernort</h3>', '<h2 id="lehrplan">')
 begriffe = zw('<h2 id="begriffe">', '<h2 id="recht">')
 recht = zw('<h2 id="recht">', '<h2 id="kantone">')
 BILDER = HIER + 'bilder/'
@@ -186,8 +186,15 @@ for k, (vid, name) in enumerate(VERF):
 # Fachraum ohne Unterreiter: eine Sprungliste, darunter Betreiben und Planen
 fach_teile = [zw(x, y).replace('<h2 id="fachraum">', '<h2 id="fachraum-betreiben">', 1) for x, y in FACH]
 notfall = zw('<h2 id="notfall">', '<h2 id="fachraum">').replace('<h2 id="notfall">', '<h3 id="notfall">').replace('</h2>', '</h3>', 1)
-fach_html = [allg] + fach_teile + [notfall, lernort]
-fach_html = [sprung('\n'.join(fach_html))] + fach_html
+zustaendig = zw('<h2 id="zustaendig">', '<h2 id="begriffe">')
+# Fachraum: Grundregeln offen, längere Abschnitte zugeklappt; oben eine Übersicht in drei Gruppen
+def zu(html): return re.sub(r'^(<h2 id="[^"]+">.*?</h2>)\n(.*)$', r'<details class="abschnitt">\n<summary>\1</summary>\n\2</details>', html.strip(), flags=re.S) + '\n'
+planen = fach_teile.pop() + notfall + lernort
+fach_html = ['''<div class="gruppen">
+<div><p class="g-titel">Grundregeln</p><ul><li><a href="#fuer-jeden-fachraum">Für jeden Fachraum</a></li><li><a href="#stop">STOP-Prinzip</a></li></ul></div>
+<div><p class="g-titel">Betrieb</p><ul><li><a href="#fachraum-betreiben">Fachraum betreiben und Maschinen warten</a></li><li><a href="#lagerung">Lagerung gefährlicher Stoffe</a></li><li><a href="#entsorgung">Entsorgung</a></li></ul></div>
+<div><p class="g-titel">Einrichtung</p><ul><li><a href="#planen">Fachräume planen und einrichten</a></li><li><a href="#notfall">Notfälle vorbereiten</a></li><li><a href="#lernort">Fachraum als Lernort</a></li></ul></div>
+</div>''', allg] + [zu(x) for x in fach_teile] + [zu(planen)]
 mat_html = []
 for mid, name, key in MATS:
     hint = '' if key == 'alle' else '\n<p class="einleitung">Themen aus allen Verfahren, die %s betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>.</p>' % ('«%s»' % name)
@@ -238,9 +245,10 @@ body = f'''<header class="kopf"><div class="in">
 <ul class="uebersicht">
 <li><a href="#verfahren">Maschinen und Verfahren</a> Welche Maschine ab welchem Zyklus, Regeln je Verfahren</li>
 <li><a href="#material">Material</a> Schutzausrüstung, Regeln für Holz, Metall, Kunststoff, Keramik und Textil</li>
-<li><a href="#fachraum">Fachraum</a> Grundregeln, STOP-Prinzip, Betrieb, Lagerung, Entsorgung, Planung und Notfallausrüstung</li>
-<li><a href="#unterricht">Unterricht</a> Sicher unterrichten, kantonale Vorgaben, Lehrplan 21</li>
-<li><a href="#recht">Recht</a> Sorgfaltspflicht, Haftung, Schulgesetze</li>
+<li><a href="#fachraum">Fachraum</a> Grundregeln, Betrieb, Lagerung, Entsorgung, Einrichtung und Notfallausrüstung</li>
+<li><a href="#unterricht">Unterricht</a> Sicher unterrichten, Klassenführung, Lehrplan 21</li>
+<li><a href="#kantone">Kantone</a> Merkblätter und Vorgaben der Deutschschweizer Kantone</li>
+<li><a href="#recht">Recht</a> Sorgfaltspflicht, Haftung, Schulgesetze, Zuständigkeiten</li>
 <li><a href="#quellen">Quellen</a> Alle Originaldokumente und Begriffe</li>
 </ul>
 </div>
@@ -276,18 +284,25 @@ body = f'''<header class="kopf"><div class="in">
 <section class="panel" id="unterricht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
-<li><a href="#kantone">Kantonale Vorgaben</a></li>
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
 </ul>
 {sicher}
-{kantone}
 {didaktik}
 {lehrplan}
 </div></section>
 
+<section class="panel" id="kantone"><div class="text">
+{ohne_erste_id(kantone, 'kantone')}
+</div></section>
+
 <section class="panel" id="recht"><div class="text">
+<ul class="sprung" aria-label="In diesem Register">
+<li><a href="#recht">Rechtlicher Rahmen</a></li>
+<li><a href="#zustaendig">Zuständigkeiten</a></li>
+</ul>
 {ohne_erste_id(recht, 'recht')}
+{zustaendig}
 </div></section>
 
 <section class="panel" id="quellen"><div class="text">

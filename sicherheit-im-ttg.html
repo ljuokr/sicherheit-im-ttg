@@ -315,6 +315,18 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 .uebersicht li{margin:0}
 .uebersicht a{font-weight:600;margin-right:.4rem}
 #b-ce .b-bild img,.b-pop #b-ce-bild img{max-width:min(26rem,100%);max-height:none}
+/* Fachraum: Übersicht in drei Gruppen, zugeklappte Abschnitte */
+.gruppen{display:grid;gap:1rem 2rem;margin:0 0 2rem}
+@media (min-width:48rem){ .gruppen{grid-template-columns:repeat(3,minmax(0,1fr))} }
+.g-titel{font-weight:600;margin:0 0 .3rem;padding-bottom:.25rem;border-bottom:1px solid var(--line)}
+.gruppen ul{list-style:none;padding:0;margin:0;display:grid;gap:.35rem}
+details.abschnitt{border-top:1px solid var(--line);margin:0 0 .25rem;max-width:none}
+details.abschnitt>summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:.6rem;padding:.75rem 0}
+details.abschnitt>summary::-webkit-details-marker{display:none}
+details.abschnitt>summary::before{content:"\25B8";color:var(--muted);flex:none}
+details.abschnitt[open]>summary::before{content:"\25BE"}
+details.abschnitt>summary h2{margin:0}
+details.abschnitt[open]{padding-bottom:1rem}
 </style>
 </head>
 <body>
@@ -331,6 +343,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <button type="button" role="tab" id="t-material" aria-controls="material" aria-selected="false" tabindex="-1">Material</button>
 <button type="button" role="tab" id="t-fachraum" aria-controls="fachraum" aria-selected="false" tabindex="-1">Fachraum</button>
 <button type="button" role="tab" id="t-unterricht" aria-controls="unterricht" aria-selected="false" tabindex="-1">Unterricht</button>
+<button type="button" role="tab" id="t-kantone" aria-controls="kantone" aria-selected="false" tabindex="-1">Kantone</button>
 <button type="button" role="tab" id="t-recht" aria-controls="recht" aria-selected="false" tabindex="-1">Recht</button>
 <button type="button" role="tab" id="t-quellen" aria-controls="quellen" aria-selected="false" tabindex="-1">Quellen</button>
 </div>
@@ -393,9 +406,10 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <ul class="uebersicht">
 <li><a href="#verfahren">Maschinen und Verfahren</a> Welche Maschine ab welchem Zyklus, Regeln je Verfahren</li>
 <li><a href="#material">Material</a> Schutzausrüstung, Regeln für Holz, Metall, Kunststoff, Keramik und Textil</li>
-<li><a href="#fachraum">Fachraum</a> Grundregeln, STOP-Prinzip, Betrieb, Lagerung, Entsorgung, Planung und Notfallausrüstung</li>
-<li><a href="#unterricht">Unterricht</a> Sicher unterrichten, kantonale Vorgaben, Lehrplan 21</li>
-<li><a href="#recht">Recht</a> Sorgfaltspflicht, Haftung, Schulgesetze</li>
+<li><a href="#fachraum">Fachraum</a> Grundregeln, Betrieb, Lagerung, Entsorgung, Einrichtung und Notfallausrüstung</li>
+<li><a href="#unterricht">Unterricht</a> Sicher unterrichten, Klassenführung, Lehrplan 21</li>
+<li><a href="#kantone">Kantone</a> Merkblätter und Vorgaben der Deutschschweizer Kantone</li>
+<li><a href="#recht">Recht</a> Sorgfaltspflicht, Haftung, Schulgesetze, Zuständigkeiten</li>
 <li><a href="#quellen">Quellen</a> Alle Originaldokumente und Begriffe</li>
 </ul>
 </div>
@@ -934,15 +948,11 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 </div></section>
 
 <section class="panel" id="fachraum"><div class="text">
-<ul class="sprung" aria-label="In diesem Register">
-<li><a href="#fuer-jeden-fachraum">Für jeden Fachraum</a></li>
-<li><a href="#stop">STOP-Prinzip</a></li>
-<li><a href="#fachraum-betreiben">Fachraum betreiben</a></li>
-<li><a href="#lagerung">Lagerung gefährlicher Stoffe</a></li>
-<li><a href="#entsorgung">Entsorgung</a></li>
-<li><a href="#zustaendig">Zuständigkeiten</a></li>
-<li><a href="#planen">Fachräume planen und einrichten</a></li>
-</ul>
+<div class="gruppen">
+<div><p class="g-titel">Grundregeln</p><ul><li><a href="#fuer-jeden-fachraum">Für jeden Fachraum</a></li><li><a href="#stop">STOP-Prinzip</a></li></ul></div>
+<div><p class="g-titel">Betrieb</p><ul><li><a href="#fachraum-betreiben">Fachraum betreiben und Maschinen warten</a></li><li><a href="#lagerung">Lagerung gefährlicher Stoffe</a></li><li><a href="#entsorgung">Entsorgung</a></li></ul></div>
+<div><p class="g-titel">Einrichtung</p><ul><li><a href="#planen">Fachräume planen und einrichten</a></li><li><a href="#notfall">Notfälle vorbereiten</a></li><li><a href="#lernort">Fachraum als Lernort</a></li></ul></div>
+</div>
 <h2 id="fuer-jeden-fachraum">Für jeden Fachraum</h2>
 <ul>
 <li class="verbot"><span class="vb">Verbot</span> Kein Essen und Trinken im Fachraum. Hände waschen vor den Pausen und am Ende des Unterrichts.</li>
@@ -965,7 +975,8 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 18&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 3&nbsp;↗</a></p>
 
 
-<h2 id="fachraum-betreiben">Fachraum betreiben</h2>
+<details class="abschnitt">
+<summary><h2 id="fachraum-betreiben">Fachraum betreiben</h2></summary>
 <ul>
 <li data-instr="selbst">Teilen sich mehrere Lehrpersonen einen Fachraum, braucht es ein gemeinsames Verständnis von Sicherheit, Ordnung und Regeln, und die Regeln müssen konsequent eingehalten werden.</li>
 <li data-instr="instruktion">Eine Fachraumordnung mit Bekleidungs- und Verhaltensregeln. Ihre Einhaltung wird thematisiert und eingefordert.</li>
@@ -991,8 +1002,10 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <li>Organisation: Regeln und Signalisierung, Zutritt, Pflege und Wartung, Budget, Erste Hilfe, Notfallblatt und Evakuationspläne, Notfallkonzept, Gesundheitsschutz.</li>
 <li>Sicheres Arbeiten: Arbeitsplätze, Zirkulationswege, Werkzeuge, Elektro-Kleingeräte, Maschinen, Schutzvorrichtungen, Abzugsanlage, Gasanlagen, Materialien, Leitern, Lager.</li>
 </ul>
-<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 2-4&nbsp;↗</a></p>
-<h2 id="lagerung">Lagerung gefährlicher Stoffe</h2>
+<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 2-4&nbsp;↗</a></p></details>
+
+<details class="abschnitt">
+<summary><h2 id="lagerung">Lagerung gefährlicher Stoffe</h2></summary>
 <p>Was abgeschlossen werden muss, entscheidet die Gefahrenkennzeichnung (GHS-Piktogramme, H-Sätze), nicht der Eindruck. Dispersions- und Acrylfarben gehören in der Regel nicht dazu. Verbrauchsmaterialien wie Schrauben, Nägel, Farben und Schleifpapier werden laut bfu «für die Lernenden sichtbar und griffbereit bereitgestellt».</p>
 <ul>
 <li class="verbot"><span class="vb">Verbot</span> Originalgebinde verwenden. Nie Getränkeflaschen, Konfitürengläser oder Konservendosen. Behälter nach Gebrauch verschliessen, dauerhaft beschriften, Piktogramme anbringen.</li>
@@ -1012,8 +1025,10 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <li>Brennbare Flüssigkeiten und Oxidationsmittel getrennt lagern. Schweissen, Schleifen und Trennen nicht in unmittelbarer Nähe brennbarer Flüssigkeiten und Materialien.</li>
 <li>Fachräume periodisch aufräumen und Altlasten entsorgen. Die Chemikalienverordnung verlangt, Chemikalien übersichtlich und getrennt von anderen Waren aufzubewahren.</li>
 </ul>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 37, 38&nbsp;↗</a></p>
-<h2 id="entsorgung">Entsorgung</h2>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 37, 38&nbsp;↗</a></p></details>
+
+<details class="abschnitt">
+<summary><h2 id="entsorgung">Entsorgung</h2></summary>
 <ul>
 <li class="verbot"><span class="vb">Verbot</span> Gefährliche Chemikalien dürfen nie in den Kehricht oder ins Abwasser.</li>
 <li class="verbot"><span class="vb">Verbot</span> Alte Restbestände nicht mischen und in ihrer Verpackung lassen.</li>
@@ -1022,16 +1037,10 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <li>Metall, Glas, Karton, Batterien und Elektroschrott separat sammeln und rezyklieren. Sonst gelten die Vorgaben der Gemeinde.</li>
 <li>Bei den Verfahren: Kunststoffreste ausreagieren lassen (<a href="#umformen">Umformen</a>), lösungsmittelgetränkte Lappen in Metalleimer mit Deckel, leinölgetränkte Lappen nach den Regeln zu <a href="#leinoel">Leinöl</a>, Glasurreste als Sonderabfall und Tonabscheider am Waschplatz (<a href="#oberflaeche">Oberfläche verändern</a>).</li>
 </ul>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 48, 51&nbsp;↗</a></p>
-<h2 id="zustaendig">Zuständigkeiten</h2>
-<ul>
-<li>Für die Pflichten der Lehrperson im Unterricht siehe <a href="#recht">Rechtlicher Rahmen</a>.</li>
-<li>Kanton und Gemeinden sind in der Regel für die Verfügbarkeit und Betriebssicherheit der Fachräume zuständig. Auf Verlangen kann die Sicherheit überprüft werden, etwa durch die Sicherheitsbeauftragten der Gemeinde.</li>
-<li>Schulen, in denen mit Chemikalien umgegangen wird, müssen eine Chemikalien-Ansprechperson bezeichnen und der kantonalen Fachstelle auf Anfrage melden. In Frage kommen die verantwortliche Person für die Chemikalien oder die Schulleitung.</li>
-<li>Zuständigkeiten für Pflege, Wartung und Unterhalt von Fachraum, Werkzeugen, Maschinen und Lager müssen geklärt sein, die bfu empfiehlt schriftlich: Schulträger, Schulleitung, Hausdienst, Fachverantwortliche, Lehrpersonen. Ressourcen und Entschädigung dafür sind einzuplanen wie in anderen Schulbereichen. Wartung und Lager betreuen Personen mit ausreichenden Fachkenntnissen.</li>
-</ul>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, Kapitel 1&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 5, 6, 18, 19, 22&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2, 3&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 13&nbsp;↗</a></p>
-<h2 id="planen">Fachräume planen und einrichten</h2>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 48, 51&nbsp;↗</a></p></details>
+
+<details class="abschnitt">
+<summary><h2 id="planen">Fachräume planen und einrichten</h2></summary>
 <p>Für Neubauten, Umbauten und die Neuorganisation bestehender Fachräume. Anforderungen an Schulräume und Klassengrössen gibt in der Regel der Kanton vor, siehe <a href="#kantone">Kantonale Vorgaben</a>.</p>
 <h3>Vorgehen</h3>
 <ul>
@@ -1062,8 +1071,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <li>Abstände: zwischen Arbeitstisch und Wand mindestens 85 bis 90 cm, zwischen zwei Arbeitstischen mindestens 120 cm.</li>
 <li>Regale mit gut sichtbar angeschriebener Traglast. Erhöhte Ablagen nur über trittsichere Leitern, höchstens 3 m hoch und nicht aus Holz.</li>
 </ul>
-<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 10, 14-17&nbsp;↗</a></p>
-<h3 id="notfall">Notfälle vorbereiten</h3>
+<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 10, 14-17&nbsp;↗</a></p><h3 id="notfall">Notfälle vorbereiten</h3>
 <p class="einleitung">Im Notfall liest niemand auf dieser Seite nach. Entscheidend ist, was im Fachraum bereitliegt und mit der Klasse besprochen ist.</p>
 <ul>
 <li>Ein Telefon für den Notruf. Ein Notfallblatt mit Ansprechpersonen und Notfallnummern, gut sichtbar aufgehängt.</li>
@@ -1097,8 +1105,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <li>Die Sicherheitsdatenblätter der beteiligten Stoffe für die Rettungsdienste bereithalten.</li>
 </ul>
 </details>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 42-47&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 19&nbsp;↗</a></p>
-<h3>Fachraum als Lernort</h3>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 42-47&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 19&nbsp;↗</a></p><h3 id="lernort">Fachraum als Lernort</h3>
 <p>Wie ein Fachraum das Erschliessen unterstützt, zeigt die Übersicht von Barbara Wyss: Rund um die Arbeitsplätze liegen Funktionsbereiche und Orte für verschiedene Lerntätigkeiten, ergänzt durch Räume ausserhalb des Fachraums.</p>
 <figure class="lernort">
 <div class="lo-kopf"><p class="lo-titel">Fachraum als Lernort</p><p class="lo-unter">Überlegungen zur Konzipierung von Fachräumen TTG mit Bezug zu den inhaltlichen und didaktischen Vorgaben des Lehrplans 21</p></div>
@@ -1130,13 +1137,13 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 </div>
 <figcaption>Nachgebaut nach Barbara Wyss, PH FHNW, «Fachraum als Lernort», 2019</figcaption>
 </figure>
-<p class="quelle"><a class="ql" href="https://www.schulen-aargau.ch/media/schulen-aargau/schulorganisation/infrastruktur/schulhausbau/bksvs-lernort-fachraum-ttg.pdf">Fachraum als Lernort&nbsp;↗</a></p>
+<p class="quelle"><a class="ql" href="https://www.schulen-aargau.ch/media/schulen-aargau/schulorganisation/infrastruktur/schulhausbau/bksvs-lernort-fachraum-ttg.pdf">Fachraum als Lernort&nbsp;↗</a></p></details>
+
 </div></section>
 
 <section class="panel" id="unterricht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
-<li><a href="#kantone">Kantonale Vorgaben</a></li>
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
 </ul>
@@ -1144,7 +1151,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <p>Unfallverhütung ist ein Zusammenspiel. Neben baulich-technischen Vorkehrungen braucht es Massnahmen im didaktisch-methodischen Bereich, für die einzelne Lehrperson und im Kollegium.</p>
 <ul>
 <li>Voraussetzung ist die Fachkompetenz der Lehrperson im Umgang mit Werkzeugen, Maschinen, Geräten, Materialien und Hilfsstoffen. Sie entscheidet über deren Einsatz und muss ihr Gefahrenpotenzial kennen.</li>
-<li>Unterrichtsvorbereitung und -begleitung sind Voraussetzung für sicheren Fachunterricht. Die Lehrperson schätzt die Lernvoraussetzungen ein, berücksichtigt Klassengrösse, Heterogenität und Klassendynamik und stimmt den Unterricht darauf ab.</li>
+<li>Unterrichtsvorbereitung und -begleitung sowie eine umsichtige Klassenführung sind Voraussetzung für sicheren Fachunterricht. Die Lehrperson schätzt die Lernvoraussetzungen ein, berücksichtigt Klassengrösse, Heterogenität und Klassendynamik und stimmt den Unterricht darauf ab.</li>
 <li>Sorgfältig instruieren, sodass die Schülerinnen und Schüler ihre Selbstverantwortung bei Werkzeugen, Geräten und Maschinen wahrnehmen können. Das Verhalten von Einzelnen und Gruppen berücksichtigen, ihre Fähigkeiten einschätzen und sie während der Arbeit begleiten und überwachen.</li>
 <li>Das Besprochene in der Praxis umsetzen und konkret üben lassen. Dabei ist das Vorbild der Lehrperson sehr wichtig.</li>
 <li>Regeln der Fachraumordnung thematisieren und ihre Einhaltung einfordern, siehe <a href="#fachraum-betreiben">Fachraum betreiben</a>. Was Aufsicht bei den Gruppen A, B, C heisst, steht bei den <a href="#aufsicht">Gefahrenkategorien</a>, wie viel Aufsicht nötig ist, unter <a href="#recht">Rechtlicher Rahmen</a>.</li>
@@ -1152,26 +1159,6 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 6, 18&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2&nbsp;↗</a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 5&nbsp;↗</a> · <a class="ql" href="https://api.zebis.ch/sites/default/files/teaching_material/sicherer_umgang_mit_maschinen_lu_2003.pdf">Orientierungshilfe Luzern, S. 1&nbsp;↗</a></p>
 
 
-<h2 id="kantone">Kantonale Vorgaben</h2>
-<p>Massgebend sind die Vorgaben des jeweiligen Kantons. Eine Suche in allen Deutschschweizer Kantonen ergab nur wenige eigene, öffentlich zugängliche Dokumente zur Sicherheit im TTG. Die meisten Kantone verweisen auf bfu, Suva und chemsuisse. Dass hier kein Dokument steht, heisst nicht, dass es keine Regelung gibt. Im Zweifel beim Volksschulamt oder bei der Fachberatung des Kantons nachfragen.</p>
-<div class="wrap">
-<table class="kantone">
-<thead><tr><th>Kanton</th><th>Dokument</th><th>Was es festhält</th></tr></thead>
-<tbody>
-<tr><td>Bern</td><td><a href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt «Sicherheit im Textilen und Technischen Gestalten»</a>, Bildungs- und Kulturdirektion, AKVB</td><td>Rechtsgrundlagen (LAV, OR, ArG), Einführung in Maschinen nur durch Lehrpersonen mit Fachkenntnissen, Umgang mit Werk- und Hilfsstoffen, STOP-Prinzip. Der Lehrplan 21 Bern (Allgemeine Hinweise und Bestimmungen, Kapitel 8.1) hält fest, dass die Sicherheitsbestimmungen der Fachbereiche in Merkblättern geregelt sind, übernimmt die drei Gefahrengruppen der bfu und verlangt, dass Lehrpersonen und Lernende über Erste Hilfe bei Schnitt-, Strom- und Brandverletzungen informiert sind.</td></tr>
-<tr><td>Zürich</td><td><a href="https://www.zh.ch/content/dam/zhweb/bilder-dokumente/themen/bildung/informationen-fuer-schulen/informationen-fuer-die-volksschule/fuehrung/finanzen-infrastruktur/fachr%C3%A4ume-f%C3%BCr-textiles-und-technisches-gestalten-(ttg)/werkzeug_maschinenliste.pdf">Empfehlung «Sicherheit beim Einsatz von Maschinen und Werkzeugen im Unterricht»</a>, Fachberatung TTG des Kantons, 08/2026, PDF 14 MB</td><td>Eigene Maschinenliste in vier Gruppen: für den 2. und 3. Zyklus, nur für den 3. Zyklus, im 3. Zyklus nur unter direkter Aufsicht, nur für Lehrpersonen, mit Sicherheitstipps je Gerät. Grundsatz: Lehrpersonen müssen an den Maschinen und Geräten, die sie verwenden, ausgebildet sein.</td></tr>
-<tr><td>Zürich</td><td><a href="https://www.zh.ch/content/dam/zhweb/bilder-dokumente/themen/wirtschaft-arbeit/arbeitsbedingungen/lohn-arbeitsbedingungen/arbeitsinspektorat/asa_kompakt_schulen_de.pdf">«ASAschule»</a>, Arbeitsinspektorat des Kantons</td><td>Checkliste zur Umsetzung der EKAS-Richtlinie 6508 für die ganze Schule, mit einem Teil zu Maschinen im Werkunterricht (Augenschutz, Lärm, Holzstaub, Brandgefahr).</td></tr>
-<tr><td>Basel-Stadt</td><td><a href="https://www.edubs.ch/unterricht/faecher/technisches-gestalten">eduBS, Fach Technisches Gestalten</a>, Erziehungsdepartement</td><td>Wer Technisches Gestalten in einem Spezialraum mit Maschinen unterrichtet, braucht dafür eine Berechtigung. Wer sie nicht aus der Ausbildung mitbringt, kann sie in einem Maschinenkurs am PZ.BS erwerben.</td></tr>
-<tr><td>Aargau</td><td><a href="https://www.schulen-aargau.ch/regelschule/schulorganisation/infrastruktur-schulbauten/schulbauten-schulraeume/raeume-primarschule-oberstufe?dc=82d48f03-4187-4294-aaad-a9b66cc89ffb_regelschule">Schulportal, «Fachräume TTG in der Primarschule»</a> und <a href="https://www.schulen-aargau.ch/regelschule/schulorganisation/infrastruktur-schulbauten/schulbauten-schulraeume/raeume-primarschule-oberstufe?dc=061e5b79-0cad-4908-b5bd-91317c3cfb49_regelschule">«Fachraum TTG in der Oberstufe»</a>, Departement Bildung, Kultur und Sport, 2026</td><td>Raumvorgaben mit Sicherheitsbezug: Räume für 16 Lernende, Stromversorgung der Maschinen über Schlüsselschalter, Anschluss über Wand- oder Hängesteckdosen statt Verlängerungskabel, FI-Schutzschalter, Sichtkontakt zur Maschinenzone, wenn möglich ein Ausgang ins Freie, auch als Fluchtweg. Für die Oberstufe zusätzlich: eigene Maschinenräume für Holz und Metall, feuerhemmende Böden und Wände, wo mit Feuer und Hitze gearbeitet wird, Behälter mit Butan oder Propan nicht unterflur, darum Metallräume ebenerdig und gut gelüftet, Gase, Dämpfe, Rauch, Staub und Späne so nahe wie möglich an der Entstehungsstelle absaugen. Für die Sicherheit verweisen beide Seiten auf bfu und Suva.</td></tr>
-<tr><td>Aargau</td><td><a href="https://www.schulen-aargau.ch/media/schulen-aargau/schulorganisation/infrastruktur/schulhausbau/bksvs-lernort-fachraum-ttg.pdf">«Fachraum als Lernort»</a>, Übersicht von Barbara Wyss, PH FHNW, 2019, auf dem Schulportal des Kantons</td><td>Funktionsbereiche eines TTG-Fachraums für 12 bis 16 Lernende, mit Sicherheitsbezug: Erste Hilfe mit Notfallnummern und gut sichtbarer, gut ausgestatteter Apotheke, Maschinenraum mit Maschinen für die Lehrpersonen, Berücksichtigung der Unfallverhütung bei Maschinen und Geräten, Plätze im Aussenraum für Arbeiten mit Speckstein oder lösungsmittelhaltigen Stoffen, Spezialraum etwa für den Brennofen und für Spritz- und Lackierarbeiten.</td></tr>
-<tr><td>Zug</td><td><a href="https://cdn.zg.ch/dam/jcr:1b42d79f-0ead-48d7-8e09-24d3beed78d3/7_Sicherer%20Umgang%20mit%20Chemikalien%20an%20Schulen.pdf">«Sicherer Umgang mit Chemikalien an Schulen»</a>, Präsentation der Chemikalienfachstelle, 9. November 2023</td><td>Nennt TTG ausdrücklich. Pflichten nach Chemikalienrecht: Sicherheitskonzept, Chemikalien-Ansprechperson, verbotene und problematische Stoffe mit Ersatzstoffen, Inventar, Lagerung, Entsorgung und Aufräumaktion. Stützt sich auf den chemsuisse-Leitfaden.</td></tr>
-<tr><td>Luzern</td><td><a href="https://api.zebis.ch/sites/default/files/teaching_material/sicherer_umgang_mit_maschinen_lu_2003.pdf">«Sicherer Umgang mit Maschinen im Technischen Gestalten. Orientierungshilfe für Lehrpersonen»</a>, Amt für Volksschulbildung, 2003, abgelegt auf zebis</td><td>Eigene Maschinenliste nach Stufe und Hinweise zu Obhut, Aufsicht und Schlüsselschalter. Das Dokument ist von 2003, eine neuere Fassung wurde nicht gefunden.</td></tr>
-</tbody>
-</table>
-</div>
-<p>Kurse zum sicheren Umgang mit Maschinen bieten unter anderem die <a href="https://www.fhnw.ch/de/ph/weiterbildung/angebot/weiterbildungen/9914667">PH FHNW</a> (für Lehrpersonen aus den Kantonen Aargau und Solothurn finanziert) und das PZ.BS in Basel an. An der <a href="https://www.phsg.ch/de/studium/sekundarstufe-i/bachelor-master-studium/studieninhalt/technisches-gestalten">PH St. Gallen</a> ist ein Modul «BfU-Kurs Maschinenkenntnisse» Pflicht im Studium Technisches Gestalten für die Sekundarstufe I.</p>
-<p>Ohne eigenes öffentliches Dokument zur Sicherheit im TTG gefunden: Appenzell Ausserrhoden, Appenzell Innerrhoden, Basel-Landschaft, Freiburg (deutschsprachiger Teil), Glarus, Graubünden, Nidwalden, Obwalden, Schaffhausen, Schwyz, Solothurn, St. Gallen, Thurgau, Uri, Wallis (Oberwallis). Einige dieser Kantone haben Empfehlungen für Schulbauten mit Hinweisen zu Maschinenräumen. Die Fachberatung Technisches Gestalten der PH Wallis führt eine Rubrik «Sicherheit», die während der Recherche nicht erreichbar war.</p>
-<p class="quelle">Recherche auf den Seiten der kantonalen Bildungsdepartemente, Volksschulämter, Lehrplanportale und Pädagogischen Hochschulen, dazu vertiefte Websuche mit Suchmaschinen, PDF-Suche, zebis sowie Schul- und Amtsblättern, Stand Oktober 2026. Ohne Gewähr auf Vollständigkeit</p>
 <h2 id="erschliessen">Vom Produktions- zum Erschliessungshandeln</h2>
 <p>Früher war der Werkraum vor allem eine Produktionswerkstatt: Im Zentrum stand die Herstellung eines Gegenstands, oft in Lehrgängen, und die Räume waren nach Werkstoffen eingeteilt. Mit dem Lehrplan 21 wird ein Wandel zum Erschliessungsfachraum angestrebt. Bedeutsame Themen aus Design und Technik sollen über das Handeln, das Herstellen und das Reflektieren erschlossen werden. Dazu gehören neben der Herstellung auch der Gebrauch, die Bewertung und die Entsorgung von Gegenständen.</p>
 <div class="wrap"><table class="vergleich">
@@ -1196,7 +1183,34 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 20&nbsp;↗</a> · <a class="ql" href="https://v-fe.lehrplan.ch/index.php?code=b%7C7%7C2">Lehrplan 21, TTG.2.E.1 und TTG.2.A.2&nbsp;↗</a></p>
 </div></section>
 
+<section class="panel" id="kantone"><div class="text">
+<h2>Kantonale Vorgaben</h2>
+<p>Massgebend sind die Vorgaben des jeweiligen Kantons. Eine Suche in allen Deutschschweizer Kantonen ergab nur wenige eigene, öffentlich zugängliche Dokumente zur Sicherheit im TTG. Die meisten Kantone verweisen auf bfu, Suva und chemsuisse. Dass hier kein Dokument steht, heisst nicht, dass es keine Regelung gibt. Im Zweifel beim Volksschulamt oder bei der Fachberatung des Kantons nachfragen.</p>
+<div class="wrap">
+<table class="kantone">
+<thead><tr><th>Kanton</th><th>Dokument</th><th>Was es festhält</th></tr></thead>
+<tbody>
+<tr><td>Bern</td><td><a href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt «Sicherheit im Textilen und Technischen Gestalten»</a>, Bildungs- und Kulturdirektion, AKVB</td><td>Rechtsgrundlagen (LAV, OR, ArG), Einführung in Maschinen nur durch Lehrpersonen mit Fachkenntnissen, Umgang mit Werk- und Hilfsstoffen, STOP-Prinzip. Der Lehrplan 21 Bern (Allgemeine Hinweise und Bestimmungen, Kapitel 8.1) hält fest, dass die Sicherheitsbestimmungen der Fachbereiche in Merkblättern geregelt sind, übernimmt die drei Gefahrengruppen der bfu und verlangt, dass Lehrpersonen und Lernende über Erste Hilfe bei Schnitt-, Strom- und Brandverletzungen informiert sind.</td></tr>
+<tr><td>Zürich</td><td><a href="https://www.zh.ch/content/dam/zhweb/bilder-dokumente/themen/bildung/informationen-fuer-schulen/informationen-fuer-die-volksschule/fuehrung/finanzen-infrastruktur/fachr%C3%A4ume-f%C3%BCr-textiles-und-technisches-gestalten-(ttg)/werkzeug_maschinenliste.pdf">Empfehlung «Sicherheit beim Einsatz von Maschinen und Werkzeugen im Unterricht»</a>, Fachberatung TTG des Kantons, 08/2026, PDF 14 MB</td><td>Eigene Maschinenliste in vier Gruppen: für den 2. und 3. Zyklus, nur für den 3. Zyklus, im 3. Zyklus nur unter direkter Aufsicht, nur für Lehrpersonen, mit Sicherheitstipps je Gerät. Grundsatz: Lehrpersonen müssen an den Maschinen und Geräten, die sie verwenden, ausgebildet sein.</td></tr>
+<tr><td>Zürich</td><td><a href="https://www.zh.ch/content/dam/zhweb/bilder-dokumente/themen/wirtschaft-arbeit/arbeitsbedingungen/lohn-arbeitsbedingungen/arbeitsinspektorat/asa_kompakt_schulen_de.pdf">«ASAschule»</a>, Arbeitsinspektorat des Kantons</td><td>Checkliste zur Umsetzung der EKAS-Richtlinie 6508 für die ganze Schule, mit einem Teil zu Maschinen im Werkunterricht (Augenschutz, Lärm, Holzstaub, Brandgefahr).</td></tr>
+<tr><td>Basel-Stadt</td><td><a href="https://www.edubs.ch/unterricht/faecher/technisches-gestalten">eduBS, Fach Technisches Gestalten</a>, Erziehungsdepartement</td><td>Wer Technisches Gestalten in einem Spezialraum mit Maschinen unterrichtet, braucht dafür eine Berechtigung. Wer sie nicht aus der Ausbildung mitbringt, kann sie in einem Maschinenkurs am PZ.BS erwerben.</td></tr>
+<tr><td>Aargau</td><td><a href="https://www.schulen-aargau.ch/regelschule/schulorganisation/infrastruktur-schulbauten/schulbauten-schulraeume/raeume-primarschule-oberstufe?dc=82d48f03-4187-4294-aaad-a9b66cc89ffb_regelschule">Schulportal, «Fachräume TTG in der Primarschule»</a> und <a href="https://www.schulen-aargau.ch/regelschule/schulorganisation/infrastruktur-schulbauten/schulbauten-schulraeume/raeume-primarschule-oberstufe?dc=061e5b79-0cad-4908-b5bd-91317c3cfb49_regelschule">«Fachraum TTG in der Oberstufe»</a>, Departement Bildung, Kultur und Sport, 2026</td><td>Raumvorgaben mit Sicherheitsbezug: Räume für 16 Lernende, Stromversorgung der Maschinen über Schlüsselschalter, Anschluss über Wand- oder Hängesteckdosen statt Verlängerungskabel, FI-Schutzschalter, Sichtkontakt zur Maschinenzone, wenn möglich ein Ausgang ins Freie, auch als Fluchtweg. Für die Oberstufe zusätzlich: eigene Maschinenräume für Holz und Metall, feuerhemmende Böden und Wände, wo mit Feuer und Hitze gearbeitet wird, Behälter mit Butan oder Propan nicht unterflur, darum Metallräume ebenerdig und gut gelüftet, Gase, Dämpfe, Rauch, Staub und Späne so nahe wie möglich an der Entstehungsstelle absaugen. Für die Sicherheit verweisen beide Seiten auf bfu und Suva.</td></tr>
+<tr><td>Aargau</td><td><a href="https://www.schulen-aargau.ch/media/schulen-aargau/schulorganisation/infrastruktur/schulhausbau/bksvs-lernort-fachraum-ttg.pdf">«Fachraum als Lernort»</a>, Übersicht von Barbara Wyss, PH FHNW, 2019, auf dem Schulportal des Kantons</td><td>Funktionsbereiche eines TTG-Fachraums für 12 bis 16 Lernende, mit Sicherheitsbezug: Erste Hilfe mit Notfallnummern und gut sichtbarer, gut ausgestatteter Apotheke, Maschinenraum mit Maschinen für die Lehrpersonen, Berücksichtigung der Unfallverhütung bei Maschinen und Geräten, Plätze im Aussenraum für Arbeiten mit Speckstein oder lösungsmittelhaltigen Stoffen, Spezialraum etwa für den Brennofen und für Spritz- und Lackierarbeiten.</td></tr>
+<tr><td>Zug</td><td><a href="https://cdn.zg.ch/dam/jcr:1b42d79f-0ead-48d7-8e09-24d3beed78d3/7_Sicherer%20Umgang%20mit%20Chemikalien%20an%20Schulen.pdf">«Sicherer Umgang mit Chemikalien an Schulen»</a>, Präsentation der Chemikalienfachstelle, 9. November 2023</td><td>Nennt TTG ausdrücklich. Pflichten nach Chemikalienrecht: Sicherheitskonzept, Chemikalien-Ansprechperson, verbotene und problematische Stoffe mit Ersatzstoffen, Inventar, Lagerung, Entsorgung und Aufräumaktion. Stützt sich auf den chemsuisse-Leitfaden.</td></tr>
+<tr><td>Luzern</td><td><a href="https://api.zebis.ch/sites/default/files/teaching_material/sicherer_umgang_mit_maschinen_lu_2003.pdf">«Sicherer Umgang mit Maschinen im Technischen Gestalten. Orientierungshilfe für Lehrpersonen»</a>, Amt für Volksschulbildung, 2003, abgelegt auf zebis</td><td>Eigene Maschinenliste nach Stufe und Hinweise zu Obhut, Aufsicht und Schlüsselschalter. Das Dokument ist von 2003, eine neuere Fassung wurde nicht gefunden.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Kurse zum sicheren Umgang mit Maschinen bieten unter anderem die <a href="https://www.fhnw.ch/de/ph/weiterbildung/angebot/weiterbildungen/9914667">PH FHNW</a> (für Lehrpersonen aus den Kantonen Aargau und Solothurn finanziert) und das PZ.BS in Basel an. An der <a href="https://www.phsg.ch/de/studium/sekundarstufe-i/bachelor-master-studium/studieninhalt/technisches-gestalten">PH St. Gallen</a> ist ein Modul «BfU-Kurs Maschinenkenntnisse» Pflicht im Studium Technisches Gestalten für die Sekundarstufe I.</p>
+<p>Ohne eigenes öffentliches Dokument zur Sicherheit im TTG gefunden: Appenzell Ausserrhoden, Appenzell Innerrhoden, Basel-Landschaft, Freiburg (deutschsprachiger Teil), Glarus, Graubünden, Nidwalden, Obwalden, Schaffhausen, Schwyz, Solothurn, St. Gallen, Thurgau, Uri, Wallis (Oberwallis). Einige dieser Kantone haben Empfehlungen für Schulbauten mit Hinweisen zu Maschinenräumen. Die Fachberatung Technisches Gestalten der PH Wallis führt eine Rubrik «Sicherheit», die während der Recherche nicht erreichbar war.</p>
+<p class="quelle">Recherche auf den Seiten der kantonalen Bildungsdepartemente, Volksschulämter, Lehrplanportale und Pädagogischen Hochschulen, dazu vertiefte Websuche mit Suchmaschinen, PDF-Suche, zebis sowie Schul- und Amtsblättern, Stand Oktober 2026. Ohne Gewähr auf Vollständigkeit</p>
+</div></section>
+
 <section class="panel" id="recht"><div class="text">
+<ul class="sprung" aria-label="In diesem Register">
+<li><a href="#recht">Rechtlicher Rahmen</a></li>
+<li><a href="#zustaendig">Zuständigkeiten</a></li>
+</ul>
 <h2>Rechtlicher Rahmen</h2>
 <h3>Bewusst offen formuliert</h3>
 <p>Das Unfallversicherungsgesetz verlangt die Massnahmen, die nach der Erfahrung notwendig, nach dem Stand der Technik anwendbar und den Verhältnissen angemessen sind (UVG Art. 82 Abs. 1). Was das konkret heisst, beschreiben Richtlinien und Merkblätter. Beurteilt wird immer der Einzelfall, abhängig von den Lernvoraussetzungen, der Klasse und der Situation.</p>
@@ -1225,6 +1239,13 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <li>Der Arbeitgeber ist hauptverantwortlich für den Schutz der Lehrpersonen (OR Art. 328), die Lehrpersonen wirken bei der Umsetzung mit (ArG Art. 6).</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://www.belex.sites.be.ch/app/de/texts_of_law/430.250">LAG Bern&nbsp;↗</a> · <a class="ql" href="https://srl.lu.ch/app/de/texts_of_law/400a">VBG Luzern&nbsp;↗</a> · <a class="ql" href="https://www.gesetzessammlung.sg.ch/app/de/texts_of_law/213.1">VSG St. Gallen&nbsp;↗</a> · <a class="ql" href="https://gesetzessammlungen.ag.ch/app/de/texts_of_law/411.200">GAL Aargau&nbsp;↗</a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 1&nbsp;↗</a> · <a class="ql" href="https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de">OR&nbsp;↗</a> · <a class="ql" href="https://www.fedlex.admin.ch/eli/cc/1966/57_57_57/de">ArG&nbsp;↗</a></p>
+<h2 id="zustaendig">Zuständigkeiten</h2>
+<ul>
+<li>Kanton und Gemeinden sind in der Regel für die Verfügbarkeit und Betriebssicherheit der Fachräume zuständig. Auf Verlangen kann die Sicherheit überprüft werden, etwa durch die Sicherheitsbeauftragten der Gemeinde.</li>
+<li>Schulen, in denen mit Chemikalien umgegangen wird, müssen eine Chemikalien-Ansprechperson bezeichnen und der kantonalen Fachstelle auf Anfrage melden. In Frage kommen die verantwortliche Person für die Chemikalien oder die Schulleitung.</li>
+<li>Zuständigkeiten für Pflege, Wartung und Unterhalt von Fachraum, Werkzeugen, Maschinen und Lager müssen geklärt sein, die bfu empfiehlt schriftlich: Schulträger, Schulleitung, Hausdienst, Fachverantwortliche, Lehrpersonen. Ressourcen und Entschädigung dafür sind einzuplanen wie in anderen Schulbereichen. Wartung und Lager betreuen Personen mit ausreichenden Fachkenntnissen.</li>
+</ul>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, Kapitel 1&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 5, 6, 18, 19, 22&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2, 3&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 13&nbsp;↗</a></p>
 </div></section>
 
 <section class="panel" id="quellen"><div class="text">
@@ -1766,7 +1787,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
     // Suche auch in den übrigen Registern: Treffer nach Abschnitt gruppiert, mit Link zum Abschnitt
     var weitere=0;
     if(q){
-      ['grundlage','fachraum','unterricht','recht','quellen'].forEach(function(pid){
+      ['grundlage','fachraum','unterricht','kantone','recht','quellen'].forEach(function(pid){
         var kopf=null, gruppen=[], akt=null;
         $$('h2,h3,li,p:not(.quelle):not(.g-k):not(.g-mehr),tr',document.getElementById(pid)).forEach(function(x){
           if(x.closest('#instr-liste, .rand')) return;
@@ -1829,7 +1850,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
     var muster=new RegExp('(^|[^\\wäöüÄÖÜ\u00df-])('+woerter.map(function(x){ return esc(x.w); }).join('|')+')(?![\\wäöüÄÖÜ\u00df-])');
     var idVon={}; woerter.forEach(function(x){ idVon[x.w]=x.id; });
     // Abschnitte, in denen je Begriff nur das erste Vorkommen verlinkt wird
-    var bloecke=$$('#register .thema, #register .sub:not(#material .sub), #grundlage, #verfahren > .text > section:not(.verfahren), #fachraum, #unterricht, #recht, #quellen');
+    var bloecke=$$('#register .thema, #register .sub:not(#material .sub), #grundlage, #verfahren > .text > section:not(.verfahren), #fachraum, #unterricht, #kantone, #recht, #quellen');
     var NICHT=['A','BUTTON','H2','H3','H4','TH','FIGCAPTION','LABEL','OPTION','SCRIPT','STYLE'];
     bloecke.forEach(function(blk){
       if(blk.closest('.begriff')) return;
@@ -1901,7 +1922,8 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
     if(!z || erg.contains(z) || leiste.contains(z)) return false;
     var panel=z.closest('.panel'); if(!panel) return false;
     if(!erg.hidden) beenden();
-    var sub=z.closest('.sub');
+    var sub=z.closest('.sub'), auf=z.closest('details');
+    if(auf) auf.open=true;
     zeige(panel.id,sub?sub.id:null,id);
     if(z===panel||z===sub) nachOben(); else z.scrollIntoView();
     if(fokus){ if(!z.hasAttribute('tabindex')) z.setAttribute('tabindex','-1'); z.focus({preventScroll:true}); }

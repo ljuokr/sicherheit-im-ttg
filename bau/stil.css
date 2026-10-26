@@ -304,3 +304,15 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 .uebersicht li{margin:0}
 .uebersicht a{font-weight:600;margin-right:.4rem}
 #b-ce .b-bild img,.b-pop #b-ce-bild img{max-width:min(26rem,100%);max-height:none}
+/* Fachraum: Übersicht in drei Gruppen, zugeklappte Abschnitte */
+.gruppen{display:grid;gap:1rem 2rem;margin:0 0 2rem}
+@media (min-width:48rem){ .gruppen{grid-template-columns:repeat(3,minmax(0,1fr))} }
+.g-titel{font-weight:600;margin:0 0 .3rem;padding-bottom:.25rem;border-bottom:1px solid var(--line)}
+.gruppen ul{list-style:none;padding:0;margin:0;display:grid;gap:.35rem}
+details.abschnitt{border-top:1px solid var(--line);margin:0 0 .25rem;max-width:none}
+details.abschnitt>summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:.6rem;padding:.75rem 0}
+details.abschnitt>summary::-webkit-details-marker{display:none}
+details.abschnitt>summary::before{content:"\25B8";color:var(--muted);flex:none}
+details.abschnitt[open]>summary::before{content:"\25BE"}
+details.abschnitt>summary h2{margin:0}
+details.abschnitt[open]{padding-bottom:1rem}

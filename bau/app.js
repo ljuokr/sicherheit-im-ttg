@@ -300,7 +300,7 @@
     // Suche auch in den übrigen Registern: Treffer nach Abschnitt gruppiert, mit Link zum Abschnitt
     var weitere=0;
     if(q){
-      ['grundlage','fachraum','unterricht','recht','quellen'].forEach(function(pid){
+      ['grundlage','fachraum','unterricht','kantone','recht','quellen'].forEach(function(pid){
         var kopf=null, gruppen=[], akt=null;
         $$('h2,h3,li,p:not(.quelle):not(.g-k):not(.g-mehr),tr',document.getElementById(pid)).forEach(function(x){
           if(x.closest('#instr-liste, .rand')) return;
@@ -363,7 +363,7 @@
     var muster=new RegExp('(^|[^\\wäöüÄÖÜ\u00df-])('+woerter.map(function(x){ return esc(x.w); }).join('|')+')(?![\\wäöüÄÖÜ\u00df-])');
     var idVon={}; woerter.forEach(function(x){ idVon[x.w]=x.id; });
     // Abschnitte, in denen je Begriff nur das erste Vorkommen verlinkt wird
-    var bloecke=$$('#register .thema, #register .sub:not(#material .sub), #grundlage, #verfahren > .text > section:not(.verfahren), #fachraum, #unterricht, #recht, #quellen');
+    var bloecke=$$('#register .thema, #register .sub:not(#material .sub), #grundlage, #verfahren > .text > section:not(.verfahren), #fachraum, #unterricht, #kantone, #recht, #quellen');
     var NICHT=['A','BUTTON','H2','H3','H4','TH','FIGCAPTION','LABEL','OPTION','SCRIPT','STYLE'];
     bloecke.forEach(function(blk){
       if(blk.closest('.begriff')) return;
@@ -435,7 +435,8 @@
     if(!z || erg.contains(z) || leiste.contains(z)) return false;
     var panel=z.closest('.panel'); if(!panel) return false;
     if(!erg.hidden) beenden();
-    var sub=z.closest('.sub');
+    var sub=z.closest('.sub'), auf=z.closest('details');
+    if(auf) auf.open=true;
     zeige(panel.id,sub?sub.id:null,id);
     if(z===panel||z===sub) nachOben(); else z.scrollIntoView();
     if(fokus){ if(!z.hasAttribute('tabindex')) z.setAttribute('tabindex','-1'); z.focus({preventScroll:true}); }
