@@ -241,12 +241,8 @@ body = f'''<header class="kopf"><div class="in">
 </aside>
 <div class="haupt">
 {grund_ohne}
-<h2 id="was-wo">Was wo steht</h2>
+<h2 id="was-wo">Ausserdem</h2>
 <ul class="uebersicht">
-<li><a href="#verfahren">Maschinen und Verfahren</a> Welche Maschine ab welchem Zyklus, Regeln je Verfahren</li>
-<li><a href="#material">Material</a> Schutzausrüstung, Regeln für Holz, Metall, Kunststoff, Keramik und Textil</li>
-<li><a href="#fachraum">Fachraum</a> Grundregeln, Betrieb, Lagerung, Entsorgung, Einrichtung und Notfallausrüstung</li>
-<li><a href="#unterricht">Unterricht</a> Sicher unterrichten, Klassenführung, Lehrplan 21</li>
 <li><a href="#kantone">Kantone</a> Merkblätter und Vorgaben der Deutschschweizer Kantone</li>
 <li><a href="#recht">Recht</a> Sorgfaltspflicht, Haftung, Schulgesetze, Zuständigkeiten</li>
 <li><a href="#quellen">Quellen</a> Alle Originaldokumente und Begriffe</li>
