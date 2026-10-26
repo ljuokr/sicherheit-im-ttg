@@ -26,6 +26,7 @@
   /* Unterricht: Instruktion und Aufsicht, wörtlich gesammelt */
   (function(){
     var ziel=$('#instr-liste'), gruppen={instruktion:[],aufsicht:[],selbst:[]};
+    if(!ziel) return;
     var TITEL={instruktion:'Instruieren',aufsicht:'Beaufsichtigen',selbst:'Selbst übernehmen oder entscheiden'};
     $$('#register li[data-instr]').forEach(function(li){
       var g=li.getAttribute('data-instr'), c=kopie(li), thema=li.closest('.thema'), titel, id, quelle=null;
@@ -369,7 +370,7 @@
       var gesehen={};
       var walker=document.createTreeWalker(blk,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
         var p=n.parentNode;
-        while(p && p!==blk){ if(NICHT.indexOf(p.tagName)>-1 || (p.classList && (p.classList.contains('quelle')||p.classList.contains('begriff')||p.classList.contains('vb')||p.classList.contains('uebersicht')))) return NodeFilter.FILTER_REJECT; p=p.parentNode; }
+        while(p && p!==blk){ if(NICHT.indexOf(p.tagName)>-1 || (p.classList && (p.classList.contains('quelle')||p.classList.contains('begriff')||p.classList.contains('vb')||p.classList.contains('uebersicht')||p.classList.contains('lernort')))) return NodeFilter.FILTER_REJECT; p=p.parentNode; }
         return NodeFilter.FILTER_ACCEPT;
       }});
       var knoten=[]; while(walker.nextNode()) knoten.push(walker.currentNode);

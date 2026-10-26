@@ -161,8 +161,8 @@ table.kantone td:first-child{white-space:nowrap}
 .p-kopf h3 a{text-decoration:none}
 .p-kopf h3 a:hover{text-decoration:underline}
 .p-zyk,.dots{display:grid;grid-template-columns:repeat(3,1.6rem);justify-items:center;flex:none}
-.p-zyk{justify-items:start}
-.p-zyk span{width:1.6rem;text-align:left}
+.p-zyk{justify-items:center}
+.p-zyk span{width:1.6rem;text-align:center}
 .p-liste{list-style:none;margin:0;padding:0;max-width:none}
 .p-liste li{margin:0}
 .m-zeile{font:inherit;color:inherit;background:none;border:0;width:100%;display:flex;align-items:center;gap:1.1rem;padding:.2rem 0;text-align:left;cursor:pointer}
@@ -236,20 +236,36 @@ table.kantone td:first-child{white-space:nowrap}
 /* Didaktik: Vergleichstabelle und Lernort nach B. Wyss */
 table.vergleich{min-width:34rem}
 table.vergleich th[scope=row]{width:9rem;color:var(--muted);font-weight:600}
-.lernort{margin:1rem 0 1.25rem;display:grid;gap:1rem;max-width:68rem}
-@media (min-width:60rem){ .lernort{grid-template-columns:minmax(0,1fr) 15rem} }
-.lo-raum{background:var(--tint);border:1px solid var(--line);padding:.8rem;display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr))}
-.lo-mitte{grid-column:1/-1;background:var(--bg);border:1px dashed var(--line);padding:.8rem;text-align:center}
-.lo-f,.lo-l,.lo-a{padding:.5rem .6rem;border-left:4px solid;background:var(--bg);min-width:0}
-.lo-f{border-left-color:var(--pa)}
-.lo-l{border-left-color:var(--pb)}
-.lo-a{border-left-color:var(--muted)}
-.lo-t{display:block;font-weight:600}
-.lo-aussen{display:grid;gap:.6rem;align-content:start}
-.lo-k{font-weight:600;color:var(--muted)}
-.lernort figcaption{grid-column:1/-1;color:var(--muted);font-size:.875rem;display:flex;flex-wrap:wrap;gap:.3rem 1rem;align-items:center}
-.lo-leg{padding-left:.5rem;border-left:4px solid}
-.lo-leg-f{border-left-color:var(--pa)} .lo-leg-l{border-left-color:var(--pb)} .lo-leg-a{border-left-color:var(--muted)}
+/* Lernort nach Wyss: eigene helle Farbwelt wie im Original, in beiden Modi */
+.lernort{margin:1rem 0 1.25rem;width:min(64rem,calc(100vw - 2.5rem));max-width:none;background:#fff;color:#1a1a1a;padding:.75rem;border:1px solid var(--line);font-size:.8125rem;line-height:1.3}
+.lernort b{display:block;font-weight:600;text-align:center}
+.lo-kopf{background:#c5d97b;padding:.4rem .6rem;text-align:center;margin-bottom:.6rem}
+.lo-titel{margin:0;font-size:1.05rem;font-weight:600}
+.lo-unter{margin:0}
+.lo-legende{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem}
+.lo-legende span{padding:.25rem .6rem;font-weight:600}
+.lo-legende .lo-ausserhalb{background:#e3e3e3;margin-left:auto}
+.lo-plan{display:grid;gap:.6rem}
+@media (min-width:52rem){ .lo-plan{grid-template-columns:minmax(0,1fr) 12rem} }
+.lo-raum{background:#e3e3e3;padding:.6rem;display:grid;gap:.5rem;grid-template-columns:repeat(5,minmax(0,1fr));
+  grid-template-areas:". ab nz inf ill" "eh mi mi mi pr" "wz mi mi mi re" "mg mi mi mi ." ". vm sp in ."}
+.lo-raum>div{padding:.4rem;text-align:center;min-width:0;hyphens:auto}
+.lo-f{background:#a9c95a}
+.lo-l{background:#dfe79c}
+.lo-tisch{background:#bcdcea}
+.lo-mitte{background:#fff;color:#8a3b3b}
+.lo-mitte p{margin:.2rem 0 .5rem}
+.lo-tische{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem 1rem;padding:0 .5rem}
+.lo-tische span{background:#bcdcea;color:#1a1a1a;padding:.6rem .2rem;font-weight:600;hyphens:manual}
+.lo-tische span:nth-child(odd){margin-top:.8rem}
+.lo-aussen{display:grid;gap:.5rem;align-content:start}
+.lo-aussen>div{background:#a9c95a;padding:.4rem;text-align:center}
+.lernort figcaption{margin-top:.5rem;color:#555}
+@media (max-width:40rem){
+  .lo-raum{grid-template-columns:1fr 1fr;grid-template-areas:"mi mi" "ab nz" "inf ill" "eh pr" "wz re" "mg vm" "sp in"}
+  .lo-tische{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lo-legende .lo-ausserhalb{margin-left:0}
+}
 
 /* Maschinen und Verfahren: das Plakat ersetzt die Tabellen je Verfahren (ohne Skript bleiben sie sichtbar) */
 html.js #verfahren section.verfahren > .wrap,

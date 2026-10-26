@@ -63,7 +63,8 @@ def themen(html):
 VERF = [('trennen','Trennen'),('umformen','Umformen'),('verbinden','Verbinden'),
         ('oberflaeche','Oberfläche verändern'),('flaechen','Flächen bilden'),('lehrpersonen','Nur Lehrpersonen')]
 MATS = [('holz','Holz','holz'),('metall','Metall','metall'),('kunststoff','Kunststoff','kunststoff'),
-        ('keramik','Keramik, Glas, Stein','keramik'),('textil','Textil','textil'),('alle-materialien','Alle Materialien','alle')]
+        ('keramik','Keramik, Glas, Stein','keramik'),('textil','Textil','textil')]
+MATS = [('alle-materialien','Für alle Materialien','alle')] + MATS
 # Fachraum: Betreiben und warten, dann Planen und einrichten
 FACH = [('<h2 id="fachraum">','<h2 id="planen">'),('<h2 id="lagerung">','<h2 id="entsorgung">'),('<h2 id="entsorgung">','<h2 id="notfall">'),
         ('<h2 id="zustaendig">','<h2 id="begriffe">'),('<h2 id="planen">','<h2 id="zustaendig">')]
@@ -103,15 +104,14 @@ ZUORDNUNG = {
  'Gehrungskappsäge': {'themen': ['holzstaub']},
  'Lamellen-Dübelfräse': {'themen': ['holzstaub'], 'video': [('Runddübeln und Flachdübeln', TUD+'duebeln')]},
  'Holzdrechselbank': {'themen': ['holzstaub', 'psa']},
- 'Dreieckschleifer': {'themen': ['holzstaub']},
- 'Schwingschleifer': {'themen': ['holzstaub']},
+ 'Dreieckschleifer, Schwingschleifer': {'themen': ['holzstaub']},
  'Exzenterschleifer': {'themen': ['holzstaub']},
  'Tellerschleifmaschine': {'themen': ['holzstaub'], 'video': [('Schleifen an der Tellerschleifmaschine', TUD+'tellerschleifmaschine')]},
  'Bandschleifmaschine': {'themen': ['holzstaub']},
  'Overlockmaschine': {'hinweis': [['Messer und Nadel: Finger vom Nähfuss fernhalten, beim Einfädeln den Motor ausschalten.', '', '']], 'video': [('Nähen mit der Overlockmaschine', TUD+'naehenmitderoverlockmaschine')]},
  'Spindelpresse': {'hinweis': [QUETSCH]},
  'Linearbiegegerät': {'hinweis': [heiss('Heizstab und Werkstück werden heiss')], 'video': [('Linearbiegegerät', TUDH+'linearbiegegeraet')]},
- 'Heissluftföhn, Industrieföhn': {'hinweis': [heiss('Die Düse wird heiss')]},
+ 'Heissluftföhn/Industrieföhn': {'hinweis': [heiss('Die Düse wird heiss')]},
  'Tiefziehgerät': {'themen': ['tiefziehen'], 'hinweis': [heiss('Die Folie wird heiss')]},
  'Abkantgerät (Bleche)': {'hinweis': [QUETSCH]},
  'Tischkreissäge': {'themen': ['holzstaub']},
@@ -185,17 +185,15 @@ for k, (vid, name) in enumerate(VERF):
     verf_html.append(s)
 # Fachraum ohne Unterreiter: eine Sprungliste, darunter Betreiben und Planen
 fach_teile = [zw(x, y).replace('<h2 id="fachraum">', '<h2 id="fachraum-betreiben">', 1) for x, y in FACH]
-notfall = zw('<h2 id="notfall">', '<h2 id="fachraum">')
-fach_teile.insert(1, notfall)
-fach_html = [allg] + fach_teile + [lernort]
+notfall = zw('<h2 id="notfall">', '<h2 id="fachraum">').replace('<h2 id="notfall">', '<h3 id="notfall">').replace('</h2>', '</h3>', 1)
+fach_html = [allg] + fach_teile + [notfall, lernort]
 fach_html = [sprung('\n'.join(fach_html))] + fach_html
 mat_html = []
 for mid, name, key in MATS:
-    hint = '' if key == 'alle' else '\n<p class="einleitung">Themen aus allen Verfahren, die %s betreffen. Für jedes Material gelten zusätzlich die Themen unter <a href="#alle-materialien">«Alle Materialien»</a>.</p>' % ('«%s»' % name)
-    if key == 'alle': hint = '\n<p class="einleitung">Themen, die für alle Materialien gelten.</p>'
+    hint = '' if key == 'alle' else '\n<p class="einleitung">Themen aus allen Verfahren, die %s betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>.</p>' % ('«%s»' % name)
+    if key == 'alle': hint = '\n' + re.sub(r'<h2( id="[^"]+")?>(.*?)</h2>', r'<h3\1>\2</h3>', stoffe) + '\n<p class="einleitung">Dazu diese Themen aus den Verfahren:</p>'
     mat_html.append('<section class="mat-teil" id="%s" data-key="%s">\n<h2>%s</h2>%s\n<div class="slot"></div>\n</section>' % (mid, key, name, hint))
-mat_html = [stoffe] + mat_html
-mat_html = ['<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % m for m in re.findall(r'<h2 id="([^"]+)"[^>]*>(.*?)</h2>', stoffe) + [(m[0], m[1]) for m in MATS]) + '\n</ul>'] + mat_html
+mat_html = ['<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % (m[0], m[1]) for m in MATS) + '\n</ul>'] + mat_html
 
 body = f'''<header class="kopf"><div class="in">
 {kopf}
@@ -239,9 +237,9 @@ body = f'''<header class="kopf"><div class="in">
 <h2 id="was-wo">Was wo steht</h2>
 <ul class="uebersicht">
 <li><a href="#verfahren">Maschinen und Verfahren</a> Welche Maschine ab welchem Zyklus, Regeln je Verfahren</li>
-<li><a href="#material">Material</a> Regeln für Holz, Metall, Kunststoff, Keramik und Textil, Schutzausrüstung</li>
-<li><a href="#fachraum">Fachraum</a> Grundregeln, STOP-Prinzip, Notfälle vorbereiten, Lagerung, Entsorgung, Planung</li>
-<li><a href="#unterricht">Unterricht</a> Sicher unterrichten, Instruktion, kantonale Vorgaben, Lehrplan 21</li>
+<li><a href="#material">Material</a> Schutzausrüstung, Regeln für Holz, Metall, Kunststoff, Keramik und Textil</li>
+<li><a href="#fachraum">Fachraum</a> Grundregeln, STOP-Prinzip, Betrieb, Lagerung, Entsorgung, Planung und Notfallausrüstung</li>
+<li><a href="#unterricht">Unterricht</a> Sicher unterrichten, kantonale Vorgaben, Lehrplan 21</li>
 <li><a href="#recht">Recht</a> Sorgfaltspflicht, Haftung, Schulgesetze</li>
 <li><a href="#quellen">Quellen</a> Alle Originaldokumente und Begriffe</li>
 </ul>
@@ -249,10 +247,6 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="verfahren"><div class="text">
-<ul class="sprung" aria-label="In diesem Register">
-<li><a href="#maschinen">Maschinen nach Zyklus</a></li>
-{chr(10).join('<li><a href="#%s">%s</a></li>' % v for v in VERF)}
-</ul>
 <section class="sub" id="plakat" data-titel="Übersicht">
 <h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen <span>Gefahrenkategorien nach Zyklus</span></h2>
 <noscript><p>Die Maschinentabellen stehen bei den einzelnen Verfahren.</p></noscript>
@@ -282,17 +276,11 @@ body = f'''<header class="kopf"><div class="in">
 <section class="panel" id="unterricht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
-<li class="nurjs"><a href="#instruktion">Instruktion und Aufsicht</a></li>
 <li><a href="#kantone">Kantonale Vorgaben</a></li>
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
 </ul>
 {sicher}
-<section id="instruktion" class="nurjs">
-<h2>Instruktion und Aufsicht im Unterricht</h2>
-<p class="einleitung">Alle Stellen dieser Seite, an denen die Quellen Instruktion, Aufsicht oder Handeln der Lehrperson verlangen, im Wortlaut. Der Link führt zum Thema.</p>
-<div id="instr-liste"></div>
-</section>
 {kantone}
 {didaktik}
 {lehrplan}

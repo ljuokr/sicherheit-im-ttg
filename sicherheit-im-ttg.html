@@ -172,8 +172,8 @@ table.kantone td:first-child{white-space:nowrap}
 .p-kopf h3 a{text-decoration:none}
 .p-kopf h3 a:hover{text-decoration:underline}
 .p-zyk,.dots{display:grid;grid-template-columns:repeat(3,1.6rem);justify-items:center;flex:none}
-.p-zyk{justify-items:start}
-.p-zyk span{width:1.6rem;text-align:left}
+.p-zyk{justify-items:center}
+.p-zyk span{width:1.6rem;text-align:center}
 .p-liste{list-style:none;margin:0;padding:0;max-width:none}
 .p-liste li{margin:0}
 .m-zeile{font:inherit;color:inherit;background:none;border:0;width:100%;display:flex;align-items:center;gap:1.1rem;padding:.2rem 0;text-align:left;cursor:pointer}
@@ -247,20 +247,36 @@ table.kantone td:first-child{white-space:nowrap}
 /* Didaktik: Vergleichstabelle und Lernort nach B. Wyss */
 table.vergleich{min-width:34rem}
 table.vergleich th[scope=row]{width:9rem;color:var(--muted);font-weight:600}
-.lernort{margin:1rem 0 1.25rem;display:grid;gap:1rem;max-width:68rem}
-@media (min-width:60rem){ .lernort{grid-template-columns:minmax(0,1fr) 15rem} }
-.lo-raum{background:var(--tint);border:1px solid var(--line);padding:.8rem;display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr))}
-.lo-mitte{grid-column:1/-1;background:var(--bg);border:1px dashed var(--line);padding:.8rem;text-align:center}
-.lo-f,.lo-l,.lo-a{padding:.5rem .6rem;border-left:4px solid;background:var(--bg);min-width:0}
-.lo-f{border-left-color:var(--pa)}
-.lo-l{border-left-color:var(--pb)}
-.lo-a{border-left-color:var(--muted)}
-.lo-t{display:block;font-weight:600}
-.lo-aussen{display:grid;gap:.6rem;align-content:start}
-.lo-k{font-weight:600;color:var(--muted)}
-.lernort figcaption{grid-column:1/-1;color:var(--muted);font-size:.875rem;display:flex;flex-wrap:wrap;gap:.3rem 1rem;align-items:center}
-.lo-leg{padding-left:.5rem;border-left:4px solid}
-.lo-leg-f{border-left-color:var(--pa)} .lo-leg-l{border-left-color:var(--pb)} .lo-leg-a{border-left-color:var(--muted)}
+/* Lernort nach Wyss: eigene helle Farbwelt wie im Original, in beiden Modi */
+.lernort{margin:1rem 0 1.25rem;width:min(64rem,calc(100vw - 2.5rem));max-width:none;background:#fff;color:#1a1a1a;padding:.75rem;border:1px solid var(--line);font-size:.8125rem;line-height:1.3}
+.lernort b{display:block;font-weight:600;text-align:center}
+.lo-kopf{background:#c5d97b;padding:.4rem .6rem;text-align:center;margin-bottom:.6rem}
+.lo-titel{margin:0;font-size:1.05rem;font-weight:600}
+.lo-unter{margin:0}
+.lo-legende{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem}
+.lo-legende span{padding:.25rem .6rem;font-weight:600}
+.lo-legende .lo-ausserhalb{background:#e3e3e3;margin-left:auto}
+.lo-plan{display:grid;gap:.6rem}
+@media (min-width:52rem){ .lo-plan{grid-template-columns:minmax(0,1fr) 12rem} }
+.lo-raum{background:#e3e3e3;padding:.6rem;display:grid;gap:.5rem;grid-template-columns:repeat(5,minmax(0,1fr));
+  grid-template-areas:". ab nz inf ill" "eh mi mi mi pr" "wz mi mi mi re" "mg mi mi mi ." ". vm sp in ."}
+.lo-raum>div{padding:.4rem;text-align:center;min-width:0;hyphens:auto}
+.lo-f{background:#a9c95a}
+.lo-l{background:#dfe79c}
+.lo-tisch{background:#bcdcea}
+.lo-mitte{background:#fff;color:#8a3b3b}
+.lo-mitte p{margin:.2rem 0 .5rem}
+.lo-tische{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem 1rem;padding:0 .5rem}
+.lo-tische span{background:#bcdcea;color:#1a1a1a;padding:.6rem .2rem;font-weight:600;hyphens:manual}
+.lo-tische span:nth-child(odd){margin-top:.8rem}
+.lo-aussen{display:grid;gap:.5rem;align-content:start}
+.lo-aussen>div{background:#a9c95a;padding:.4rem;text-align:center}
+.lernort figcaption{margin-top:.5rem;color:#555}
+@media (max-width:40rem){
+  .lo-raum{grid-template-columns:1fr 1fr;grid-template-areas:"mi mi" "ab nz" "inf ill" "eh pr" "wz re" "mg vm" "sp in"}
+  .lo-tische{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lo-legende .lo-ausserhalb{margin-left:0}
+}
 
 /* Maschinen und Verfahren: das Plakat ersetzt die Tabellen je Verfahren (ohne Skript bleiben sie sichtbar) */
 html.js #verfahren section.verfahren > .wrap,
@@ -376,9 +392,9 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <h2 id="was-wo">Was wo steht</h2>
 <ul class="uebersicht">
 <li><a href="#verfahren">Maschinen und Verfahren</a> Welche Maschine ab welchem Zyklus, Regeln je Verfahren</li>
-<li><a href="#material">Material</a> Regeln für Holz, Metall, Kunststoff, Keramik und Textil, Schutzausrüstung</li>
-<li><a href="#fachraum">Fachraum</a> Grundregeln, STOP-Prinzip, Notfälle vorbereiten, Lagerung, Entsorgung, Planung</li>
-<li><a href="#unterricht">Unterricht</a> Sicher unterrichten, Instruktion, kantonale Vorgaben, Lehrplan 21</li>
+<li><a href="#material">Material</a> Schutzausrüstung, Regeln für Holz, Metall, Kunststoff, Keramik und Textil</li>
+<li><a href="#fachraum">Fachraum</a> Grundregeln, STOP-Prinzip, Betrieb, Lagerung, Entsorgung, Planung und Notfallausrüstung</li>
+<li><a href="#unterricht">Unterricht</a> Sicher unterrichten, kantonale Vorgaben, Lehrplan 21</li>
 <li><a href="#recht">Recht</a> Sorgfaltspflicht, Haftung, Schulgesetze</li>
 <li><a href="#quellen">Quellen</a> Alle Originaldokumente und Begriffe</li>
 </ul>
@@ -386,15 +402,6 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 </div></section>
 
 <section class="panel" id="verfahren"><div class="text">
-<ul class="sprung" aria-label="In diesem Register">
-<li><a href="#maschinen">Maschinen nach Zyklus</a></li>
-<li><a href="#trennen">Trennen</a></li>
-<li><a href="#umformen">Umformen</a></li>
-<li><a href="#verbinden">Verbinden</a></li>
-<li><a href="#oberflaeche">Oberfläche verändern</a></li>
-<li><a href="#flaechen">Flächen bilden</a></li>
-<li><a href="#lehrpersonen">Nur Lehrpersonen</a></li>
-</ul>
 <section class="sub" id="plakat" data-titel="Übersicht">
 <h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen <span>Gefahrenkategorien nach Zyklus</span></h2>
 <noscript><p>Die Maschinentabellen stehen bei den einzelnen Verfahren.</p></noscript>
@@ -439,8 +446,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <tr><td>Poliermaschine (Metall, Kunststoff)</td><td class="k C z1">C</td><td class="k C z2">C</td><td class="k B z3">B</td></tr>
 <tr><td>CNC-Maschine</td><td class="k C z1">C</td><td class="k C z2">C</td><td class="k B z3">B</td></tr>
 <tr class="gruppe"><td colspan="4">Schleifen</td></tr>
-<tr><td>Dreieckschleifer</td><td class="k B z1">B</td><td class="k A z2">A</td><td class="k A z3">A</td></tr>
-<tr><td>Schwingschleifer</td><td class="k B z1">B</td><td class="k A z2">A</td><td class="k A z3">A</td></tr>
+<tr><td>Dreieckschleifer, Schwingschleifer</td><td class="k B z1">B</td><td class="k A z2">A</td><td class="k A z3">A</td></tr>
 <tr><td>Exzenterschleifer</td><td class="k C z1">C</td><td class="k B z2">B</td><td class="k A z3">A</td></tr>
 <tr><td>Tellerschleifmaschine</td><td class="k C z1">C</td><td class="k B z2">B</td><td class="k A z3">A</td></tr>
 <tr><td>Bandschleifmaschine</td><td class="k C z1">C</td><td class="k C z2">C</td><td class="k B z3">B</td></tr>
@@ -556,7 +562,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <tbody>
 <tr><td>Spindelpresse</td><td class="k B z1">B</td><td class="k A z2">A</td><td class="k A z3">A</td></tr>
 <tr><td>Linearbiegegerät</td><td class="k B z1">B</td><td class="k A z2">A</td><td class="k A z3">A</td></tr>
-<tr><td>Heissluftföhn, Industrieföhn</td><td class="k C z1">C</td><td class="k B z2">B</td><td class="k A z3">A</td></tr>
+<tr><td>Heissluftföhn/Industrieföhn</td><td class="k C z1">C</td><td class="k B z2">B</td><td class="k A z3">A</td></tr>
 <tr><td>Tiefziehgerät</td><td class="k C z1">C</td><td class="k C z2">C</td><td class="k B z3">B</td></tr>
 <tr><td>Abkantgerät (Bleche)</td><td class="k C z1">C</td><td class="k C z2">C</td><td class="k B z3">B</td></tr>
 </tbody>
@@ -871,16 +877,16 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 
 <section class="panel nurjs" id="material"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
-<li><a href="#schutzausruestung">Schutzausrüstung</a></li>
-<li><a href="#hergestellt">Was hergestellt wird</a></li>
+<li><a href="#alle-materialien">Für alle Materialien</a></li>
 <li><a href="#holz">Holz</a></li>
 <li><a href="#metall">Metall</a></li>
 <li><a href="#kunststoff">Kunststoff</a></li>
 <li><a href="#keramik">Keramik, Glas, Stein</a></li>
 <li><a href="#textil">Textil</a></li>
-<li><a href="#alle-materialien">Alle Materialien</a></li>
 </ul>
-<h2 id="schutzausruestung">Schutzausrüstung</h2>
+<section class="mat-teil" id="alle-materialien" data-key="alle">
+<h2>Für alle Materialien</h2>
+<h3 id="schutzausruestung">Schutzausrüstung</h3>
 <ul>
 <li data-instr="instruktion">Welche Schutzausrüstung ein Stoff verlangt, steht in Abschnitt 8 des Sicherheitsdatenblatts.</li>
 <li>Schutzbrille bei reizenden oder ätzenden Stoffen und bei Gefahr für die Augen, etwa am Brenner oder an schnell laufenden Maschinen. Bei Splittern oder Spritzern auch für alle im Gefahrenbereich.</li>
@@ -889,7 +895,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 41&nbsp;↗</a></p>
 
-<h2 id="hergestellt">Was hergestellt wird</h2>
+<h3 id="hergestellt">Was hergestellt wird</h3>
 <ul>
 <li class="verbot"><span class="vb">Verbot</span> Gegenstände aus dem Unterricht dürfen keine Stoffe enthalten, die chemsuisse nicht empfiehlt oder verbietet (Blei, Cadmium usw.). Das ist besonders wichtig, wenn sie mit der Haut oder mit Lebensmitteln in Kontakt kommen.</li>
 <li>Schmuck: Werkstoffe auf Nickel prüfen, fast jeder zehnte Mensch reagiert allergisch darauf. Nickeltests gibt es in Apotheken.</li>
@@ -897,34 +903,32 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <li>Ess- und Trinkgeschirr nur mit Glasuren, die ausdrücklich dafür geeignet sind und keine Schwermetalle enthalten. Keramikmalfarben, die im Backofen härten, sind dafür nicht geeignet.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 10, 13, 20&nbsp;↗</a></p>
+<p class="einleitung">Dazu diese Themen aus den Verfahren:</p>
+<div class="slot"></div>
+</section>
 <section class="mat-teil" id="holz" data-key="holz">
 <h2>Holz</h2>
-<p class="einleitung">Themen aus allen Verfahren, die «Holz» betreffen. Für jedes Material gelten zusätzlich die Themen unter <a href="#alle-materialien">«Alle Materialien»</a>.</p>
+<p class="einleitung">Themen aus allen Verfahren, die «Holz» betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>.</p>
 <div class="slot"></div>
 </section>
 <section class="mat-teil" id="metall" data-key="metall">
 <h2>Metall</h2>
-<p class="einleitung">Themen aus allen Verfahren, die «Metall» betreffen. Für jedes Material gelten zusätzlich die Themen unter <a href="#alle-materialien">«Alle Materialien»</a>.</p>
+<p class="einleitung">Themen aus allen Verfahren, die «Metall» betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>.</p>
 <div class="slot"></div>
 </section>
 <section class="mat-teil" id="kunststoff" data-key="kunststoff">
 <h2>Kunststoff</h2>
-<p class="einleitung">Themen aus allen Verfahren, die «Kunststoff» betreffen. Für jedes Material gelten zusätzlich die Themen unter <a href="#alle-materialien">«Alle Materialien»</a>.</p>
+<p class="einleitung">Themen aus allen Verfahren, die «Kunststoff» betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>.</p>
 <div class="slot"></div>
 </section>
 <section class="mat-teil" id="keramik" data-key="keramik">
 <h2>Keramik, Glas, Stein</h2>
-<p class="einleitung">Themen aus allen Verfahren, die «Keramik, Glas, Stein» betreffen. Für jedes Material gelten zusätzlich die Themen unter <a href="#alle-materialien">«Alle Materialien»</a>.</p>
+<p class="einleitung">Themen aus allen Verfahren, die «Keramik, Glas, Stein» betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>.</p>
 <div class="slot"></div>
 </section>
 <section class="mat-teil" id="textil" data-key="textil">
 <h2>Textil</h2>
-<p class="einleitung">Themen aus allen Verfahren, die «Textil» betreffen. Für jedes Material gelten zusätzlich die Themen unter <a href="#alle-materialien">«Alle Materialien»</a>.</p>
-<div class="slot"></div>
-</section>
-<section class="mat-teil" id="alle-materialien" data-key="alle">
-<h2>Alle Materialien</h2>
-<p class="einleitung">Themen, die für alle Materialien gelten.</p>
+<p class="einleitung">Themen aus allen Verfahren, die «Textil» betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>.</p>
 <div class="slot"></div>
 </section>
 </div></section>
@@ -934,7 +938,6 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <li><a href="#fuer-jeden-fachraum">Für jeden Fachraum</a></li>
 <li><a href="#stop">STOP-Prinzip</a></li>
 <li><a href="#fachraum-betreiben">Fachraum betreiben</a></li>
-<li><a href="#notfall">Notfälle vorbereiten</a></li>
 <li><a href="#lagerung">Lagerung gefährlicher Stoffe</a></li>
 <li><a href="#entsorgung">Entsorgung</a></li>
 <li><a href="#zustaendig">Zuständigkeiten</a></li>
@@ -989,41 +992,6 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <li>Sicheres Arbeiten: Arbeitsplätze, Zirkulationswege, Werkzeuge, Elektro-Kleingeräte, Maschinen, Schutzvorrichtungen, Abzugsanlage, Gasanlagen, Materialien, Leitern, Lager.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 2-4&nbsp;↗</a></p>
-<h2 id="notfall">Notfälle vorbereiten</h2>
-<p class="einleitung">Im Notfall liest niemand auf dieser Seite nach. Entscheidend ist, was im Fachraum bereitliegt und mit der Klasse besprochen ist.</p>
-<ul>
-<li>Ein Telefon für den Notruf. Ein Notfallblatt mit Ansprechpersonen und Notfallnummern, gut sichtbar aufgehängt.</li>
-<li>Ein gekennzeichneter Erste-Hilfe-Kasten mit Verbandsmaterial, Desinfektionsmittel, Brandsalbe und Pinzette.</li>
-<li>Eine Augendusche am Wassernetz oder sterile Spülpackungen, dort, wo Spritzer drohen. Keine nachfüllbaren Augenspülflaschen.</li>
-<li>Ein Feuerlöscher neben der Tür in 80 bis 120 cm Höhe, auf die vorhandenen Stoffe abgestimmt. Eine Löschdecke, wo mit offenem Feuer oder brennbaren Chemikalien gearbeitet wird.</li>
-<li>Universalbindemittel für verschüttete Chemikalien, kein Sägemehl und kein Papier.</li>
-<li>Gekennzeichnete, freie Fluchtwege. Notausgänge lassen sich von innen jederzeit ohne Schlüssel öffnen.</li>
-</ul>
-<details class="mehr">
-<summary>Notrufnummern und Abläufe für das Notfallblatt</summary>
-<div class="wrap">
-<table class="nummern">
-<thead><tr><th>Notruf</th><th>Nummer</th></tr></thead>
-<tbody>
-<tr><td>Sanität</td><td>144</td></tr>
-<tr><td>Feuerwehr</td><td>118</td></tr>
-<tr><td>Tox Info Suisse (Vergiftungen, Verätzungen)</td><td>145</td></tr>
-<tr><td>Polizei</td><td>117</td></tr>
-<tr><td>Allgemeiner Notruf</td><td>112</td></tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li class="verbot" data-instr="selbst"><span class="vb">Verbot</span> Lehrpersonen dürfen nach eigenem Ermessen keine Medikamente abgeben, auch keine rezeptfreien.</li>
-<li>Vorgehen: schauen (was ist geschehen, wer ist betroffen), denken (Gefahren für Helfende und Betroffene), handeln (sich selbst schützen, Strom und Gas ausschalten, alarmieren, Nothilfe leisten).</li>
-<li>Brand: Ruhe bewahren, 118 anrufen oder Feuermelder betätigen, Personen warnen und retten, über die Fluchtwege hinaus, nie mit dem Lift. Fenster und Türen schliessen. Mit Löschdecke oder Feuerlöscher löschen, auf die eigene Sicherheit achten. Feuerwehr zum Brand leiten.</li>
-<li>Spritzer ins Auge: sofort und lange mit viel Wasser spülen, bei Säuren mindestens 15, bei Laugen mindestens 20 Minuten. Lider offen halten, das unverletzte Auge oben. Danach zum Arzt, bei Laugen in jedem Fall.</li>
-<li>Hautkontakt: benetzte Kleider entfernen (Selbstschutz), mit viel fliessendem Wasser spülen, dann mit Seife nachreinigen. Bei Verätzungen und Verbrennungen keine Seife.</li>
-<li>Säure oder Lauge verschluckt: sofort etwa 2 dl Wasser trinken lassen, keine Neutralisationsversuche, Arzt. Bei anderen Stoffen nur nach Anweisung von Arzt oder Tox Info Suisse handeln.</li>
-<li>Die Sicherheitsdatenblätter der beteiligten Stoffe für die Rettungsdienste bereithalten.</li>
-</ul>
-</details>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 42-47&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 19&nbsp;↗</a></p>
 <h2 id="lagerung">Lagerung gefährlicher Stoffe</h2>
 <p>Was abgeschlossen werden muss, entscheidet die Gefahrenkennzeichnung (GHS-Piktogramme, H-Sätze), nicht der Eindruck. Dispersions- und Acrylfarben gehören in der Regel nicht dazu. Verbrauchsmaterialien wie Schrauben, Nägel, Farben und Schleifpapier werden laut bfu «für die Lernenden sichtbar und griffbereit bereitgestellt».</p>
 <ul>
@@ -1095,33 +1063,72 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <li>Regale mit gut sichtbar angeschriebener Traglast. Erhöhte Ablagen nur über trittsichere Leitern, höchstens 3 m hoch und nicht aus Holz.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 10, 14-17&nbsp;↗</a></p>
+<h3 id="notfall">Notfälle vorbereiten</h3>
+<p class="einleitung">Im Notfall liest niemand auf dieser Seite nach. Entscheidend ist, was im Fachraum bereitliegt und mit der Klasse besprochen ist.</p>
+<ul>
+<li>Ein Telefon für den Notruf. Ein Notfallblatt mit Ansprechpersonen und Notfallnummern, gut sichtbar aufgehängt.</li>
+<li>Ein gekennzeichneter Erste-Hilfe-Kasten mit Verbandsmaterial, Desinfektionsmittel, Brandsalbe und Pinzette.</li>
+<li>Eine Augendusche am Wassernetz oder sterile Spülpackungen, dort, wo Spritzer drohen. Keine nachfüllbaren Augenspülflaschen.</li>
+<li>Ein Feuerlöscher neben der Tür in 80 bis 120 cm Höhe, auf die vorhandenen Stoffe abgestimmt. Eine Löschdecke, wo mit offenem Feuer oder brennbaren Chemikalien gearbeitet wird.</li>
+<li>Universalbindemittel für verschüttete Chemikalien, kein Sägemehl und kein Papier.</li>
+<li>Gekennzeichnete, freie Fluchtwege. Notausgänge lassen sich von innen jederzeit ohne Schlüssel öffnen.</li>
+</ul>
+<details class="mehr">
+<summary>Notrufnummern und Abläufe für das Notfallblatt</summary>
+<div class="wrap">
+<table class="nummern">
+<thead><tr><th>Notruf</th><th>Nummer</th></tr></thead>
+<tbody>
+<tr><td>Sanität</td><td>144</td></tr>
+<tr><td>Feuerwehr</td><td>118</td></tr>
+<tr><td>Tox Info Suisse (Vergiftungen, Verätzungen)</td><td>145</td></tr>
+<tr><td>Polizei</td><td>117</td></tr>
+<tr><td>Allgemeiner Notruf</td><td>112</td></tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li class="verbot" data-instr="selbst"><span class="vb">Verbot</span> Lehrpersonen dürfen nach eigenem Ermessen keine Medikamente abgeben, auch keine rezeptfreien.</li>
+<li>Vorgehen: schauen (was ist geschehen, wer ist betroffen), denken (Gefahren für Helfende und Betroffene), handeln (sich selbst schützen, Strom und Gas ausschalten, alarmieren, Nothilfe leisten).</li>
+<li>Brand: Ruhe bewahren, 118 anrufen oder Feuermelder betätigen, Personen warnen und retten, über die Fluchtwege hinaus, nie mit dem Lift. Fenster und Türen schliessen. Mit Löschdecke oder Feuerlöscher löschen, auf die eigene Sicherheit achten. Feuerwehr zum Brand leiten.</li>
+<li>Spritzer ins Auge: sofort und lange mit viel Wasser spülen, bei Säuren mindestens 15, bei Laugen mindestens 20 Minuten. Lider offen halten, das unverletzte Auge oben. Danach zum Arzt, bei Laugen in jedem Fall.</li>
+<li>Hautkontakt: benetzte Kleider entfernen (Selbstschutz), mit viel fliessendem Wasser spülen, dann mit Seife nachreinigen. Bei Verätzungen und Verbrennungen keine Seife.</li>
+<li>Säure oder Lauge verschluckt: sofort etwa 2 dl Wasser trinken lassen, keine Neutralisationsversuche, Arzt. Bei anderen Stoffen nur nach Anweisung von Arzt oder Tox Info Suisse handeln.</li>
+<li>Die Sicherheitsdatenblätter der beteiligten Stoffe für die Rettungsdienste bereithalten.</li>
+</ul>
+</details>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 42-47&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 19&nbsp;↗</a></p>
 <h3>Fachraum als Lernort</h3>
 <p>Wie ein Fachraum das Erschliessen unterstützt, zeigt die Übersicht von Barbara Wyss: Rund um die Arbeitsplätze liegen Funktionsbereiche und Orte für verschiedene Lerntätigkeiten, ergänzt durch Räume ausserhalb des Fachraums.</p>
 <figure class="lernort">
+<div class="lo-kopf"><p class="lo-titel">Fachraum als Lernort</p><p class="lo-unter">Überlegungen zur Konzipierung von Fachräumen TTG mit Bezug zu den inhaltlichen und didaktischen Vorgaben des Lehrplans 21</p></div>
+<div class="lo-legende"><span class="lo-f">Funktionsbereiche</span><span class="lo-l">Lerntätigkeiten</span><span class="lo-tisch">Arbeitsplätze für 12-16 SuS</span><span class="lo-ausserhalb">ausserhalb des Fachraums</span></div>
+<div class="lo-plan">
 <div class="lo-raum">
-<div class="lo-mitte"><span class="lo-t">Arbeitsplätze für alle</span>multifunktional, flexibel, stufenbezogen, für 12 bis 16 Lernende</div>
-<div class="lo-f"><span class="lo-t">Erste Hilfe</span>Notfallnummern, gut sichtbare, gut ausgestattete Apotheke</div>
-<div class="lo-f"><span class="lo-t">Werkzeuge</span>übersichtliches, gekennzeichnetes Ordnungssystem</div>
-<div class="lo-f"><span class="lo-t">Maschinen und Geräte</span>Sicherheit und Unfallverhütung berücksichtigen</div>
-<div class="lo-f"><span class="lo-t">Verbrauchsmaterial</span>übersichtlich, gekennzeichnet, gut sichtbar</div>
-<div class="lo-f"><span class="lo-t">Abfall</span>Abfalltrennung, Entsorgungssystem</div>
-<div class="lo-f"><span class="lo-t">Nasszone</span>Waschtrog mit mehreren Mischbatterien, Reinigung</div>
-<div class="lo-l"><span class="lo-t">Information</span>PC, Laptop, Literatur, Anleitungen, Anschauungsmaterial</div>
-<div class="lo-l"><span class="lo-t">Illustration</span>darlegen, dokumentieren an Wandflächen, Wandtafel, Pinwand</div>
-<div class="lo-l"><span class="lo-t">Präsentation</span>darlegen, zeigen, austauschen, Freiflächen für Produkte und Skizzen</div>
-<div class="lo-l"><span class="lo-t">Reflexion und Gespräch</span>nachdenken, diskutieren, besprechen</div>
-<div class="lo-l"><span class="lo-t">Spezialarbeitsplätze</span>eingerichtete Plätze für besondere Verfahren</div>
-<div class="lo-l"><span class="lo-t">Inspiration</span>gut sichtbares Material, Objekte, Bilder, Bücher</div>
+<div class="lo-f" style="grid-area:ab"><b>Abfall</b>Abfalltrennung, Entsorgungssystem</div>
+<div class="lo-f" style="grid-area:nz"><b>Nasszone</b>Waschtrog mit mehreren Mischbatterien, Reinigung</div>
+<div class="lo-l" style="grid-area:inf"><b>Information</b>PC, Laptop, Literatur, Anleitungen, Anschauungsmaterial</div>
+<div class="lo-l" style="grid-area:ill"><b>Illustration</b>Darlegen, Dokumentieren. Wandflächen, Wandtafel, Pinwand, Whiteboard</div>
+<div class="lo-f" style="grid-area:eh"><b>Erste Hilfe</b>Notfallnummern, gut sichtbare, gut ausgestattete Apotheke</div>
+<div class="lo-f" style="grid-area:wz"><b>Werkzeuge</b>Übersichtliches, gekennzeichnetes Ordnungssystem für Werkzeuge</div>
+<div class="lo-f" style="grid-area:mg"><b>Maschinen und Geräte</b>Berücksichtigung der Sicherheit, Unfallverhütung</div>
+<div class="lo-mitte" style="grid-area:mi"><p>Arbeitsplätze für alle SuS / multifunktional, flexibel, stufenbezogen</p><div class="lo-tische" aria-hidden="true"><span>Arbeits&shy;tische</span><span>Arbeits&shy;tische</span><span>Arbeits&shy;tische</span><span>Arbeits&shy;tische</span><span>Arbeits&shy;tische</span><span>Arbeits&shy;tische</span><span>Arbeits&shy;tische</span><span>Arbeits&shy;tische</span></div></div>
+<div class="lo-l" style="grid-area:pr"><b>Präsentation</b>Darlegen, Zeigen, Austauschen. Freiflächen zum Auslegen von Produkten, Teilprodukten, Skizzen</div>
+<div class="lo-l" style="grid-area:re"><b>Reflexion und Gespräch</b>Nachdenken, Diskutieren, Austauschen, Besprechen</div>
+<div class="lo-f" style="grid-area:vm"><b>Verbrauchsmaterial</b>Übersichtliches, gekennzeichnetes und gut sichtbares Ordnungssystem</div>
+<div class="lo-l" style="grid-area:sp"><b>Spezialarbeitsplätze</b>Eingerichtete Plätze für besondere Lehrgänge oder Verfahren</div>
+<div class="lo-l" style="grid-area:in"><b>Inspiration</b>Anregung durch gut sichtbares Material, Objekte, Bilder, Bücher</div>
 </div>
-<div class="lo-aussen"><span class="lo-k">Ausserhalb des Fachraums</span>
-<div class="lo-a"><span class="lo-t">Lager für Arbeiten</span>offene Regale für aktuelle Schülerarbeiten</div>
-<div class="lo-a"><span class="lo-t">Materiallager</span>Regale und Ordnungssysteme für Verbrauchsmaterial</div>
-<div class="lo-a"><span class="lo-t">Vorbereitung</span>Maschinenraum mit Maschinen und Geräten für die Lehrpersonen</div>
-<div class="lo-a"><span class="lo-t">Aussenraum</span>Plätze z. B. für Speckstein oder lösungsmittelhaltige Stoffe, Feuerstelle</div>
-<div class="lo-a"><span class="lo-t">Spezialraum</span>z. B. Brennraum, Spritz- und Lackierort</div>
-<div class="lo-a"><span class="lo-t">Zulieferung</span>barrierefreie Anlieferung grosser Werkstoffposten</div>
+<div class="lo-aussen">
+<div><b>Lagerung Arbeiten SuS</b>Lagerraum mit offenen Regalen für das Aufbewahren aktueller Schülerarbeiten</div>
+<div><b>Lagerung Material</b>Lagerraum mit Regalen und Ordnungssystemen für das Aufbewahren von Verbrauchsmaterial</div>
+<div><b>Vorbereitung, Zubereitung</b>Maschinenraum mit Maschinen und Geräten für die Lehrpersonen</div>
+<div><b>Zulieferung, Anfahrt</b>Möglichkeit zur barrierefreien Anlieferung grosser Werkstoffposten</div>
+<div><b>Aussenraum</b>Plätze für spezielle Arbeiten, z. B. mit Speckstein oder lösungsmittelhaltigen Stoffen, Feuerstelle</div>
+<div><b>Spezialraum</b>z. B. Brennraum, Spritz- und Lackierort</div>
 </div>
-<figcaption><span class="lo-leg lo-leg-f">Funktionsbereich</span> <span class="lo-leg lo-leg-l">Lerntätigkeit</span> <span class="lo-leg lo-leg-a">ausserhalb</span> Darstellung nachgebaut nach Barbara Wyss, PH FHNW, «Fachraum als Lernort», 2019</figcaption>
+</div>
+<figcaption>Nachgebaut nach Barbara Wyss, PH FHNW, «Fachraum als Lernort», 2019</figcaption>
 </figure>
 <p class="quelle"><a class="ql" href="https://www.schulen-aargau.ch/media/schulen-aargau/schulorganisation/infrastruktur/schulhausbau/bksvs-lernort-fachraum-ttg.pdf">Fachraum als Lernort&nbsp;↗</a></p>
 </div></section>
@@ -1129,7 +1136,6 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <section class="panel" id="unterricht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
-<li class="nurjs"><a href="#instruktion">Instruktion und Aufsicht</a></li>
 <li><a href="#kantone">Kantonale Vorgaben</a></li>
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
@@ -1146,11 +1152,6 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 6, 18&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2&nbsp;↗</a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 5&nbsp;↗</a> · <a class="ql" href="https://api.zebis.ch/sites/default/files/teaching_material/sicherer_umgang_mit_maschinen_lu_2003.pdf">Orientierungshilfe Luzern, S. 1&nbsp;↗</a></p>
 
 
-<section id="instruktion" class="nurjs">
-<h2>Instruktion und Aufsicht im Unterricht</h2>
-<p class="einleitung">Alle Stellen dieser Seite, an denen die Quellen Instruktion, Aufsicht oder Handeln der Lehrperson verlangen, im Wortlaut. Der Link führt zum Thema.</p>
-<div id="instr-liste"></div>
-</section>
 <h2 id="kantone">Kantonale Vorgaben</h2>
 <p>Massgebend sind die Vorgaben des jeweiligen Kantons. Eine Suche in allen Deutschschweizer Kantonen ergab nur wenige eigene, öffentlich zugängliche Dokumente zur Sicherheit im TTG. Die meisten Kantone verweisen auf bfu, Suva und chemsuisse. Dass hier kein Dokument steht, heisst nicht, dass es keine Regelung gibt. Im Zweifel beim Volksschulamt oder bei der Fachberatung des Kantons nachfragen.</p>
 <div class="wrap">
@@ -1216,7 +1217,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 </ul>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/de/services/rechtsfragen/was-genau-bedeutet-die-obhutspflicht-von-lehrpersonen-welche-verantwortung-tragen-lehrerinnen-und-lehrer">bfu Rechtsfrage&nbsp;↗</a> · <a class="ql" href="https://www.belex.sites.be.ch/app/de/texts_of_law/430.251.0">LAV Bern&nbsp;↗</a> · <a class="ql" href="https://gesetzessammlungen.ag.ch/app/de/texts_of_law/411.200">GAL Aargau&nbsp;↗</a> · <a class="ql" href="https://srl.lu.ch/app/de/texts_of_law/400a">VBG Luzern&nbsp;↗</a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 3&nbsp;↗</a></p>
 <h3>Haftung</h3>
-<p>Bei einem Unfall haftet in der Regel zuerst der öffentliche Schulträger. Bei grober Pflichtverletzung kann er auf die Lehrperson Rückgriff nehmen. Möglich sind auch strafrechtliche und disziplinarische Folgen. Beurteilt wird der Einzelfall.</p>
+<p>Bei einem Unfall haftet in der Regel zuerst der öffentliche Schulträger. Bei grober Pflichtverletzung kann er auf die Lehrperson Rückgriff nehmen. Möglich sind zudem Schadenersatzforderungen, strafrechtliche Folgen wie eine Geldstrafe und disziplinarische Massnahmen wie ein Verweis.</p>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/de/services/rechtsfragen/was-genau-bedeutet-die-obhutspflicht-von-lehrpersonen-welche-verantwortung-tragen-lehrerinnen-und-lehrer">bfu Rechtsfrage&nbsp;↗</a></p>
 <h3>Arbeitgeber</h3>
 <ul>
@@ -1491,6 +1492,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
   /* Unterricht: Instruktion und Aufsicht, wörtlich gesammelt */
   (function(){
     var ziel=$('#instr-liste'), gruppen={instruktion:[],aufsicht:[],selbst:[]};
+    if(!ziel) return;
     var TITEL={instruktion:'Instruieren',aufsicht:'Beaufsichtigen',selbst:'Selbst übernehmen oder entscheiden'};
     $$('#register li[data-instr]').forEach(function(li){
       var g=li.getAttribute('data-instr'), c=kopie(li), thema=li.closest('.thema'), titel, id, quelle=null;
@@ -1515,7 +1517,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 
   /* Plakat: Maschinen wie auf dem bfu-Plakat, gebaut aus den Tabellen der Verfahren */
   var mLeer=$('#leer');
-  var ZUORDNUNG={"Laminiergerät": {"hinweis": [["Die Folie ist beim Austritt heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]]}, "Heissleimpistole": {"hinweis": [["Düse und Kleber werden heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""], ["Lötkolben, Heissleimpistolen und Heissluftföhn samt Kabel regelmässig auf einwandfreien Zustand prüfen. Zum Auskühlen aufhängen, damit die Kabel nicht anschmelzen.", "bfu 4.323, Checkliste 3, Punkt 4", "https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf"], ["Heissleim enthält kaum gefährliche Inhaltsstoffe.", "chemsuisse, S. 23", "https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf"]]}, "Folienschweissgerät": {"hinweis": [["Die Schweissleiste wird heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]]}, "Nähmaschine": {"hinweis": [["Stichverletzung durch die Nadel: Finger vom Nähfuss fernhalten, beim Einfädeln den Motor ausschalten.", "", ""]], "video": [["Nähen mit der Nähmaschine", "https://www.tud.ch/lernvideos/verfahren/#naehenmitdernaehmaschine"]]}, "Heftklammerpistole": {"hinweis": [["Nie auf Personen richten, Finger nicht vor die Austrittsöffnung.", "", ""]]}, "Weichlötvorrichtung": {"themen": ["weichloeten"], "hinweis": [["Lötkolben, Heissleimpistolen und Heissluftföhn samt Kabel regelmässig auf einwandfreien Zustand prüfen. Zum Auskühlen aufhängen, damit die Kabel nicht anschmelzen.", "bfu 4.323, Checkliste 3, Punkt 4", "https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf"]], "video": [["Weichlöten mit dem Lötkolben", "https://www.tud.ch/lernvideos/verfahren/#weichloeten"]]}, "Bunsenbrenner (Brenngas und Luft)": {"themen": ["gasflaschen"], "hinweis": [["Die Flamme ist kaum sichtbar, das Werkstück wird heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]]}, "Hartlötanlage (Propan-/Butan-Sauerstoff)*": {"themen": ["hartloeten", "gasflaschen"], "video": [["Hartlöten", "https://www.tud.ch/lernvideos/verfahren/#hartloeten"]]}, "Autogenschweissanlage (Acetylen-Sauerstoff)*": {"themen": ["schweissen", "gasflaschen"]}, "Schutzgasschweissanlage (MIG/MAG)*": {"themen": ["schweissen", "gasflaschen"], "video": [["Schutzgasschweissen", "https://www.tud.ch/lernvideos/verfahren/#schutzgasschweissen"]]}, "Papierschneidemaschine": {"hinweis": [["Schnittgefahr an Messer oder Klinge: Finger ausserhalb des Schneidbereichs, Schutzvorrichtung benützen.", "", ""]]}, "Dekupiersäge": {"themen": ["holzstaub"], "video": [["Sägen mit der Dekupiersäge", "https://www.tud.ch/lernvideos/verfahren/#dekupiersaege"]]}, "Thermoschneider": {"themen": ["kunststoff-saegen-bohren-schleifen"], "hinweis": [["Der Heizdraht wird heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]], "video": [["Styroporschneider", "https://www.tud.ch/lernvideos/hilfsger%C3%A4te/#styroporschneider"]]}, "Stichsäge": {"themen": ["holzstaub"], "video": [["Sägen mit der Stichsäge", "https://www.tud.ch/lernvideos/verfahren/#stichsaege"]]}, "Handbohrmaschine": {"themen": ["holzstaub"]}, "Ständerbohrmaschine": {"themen": ["psa", "holzstaub"], "video": [["Bohren mit der Tischbohrmaschine", "https://www.tud.ch/lernvideos/verfahren/#tischbohrmaschine"]], "suva": "https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D"}, "Hebelblechschere": {"hinweis": [["Schnittgefahr an Messer oder Klinge: Finger ausserhalb des Schneidbereichs, Schutzvorrichtung benützen.", "", ""], ["Blechkanten sind scharf: Handschuhe tragen.", "", ""]]}, "Bandsäge": {"themen": ["holzstaub"], "video": [["Bandsäge", "https://www.tud.ch/lernvideos/verfahren/#bandsaege"]]}, "Gehrungskappsäge": {"themen": ["holzstaub"]}, "Lamellen-Dübelfräse": {"themen": ["holzstaub"], "video": [["Runddübeln und Flachdübeln", "https://www.tud.ch/lernvideos/verfahren/#duebeln"]]}, "Holzdrechselbank": {"themen": ["holzstaub", "psa"]}, "Dreieckschleifer": {"themen": ["holzstaub"]}, "Schwingschleifer": {"themen": ["holzstaub"]}, "Exzenterschleifer": {"themen": ["holzstaub"]}, "Tellerschleifmaschine": {"themen": ["holzstaub"], "video": [["Schleifen an der Tellerschleifmaschine", "https://www.tud.ch/lernvideos/verfahren/#tellerschleifmaschine"]]}, "Bandschleifmaschine": {"themen": ["holzstaub"]}, "Overlockmaschine": {"hinweis": [["Messer und Nadel: Finger vom Nähfuss fernhalten, beim Einfädeln den Motor ausschalten.", "", ""]], "video": [["Nähen mit der Overlockmaschine", "https://www.tud.ch/lernvideos/verfahren/#naehenmitderoverlockmaschine"]]}, "Spindelpresse": {"hinweis": [["Quetschgefahr: Finger ausserhalb des Arbeitsbereichs halten.", "", ""]]}, "Linearbiegegerät": {"hinweis": [["Heizstab und Werkstück werden heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]], "video": [["Linearbiegegerät", "https://www.tud.ch/lernvideos/hilfsger%C3%A4te/#linearbiegegeraet"]]}, "Heissluftföhn, Industrieföhn": {"hinweis": [["Die Düse wird heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]]}, "Tiefziehgerät": {"themen": ["tiefziehen"], "hinweis": [["Die Folie wird heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]]}, "Abkantgerät (Bleche)": {"hinweis": [["Quetschgefahr: Finger ausserhalb des Arbeitsbereichs halten.", "", ""]]}, "Tischkreissäge": {"themen": ["holzstaub"]}, "Handkreissäge": {"themen": ["holzstaub"]}, "Elektrohandhobel": {"themen": ["holzstaub"]}, "Abricht- und Dickenhobelmaschine": {"themen": ["holzstaub"]}, "Handoberfräse": {"themen": ["holzstaub"]}, "Kehlmaschine": {"themen": ["holzstaub"]}, "Keramikbrennofen": {"themen": ["glasieren-und-brennen"]}};
+  var ZUORDNUNG={"Laminiergerät": {"hinweis": [["Die Folie ist beim Austritt heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]]}, "Heissleimpistole": {"hinweis": [["Düse und Kleber werden heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""], ["Lötkolben, Heissleimpistolen und Heissluftföhn samt Kabel regelmässig auf einwandfreien Zustand prüfen. Zum Auskühlen aufhängen, damit die Kabel nicht anschmelzen.", "bfu 4.323, Checkliste 3, Punkt 4", "https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf"], ["Heissleim enthält kaum gefährliche Inhaltsstoffe.", "chemsuisse, S. 23", "https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf"]]}, "Folienschweissgerät": {"hinweis": [["Die Schweissleiste wird heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]]}, "Nähmaschine": {"hinweis": [["Stichverletzung durch die Nadel: Finger vom Nähfuss fernhalten, beim Einfädeln den Motor ausschalten.", "", ""]], "video": [["Nähen mit der Nähmaschine", "https://www.tud.ch/lernvideos/verfahren/#naehenmitdernaehmaschine"]]}, "Heftklammerpistole": {"hinweis": [["Nie auf Personen richten, Finger nicht vor die Austrittsöffnung.", "", ""]]}, "Weichlötvorrichtung": {"themen": ["weichloeten"], "hinweis": [["Lötkolben, Heissleimpistolen und Heissluftföhn samt Kabel regelmässig auf einwandfreien Zustand prüfen. Zum Auskühlen aufhängen, damit die Kabel nicht anschmelzen.", "bfu 4.323, Checkliste 3, Punkt 4", "https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf"]], "video": [["Weichlöten mit dem Lötkolben", "https://www.tud.ch/lernvideos/verfahren/#weichloeten"]]}, "Bunsenbrenner (Brenngas und Luft)": {"themen": ["gasflaschen"], "hinweis": [["Die Flamme ist kaum sichtbar, das Werkstück wird heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]]}, "Hartlötanlage (Propan-/Butan-Sauerstoff)*": {"themen": ["hartloeten", "gasflaschen"], "video": [["Hartlöten", "https://www.tud.ch/lernvideos/verfahren/#hartloeten"]]}, "Autogenschweissanlage (Acetylen-Sauerstoff)*": {"themen": ["schweissen", "gasflaschen"]}, "Schutzgasschweissanlage (MIG/MAG)*": {"themen": ["schweissen", "gasflaschen"], "video": [["Schutzgasschweissen", "https://www.tud.ch/lernvideos/verfahren/#schutzgasschweissen"]]}, "Papierschneidemaschine": {"hinweis": [["Schnittgefahr an Messer oder Klinge: Finger ausserhalb des Schneidbereichs, Schutzvorrichtung benützen.", "", ""]]}, "Dekupiersäge": {"themen": ["holzstaub"], "video": [["Sägen mit der Dekupiersäge", "https://www.tud.ch/lernvideos/verfahren/#dekupiersaege"]]}, "Thermoschneider": {"themen": ["kunststoff-saegen-bohren-schleifen"], "hinweis": [["Der Heizdraht wird heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]], "video": [["Styroporschneider", "https://www.tud.ch/lernvideos/hilfsger%C3%A4te/#styroporschneider"]]}, "Stichsäge": {"themen": ["holzstaub"], "video": [["Sägen mit der Stichsäge", "https://www.tud.ch/lernvideos/verfahren/#stichsaege"]]}, "Handbohrmaschine": {"themen": ["holzstaub"]}, "Ständerbohrmaschine": {"themen": ["psa", "holzstaub"], "video": [["Bohren mit der Tischbohrmaschine", "https://www.tud.ch/lernvideos/verfahren/#tischbohrmaschine"]], "suva": "https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D"}, "Hebelblechschere": {"hinweis": [["Schnittgefahr an Messer oder Klinge: Finger ausserhalb des Schneidbereichs, Schutzvorrichtung benützen.", "", ""], ["Blechkanten sind scharf: Handschuhe tragen.", "", ""]]}, "Bandsäge": {"themen": ["holzstaub"], "video": [["Bandsäge", "https://www.tud.ch/lernvideos/verfahren/#bandsaege"]]}, "Gehrungskappsäge": {"themen": ["holzstaub"]}, "Lamellen-Dübelfräse": {"themen": ["holzstaub"], "video": [["Runddübeln und Flachdübeln", "https://www.tud.ch/lernvideos/verfahren/#duebeln"]]}, "Holzdrechselbank": {"themen": ["holzstaub", "psa"]}, "Dreieckschleifer, Schwingschleifer": {"themen": ["holzstaub"]}, "Exzenterschleifer": {"themen": ["holzstaub"]}, "Tellerschleifmaschine": {"themen": ["holzstaub"], "video": [["Schleifen an der Tellerschleifmaschine", "https://www.tud.ch/lernvideos/verfahren/#tellerschleifmaschine"]]}, "Bandschleifmaschine": {"themen": ["holzstaub"]}, "Overlockmaschine": {"hinweis": [["Messer und Nadel: Finger vom Nähfuss fernhalten, beim Einfädeln den Motor ausschalten.", "", ""]], "video": [["Nähen mit der Overlockmaschine", "https://www.tud.ch/lernvideos/verfahren/#naehenmitderoverlockmaschine"]]}, "Spindelpresse": {"hinweis": [["Quetschgefahr: Finger ausserhalb des Arbeitsbereichs halten.", "", ""]]}, "Linearbiegegerät": {"hinweis": [["Heizstab und Werkstück werden heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]], "video": [["Linearbiegegerät", "https://www.tud.ch/lernvideos/hilfsger%C3%A4te/#linearbiegegeraet"]]}, "Heissluftföhn/Industrieföhn": {"hinweis": [["Die Düse wird heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]]}, "Tiefziehgerät": {"themen": ["tiefziehen"], "hinweis": [["Die Folie wird heiss: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.", "", ""]]}, "Abkantgerät (Bleche)": {"hinweis": [["Quetschgefahr: Finger ausserhalb des Arbeitsbereichs halten.", "", ""]]}, "Tischkreissäge": {"themen": ["holzstaub"]}, "Handkreissäge": {"themen": ["holzstaub"]}, "Elektrohandhobel": {"themen": ["holzstaub"]}, "Abricht- und Dickenhobelmaschine": {"themen": ["holzstaub"]}, "Handoberfräse": {"themen": ["holzstaub"]}, "Kehlmaschine": {"themen": ["holzstaub"]}, "Keramikbrennofen": {"themen": ["glasieren-und-brennen"]}};
   var KURZ={A:'selbstständig nach Einführung',B:'nur unter Aufsicht der Lehrperson',C:'nicht für Schülerinnen und Schüler'};
   var GRUPPEN=[
     [{titel:'Verbinden',sec:'verbinden'},{titel:'Trennen: schneiden, bohren, sägen',sec:'trennen',gruppe:'Schneiden, bohren, sägen'}],
@@ -1834,7 +1836,7 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
       var gesehen={};
       var walker=document.createTreeWalker(blk,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
         var p=n.parentNode;
-        while(p && p!==blk){ if(NICHT.indexOf(p.tagName)>-1 || (p.classList && (p.classList.contains('quelle')||p.classList.contains('begriff')||p.classList.contains('vb')||p.classList.contains('uebersicht')))) return NodeFilter.FILTER_REJECT; p=p.parentNode; }
+        while(p && p!==blk){ if(NICHT.indexOf(p.tagName)>-1 || (p.classList && (p.classList.contains('quelle')||p.classList.contains('begriff')||p.classList.contains('vb')||p.classList.contains('uebersicht')||p.classList.contains('lernort')))) return NodeFilter.FILTER_REJECT; p=p.parentNode; }
         return NodeFilter.FILTER_ACCEPT;
       }});
       var knoten=[]; while(walker.nextNode()) knoten.push(walker.currentNode);
