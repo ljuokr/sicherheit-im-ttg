@@ -353,31 +353,6 @@
     beenden(); var t=$('#tl-haupt [aria-selected=true]'); if(t) t.focus();
   });
 
-  /* Vor der Lektion: Maschine und Zyklus wählen, Karte aus dem Plakat übernehmen */
-  (function(){
-    var sel=$('#lk-m'), karte=$('#lk-karte'); if(!sel) return;
-    $$('.p-gruppe').forEach(function(g){
-      var og=document.createElement('optgroup'); og.label=$('h3',g).textContent;
-      $$('.m-zeile',g).forEach(function(b){ var o=el('option',null,$('.m-name',b).textContent); o.value=b.getAttribute('aria-controls'); og.appendChild(o); });
-      sel.appendChild(og);
-    });
-    function zeigeLk(){
-      var id=sel.value, z=($('input[name=lk-z]:checked')||{}).value||'2';
-      karte.hidden=!id; if(!id) return;
-      var b=$('.m-zeile[aria-controls="'+id+'"]'), K=$$('.dots .dot',b)[z-1].className.replace('dot','').trim();
-      $('#lk-titel').textContent=$('.m-name',b).textContent+', Zyklus '+z;
-      var g=$('#lk-gruppe'); g.className='lk-gruppe '+K; g.textContent='Gruppe '+K+': '+LEG[K];
-      var ziel=$('#lk-regeln'); ziel.textContent='';
-      var k=kopie(document.getElementById(id)); var dl=$('dl',k); if(dl) dl.remove(); ziel.appendChild(k);
-    }
-    sel.addEventListener('change',zeigeLk);
-    $$('input[name=lk-z]').forEach(function(r){ r.addEventListener('change',zeigeLk); });
-    var dr=$('#lk-druck');
-    // Im eingebetteten Artefakt ist Drucken gesperrt, darum dort ausblenden
-    if(window.self!==window.top) dr.hidden=true;
-    dr.addEventListener('click',function(){ document.documentElement.classList.add('druck-lk'); window.print(); setTimeout(function(){ document.documentElement.classList.remove('druck-lk'); },500); });
-  })();
-
   /* Begriffe: erstes Vorkommen je Abschnitt antippbar, Karte als Popover */
   (function(){
     var begriffe=$$('section.begriff'); if(!begriffe.length) return;

@@ -372,23 +372,3 @@ ul.emissionen b{display:block;margin:.2rem 0}
 .vw p{margin:.15rem 0;font-size:.9rem}
 .vw-t{font-weight:600;font-size:1rem}
 .verantw figcaption{grid-column:1/-1;font-size:.875rem;color:var(--muted)}
-/* Vor der Lektion */
-.lk-wahl{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:center;margin:0 0 1rem}
-.lk-wahl select{font:inherit;padding:.35rem .5rem;min-height:2.5rem;border:1px solid var(--muted);background:var(--bg);color:var(--fg);max-width:100%}
-.lk-wahl fieldset{border:0;padding:0;margin:0;display:flex;gap:.8rem;align-items:center}
-.lk-wahl legend{float:left;margin-right:.6rem}
-.lk-karte{border:2px solid var(--fg);padding:.8rem 1rem;max-width:44rem;margin:0 0 1rem}
-.lk-titel{font-weight:600;font-size:1.15rem;margin:0 0 .4rem}
-.lk-gruppe{padding:.4rem .6rem;font-weight:600;margin:0 0 .6rem}
-.lk-gruppe.A{background:var(--a)} .lk-gruppe.B{background:var(--b)} .lk-gruppe.C{background:var(--c)}
-.lk-karte .karte{background:none;padding:0;border:0;margin:0}
-.lk-ct{font-weight:600;margin:.8rem 0 .2rem}
-.lk-check{list-style:none;padding:0;margin:0 0 .8rem}
-.lk-check li{margin:.3rem 0}
-.lk-check input{margin-right:.4rem}
-@media print{
-  html.druck-lk body *{visibility:hidden}
-  html.druck-lk #lk-karte, html.druck-lk #lk-karte *{visibility:visible}
-  html.druck-lk #lk-karte{position:absolute;left:0;top:0;width:100%;border-color:#000}
-  html.druck-lk #lk-druck{display:none}
-}

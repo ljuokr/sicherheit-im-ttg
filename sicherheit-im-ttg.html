@@ -383,26 +383,6 @@ ul.emissionen b{display:block;margin:.2rem 0}
 .vw p{margin:.15rem 0;font-size:.9rem}
 .vw-t{font-weight:600;font-size:1rem}
 .verantw figcaption{grid-column:1/-1;font-size:.875rem;color:var(--muted)}
-/* Vor der Lektion */
-.lk-wahl{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:center;margin:0 0 1rem}
-.lk-wahl select{font:inherit;padding:.35rem .5rem;min-height:2.5rem;border:1px solid var(--muted);background:var(--bg);color:var(--fg);max-width:100%}
-.lk-wahl fieldset{border:0;padding:0;margin:0;display:flex;gap:.8rem;align-items:center}
-.lk-wahl legend{float:left;margin-right:.6rem}
-.lk-karte{border:2px solid var(--fg);padding:.8rem 1rem;max-width:44rem;margin:0 0 1rem}
-.lk-titel{font-weight:600;font-size:1.15rem;margin:0 0 .4rem}
-.lk-gruppe{padding:.4rem .6rem;font-weight:600;margin:0 0 .6rem}
-.lk-gruppe.A{background:var(--a)} .lk-gruppe.B{background:var(--b)} .lk-gruppe.C{background:var(--c)}
-.lk-karte .karte{background:none;padding:0;border:0;margin:0}
-.lk-ct{font-weight:600;margin:.8rem 0 .2rem}
-.lk-check{list-style:none;padding:0;margin:0 0 .8rem}
-.lk-check li{margin:.3rem 0}
-.lk-check input{margin-right:.4rem}
-@media print{
-  html.druck-lk body *{visibility:hidden}
-  html.druck-lk #lk-karte, html.druck-lk #lk-karte *{visibility:visible}
-  html.druck-lk #lk-karte{position:absolute;left:0;top:0;width:100%;border-color:#000}
-  html.druck-lk #lk-druck{display:none}
-}
 </style>
 </head>
 <body>
@@ -1202,41 +1182,23 @@ ul.emissionen b{display:block;margin:.2rem 0}
 
 <section class="panel" id="unterricht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
-<li class="nurjs"><a href="#lektion">Vor der Lektion</a></li>
-<li><a href="#schutzmassnahmen">Schutzmassnahmen</a></li>
 <li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
+<li><a href="#schutzmassnahmen">Schutzmassnahmen</a></li>
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
 </ul>
-<section id="lektion" class="nurjs">
-<h2>Vor der Lektion</h2>
-<p class="einleitung">Maschine und Zyklus wählen. Die Übersicht zeigt Gruppe, Aufsicht und die Regeln dazu, darunter eine Checkliste.</p>
-<form class="lk-wahl" id="lk-form" onsubmit="return false">
-<label for="lk-m">Maschine</label>
-<select id="lk-m"><option value="">bitte wählen</option></select>
-<fieldset><legend>Zyklus</legend>
-<label><input type="radio" name="lk-z" value="1">1</label>
-<label><input type="radio" name="lk-z" value="2" checked>2</label>
-<label><input type="radio" name="lk-z" value="3">3</label>
-</fieldset>
-</form>
-<div class="lk-karte" id="lk-karte" hidden>
-<p class="lk-titel" id="lk-titel"></p>
-<p class="lk-gruppe" id="lk-gruppe"></p>
-<div id="lk-regeln"></div>
-<p class="lk-ct">Checkliste</p>
-<ul class="lk-check">
-<li><label><input type="checkbox"> Fachraumordnung mit der Klasse besprochen: Kleidung, Haare, Schmuck, keine Handschuhe an drehenden Maschinen</label></li>
-<li><label><input type="checkbox"> Schutzbrille und weitere Schutzausrüstung in passenden Grössen bereit</label></li>
-<li><label><input type="checkbox"> Schlüsselschalter, Not-Aus, Feuerlöscher, Erste-Hilfe-Kasten und Augendusche bekannt</label></li>
-<li><label><input type="checkbox"> Absaugung oder Lüftung bereit</label></li>
-<li><label><input type="checkbox"> Instruktion an der Maschine geplant und festgehalten</label></li>
-<li><label><input type="checkbox"> Aufsicht geklärt: Gruppe B nur, wenn die Lehrperson im Raum ist</label></li>
+<h2 id="sicher-unterrichten">Sicher unterrichten</h2>
+<p>Unfallverhütung ist ein Zusammenspiel. Neben baulich-technischen Vorkehrungen braucht es Massnahmen im didaktisch-methodischen Bereich, für die einzelne Lehrperson und im Kollegium.</p>
+<ul>
+<li>Voraussetzung ist die Fachkompetenz der Lehrperson im Umgang mit Werkzeugen, Maschinen, Geräten, Materialien und Hilfsstoffen. Sie entscheidet über deren Einsatz und muss ihr Gefahrenpotenzial kennen.</li>
+<li>Unterrichtsvorbereitung und -begleitung sowie eine umsichtige Klassenführung sind Voraussetzung für sicheren Fachunterricht. Die Lehrperson schätzt die Lernvoraussetzungen ein, berücksichtigt Klassengrösse, Heterogenität und Klassendynamik und stimmt den Unterricht darauf ab.</li>
+<li>Sorgfältig instruieren, sodass die Schülerinnen und Schüler ihre Selbstverantwortung bei Werkzeugen, Geräten und Maschinen wahrnehmen können. Das Verhalten von Einzelnen und Gruppen berücksichtigen, ihre Fähigkeiten einschätzen und sie während der Arbeit begleiten und überwachen. Die Instruktion festhalten und bei Bedarf wiederholen.</li>
+<li>Das Besprochene in der Praxis umsetzen und konkret üben lassen. Dabei ist das Vorbild der Lehrperson sehr wichtig.</li>
+<li>Was Aufsicht bei den Gruppen A, B, C heisst, steht beim <a href="#maschinen">Plakat</a>, wie viel Aufsicht nötig ist, unter <a href="#recht">Rechtlicher Rahmen</a>.</li>
 </ul>
-<button type="button" class="knopf" id="lk-druck">Als Aushang drucken</button>
-</div>
-<p class="quelle">Zusammenstellung dieser Seite aus <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036&nbsp;↗</a> · <a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V, 41&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 14, 19&nbsp;↗</a></p>
-</section>
+<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 6, 18&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2&nbsp;↗</a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 5&nbsp;↗</a> · <a class="ql" href="https://api.zebis.ch/sites/default/files/teaching_material/sicherer_umgang_mit_maschinen_lu_2003.pdf">Orientierungshilfe Luzern, S. 1&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036, Frage 15&nbsp;↗</a></p>
+
+
 <section class="u-schutz">
 <h2 id="schutzmassnahmen">Schutzmassnahmen</h2>
 <p class="einleitung">Schutzausrüstung ist die letzte Stufe. Zuerst kommt, was die Gefahr gar nicht erst entstehen lässt.</p>
@@ -1309,18 +1271,6 @@ ul.emissionen b{display:block;margin:.2rem 0}
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V, 6, 7, 8, 9, 41&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036, Frage 14&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 6-9, 16&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/praevention/nach-gefahren/gefaehrliche-materialien-strahlungen-und-situationen/laerm-und-vibrationen/laerm-am-arbeitsplatz">Suva, Lärm am Arbeitsplatz&nbsp;↗</a></p>
 
 </section>
-<h2 id="sicher-unterrichten">Sicher unterrichten</h2>
-<p>Unfallverhütung ist ein Zusammenspiel. Neben baulich-technischen Vorkehrungen braucht es Massnahmen im didaktisch-methodischen Bereich, für die einzelne Lehrperson und im Kollegium.</p>
-<ul>
-<li>Voraussetzung ist die Fachkompetenz der Lehrperson im Umgang mit Werkzeugen, Maschinen, Geräten, Materialien und Hilfsstoffen. Sie entscheidet über deren Einsatz und muss ihr Gefahrenpotenzial kennen.</li>
-<li>Unterrichtsvorbereitung und -begleitung sowie eine umsichtige Klassenführung sind Voraussetzung für sicheren Fachunterricht. Die Lehrperson schätzt die Lernvoraussetzungen ein, berücksichtigt Klassengrösse, Heterogenität und Klassendynamik und stimmt den Unterricht darauf ab.</li>
-<li>Sorgfältig instruieren, sodass die Schülerinnen und Schüler ihre Selbstverantwortung bei Werkzeugen, Geräten und Maschinen wahrnehmen können. Das Verhalten von Einzelnen und Gruppen berücksichtigen, ihre Fähigkeiten einschätzen und sie während der Arbeit begleiten und überwachen. Die Instruktion festhalten und bei Bedarf wiederholen.</li>
-<li>Das Besprochene in der Praxis umsetzen und konkret üben lassen. Dabei ist das Vorbild der Lehrperson sehr wichtig.</li>
-<li>Was Aufsicht bei den Gruppen A, B, C heisst, steht beim <a href="#maschinen">Plakat</a>, wie viel Aufsicht nötig ist, unter <a href="#recht">Rechtlicher Rahmen</a>.</li>
-</ul>
-<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 6, 18&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2&nbsp;↗</a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 5&nbsp;↗</a> · <a class="ql" href="https://api.zebis.ch/sites/default/files/teaching_material/sicherer_umgang_mit_maschinen_lu_2003.pdf">Orientierungshilfe Luzern, S. 1&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036, Frage 15&nbsp;↗</a></p>
-
-
 <h2 id="erschliessen">Vom Produktions- zum Erschliessungshandeln</h2>
 <p>Was sich zwischen Produktions- und Erschliessungshandeln ändert:</p>
 <div class="wrap"><table class="vergleich">
@@ -1986,31 +1936,6 @@ ul.emissionen b{display:block;margin:.2rem 0}
   $('#zurueck').addEventListener('click',function(){
     beenden(); var t=$('#tl-haupt [aria-selected=true]'); if(t) t.focus();
   });
-
-  /* Vor der Lektion: Maschine und Zyklus wählen, Karte aus dem Plakat übernehmen */
-  (function(){
-    var sel=$('#lk-m'), karte=$('#lk-karte'); if(!sel) return;
-    $$('.p-gruppe').forEach(function(g){
-      var og=document.createElement('optgroup'); og.label=$('h3',g).textContent;
-      $$('.m-zeile',g).forEach(function(b){ var o=el('option',null,$('.m-name',b).textContent); o.value=b.getAttribute('aria-controls'); og.appendChild(o); });
-      sel.appendChild(og);
-    });
-    function zeigeLk(){
-      var id=sel.value, z=($('input[name=lk-z]:checked')||{}).value||'2';
-      karte.hidden=!id; if(!id) return;
-      var b=$('.m-zeile[aria-controls="'+id+'"]'), K=$$('.dots .dot',b)[z-1].className.replace('dot','').trim();
-      $('#lk-titel').textContent=$('.m-name',b).textContent+', Zyklus '+z;
-      var g=$('#lk-gruppe'); g.className='lk-gruppe '+K; g.textContent='Gruppe '+K+': '+LEG[K];
-      var ziel=$('#lk-regeln'); ziel.textContent='';
-      var k=kopie(document.getElementById(id)); var dl=$('dl',k); if(dl) dl.remove(); ziel.appendChild(k);
-    }
-    sel.addEventListener('change',zeigeLk);
-    $$('input[name=lk-z]').forEach(function(r){ r.addEventListener('change',zeigeLk); });
-    var dr=$('#lk-druck');
-    // Im eingebetteten Artefakt ist Drucken gesperrt, darum dort ausblenden
-    if(window.self!==window.top) dr.hidden=true;
-    dr.addEventListener('click',function(){ document.documentElement.classList.add('druck-lk'); window.print(); setTimeout(function(){ document.documentElement.classList.remove('druck-lk'); },500); });
-  })();
 
   /* Begriffe: erstes Vorkommen je Abschnitt antippbar, Karte als Popover */
   (function(){

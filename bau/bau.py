@@ -276,44 +276,14 @@ body = f'''<header class="kopf"><div class="in">
 
 <section class="panel" id="unterricht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
-<li class="nurjs"><a href="#lektion">Vor der Lektion</a></li>
-<li><a href="#schutzmassnahmen">Schutzmassnahmen</a></li>
 <li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
+<li><a href="#schutzmassnahmen">Schutzmassnahmen</a></li>
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
 </ul>
-<section id="lektion" class="nurjs">
-<h2>Vor der Lektion</h2>
-<p class="einleitung">Maschine und Zyklus wählen. Die Übersicht zeigt Gruppe, Aufsicht und die Regeln dazu, darunter eine Checkliste.</p>
-<form class="lk-wahl" id="lk-form" onsubmit="return false">
-<label for="lk-m">Maschine</label>
-<select id="lk-m"><option value="">bitte wählen</option></select>
-<fieldset><legend>Zyklus</legend>
-<label><input type="radio" name="lk-z" value="1">1</label>
-<label><input type="radio" name="lk-z" value="2" checked>2</label>
-<label><input type="radio" name="lk-z" value="3">3</label>
-</fieldset>
-</form>
-<div class="lk-karte" id="lk-karte" hidden>
-<p class="lk-titel" id="lk-titel"></p>
-<p class="lk-gruppe" id="lk-gruppe"></p>
-<div id="lk-regeln"></div>
-<p class="lk-ct">Checkliste</p>
-<ul class="lk-check">
-<li><label><input type="checkbox"> Fachraumordnung mit der Klasse besprochen: Kleidung, Haare, Schmuck, keine Handschuhe an drehenden Maschinen</label></li>
-<li><label><input type="checkbox"> Schutzbrille und weitere Schutzausrüstung in passenden Grössen bereit</label></li>
-<li><label><input type="checkbox"> Schlüsselschalter, Not-Aus, Feuerlöscher, Erste-Hilfe-Kasten und Augendusche bekannt</label></li>
-<li><label><input type="checkbox"> Absaugung oder Lüftung bereit</label></li>
-<li><label><input type="checkbox"> Instruktion an der Maschine geplant und festgehalten</label></li>
-<li><label><input type="checkbox"> Aufsicht geklärt: Gruppe B nur, wenn die Lehrperson im Raum ist</label></li>
-</ul>
-<button type="button" class="knopf" id="lk-druck">Als Aushang drucken</button>
-</div>
-<p class="quelle">Zusammenstellung dieser Seite aus <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036&nbsp;↗</a> · <a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V, 41&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 14, 19&nbsp;↗</a></p>
-</section>
+{sicher}
 <section class="u-schutz">
 {schutz}</section>
-{sicher}
 {didaktik}
 {lehrplan}
 </div></section>
