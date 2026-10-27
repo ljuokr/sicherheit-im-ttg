@@ -19,7 +19,7 @@ VERBOTE = ["Kein Essen und Trinken","Gegenstände aus dem Unterricht dürfen kei
 "Verzichten auf","Getränkte Lappen und Papiere nie","Auf Produkte mit gesundheitsgefährdenden","Nicht verwenden: Pigmente","Keine isocyanathaltigen",
 "Leinölhaltige Lacke nie","Wenn möglich lösungsmittelfreie Alternativen","Verboten sind Beizmittel","Glasätzen braucht","Originalgebinde verwenden",
 "Konzentrierte oxidierende Säuren","Keine Gasflaschen","Gefährliche Chemikalien dürfen nie","Alte Restbestände nicht mischen",
-"Lehrpersonen dürfen nach eigenem Ermessen keine","Improvisierte Anschlüsse","Schutzeinrichtungen an Maschinen dürfen nicht"]
+"Lehrpersonen dürfen nach eigenem Ermessen keine","Improvisierte Anschlüsse","Schutzeinrichtungen an Maschinen dürfen nicht","Keine Produkte, die explosiv","Auf das Bearbeiten von Blei"]
 INSTR = [("Welche Schutzausrüstung ein Stoff verlangt","instruktion"),("bfu 2.524 führt den Lasercutter","aufsicht"),
 ("Auf Polyurethan-Montageschaum","instruktion"),("* Inbetriebnahme, Ausserbetriebsetzung","selbst"),
 
@@ -146,8 +146,8 @@ def h3zu2(x, ids={}):
     for alt, neu in ids.items(): x = x.replace(alt, neu)
     return re.sub(r'<h3( id="[^"]+")?>(.*?)</h3>', r'<h2\1>\2</h2>', x)
 sicher = h3zu2(teil('<h3 id="sicher-unterrichten">', '<h3>Für jeden Fachraum</h3>'))
-allg = h3zu2(teil('<h3>Für jeden Fachraum</h3>', '<h3 id="schutzausruestung">'), {'<h3>Für jeden Fachraum</h3>': '<h3 id="fuer-jeden-fachraum">Für jeden Fachraum</h3>', '<h3>STOP-Prinzip</h3>': '<h3 id="stop">STOP-Prinzip</h3>'})
-stoffe = h3zu2(teil('<h3 id="schutzausruestung">', '<h3 id="emissionen">'))
+allg = h3zu2(teil('<h3>Für jeden Fachraum</h3>', '<h3 id="einkauf">'), {'<h3>Für jeden Fachraum</h3>': '<h3 id="fuer-jeden-fachraum">Für jeden Fachraum</h3>', '<h3>STOP-Prinzip</h3>': '<h3 id="stop">STOP-Prinzip</h3>'})
+stoffe = h3zu2(teil('<h3 id="einkauf">', '<h3 id="emissionen">'))
 emissionen = h3zu2(teil('<h3 id="emissionen">', None))
 grund_ohne = grund_ohne[:grund_ohne.index('<h3 id="sicher-unterrichten">')]
 grund_ohne = re.sub(r'<h2 id="grundsatz">.*?</h2>\n', '', grund_ohne).replace('<h3 id="drei-fragen">Drei Fragen vor jeder Arbeit</h3>', '<h2 id="drei-fragen">Drei Fragen vor jeder Arbeit</h2>')
