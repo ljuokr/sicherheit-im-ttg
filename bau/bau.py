@@ -325,6 +325,7 @@ def icon(m):
     pfad = BILDER + m.group(2)
     return '<img class="%s" src="data:image/svg+xml;base64,%s" alt="%s">' % (m.group(1), base64.b64encode(open(pfad, 'rb').read()).decode(), m.group(3))
 body = re.sub(r'<img class="([^"]+)" data-icon="([^"]+)" alt="([^"]*)">', icon, body)
+body = re.sub(r'<image data-icon="([^"]+)"', lambda m: '<image href="data:image/svg+xml;base64,%s"' % base64.b64encode(open(BILDER + m.group(1), 'rb').read()).decode(), body)
 
 head = S[:S.index('<style>\n/* Layout')].rstrip('\n')
 assert head.startswith('<!doctype html>') and '@font-face' in head
