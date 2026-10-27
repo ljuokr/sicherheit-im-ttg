@@ -203,8 +203,7 @@ for mid, name, key in MATS:
     if key == 'alle': hint = '\n' + re.sub(r'<h2( id="[^"]+")?>(.*?)</h2>', r'<h3\1>\2</h3>', stoffe) + '\n<p class="einleitung">Dazu diese Themen aus den Verfahren:</p>'
     mat_html.append('<section class="mat-teil" id="%s" data-key="%s">\n<h2>%s</h2>%s\n<div class="slot"></div>\n</section>' % (mid, key, name, hint))
 mat_html.insert(1, '<section class="mat-teil">\n' + emissionen + '</section>')
-mat_html.insert(0, '<section class="mat-teil">\n' + schutz + '</section>')
-mat_html = ['<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % (m[0], m[1]) for m in [('schutzmassnahmen', 'Schutzmassnahmen')] + MATS[:1] + [('emissionen', 'Emissionen')] + MATS[1:]) + '\n</ul>'] + mat_html
+mat_html = ['<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % (m[0], m[1]) for m in MATS[:1] + [('emissionen', 'Emissionen')] + MATS[1:]) + '\n</ul>'] + mat_html
 
 body = f'''<header class="kopf"><div class="in">
 {kopf}
@@ -278,6 +277,7 @@ body = f'''<header class="kopf"><div class="in">
 <section class="panel" id="unterricht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
 <li class="nurjs"><a href="#lektion">Vor der Lektion</a></li>
+<li><a href="#schutzmassnahmen">Schutzmassnahmen</a></li>
 <li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
@@ -311,6 +311,8 @@ body = f'''<header class="kopf"><div class="in">
 </div>
 <p class="quelle">Zusammenstellung dieser Seite aus <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036&nbsp;↗</a> · <a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V, 41&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 14, 19&nbsp;↗</a></p>
 </section>
+<section class="u-schutz">
+{schutz}</section>
 {sicher}
 {didaktik}
 {lehrplan}
