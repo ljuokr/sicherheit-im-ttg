@@ -35,6 +35,12 @@ def slug(t):
     for a, b in (('ä','ae'),('ö','oe'),('ü','ue'),('é','e')): t = t.replace(a, b)
     return re.sub(r'[^a-z0-9]+', '-', t).strip('-')
 
+# Passendes ISO-7010-Verbotszeichen, sonst das allgemeine Warnzeichen
+def zeichen(txt):
+    if txt.startswith('Kein Essen und Trinken'): return 'iso-P022.svg'
+    if txt.startswith('Handschuhverbot'): return 'iso-P028.svg'
+    return 'iso-W001.svg'
+
 def lists(html):
     def ul(m):
         inner = m.group(1)
@@ -48,7 +54,7 @@ def lists(html):
                 if txt.startswith(v): treffer[v] += 1; isv = True
             for p, g in INSTR:
                 if txt.startswith(p): itreffer[p] += 1; attrs += ' data-instr="%s"' % g
-            if isv: vb.append('<li class="verbot"%s><span class="vb">Verbot</span> %s</li>' % (attrs, it))
+            if isv: vb.append('<li class="verbot"%s><img class="vb-z" data-icon="%s" alt="Achtung"> %s</li>' % (attrs, zeichen(txt), it))
             else: rest.append('<li%s>%s</li>' % (attrs, it))
         sep = '\n' if '\n' in inner else ''
         return '<ul>' + sep + sep.join(vb + rest) + sep + '</ul>'

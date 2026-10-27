@@ -33,7 +33,7 @@ print('img:', p.imgs)
 def items(html, pat):
     return re.findall(pat, html, re.S)
 def norm(x): return re.sub(r'\s+', ' ', x).strip()
-neu_li = [norm(re.sub(r'<span class="vb">Verbot</span> ', '', x)) for x in items(neu, r"<li(?:\s[^>]*)?>(.*?)</li>")]
+neu_li = [norm(re.sub(r'<img class="vb-z"[^>]*> ', '', x)) for x in items(neu, r"<li(?:\s[^>]*)?>(.*?)</li>")]
 src_li = [norm(x) for x in items(src, r'<li>(.*?)</li>')]
 fehlt = [x for x in src_li if x not in neu_li]
 print('Original-li:', len(src_li), 'fehlend:', len(fehlt), fehlt[:3])
@@ -51,7 +51,7 @@ txt = ''.join(p.text)
 print('Gedankenstriche/ß im Text:', [c for c in '—–ß' if c in txt], 'in UI-JS:', [c for c in '—–ß' if c in neu.split('<script>')[-1]])
 print('Ausrufezeichen im Text:', txt.count('!'))
 print('[hidden]-Regel:', '[hidden]{display:none!important}' in neu)
-vb = re.findall(r'<li class="verbot"[^>]*><span class="vb">Verbot</span> (.*?)</li>', neu)
+vb = re.findall(r'<li class="verbot"[^>]*><img class="vb-z"[^>]*> (.*?)</li>', neu)
 print('Verbote markiert:', len(vb))
 print('data-instr:', len(re.findall(r'data-instr=', neu)))
 js = neu.split('<script>')[-1].split('</script>')[0]
