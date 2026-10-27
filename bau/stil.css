@@ -318,3 +318,77 @@ details.abschnitt>summary h2{margin:0}
 details.abschnitt[open]{padding-bottom:1rem}
 .emissionen li{margin-bottom:.5rem}
 .emissionen b{margin-right:.3rem}
+.wichtig{padding-left:1.4rem;max-width:68ch}
+.wichtig li{margin-bottom:.4rem}
+.entlastung{border-left:4px solid var(--pa);background:var(--tint);padding:.45rem .7rem;max-width:68ch}
+details.hs{display:inline}
+details.hs summary{display:inline;cursor:pointer;color:var(--muted);font-size:.875rem;text-decoration:underline dotted}
+details.hs[open]{display:block;font-size:.875rem;color:var(--muted);margin-top:.2rem}
+/* Schutzmassnahmen: STOP-Treppe, Figur, Zonenkarten */
+.stop{list-style:none;padding:0;margin:0 0 .75rem;display:grid;gap:.4rem;max-width:44rem}
+.stop li{display:grid;grid-template-columns:2.2rem 1fr;column-gap:.6rem;align-items:baseline;background:var(--tint);padding:.45rem .6rem;border-left:4px solid var(--line)}
+.stop li:nth-child(2){margin-left:1.5rem}.stop li:nth-child(3){margin-left:3rem}.stop li:nth-child(4){margin-left:4.5rem;border-left-color:var(--pb)}
+.stop b{grid-row:span 2;font-size:1.5rem;line-height:1}
+.stop-t{font-weight:600;display:block}
+@media (max-width:40rem){ .stop li:nth-child(n){margin-left:0} }
+.psa{display:grid;gap:1rem 2rem;margin:1rem 0}
+@media (min-width:52rem){ .psa{grid-template-columns:13rem minmax(0,1fr);align-items:start} .psa-figur{position:sticky;top:calc(var(--hh) + 1rem)} }
+.psa-figur{margin:0;max-width:13rem}
+.psa-figur svg{width:100%;height:auto;display:block}
+.psa-person{fill:var(--tint);stroke:var(--muted);stroke-width:2}
+.psa-p{fill:var(--pb);stroke:var(--fg);stroke-width:1.5}
+.psa-figur text{font:600 13px var(--font);text-anchor:middle;fill:#111;pointer-events:none}
+.psa-figur figcaption{font-size:.8rem;color:var(--muted)}
+.psa-karten{display:grid;gap:.75rem;min-width:0}
+.psa-karten{grid-template-columns:repeat(auto-fill,minmax(17rem,1fr))}
+.psa-k{border:1px solid var(--line);padding:.6rem .8rem;scroll-margin-top:calc(var(--hh) + 1rem)}
+.psa-k:target{outline:3px solid var(--pb)}
+.psa-k ul{margin:.3rem 0;padding-left:1.1rem}
+.psa-kopf{display:flex;align-items:center;gap:.5rem;margin:0}
+.psa-n{display:inline-grid;place-items:center;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--pb);color:#111;font-weight:600;font-size:.85rem}
+img.icon{width:2.4rem;height:2.4rem}
+img.icon.klein{width:1.4rem;height:1.4rem;vertical-align:middle;margin-right:.15rem}
+.psa-rot{margin:.4rem 0 0;padding:.3rem .5rem;border-left:4px solid var(--pc);background:var(--tint);font-weight:600}
+.psa-bezug{margin:.2rem 0 0;font-size:.875rem;color:var(--muted)}
+/* Emissionen als Kacheln */
+ul.emissionen{list-style:none;padding:0;display:grid;gap:.6rem;max-width:none}
+@media (min-width:48rem){ ul.emissionen{grid-template-columns:repeat(auto-fill,minmax(15rem,1fr))} }
+ul.emissionen li{border:1px solid var(--line);padding:.6rem .7rem;margin:0}
+ul.emissionen b{display:block;margin:.2rem 0}
+.em-icon svg{width:1.8rem;height:1.8rem;stroke:var(--fg);stroke-width:1.6;fill:var(--fg);stroke-linecap:round;stroke-linejoin:round}
+/* Etikette mit Ampel */
+.ampel{display:grid;gap:.5rem;margin:.8rem 0;max-width:none}
+@media (min-width:48rem){ .ampel{grid-template-columns:repeat(3,minmax(0,1fr))} }
+.amp{padding:.6rem .7rem;border-top:6px solid;background:var(--tint)}
+.amp p{margin:.15rem 0}
+.amp-t{font-weight:600}
+.amp-gruen{border-top-color:var(--pa)} .amp-gelb{border-top-color:var(--pb)} .amp-rot{border-top-color:var(--pc)}
+.amp-pikt{color:var(--muted);font-size:.875rem;display:flex;flex-wrap:wrap;gap:.3rem;align-items:center;min-height:2.5rem}
+.ampel figcaption{grid-column:1/-1;font-size:.875rem;color:var(--muted)}
+/* Verantwortung */
+.verantw{display:grid;gap:.5rem;margin:0 0 1.5rem;max-width:none}
+@media (min-width:48rem){ .verantw{grid-template-columns:repeat(4,minmax(0,1fr))} }
+.vw{background:var(--tint);padding:.6rem .7rem;border-top:4px solid var(--fg)}
+.vw p{margin:.15rem 0;font-size:.9rem}
+.vw-t{font-weight:600;font-size:1rem}
+.verantw figcaption{grid-column:1/-1;font-size:.875rem;color:var(--muted)}
+/* Vor der Lektion */
+.lk-wahl{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:center;margin:0 0 1rem}
+.lk-wahl select{font:inherit;padding:.35rem .5rem;min-height:2.5rem;border:1px solid var(--muted);background:var(--bg);color:var(--fg);max-width:100%}
+.lk-wahl fieldset{border:0;padding:0;margin:0;display:flex;gap:.8rem;align-items:center}
+.lk-wahl legend{float:left;margin-right:.6rem}
+.lk-karte{border:2px solid var(--fg);padding:.8rem 1rem;max-width:44rem;margin:0 0 1rem}
+.lk-titel{font-weight:600;font-size:1.15rem;margin:0 0 .4rem}
+.lk-gruppe{padding:.4rem .6rem;font-weight:600;margin:0 0 .6rem}
+.lk-gruppe.A{background:var(--a)} .lk-gruppe.B{background:var(--b)} .lk-gruppe.C{background:var(--c)}
+.lk-karte .karte{background:none;padding:0;border:0;margin:0}
+.lk-ct{font-weight:600;margin:.8rem 0 .2rem}
+.lk-check{list-style:none;padding:0;margin:0 0 .8rem}
+.lk-check li{margin:.3rem 0}
+.lk-check input{margin-right:.4rem}
+@media print{
+  html.druck-lk body *{visibility:hidden}
+  html.druck-lk #lk-karte, html.druck-lk #lk-karte *{visibility:visible}
+  html.druck-lk #lk-karte{position:absolute;left:0;top:0;width:100%;border-color:#000}
+  html.druck-lk #lk-druck{display:none}
+}

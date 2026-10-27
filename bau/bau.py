@@ -14,20 +14,20 @@ js = open(HIER+'app.js', encoding='utf-8').read()
 
 VERBOTE = ["Kein Essen und Trinken","Gegenstände aus dem Unterricht dürfen keine","Keine bleihaltige Emaille","Kein imprägniertes",
 "Nie mit Pressluft abblasen","Schleifpapier nicht ausklopfen","Handschuhverbot","Keine mechanische Bearbeitung","Acrylglas: Kanten nicht",
-"In der Umgebung keine brennbaren","Nicht lasern","Verwendung und Bearbeitung asbesthaltiger","Blei und Bleilegierungen","Kein Woodsches Metall",
+"In der Umgebung keine brennbaren","Nicht lasern","Verwendung und Bearbeitung asbesthaltiger","Blei und Bleilegierungen",
 "Auf Polyurethan-Montageschaum","Bleihaltige Weichlote","Cadmiumhaltige Hartlote","Flussmittel als verwendungsfertige Paste","Keine Schweissarbeiten",
 "Verzichten auf","Getränkte Lappen und Papiere nie","Auf Produkte mit gesundheitsgefährdenden","Nicht verwenden: Pigmente","Keine isocyanathaltigen",
 "Leinölhaltige Lacke nie","Wenn möglich lösungsmittelfreie Alternativen","Verboten sind Beizmittel","Glasätzen braucht","Originalgebinde verwenden",
 "Konzentrierte oxidierende Säuren","Keine Gasflaschen","Gefährliche Chemikalien dürfen nie","Alte Restbestände nicht mischen",
 "Lehrpersonen dürfen nach eigenem Ermessen keine","Improvisierte Anschlüsse","Schutzeinrichtungen an Maschinen dürfen nicht","Keine Produkte, die explosiv","Auf das Bearbeiten von Blei"]
-INSTR = [("Welche Schutzausrüstung ein Stoff verlangt","instruktion"),("bfu 2.524 führt den Lasercutter","aufsicht"),
+INSTR = [("bfu 2.524 führt den Lasercutter","aufsicht"),
 ("Auf Polyurethan-Montageschaum","instruktion"),("* Inbetriebnahme, Ausserbetriebsetzung","selbst"),
 
 ("Epoxy-, Polyurethan- und Sekundenkleber verwenden","instruktion"),("Produkte mit Gefahrenhinweis kennzeichnen","instruktion"),
 ("Brennofen in einem gut durchlüfteten Raum","selbst"),("Betrieb nur unter Aufsicht einer Lehrperson","aufsicht"),
 ("Die Schule stellt die Behälter","selbst"),("Lehrpersonen dürfen nach eigenem Ermessen","selbst"),("Teilen sich mehrere Lehrpersonen","selbst"),
 ("Eine Fachraumordnung mit Bekleidungs","instruktion"),("Bei Mehrfachnutzung empfiehlt die bfu ein Zutrittsmanagement","instruktion"),
-("Lehrpersonen haben während der Unterrichtszeit","selbst"),("Werkzeuge, Geräte und Maschinen wählen und einführen dürfen nur","selbst"),("Gasanlagen für Hartlöten und Schweissen nehmen nur geschulte","selbst")]
+("Lehrpersonen haben während der Unterrichtszeit","selbst"),("Gasanlagen für Hartlöten und Schweissen nehmen nur geschulte","selbst")]
 treffer = {v: 0 for v in VERBOTE}; itreffer = {i[0]: 0 for i in INSTR}
 
 def slug(t):
@@ -146,11 +146,12 @@ def h3zu2(x, ids={}):
     for alt, neu in ids.items(): x = x.replace(alt, neu)
     return re.sub(r'<h3( id="[^"]+")?>(.*?)</h3>', r'<h2\1>\2</h2>', x)
 sicher = h3zu2(teil('<h3 id="sicher-unterrichten">', '<h3>Für jeden Fachraum</h3>'))
-allg = h3zu2(teil('<h3>Für jeden Fachraum</h3>', '<h3 id="einkauf">'), {'<h3>Für jeden Fachraum</h3>': '<h3 id="fuer-jeden-fachraum">Für jeden Fachraum</h3>', '<h3>STOP-Prinzip</h3>': '<h3 id="stop">STOP-Prinzip</h3>'})
+allg = h3zu2(teil('<h3>Für jeden Fachraum</h3>', '<h3 id="schutzmassnahmen">'), {'<h3>Für jeden Fachraum</h3>': '<h3 id="fuer-jeden-fachraum">Für jeden Fachraum</h3>', '<h3>STOP-Prinzip</h3>': '<h3 id="stop">STOP-Prinzip</h3>'})
+schutz = h3zu2(teil('<h3 id="schutzmassnahmen">', '<h3 id="einkauf">'))
 stoffe = h3zu2(teil('<h3 id="einkauf">', '<h3 id="emissionen">'))
 emissionen = h3zu2(teil('<h3 id="emissionen">', None))
 grund_ohne = grund_ohne[:grund_ohne.index('<h3 id="sicher-unterrichten">')]
-grund_ohne = re.sub(r'<h2 id="grundsatz">.*?</h2>\n', '', grund_ohne).replace('<h3 id="drei-fragen">Drei Fragen vor jeder Arbeit</h3>', '<h2 id="drei-fragen">Drei Fragen vor jeder Arbeit</h2>')
+grund_ohne = re.sub(r'<h2 id="grundsatz">.*?</h2>\n', '', grund_ohne).replace('<h3 id="drei-fragen">Drei Fragen vor jeder Arbeit</h3>', '<h2 id="drei-fragen">Drei Fragen vor jeder Arbeit</h2>').replace('<h3 id="wichtigste">Das Wichtigste für den Anfang</h3>', '<h2 id="wichtigste">Das Wichtigste für den Anfang</h2>')
 def sprung(html): return '<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % m for m in re.findall(r'<h2 id="([^"]+)"[^>]*>(.*?)</h2>', html)) + '\n</ul>'
 def ohne_erste_id(html, i): return html.replace('<h2 id="%s">' % i, '<h2>', 1)
 einleitung_verf = re.search(r'<p>Die folgenden Abschnitte.*?</p>', S).group(0)
@@ -192,7 +193,7 @@ zustaendig = zw('<h2 id="zustaendig">', '<h2 id="begriffe">')
 def zu(html): return re.sub(r'^(<h2 id="[^"]+">.*?</h2>)\n(.*)$', r'<details class="abschnitt">\n<summary>\1</summary>\n\2</details>', html.strip(), flags=re.S) + '\n'
 planen = fach_teile.pop() + notfall + lernort
 fach_html = ['''<div class="gruppen">
-<div><p class="g-titel">Grundregeln</p><ul><li><a href="#fuer-jeden-fachraum">Für jeden Fachraum</a></li><li><a href="#stop">STOP-Prinzip</a></li></ul></div>
+<div><p class="g-titel">Grundregeln</p><ul><li><a href="#fuer-jeden-fachraum">Für jeden Fachraum</a></li><li><a href="#schutzmassnahmen">Schutzmassnahmen und STOP</a></li></ul></div>
 <div><p class="g-titel">Betrieb</p><ul><li><a href="#fachraum-betreiben">Fachraum betreiben und Maschinen warten</a></li><li><a href="#lagerung">Lagerung gefährlicher Stoffe</a></li><li><a href="#entsorgung">Entsorgung</a></li></ul></div>
 <div><p class="g-titel">Einrichtung</p><ul><li><a href="#planen">Fachräume planen und einrichten</a></li><li><a href="#notfall">Notfälle vorbereiten</a></li><li><a href="#lernort">Fachraum als Lernort</a></li></ul></div>
 </div>''', allg] + [zu(x) for x in fach_teile] + [zu(planen)]
@@ -202,7 +203,8 @@ for mid, name, key in MATS:
     if key == 'alle': hint = '\n' + re.sub(r'<h2( id="[^"]+")?>(.*?)</h2>', r'<h3\1>\2</h3>', stoffe) + '\n<p class="einleitung">Dazu diese Themen aus den Verfahren:</p>'
     mat_html.append('<section class="mat-teil" id="%s" data-key="%s">\n<h2>%s</h2>%s\n<div class="slot"></div>\n</section>' % (mid, key, name, hint))
 mat_html.insert(1, '<section class="mat-teil">\n' + emissionen + '</section>')
-mat_html = ['<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % (m[0], m[1]) for m in MATS[:1] + [('emissionen', 'Emissionen')] + MATS[1:]) + '\n</ul>'] + mat_html
+mat_html.insert(0, '<section class="mat-teil">\n' + schutz + '</section>')
+mat_html = ['<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % (m[0], m[1]) for m in [('schutzmassnahmen', 'Schutzmassnahmen')] + MATS[:1] + [('emissionen', 'Emissionen')] + MATS[1:]) + '\n</ul>'] + mat_html
 
 body = f'''<header class="kopf"><div class="in">
 {kopf}
@@ -275,10 +277,40 @@ body = f'''<header class="kopf"><div class="in">
 
 <section class="panel" id="unterricht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
+<li class="nurjs"><a href="#lektion">Vor der Lektion</a></li>
 <li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
 </ul>
+<section id="lektion" class="nurjs">
+<h2>Vor der Lektion</h2>
+<p class="einleitung">Maschine und Zyklus wählen. Die Übersicht zeigt Gruppe, Aufsicht und die Regeln dazu, darunter eine Checkliste.</p>
+<form class="lk-wahl" id="lk-form" onsubmit="return false">
+<label for="lk-m">Maschine</label>
+<select id="lk-m"><option value="">bitte wählen</option></select>
+<fieldset><legend>Zyklus</legend>
+<label><input type="radio" name="lk-z" value="1">1</label>
+<label><input type="radio" name="lk-z" value="2" checked>2</label>
+<label><input type="radio" name="lk-z" value="3">3</label>
+</fieldset>
+</form>
+<div class="lk-karte" id="lk-karte" hidden>
+<p class="lk-titel" id="lk-titel"></p>
+<p class="lk-gruppe" id="lk-gruppe"></p>
+<div id="lk-regeln"></div>
+<p class="lk-ct">Checkliste</p>
+<ul class="lk-check">
+<li><label><input type="checkbox"> Fachraumordnung mit der Klasse besprochen: Kleidung, Haare, Schmuck, keine Handschuhe an drehenden Maschinen</label></li>
+<li><label><input type="checkbox"> Schutzbrille und weitere Schutzausrüstung in passenden Grössen bereit</label></li>
+<li><label><input type="checkbox"> Schlüsselschalter, Not-Aus, Feuerlöscher, Erste-Hilfe-Kasten und Augendusche bekannt</label></li>
+<li><label><input type="checkbox"> Absaugung oder Lüftung bereit</label></li>
+<li><label><input type="checkbox"> Instruktion an der Maschine geplant und festgehalten</label></li>
+<li><label><input type="checkbox"> Aufsicht geklärt: Gruppe B nur, wenn die Lehrperson im Raum ist</label></li>
+</ul>
+<button type="button" class="knopf" id="lk-druck">Als Aushang drucken</button>
+</div>
+<p class="quelle">Zusammenstellung dieser Seite aus <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036&nbsp;↗</a> · <a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V, 41&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 14, 19&nbsp;↗</a></p>
+</section>
 {sicher}
 {didaktik}
 {lehrplan}
@@ -317,6 +349,10 @@ else:
     quellen = quellen + '\n' + begriffe
 body = body.replace('@@QUELLEN@@', quellen.replace('<h2 id="quellen">', '<h2>', 1))
 body = re.sub(r'<div class="b-bild" data-bild="([^"]+)"></div>', bild, body)
+def icon(m):
+    pfad = BILDER + m.group(2)
+    return '<img class="%s" src="data:image/svg+xml;base64,%s" alt="%s">' % (m.group(1), base64.b64encode(open(pfad, 'rb').read()).decode(), m.group(3))
+body = re.sub(r'<img class="([^"]+)" data-icon="([^"]+)" alt="([^"]*)">', icon, body)
 
 head = S[:S.index('<style>\n/* Layout')].rstrip('\n')
 assert head.startswith('<!doctype html>') and '@font-face' in head
