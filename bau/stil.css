@@ -223,7 +223,7 @@ table.kantone td:first-child{white-space:nowrap}
 .rand .hinweis{margin-top:1.5rem}
 @media (min-width:64rem){
   #grundlage > .text.mit-rand{grid-template-columns:minmax(0,48rem) 18rem}
-  .rand{grid-column:2;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh) + 1rem);max-height:calc(100vh - var(--hh) - 2rem);overflow-y:auto}
+  .rand{grid-column:2;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh) + 1rem)}
   .rand .hinweis{margin:0}
   .rand ul{padding-left:1rem}
   .rand li{margin:.15rem 0}
@@ -401,3 +401,8 @@ ol.kern{max-width:68ch;margin:.25rem 0 .5rem;padding-left:1.5rem}
 ol.kern li{margin:.2rem 0;font-weight:600}
 table.sl td,table.sl th{vertical-align:top}
 @media (max-width:63.99rem){ #grundlage > .text.mit-rand{display:flex;flex-direction:column} #grundlage .rand{order:2} }
+section.klapp{border-top:1px solid var(--line)}
+section.klapp:last-of-type{border-bottom:1px solid var(--line)}
+html.js .mtab-wrap{display:none}
+section.klapp details.thema-d>summary h2{margin:0;font-size:1.25rem}
+section.klapp section.klapp{margin-left:1.2rem}

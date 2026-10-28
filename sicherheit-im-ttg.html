@@ -234,7 +234,7 @@ table.kantone td:first-child{white-space:nowrap}
 .rand .hinweis{margin-top:1.5rem}
 @media (min-width:64rem){
   #grundlage > .text.mit-rand{grid-template-columns:minmax(0,48rem) 18rem}
-  .rand{grid-column:2;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh) + 1rem);max-height:calc(100vh - var(--hh) - 2rem);overflow-y:auto}
+  .rand{grid-column:2;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh) + 1rem)}
   .rand .hinweis{margin:0}
   .rand ul{padding-left:1rem}
   .rand li{margin:.15rem 0}
@@ -412,6 +412,11 @@ ol.kern{max-width:68ch;margin:.25rem 0 .5rem;padding-left:1.5rem}
 ol.kern li{margin:.2rem 0;font-weight:600}
 table.sl td,table.sl th{vertical-align:top}
 @media (max-width:63.99rem){ #grundlage > .text.mit-rand{display:flex;flex-direction:column} #grundlage .rand{order:2} }
+section.klapp{border-top:1px solid var(--line)}
+section.klapp:last-of-type{border-bottom:1px solid var(--line)}
+html.js .mtab-wrap{display:none}
+section.klapp details.thema-d>summary h2{margin:0;font-size:1.25rem}
+section.klapp section.klapp{margin-left:1.2rem}
 </style>
 </head>
 <body>
@@ -462,15 +467,15 @@ table.sl td,table.sl th{vertical-align:top}
 <div class="hinweis" id="geltung">
 <p class="g-k">Diese Seite ist</p>
 <ul>
-<li>eine Zusammenfassung der Merkblätter von bfu und chemsuisse, ergänzt um Suva, kantonale Dokumente und Gesetze, für Lehrpersonen und Studierende im TTG. Stand Oktober 2026.</li>
-<li>eine Hilfe mit Markierungen: Ein Warnzeichen steht dort, wo die Quellen etwas an Schulen ausschliessen. Das sind meist Vorgaben von chemsuisse oder bfu. Wo ein Gesetz gilt, steht «Gesetz» dabei.</li>
-<li>ein Einstieg, um die Originale zu finden. Alle Dokumente stehen unter <a href="#quellen">Quellen</a>.</li>
+<li>eine Zusammenfassung der Merkblätter von bfu und chemsuisse, ergänzt um Suva, Kantone und Gesetze. Stand Oktober 2026.</li>
+<li>markiert: Ein Warnzeichen steht, wo die Quellen etwas an Schulen ausschliessen, «Gesetz», wo ein Gesetz gilt.</li>
+<li>ein Wegweiser zu den Originalen unter <a href="#quellen">Quellen</a>.</li>
 </ul>
 <p class="g-k">Diese Seite ist nicht</p>
 <ul>
-<li>verbindlich. Massgebend sind die Originaldokumente und die Vorgaben des jeweiligen Kantons.</li>
-<li>vollständig. Auch die Listen der bfu sind nicht abschliessend.</li>
-<li>ein Ersatz für die eigene Beurteilung. Was nötig ist, entscheidet sich vor Ort. Im Unterricht trägt die Lehrperson die Verantwortung, für Räume und Ausstattung der Schulträger.</li>
+<li>verbindlich. Massgebend sind die Originale und die Vorgaben des jeweiligen Kantons.</li>
+<li>vollständig.</li>
+<li>ein Ersatz für die eigene Beurteilung vor Ort.</li>
 </ul>
 <p class="g-mehr">Mehr unter <a href="#recht">Rechtlicher Rahmen</a>.</p>
 </div>
@@ -536,7 +541,7 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <section class="verfahren" id="trennen" data-titel="Trennen">
 <h2>Trennen</h2>
 <p>Schneiden, scheren, sägen, bohren, feilen, schleifen und polieren.</p>
-<div class="wrap">
+<div class="wrap mtab-wrap">
 <table class="mtab">
 <thead><tr><th>Maschine, Gerät, Anlage</th><th class="z1">Zyklus 1</th><th class="z2">Zyklus 2</th><th class="z3">Zyklus 3</th></tr></thead>
 <tbody>
@@ -564,7 +569,7 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 </tbody>
 </table>
 </div>
-<ul><li>** Aufsätze zur Oberflächenbearbeitung (z. B. Schrubben).</li></ul>
+<ul class="mtab-wrap"><li>** Aufsätze zur Oberflächenbearbeitung (z. B. Schrubben).</li></ul>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 21&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301&nbsp;↗</a></p>
 <details class="videos"><summary>Lernvideos auf tud.ch (7)</summary><p>Nicht auf Sicherheitsaussagen geprüft: <a href="https://www.tud.ch/lernvideos/verfahren/#schneiden-blechschere">Blechschere</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#japansaege">Japansäge</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#dekupiersaege">Dekupiersäge</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#stichsaege">Stichsäge</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#bandsaege">Bandsäge</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#tischbohrmaschine">Tischbohrmaschine</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#tellerschleifmaschine">Tellerschleifmaschine</a></p></details>
 <p class="keine" hidden>Zu diesem Material nennen die Quellen bei diesem Verfahren keine eigenen Regeln. Die allgemeinen Abschnitte und die Maschinentabelle gelten trotzdem.</p>
@@ -675,7 +680,7 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <section class="verfahren" id="umformen" data-titel="Umformen">
 <h2>Umformen</h2>
 <p>Kalt- und Warmbiegen, Modellieren und Giessen, Glätten mit dem Bügeleisen.</p>
-<div class="wrap">
+<div class="wrap mtab-wrap">
 <table class="mtab">
 <thead><tr><th>Maschine, Gerät, Anlage</th><th class="z1">Zyklus 1</th><th class="z2">Zyklus 2</th><th class="z3">Zyklus 3</th></tr></thead>
 <tbody>
@@ -733,7 +738,7 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <section class="verfahren" id="verbinden" data-titel="Verbinden">
 <h2>Verbinden</h2>
 <p>Kleben, schrauben, nageln und nieten, dübeln, löten, schweissen und nähen.</p>
-<div class="wrap">
+<div class="wrap mtab-wrap">
 <table class="mtab">
 <thead><tr><th>Maschine, Gerät, Anlage</th><th class="z1">Zyklus 1</th><th class="z2">Zyklus 2</th><th class="z3">Zyklus 3</th></tr></thead>
 <tbody>
@@ -751,7 +756,7 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 </tbody>
 </table>
 </div>
-<ul><li data-instr="selbst">* Inbetriebnahme, Ausserbetriebsetzung und Brennereinstellungen aller Hartlöt- und Schweissanlagen erfolgen ausschliesslich durch die Lehrperson. Beim Betreiben jeder Anlage ist für gute Abluft zu sorgen, am besten mit einer Quellenabsaugung.</li></ul>
+<ul class="mtab-wrap"><li>* Inbetriebnahme, Ausserbetriebsetzung und Brennereinstellungen aller Hartlöt- und Schweissanlagen erfolgen ausschliesslich durch die Lehrperson. Beim Betreiben jeder Anlage ist für gute Abluft zu sorgen, am besten mit einer Quellenabsaugung.</li></ul>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 21&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301&nbsp;↗</a></p>
 <details class="videos"><summary>Lernvideos auf tud.ch (10)</summary><p>Nicht auf Sicherheitsaussagen geprüft: <a href="https://www.tud.ch/lernvideos/verfahren/#kleben">Kleben</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#nageln">Nageln</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#schrauben">Schrauben</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#blindnieten">Blindnieten</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#duebeln">Dübeln</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#weichloeten">Weichlöten</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#hartloeten">Hartlöten</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#schutzgasschweissen">Schutzgasschweissen</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#naehenmitdernaehmaschine">Nähmaschine</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#naehenmitderoverlockmaschine">Overlockmaschine</a></p></details>
 <p class="keine" hidden>Zu diesem Material nennen die Quellen bei diesem Verfahren keine eigenen Regeln. Die allgemeinen Abschnitte und die Maschinentabelle gelten trotzdem.</p>
@@ -849,7 +854,7 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <section class="verfahren" id="oberflaeche" data-titel="Oberfläche verändern">
 <h2>Oberfläche verändern</h2>
 <p>Streichen, ölen, wachsen, beizen, glasieren und besticken.</p>
-<div class="wrap">
+<div class="wrap mtab-wrap">
 <table class="mtab">
 <thead><tr><th>Maschine, Gerät, Anlage</th><th class="z1">Zyklus 1</th><th class="z2">Zyklus 2</th><th class="z3">Zyklus 3</th></tr></thead>
 <tbody>
@@ -988,7 +993,7 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <section class="verfahren" id="lehrpersonen" data-titel="Nur Lehrpersonen">
 <h2>Nur für Lehrpersonen</h2>
 <p>Diese Maschinen und Anlagen dürfen Schülerinnen und Schüler in keinem Zyklus benützen. In der Regel dienen sie der Unterrichtsvorbereitung. Die bfu empfiehlt den Lehrpersonen, sie nur nach entsprechender Schulung zu nutzen, in der Grundausbildung oder in einer Weiterbildung.</p>
-<div class="wrap">
+<div class="wrap mtab-wrap">
 <table class="mtab">
 <thead><tr><th>Maschine, Gerät, Anlage</th><th class="z1">Zyklus 1</th><th class="z2">Zyklus 2</th><th class="z3">Zyklus 3</th></tr></thead>
 <tbody>
@@ -1108,8 +1113,8 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V, 6, 25, 26, 39&nbsp;↗</a></p>
 
 
-<details class="abschnitt">
-<summary><h2 id="fachraum-betreiben">Fachraum betreiben</h2></summary>
+<section class="klapp"><details class="thema-d">
+<summary><h2 id="fachraum-betreiben">Fachraum betreiben</h2><span class="t-meta">gemeinsame Regeln, Wartung, Checklisten</span></summary>
 <ul>
 <li data-instr="selbst">Teilen sich mehrere Lehrpersonen einen Fachraum, braucht es ein gemeinsames Verständnis von Sicherheit, Ordnung und Regeln, und die Regeln müssen konsequent eingehalten werden.</li>
 <li data-instr="instruktion">Eine Fachraumordnung mit Bekleidungs- und Verhaltensregeln. Ihre Einhaltung wird thematisiert und eingefordert.</li>
@@ -1117,7 +1122,8 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li data-instr="instruktion">Bei Mehrfachnutzung empfiehlt die bfu ein Zutrittsmanagement, z. B. Zutritt erst nach der Einweisung in Fachraum und Maschinen.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 18, 19&nbsp;↗</a></p>
-<h3>Maschinen warten und prüfen</h3>
+<section class="klapp"><details class="thema-d">
+<summary><h3>Maschinen warten und prüfen</h3><span class="t-meta">Schutzeinrichtungen intakt, Elektro periodisch prüfen</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Schutzeinrichtungen an Maschinen dürfen nicht manipuliert (entfernt, abgedeckt, verändert) werden. Schutzhauben und Anschläge müssen ordnungsgemäss montiert oder griffbereit sein.</li>
 <li>Betriebsanleitungen mit Garantie- und Wartungsunterlagen griffbereit aufbewahren.</li>
@@ -1126,13 +1132,16 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Schon beim Kauf von Mobiliar, Werkzeugen, Geräten und Maschinen Sicherheitsanforderungen festlegen, prüfen und einhalten.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 10, 14, 16&nbsp;↗</a></p>
-<h3>Checklisten</h3>
+</details></section>
+<section class="klapp"><details class="thema-d">
+<summary><h3>Checklisten</h3><span class="t-meta">bfu 4.323 von täglich bis jährlich</span></summary>
 <p>bfu 4.323 enthält drei Checklisten zum Ankreuzen (Ja, Teils, Nein) mit empfohlenem Prüfintervall, von der täglichen Sichtkontrolle bis zur jährlichen Prüfung. In den Spalten Massnahme, Wer und Wann wird festgehalten, was zu tun ist. So lässt sich zeigen, dass regelmässig geprüft wird.</p>
 <p>Für die Bohrmaschine eignet sich zusätzlich die Suva-Checkliste 67036. chemsuisse bietet Checklisten zu Holz, Metall und chemischen Hilfsstoffen und eine Vorlage für die Chemikalienliste.</p>
-<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 2-4&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036&nbsp;↗</a> · <a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 84-93&nbsp;↗</a></p></details>
+<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 2-4&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036&nbsp;↗</a> · <a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 84-93&nbsp;↗</a></p></details></section>
+</details></section>
 
-<details class="abschnitt">
-<summary><h2 id="lagerung">Lagerung gefährlicher Stoffe</h2></summary>
+<section class="klapp"><details class="thema-d">
+<summary><h2 id="lagerung">Lagerung gefährlicher Stoffe</h2><span class="t-meta">Kennzeichnung entscheidet, gefährliche Stoffe abschliessen</span></summary>
 <p>Was abgeschlossen werden muss, entscheidet die Gefahrenkennzeichnung (GHS-Piktogramme, H-Sätze), nicht der Eindruck. Dispersions- und Acrylfarben gehören in der Regel nicht dazu. Verbrauchsmaterialien wie Schrauben, Nägel, Farben und Schleifpapier werden laut bfu «für die Lernenden sichtbar und griffbereit bereitgestellt».</p>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Originalgebinde verwenden. Nie Getränkeflaschen, Konfitürengläser oder Konservendosen. Behälter nach Gebrauch verschliessen, dauerhaft beschriften, Piktogramme anbringen.</li>
@@ -1144,17 +1153,19 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Periodisch aussortieren: Behälter mit unbekanntem Inhalt, alte, verfärbte oder verkrustete Chemikalien, Gebinde mit alter Kennzeichnung (Giftklassen, orange-schwarze Symbole), undichte oder spröde Behälter, Chemikalien in Lebensmittelbehältern und alte Asbestteile. Im Zweifel eine Fachfirma beiziehen.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 35, 36, 81&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 13, 16, 17&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 3&nbsp;↗</a></p>
-<h3>Brennbare Flüssigkeiten, Säuren, Gas</h3>
+<section class="klapp"><details class="thema-d">
+<summary><h3>Brennbare Flüssigkeiten, Säuren, Gas</h3><span class="t-meta">Höchstmengen, getrennt lagern</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Konzentrierte oxidierende Säuren (Salpetersäure, Schwefelsäure über etwa 20 %) weder lagern noch verwenden. Säuren und Laugen getrennt in separaten, beständigen Kunststoffwannen lagern.</li>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Keine Gasflaschen mit giftigen oder ätzenden Gasen. Gaskartuschen in Schränken mit Lüftungsöffnungen in Bodennähe, in gut belüfteten Räumen, nicht im Keller.</li>
 <li>Pro Fachraum höchstens 100 Liter brennbare Flüssigkeiten, in feuerhemmenden Schränken mit nicht brennbarer Auffangwanne und Warnzeichen «Flamme». An den Arbeitsplätzen höchstens 25 Liter, in Gebinden bis 3 Liter.</li>
 <li>Brennbare Flüssigkeiten und Oxidationsmittel getrennt lagern. Schweissen, Schleifen und Trennen nicht in unmittelbarer Nähe brennbarer Flüssigkeiten und Materialien.</li>
 </ul>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 37, 38&nbsp;↗</a></p></details>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 37, 38&nbsp;↗</a></p></details></section>
+</details></section>
 
-<details class="abschnitt">
-<summary><h2 id="entsorgung">Entsorgung</h2></summary>
+<section class="klapp"><details class="thema-d">
+<summary><h2 id="entsorgung">Entsorgung</h2><span class="t-meta">nie in Kehricht oder Abwasser</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Gefährliche Chemikalien dürfen nie in den Kehricht oder ins Abwasser.</li>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Alte Restbestände nicht mischen und in ihrer Verpackung lassen.</li>
@@ -1163,19 +1174,22 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Metall, Glas, Karton, Batterien und Elektroschrott separat sammeln und rezyklieren. Sonst gelten die Vorgaben der Gemeinde.</li>
 <li>Was für einzelne Verfahren gilt, etwa für getränkte Lappen, Kunststoff- und Glasurreste, steht beim jeweiligen Thema, z. B. <a href="#leinoel">Leinöl</a>.</li>
 </ul>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 48, 51&nbsp;↗</a></p></details>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 48, 51&nbsp;↗</a></p></details></section>
 
-<details class="abschnitt">
-<summary><h2 id="planen">Fachräume planen und einrichten</h2></summary>
+<section class="klapp"><details class="thema-d">
+<summary><h2 id="planen">Fachräume planen und einrichten</h2><span class="t-meta">für Neubau, Umbau und Neuorganisation</span></summary>
 <p>Für Neubauten, Umbauten und die Neuorganisation bestehender Fachräume. Anforderungen an Schulräume und Klassengrössen gibt in der Regel der Kanton vor, siehe <a href="#kantone">Kantonale Vorgaben</a>.</p>
-<h3>Räume</h3>
+<section class="klapp"><details class="thema-d">
+<summary><h3>Räume</h3><span class="t-meta">Maschinenraum, Sichtkontakt, Zugang</span></summary>
 <ul>
 <li>Ein abgetrennter Maschinenraum dient der Sicherheit und hält Staub und Lärm von den Lernenden fern. Sichtkontakt über Trennwände aus Sicherheitsglas.</li>
 <li>Metallarbeiten mit offener Flamme oder Funkenbildung in einem separaten Raum, sonst Brandschutz wie ein Schweisser-Schutzvorhang.</li>
 <li>Hindernisfreier Zugang, damit Material geliefert und bei einem Notfall rasch evakuiert werden kann. Technik und Design empfiehlt einen direkten Ausgang ins Freie.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 6-9&nbsp;↗</a> · Technik und Design, S. 185</p>
-<h3>Installationen und Bauteile</h3>
+</details></section>
+<section class="klapp"><details class="thema-d">
+<summary><h3>Installationen und Bauteile</h3><span class="t-meta">FI-Schalter, Not-Aus, Absaugung</span></summary>
 <ul>
 <li>FI-Schutzschalter sind Pflicht. Die Stromversorgung der Maschinen über einen zentralen Schlüsselschalter, allenfalls mit zentralem Not-Aus. Maschinen mit grossem Gefährdungspotenzial separat freischalten.</li>
 <li>Maschinen und Kleingeräte ohne Verlängerungskabel anschliessen, wo nötig über Hängesteckdosen.</li>
@@ -1183,7 +1197,9 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Abstände: zwischen Arbeitstisch und Wand mindestens 85 bis 90 cm, zwischen zwei Arbeitstischen mindestens 120 cm, an Maschinen mindestens 80 cm Freiraum für die Bedienperson. Gefahrenbereiche von Maschinen kennzeichnen, kein Arbeitsplatz darin. Verkehrswege nicht als Abstellfläche nutzen.</li>
 <li>Regale mit gut sichtbar angeschriebener Traglast. Erhöhte Ablagen nur über trittsichere Leitern, höchstens 3 m hoch und nicht aus Holz.</li>
 </ul>
-<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 10, 14-17&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036, Frage 1&nbsp;↗</a></p><h3 id="notfall">Notfälle vorbereiten</h3>
+<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 10, 14-17&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036, Frage 1&nbsp;↗</a></p></details></section>
+<section class="klapp"><details class="thema-d">
+<summary><h3 id="notfall">Notfälle vorbereiten</h3><span class="t-meta">Notfallblatt, Erste-Hilfe-Kasten, Löscher, Abläufe</span></summary>
 <p class="einleitung">Im Notfall liest niemand auf dieser Seite nach. Entscheidend ist, was im Fachraum bereitliegt und mit der Klasse besprochen ist.</p>
 <ul>
 <li>Ein Telefon für den Notruf. Ein Notfallblatt mit Ansprechpersonen und Notfallnummern, gut sichtbar aufgehängt.</li>
@@ -1221,7 +1237,9 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Die Sicherheitsdatenblätter der beteiligten Stoffe für die Rettungsdienste bereithalten.</li>
 </ul>
 </details>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 42-47&nbsp;↗</a> · <a class="ql" href="https://www.samariter.ch/sites/default/files/media/documents/Was%20tun%20im%20Notfall_0.pdf">Samariter, Was tun im Notfall, S. 1, 2&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/ueber-uns/magazin-und-medien/magazin/augenverletzungen-wenn-berufsunfaelle-ins-auge-gehen">Suva, Augenverletzungen&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/ueber-uns/magazin-und-medien/magazin/stromschlag-was-tun">Suva, Stromschlag&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 19&nbsp;↗</a></p><h3 id="lernort">Fachraum als Lernort</h3>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 42-47&nbsp;↗</a> · <a class="ql" href="https://www.samariter.ch/sites/default/files/media/documents/Was%20tun%20im%20Notfall_0.pdf">Samariter, Was tun im Notfall, S. 1, 2&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/ueber-uns/magazin-und-medien/magazin/augenverletzungen-wenn-berufsunfaelle-ins-auge-gehen">Suva, Augenverletzungen&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/ueber-uns/magazin-und-medien/magazin/stromschlag-was-tun">Suva, Stromschlag&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 19&nbsp;↗</a></p></details></section>
+<section class="klapp"><details class="thema-d">
+<summary><h3 id="lernort">Fachraum als Lernort</h3><span class="t-meta">Raum für selbstständiges Arbeiten</span></summary>
 <p>Die Übersicht von Barbara Wyss zeigt, wie Funktionsbereiche und Orte für Lerntätigkeiten im Fachraum angeordnet werden können.</p>
 <figure class="lernort">
 <div class="lo-kopf"><p class="lo-titel">Fachraum als Lernort</p><p class="lo-unter">Überlegungen zur Konzipierung von Fachräumen TTG mit Bezug zu den inhaltlichen und didaktischen Vorgaben des Lehrplans 21</p></div>
@@ -1253,7 +1271,8 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 </div>
 <figcaption>Nachgebaut nach Barbara Wyss, PH FHNW, «Fachraum als Lernort», 2019</figcaption>
 </figure>
-<p class="quelle"><a class="ql" href="https://www.schulen-aargau.ch/media/schulen-aargau/schulorganisation/infrastruktur/schulhausbau/bksvs-lernort-fachraum-ttg.pdf">Fachraum als Lernort&nbsp;↗</a></p></details>
+<p class="quelle"><a class="ql" href="https://www.schulen-aargau.ch/media/schulen-aargau/schulorganisation/infrastruktur/schulhausbau/bksvs-lernort-fachraum-ttg.pdf">Fachraum als Lernort&nbsp;↗</a></p></details></section>
+</details></section>
 
 </div></section>
 
@@ -1264,7 +1283,8 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
 </ul>
-<h2 id="sicher-unterrichten">Sicher unterrichten</h2>
+<section class="klapp"><details class="thema-d">
+<summary><h2 id="sicher-unterrichten">Sicher unterrichten</h2><span class="t-meta">Fachkompetenz, Vorbereitung, Instruktion, Aufsicht</span></summary>
 <p>Unfallverhütung ist ein Zusammenspiel. Neben baulich-technischen Vorkehrungen braucht es Massnahmen im didaktisch-methodischen Bereich, für die einzelne Lehrperson und im Kollegium.</p>
 <ul>
 <li>Voraussetzung ist die Fachkompetenz der Lehrperson im Umgang mit Werkzeugen, Maschinen, Geräten, Materialien und Hilfsstoffen. Sie entscheidet über deren Einsatz und muss ihr Gefahrenpotenzial kennen.</li>
@@ -1275,6 +1295,7 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 </ul>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 6, 18&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2&nbsp;↗</a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 5&nbsp;↗</a> · <a class="ql" href="https://api.zebis.ch/sites/default/files/teaching_material/sicherer_umgang_mit_maschinen_lu_2003.pdf">Orientierungshilfe Luzern, S. 1&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036, Frage 15&nbsp;↗</a></p>
 
+</details></section>
 
 <section class="u-schutz">
 <h2 id="schutzmassnahmen">Schutzmassnahmen</h2>
@@ -1357,7 +1378,8 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V, 6, 7, 8, 9, 41&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036, Frage 14&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 6-9, 16&nbsp;↗</a> · <a class="ql" href="https://www.suva.ch/de-ch/praevention/nach-gefahren/gefaehrliche-materialien-strahlungen-und-situationen/laerm-und-vibrationen/laerm-am-arbeitsplatz">Suva, Lärm am Arbeitsplatz&nbsp;↗</a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 5&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 12&nbsp;↗</a></p>
 
 </section>
-<h2 id="erschliessen">Vom Produktions- zum Erschliessungshandeln</h2>
+<section class="klapp"><details class="thema-d">
+<summary><h2 id="erschliessen">Vom Produktions- zum Erschliessungshandeln</h2><span class="t-meta">was sich mit dem Lehrplan 21 ändert</span></summary>
 <p>Was sich zwischen Produktions- und Erschliessungshandeln ändert:</p>
 <div class="wrap"><table class="vergleich">
 <thead><tr><th></th><th>Produktionshandeln</th><th>Erschliessungshandeln</th></tr></thead>
@@ -1367,8 +1389,10 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <tr><th scope="row">Fachraum</th><td>Funktionsräume nach Werkstoffbereichen</td><td>Ensemble von Universalräumen, werkstoffübergreifend, mit Plätzen für Information, Dokumentation und Präsentation</td></tr>
 </tbody>
 </table></div>
-<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 6&nbsp;↗</a> · Technik und Design, S. 181, 182</p>
-<h2 id="lehrplan">Was der Lehrplan 21 verlangt</h2>
+<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 6&nbsp;↗</a> · Technik und Design, S. 181, 182</p></details></section>
+
+<section class="klapp"><details class="thema-d">
+<summary><h2 id="lehrplan">Was der Lehrplan 21 verlangt</h2><span class="t-meta">Sicherheit als Lerninhalt, Kompetenzstufen</span></summary>
 <p>Sicherheit ist im TTG Lerninhalt, nicht nur Bedingung. Die Schülerinnen und Schüler sollen Werkzeuge und Maschinen kennen und sachgerecht einsetzen (TTG.2.E.1). Der Lehrplan ordnet die Geräte selbst den Zyklen zu. Die Ziffer 2 in den Stufen 2a bis 2d steht für den Teil «Werkzeuge und Maschinen» der Kompetenz, nicht für den Zyklus:</p>
 <blockquote>
 <p><b>Zyklus 1 (2a):</b> können ihrer feinmotorischen Entwicklung entsprechend Werkzeuge und einfache technische Geräte unter Anleitung und Aufsicht verwenden (Schere, Handsäge, Handbohrer, Thermoschneider, Einspannvorrichtung). Können dabei Druck, Kraft, Geschwindigkeit und Ausdauer steuern und auf die Arbeitssicherheit achten.</p>
@@ -1377,7 +1401,8 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <p><b>Zyklus 3 (2d):</b> können für die Bearbeitung von Materialien Werkzeuge und Maschinen selbstständig wählen und damit sachgerecht umgehen.</p>
 </blockquote>
 <p>Das bfu-Plakat baut auf dieser Zuordnung auf. Und weil die Schülerinnen und Schüler «Materialien und Objekte aus ihrer Lebenswelt spielerisch und forschend erkunden» sollen (TTG.2.A.2.a, Zyklus 1), muss Material sichtbar und greifbar sein. Was weggeschlossen ist, wird nicht erkundet. Sicherheit entsteht durch Einteilung nach Gefahrenklasse und durch Einführung, nicht durch den Schlüssel.</p>
-<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 20&nbsp;↗</a> · <a class="ql" href="https://v-fe.lehrplan.ch/index.php?code=b%7C7%7C2">Lehrplan 21, TTG.2.E.1 und TTG.2.A.2&nbsp;↗</a></p>
+<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 20&nbsp;↗</a> · <a class="ql" href="https://v-fe.lehrplan.ch/index.php?code=b%7C7%7C2">Lehrplan 21, TTG.2.E.1 und TTG.2.A.2&nbsp;↗</a></p></details></section>
+
 </div></section>
 
 <section class="panel" id="kantone"><div class="text">
@@ -1416,27 +1441,36 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <div class="vw"><p class="vw-t">Schülerinnen und Schüler</p><p>Keine Arbeitnehmenden. Ihre Eigenverantwortung wird von der Lehrperson geregelt und eingeübt.</p></div>
 <figcaption>Eigene Übersicht nach bfu 4.302, S. 2, 3, bfu-Rechtsfrage und chemsuisse, S. 1. Die Einzelheiten stehen darunter.</figcaption>
 </figure>
-<h3>Warum Gesetze offen formuliert sind</h3>
+<section class="klapp"><details class="thema-d">
+<summary><h3>Warum Gesetze offen formuliert sind</h3><span class="t-meta">Massstab statt Einzelvorschriften</span></summary>
 <p>Die Gesetze zur Arbeitssicherheit schreiben meist keine einzelnen Massnahmen vor. Sie legen einen Massstab fest: Verlangt wird, was nach der Erfahrung notwendig, nach dem Stand der Technik anwendbar und den Verhältnissen angemessen ist (UVG Art. 82 Abs. 1, gleich lautend OR Art. 328 Abs. 2). So bleibt das Gesetz gültig, auch wenn sich Maschinen, Materialien und Unterricht verändern, und es passt auf jede Schule und jede Klasse.</p>
 <p>Was das konkret heisst, beschreiben Richtlinien und Merkblätter wie die von bfu, Suva und chemsuisse. Sie zeigen, was als Stand der Technik gilt. Nach einem Unfall wird geprüft, ob die nötigen Massnahmen getroffen wurden. Es hilft, wenn die Schule das belegen kann. Die Merkblätter dienen dabei als Richtschnur. Ob das genügt, wird im Einzelfall beurteilt, abhängig von den Lernvoraussetzungen, der Klasse und der Situation.</p>
 <p>Diese Gesetze schützen die Lehrpersonen als Arbeitnehmende. Schülerinnen und Schüler sind keine Arbeitnehmenden. Für sie gilt die Obhutspflicht von Schule und Lehrperson.</p>
 <p class="quelle">Einordnung dieser Seite, gestützt auf: <a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 1, 54&nbsp;↗</a> · <a class="ql" href="https://www.fedlex.admin.ch/eli/cc/1982/1676_1676_1676/de">UVG, Art. 82&nbsp;↗</a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 1&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/de/services/rechtsfragen/was-genau-bedeutet-die-obhutspflicht-von-lehrpersonen-welche-verantwortung-tragen-lehrerinnen-und-lehrer">bfu Rechtsfrage&nbsp;↗</a></p>
-<h3>Sorgfalts- und Obhutspflicht</h3>
+</details></section>
+<section class="klapp"><details class="thema-d">
+<summary><h3>Sorgfalts- und Obhutspflicht</h3><span class="t-meta">einteilen, instruieren, beaufsichtigen, laufend beurteilen</span></summary>
 <ul>
 <li data-instr="selbst">Lehrpersonen haben während der Unterrichtszeit eine Sorgfalts- und Obhutspflicht. Sie ergibt sich aus Strafrecht, kantonalem Schulrecht, Arbeitsverhältnis und der tatsächlich übernommenen Aufsicht, z. B. Bern LAV Art. 52 bis 60, Luzern VBG § 24.</li>
 <li>Im Kanton Bern wählen nur Lehrpersonen mit entsprechenden Fachkenntnissen Werkzeuge, Geräte und Maschinen aus und führen sie ein.</li>
 <li>Wie viel Aufsicht nötig ist, hängt von Alter, Entwicklungsstand und Verhalten der Kinder und von der Tätigkeit ab. Die Lage ist laufend zu beurteilen, bei Bedarf wird eingegriffen oder abgebrochen. Gute Vorbereitung allein genügt nicht, so das Bundesgericht in einem Urteil vom 26. September 1996 (<a href="https://servat.unibe.ch/dfr/bge/c4122303.html">BGE 122 IV 303</a>).</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/de/services/rechtsfragen/was-genau-bedeutet-die-obhutspflicht-von-lehrpersonen-welche-verantwortung-tragen-lehrerinnen-und-lehrer">bfu Rechtsfrage&nbsp;↗</a> · <a class="ql" href="https://www.belex.sites.be.ch/app/de/texts_of_law/430.251.0">LAV Bern&nbsp;↗</a> · <a class="ql" href="https://gesetzessammlungen.ag.ch/app/de/texts_of_law/411.200">GAL Aargau&nbsp;↗</a> · <a class="ql" href="https://srl.lu.ch/app/de/texts_of_law/400a">VBG Luzern&nbsp;↗</a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 3&nbsp;↗</a></p>
-<h3>Haftung</h3>
+</details></section>
+<section class="klapp"><details class="thema-d">
+<summary><h3>Haftung</h3><span class="t-meta">der Schulträger haftet, das Strafrecht trifft die Lehrperson</span></summary>
 <p>Für Schäden aus dem Unterricht haftet in der Regel der öffentliche Schulträger, nach dem kantonalen Haftungsrecht. Geschädigte richten ihre Forderungen an ihn, nicht an die Lehrperson. Auf die Lehrperson Rückgriff nehmen kann er nur bei Vorsatz oder grober Fahrlässigkeit.</p>
 <p>Davon getrennt ist das Strafrecht: Es trifft die Lehrperson persönlich. Fahrlässige Körperverletzung oder Tötung ist schon bei einfacher Fahrlässigkeit strafbar (StGB Art. 117 und 125). Dazu können disziplinarische Massnahmen nach Personalrecht kommen, etwa ein Verweis.</p>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/de/services/rechtsfragen/was-genau-bedeutet-die-obhutspflicht-von-lehrpersonen-welche-verantwortung-tragen-lehrerinnen-und-lehrer">bfu Rechtsfrage&nbsp;↗</a> · <a class="ql" href="https://sport-beruf.lu.ch/-/media/sport_beruf/Dokumente/Merkblatt_Haftung_im_Schulalltag.pdf">Merkblatt Kanton Luzern, Haftung im Schulalltag&nbsp;↗</a> · <a class="ql" href="https://servat.unibe.ch/dfr/bge/c4122303.html">BGE 122 IV 303&nbsp;↗</a></p>
-<h3>Schwangere und stillende Lehrpersonen</h3>
+</details></section>
+<section class="klapp"><details class="thema-d">
+<summary><h3>Schwangere und stillende Lehrpersonen</h3><span class="t-meta">bestimmte Stoffe nur nach Risikobeurteilung</span></summary>
 <p>Stoffe, die erbgutverändernd, krebserregend, fortpflanzungsgefährdend oder organschädigend sind (<a class="b-wort" href="#h-H340" data-b="h-H340" aria-haspopup="dialog">H340</a>, <a class="b-wort" href="#h-H341" data-b="h-H341" aria-haspopup="dialog">H341</a>, <a class="b-wort" href="#h-H350" data-b="h-H350" aria-haspopup="dialog">H350</a>, <a class="b-wort" href="#h-H351" data-b="h-H351" aria-haspopup="dialog">H351</a>, <a class="b-wort" href="#h-H360" data-b="h-H360" aria-haspopup="dialog">H360</a>, <a class="b-wort" href="#h-H361" data-b="h-H361" aria-haspopup="dialog">H361</a>, <a class="b-wort" href="#h-H362" data-b="h-H362" aria-haspopup="dialog">H362</a>, <a class="b-wort" href="#h-H370" data-b="h-H370" aria-haspopup="dialog">H370</a>, <a class="b-wort" href="#h-H371" data-b="h-H371" aria-haspopup="dialog">H371</a>), sowie Kohlenmonoxid, Quecksilber und Quecksilberverbindungen gelten für Mutter und Kind als besonders gefährlich (Mutterschutzverordnung, SR 822.111.52). Schwangere und Stillende dürfen damit nur arbeiten, wenn eine Risikobeurteilung zeigt, dass keine Belastung besteht oder Schutzmassnahmen sie ausschalten.</p>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 55&nbsp;↗</a></p>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 55&nbsp;↗</a></p></details></section>
+
 <h2 id="zustaendig">Zuständigkeiten</h2>
-<h3 id="schulleitung">Überblick für Schulleitungen</h3>
+<section class="klapp"><details class="thema-d">
+<summary><h3 id="schulleitung">Überblick für Schulleitungen</h3><span class="t-meta">acht Aufgaben mit Verbindlichkeit und Rhythmus</span></summary>
 <div class="wrap"><table class="sl">
 <thead><tr><th>Aufgabe</th><th>Verbindlichkeit</th><th>Rhythmus</th></tr></thead>
 <tbody>
@@ -1450,7 +1484,9 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <tr><td>Chemikalienliste führen, alte Bestände aussortieren</td><td>Empfehlung chemsuisse</td><td>periodisch</td></tr>
 </tbody></table></div>
 <p class="quelle">Zusammenstellung dieser Seite aus: <a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 1&nbsp;↗</a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 1&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 4, 14, 15&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 14, 18&nbsp;↗</a></p>
-<h3>Wer kontrolliert</h3>
+</details></section>
+<section class="klapp"><details class="thema-d">
+<summary><h3>Wer kontrolliert</h3><span class="t-meta">Arbeitsinspektorat, Suva nur Berufskrankheiten, bfu berät</span></summary>
 <ul>
 <li>Die Arbeitssicherheit der Lehrpersonen an öffentlichen Schulen beaufsichtigt das kantonale Arbeitsinspektorat (VUV Art. 47).</li>
 <li>Die Suva ist an öffentlichen Schulen nur für die Verhütung von Berufskrankheiten zuständig, im Werkraum etwa bei Holzstaub (VUV Art. 50). Versichert sind Lehrpersonen teils bei anderen Unfallversicherern, im Kanton Bern bei der Visana.</li>
@@ -1459,14 +1495,17 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Laut einem Gutachten im Auftrag des LCH kontrollieren die Arbeitsinspektorate Schulen kaum. Die Pflichten gelten trotzdem.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://www.suva.ch/de-ch/ueber-uns/die-suva/kontrolle-beratung-arbeitssicherheit">Suva, Kontrolle und Beratung&nbsp;↗</a> · <a class="ql" href="https://www.bag.admin.ch/de/unfallverhuetung-durchfuehrungsorgane">BAG, Durchführungsorgane&nbsp;↗</a> · <a class="ql" href="https://www.lch.ch/fileadmin/user_upload_lch/Politik/Stellungnahmen/170106_Stellungnahme_zum_Gesundheitsschutz_von_Lehrpersonen_Prof.Dr.Thomas_Geiser.pdf">Gutachten Geiser 2017 (LCH)&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/media/zgol3ddg/sitipp_sicherheitsdelegiertebfu_2306_de.pdf">bfu, Sicherheitsdelegierte&nbsp;↗</a></p>
-<h3>An der Schule</h3>
+</details></section>
+<section class="klapp"><details class="thema-d">
+<summary><h3>An der Schule</h3><span class="t-meta">Schulträger, Chemikalien-Ansprechperson, Pflichtenheft</span></summary>
 <ul>
 <li>Kanton und Gemeinden sind in der Regel für die Verfügbarkeit und Betriebssicherheit der Fachräume zuständig. Auf Verlangen kann die Sicherheit überprüft werden, etwa durch die Sicherheitsbeauftragten der Gemeinde.</li>
 <li>Schulen, in denen mit Chemikalien umgegangen wird, müssen eine Chemikalien-Ansprechperson bezeichnen und der kantonalen Fachstelle auf Anfrage melden. In Frage kommen die verantwortliche Person für die Chemikalien oder die Schulleitung.</li>
 <li>Zuständigkeiten für Pflege, Wartung und Unterhalt von Fachraum, Werkzeugen, Maschinen und Lager sollten geklärt sein, die bfu empfiehlt schriftlich: Schulträger, Schulleitung, Hausdienst, Fachverantwortliche, Lehrpersonen. Wartung und Lager betreuen Personen mit ausreichenden Fachkenntnissen.</li>
 <li>Diese Aufgaben gehören ins Pflichtenheft der Beteiligten. Einrichten, Umrüsten und Lagerbewirtschaftung sind zeitintensiv, dafür sind wie in anderen Schulbereichen ausreichende Ressourcen und eine Entschädigung einzuplanen.</li>
 </ul>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 1&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 5, 6, 18, 19, 22&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2, 3&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 4, 13&nbsp;↗</a></p>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 1&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 5, 6, 18, 19, 22&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2, 3&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 4, 13&nbsp;↗</a></p></details></section>
+
 </div></section>
 
 <section class="panel" id="quellen"><div class="text">

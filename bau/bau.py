@@ -196,19 +196,51 @@ for k, (vid, name) in enumerate(VERF):
     s = S[starts[k]:starts[k + 1]].strip('\n').replace('<section class="verfahren" id="%s">' % vid,
                           '<section class="verfahren" id="%s" data-titel="%s">' % (vid, name), 1)
     assert 'data-titel' in s
+    s = s.replace('<div class="wrap">\n<table class="mtab">', '<div class="wrap mtab-wrap">\n<table class="mtab">')
+    s = re.sub(r'(</table>\n</div>\n)<ul>(<li>\*)', r'\1<ul class="mtab-wrap">\2', s)
     verf_html.append(s)
 # Fachraum ohne Unterreiter: eine Sprungliste, darunter Betreiben und Planen
 fach_teile = [zw(x, y).replace('<h2 id="fachraum">', '<h2 id="fachraum-betreiben">', 1) for x, y in FACH]
 notfall = zw('<h2 id="notfall">', '<h2 id="fachraum">').replace('<h2 id="notfall">', '<h3 id="notfall">').replace('</h2>', '</h3>', 1)
 zustaendig = zw('<h2 id="zustaendig">', '<h2 id="begriffe">')
+# Recht und Zuständigkeiten: jede Unterüberschrift zuklappbar, mit Kernaussage in der Zeile
+KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschriften',
+        'Sorgfalts- und Obhutspflicht': 'einteilen, instruieren, beaufsichtigen, laufend beurteilen',
+        'Haftung': 'der Schulträger haftet, das Strafrecht trifft die Lehrperson',
+        'Schwangere und stillende Lehrpersonen': 'bestimmte Stoffe nur nach Risikobeurteilung',
+        'Überblick für Schulleitungen': 'acht Aufgaben mit Verbindlichkeit und Rhythmus',
+        'Wer kontrolliert': 'Arbeitsinspektorat, Suva nur Berufskrankheiten, bfu berät',
+        'An der Schule': 'Schulträger, Chemikalien-Ansprechperson, Pflichtenheft',
+        'Fachraum betreiben': 'gemeinsame Regeln, Wartung, Checklisten',
+        'Maschinen warten und prüfen': 'Schutzeinrichtungen intakt, Elektro periodisch prüfen',
+        'Checklisten': 'bfu 4.323 von täglich bis jährlich',
+        'Lagerung gefährlicher Stoffe': 'Kennzeichnung entscheidet, gefährliche Stoffe abschliessen',
+        'Brennbare Flüssigkeiten, Säuren, Gas': 'Höchstmengen, getrennt lagern',
+        'Entsorgung': 'nie in Kehricht oder Abwasser',
+        'Fachräume planen und einrichten': 'für Neubau, Umbau und Neuorganisation',
+        'Räume': 'Maschinenraum, Sichtkontakt, Zugang',
+        'Installationen und Bauteile': 'FI-Schalter, Not-Aus, Absaugung',
+        'Notfälle vorbereiten': 'Notfallblatt, Erste-Hilfe-Kasten, Löscher, Abläufe',
+        'Fachraum als Lernort': 'Raum für selbstständiges Arbeiten',
+        'Sicher unterrichten': 'Fachkompetenz, Vorbereitung, Instruktion, Aufsicht',
+        'Vom Produktions- zum Erschliessungshandeln': 'was sich mit dem Lehrplan 21 ändert',
+        'Was der Lehrplan 21 verlangt': 'Sicherheit als Lerninhalt, Kompetenzstufen'}
+def klapp(html, h='h3'):
+    def f(m):
+        titel = re.sub(r'<[^>]+>', '', m.group(2))
+        return ('<section class="klapp"><details class="thema-d">\n<summary><%s%s>%s</%s><span class="t-meta">%s</span></summary>%s</details></section>\n'
+                % (h, m.group(1), m.group(2), h, KERN.get(titel, ''), m.group(3)))
+    ende = r'(?=<h3|<h2|\Z)' if h == 'h3' else r'(?=<h2|\Z)'
+    return re.sub(r'<%s((?: [a-z]+="[^"]+")*)>(.*?)</%s>(.*?)%s' % (h, h, ende), f, html, flags=re.S)
+recht = klapp(recht)
+zustaendig = klapp(zustaendig)
 # Fachraum: Grundregeln offen, längere Abschnitte zugeklappt; oben eine Übersicht in drei Gruppen
-def zu(html): return re.sub(r'^(<h2 id="[^"]+">.*?</h2>)\n(.*)$', r'<details class="abschnitt">\n<summary>\1</summary>\n\2</details>', html.strip(), flags=re.S) + '\n'
 planen = fach_teile.pop() + notfall + lernort
 fach_html = ['''<div class="gruppen">
 <div><p class="g-titel">Grundregeln</p><ul><li><a href="#fuer-jeden-fachraum">Für jeden Fachraum</a></li><li><a href="#schutzmassnahmen">Schutzmassnahmen und STOP</a></li></ul></div>
 <div><p class="g-titel">Betrieb</p><ul><li><a href="#fachraum-betreiben">Fachraum betreiben und Maschinen warten</a></li><li><a href="#lagerung">Lagerung gefährlicher Stoffe</a></li><li><a href="#entsorgung">Entsorgung</a></li></ul></div>
 <div><p class="g-titel">Einrichtung</p><ul><li><a href="#planen">Fachräume planen und einrichten</a></li><li><a href="#notfall">Notfälle vorbereiten</a></li><li><a href="#lernort">Fachraum als Lernort</a></li></ul></div>
-</div>''', allg] + [zu(x) for x in fach_teile] + [zu(planen)]
+</div>''', allg] + [klapp(klapp(x), 'h2') for x in fach_teile] + [klapp(klapp(planen), 'h2')]
 mat_html = []
 for mid, name, key in MATS:
     hint = '' if key == 'alle' else '\n<p class="einleitung">Themen bei den Verfahren, die %s betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>.</p>' % ('«%s»' % name)
@@ -291,11 +323,11 @@ body = f'''<header class="kopf"><div class="in">
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
 </ul>
-{sicher}
+{klapp(sicher, 'h2')}
 <section class="u-schutz">
 {schutz}</section>
-{didaktik}
-{lehrplan}
+{klapp(didaktik, 'h2')}
+{klapp(lehrplan, 'h2')}
 </div></section>
 
 <section class="panel" id="kantone"><div class="text">
