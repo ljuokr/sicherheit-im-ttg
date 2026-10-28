@@ -234,7 +234,7 @@ table.kantone td:first-child{white-space:nowrap}
 .rand .hinweis{margin-top:1.5rem}
 @media (min-width:64rem){
   #grundlage > .text.mit-rand{grid-template-columns:minmax(0,48rem) 18rem}
-  .rand{grid-column:2;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh) + 1rem);margin-top:3.75rem}
+  .rand{grid-column:2;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh) + 1rem);max-height:calc(100vh - var(--hh) - 2rem);overflow-y:auto}
   .rand .hinweis{margin:0}
   .rand ul{padding-left:1rem}
   .rand li{margin:.15rem 0}
@@ -408,9 +408,8 @@ ul.amp-l li{display:flex;gap:.45rem;align-items:center;margin:0;font-size:.9rem}
 ul.amp-l img.icon{width:1.9rem;height:1.9rem;flex:none}
 .mat-verw{margin:.3rem 0}
 .ges{display:inline-block;font-size:.8rem;padding:0 .4rem;border:1px solid var(--muted);color:var(--fg);margin-left:.3rem;border-radius:3px}
-.ermutigung{font-size:1.1rem;max-width:68ch;margin:0 0 .5rem}
-.neu{background:var(--tint);padding:.5rem .7rem;max-width:68ch}
-.neu a{font-weight:600}
+ol.kern{max-width:68ch;margin:.25rem 0 .5rem;padding-left:1.5rem}
+ol.kern li{margin:.2rem 0;font-weight:600}
 table.sl td,table.sl th{vertical-align:top}
 @media (max-width:63.99rem){ #grundlage > .text.mit-rand{display:flex;flex-direction:column} #grundlage .rand{order:2} }
 </style>
@@ -478,9 +477,12 @@ table.sl td,table.sl th{vertical-align:top}
 
 </aside>
 <div class="haupt">
-<p class="ermutigung">Das Wichtigste ist überschaubar: Maschinen nach Zyklus einteilen, die Klasse instruieren und begleiten, die Grundregeln im Fachraum einhalten. Der Rest dieser Seite vertieft das.</p>
-<p class="neu"><b>Neu im TTG?</b> Zuerst: <a href="#maschinen">Plakat</a> · <a href="#schutzmassnahmen">Schutzmassnahmen</a> · <a href="#einkauf">Stoffe auswählen</a> · <a href="#notfall">Notfälle vorbereiten</a></p>
-<p class="einleitung">Ausgangspunkt ist das Unterrichtsvorhaben. Mit dem Lehrplan 21 verschiebt sich der Unterricht vom Produktions- zum Erschliessungshandeln: Die Schülerinnen und Schüler stellen nicht nur Gegenstände her, sie erschliessen Themen aus Design und Technik, indem sie herstellen, gebrauchen, bewerten und reflektieren. Je selbstständiger sie dabei arbeiten, desto wichtiger werden die Einteilung der Maschinen, eine Instruktion, die zur Selbstverantwortung befähigt, und eine klare Ordnung im Fachraum.</p>
+<p class="einleitung">Ausgangspunkt ist das Unterrichtsvorhaben. Mit dem Lehrplan 21 stellen die Schülerinnen und Schüler nicht nur Gegenstände her, sie erschliessen Themen aus Design und Technik, indem sie herstellen, gebrauchen, bewerten und reflektieren. Je selbstständiger sie arbeiten, desto wichtiger sind drei Dinge:</p>
+<ol class="kern">
+<li><a href="#maschinen">Maschinen nach Zyklus einteilen</a></li>
+<li><a href="#sicher-unterrichten">Instruktion und Klassenführung so organisieren, dass die Klasse Selbstverantwortung übernehmen kann</a></li>
+<li><a href="#fuer-jeden-fachraum">Klare Ordnung und Grundregeln im Fachraum</a></li>
+</ol>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 6, 18&nbsp;↗</a></p>
 <h2 id="drei-fragen">Drei Fragen vor jeder Arbeit</h2>
 <ol class="drei">
