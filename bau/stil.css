@@ -8,10 +8,10 @@
   --hh:8rem;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#3a3a3a; --tint:#242424;
+  --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#575757; --tint:#242424;
   --a:#1d4a40; --b:#4f4818; --c:#5a2e29; --pa:#3dbfa3; --pb:#f7e57e; --pc:#f08576; --on-a:#0b1a0e; --on-b:#4a4100; --on-c:#6b1f16; color-scheme:dark } }
 :root[data-theme="dark"]{
-  --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#3a3a3a; --tint:#242424;
+  --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#575757; --tint:#242424;
   --a:#1d4a40; --b:#4f4818; --c:#5a2e29; --pa:#3dbfa3; --pb:#f7e57e; --pc:#f08576; --on-a:#0b1a0e; --on-b:#4a4100; --on-c:#6b1f16; color-scheme:dark }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -62,7 +62,7 @@ html:not(.js) .panel{border-top:2px solid var(--fg);padding-top:1rem;margin-top:
 html:not(.js) .panel h2:first-child{margin-top:0}
 .sprung{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;list-style:none;padding:0;margin:0 0 1.5rem;max-width:none}
 .sprung li{margin:0}
-.einleitung{color:var(--muted)}
+.einleitung{color:var(--fg)}
 .vlabel{color:var(--muted);margin:1.75rem 0 .1rem}
 .vlabel+.thema{border-top:0;padding-top:0}
 
@@ -294,8 +294,8 @@ html.js #aufsicht .legende{display:none}
 @media (max-width:40rem){
   .reg-zeile{flex-wrap:wrap;gap:0 .75rem}
   .reg-zeile .tabs{flex-wrap:wrap;overflow-x:visible}
-  .reg-zeile [role=tab]{padding:.55rem .55rem .45rem;min-height:2.5rem}
-  .suche-klein{flex:1 1 100%;padding-bottom:.5rem}
+  .reg-zeile [role=tab]{padding:.45rem .4rem .35rem;min-height:2.5rem;font-size:.9375rem}
+  .suche-klein{flex:1 1 6rem;padding-bottom:.35rem}
   .suche-klein input,.suche-klein input:focus{width:100%}
 }
 details.mehr{margin:0 0 1rem;max-width:68ch}
@@ -309,13 +309,6 @@ details.mehr summary{cursor:pointer;font-weight:600;padding:.5rem 0;min-height:2
 @media (min-width:48rem){ .gruppen{grid-template-columns:repeat(3,minmax(0,1fr))} }
 .g-titel{font-weight:600;margin:0 0 .3rem;padding-bottom:.25rem;border-bottom:1px solid var(--line)}
 .gruppen ul{list-style:none;padding:0;margin:0;display:grid;gap:.35rem}
-details.abschnitt{border-top:1px solid var(--line);margin:0 0 .25rem;max-width:none}
-details.abschnitt>summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:.6rem;padding:.75rem 0}
-details.abschnitt>summary::-webkit-details-marker{display:none}
-details.abschnitt>summary::before{content:"\25B8";color:var(--muted);flex:none}
-details.abschnitt[open]>summary::before{content:"\25BE"}
-details.abschnitt>summary h2{margin:0}
-details.abschnitt[open]{padding-bottom:1rem}
 .emissionen li{margin-bottom:.5rem}
 .emissionen b{margin-right:.3rem}
 .wichtig{padding-left:1.4rem;max-width:68ch}
@@ -348,7 +341,7 @@ details.hs[open]{display:block;font-size:.875rem;color:var(--muted);margin-top:.
 .psa-n{display:inline-grid;place-items:center;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--pb);color:#111;font-weight:600;font-size:.85rem}
 img.icon{width:2.4rem;height:2.4rem}
 img.icon.klein{width:1.4rem;height:1.4rem;vertical-align:middle;margin-right:.15rem}
-.psa-rot{margin:.4rem 0 0;padding:.3rem .5rem;border-left:4px solid var(--pc);background:var(--tint);font-weight:600}
+.psa-rot{margin:.4rem 0 0;padding:.3rem .5rem;border-left:4px solid var(--pb);background:var(--tint);font-weight:600}
 .psa-bezug{margin:.2rem 0 0;font-size:.875rem;color:var(--muted)}
 /* Emissionen als Kacheln */
 ul.emissionen{list-style:none;padding:0;display:grid;gap:.6rem;max-width:none}
@@ -406,3 +399,30 @@ section.klapp:last-of-type{border-bottom:1px solid var(--line)}
 html.js .mtab-wrap{display:none}
 section.klapp details.thema-d>summary h2{margin:0;font-size:1.25rem}
 section.klapp section.klapp{margin-left:1.2rem}
+/* Einheitliches Klappzeichen */
+details.mehr>summary,details.videos>summary{list-style:none}
+details.mehr>summary::-webkit-details-marker,details.videos>summary::-webkit-details-marker{display:none}
+details.mehr>summary::before,details.videos>summary::before,.m-zeile::before{content:"\25B8";color:var(--muted);margin-right:.45rem}
+details.mehr[open]>summary::before,details.videos[open]>summary::before,.m-zeile[aria-expanded=true]::before{content:"\25BE"}
+.m-zeile::before{margin-right:-.6rem}
+/* Sprunglisten als Fläche */
+.sprung{background:var(--tint);padding:.5rem .8rem}
+/* Drei Fragen als Kacheln */
+ol.drei{list-style:none;padding:0;counter-reset:frage;display:grid;gap:.75rem}
+ol.drei>li{counter-increment:frage;background:var(--tint);border-left:4px solid var(--fg);padding:.75rem 1rem .75rem 3.25rem;position:relative;margin:0}
+ol.drei>li::before{content:counter(frage);position:absolute;left:1rem;top:.7rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;font-weight:700;font-size:.9rem}
+ol.drei>li>ul{margin:.4rem 0}
+.eigen{color:var(--muted);font-style:italic;font-size:.875rem}
+/* Kontrast der Plakatpunkte */
+.dot.A,.dot.C{box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.4)}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .lernort{filter:brightness(.85)} }
+:root[data-theme="dark"] .lernort{filter:brightness(.85)}
+/* Klappzeilen mit h2: keine zweite Linie */
+details.thema-d>summary h2,details.thema-d>summary h3{border-top:0;padding-top:0;margin:0}
+details.thema-d>summary h2{font-size:1.2rem}
+/* Drei Fragen: Frage, Kernsatz, Links */
+ol.drei .frage{display:block;font-weight:700;margin-bottom:.15rem}
+ol.drei .kern{display:block;margin:.4rem 0;font-weight:600}
+@media (min-width:48rem){ ol.drei{grid-template-columns:repeat(3,minmax(0,1fr))} ol.drei>li{padding:2.6rem .9rem .8rem} ol.drei>li::before{left:.9rem;top:.8rem} }
+.reg-hin{font-size:.8125rem;color:var(--muted)}
+.ql{white-space:normal}

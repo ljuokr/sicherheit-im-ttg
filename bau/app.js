@@ -84,7 +84,7 @@
         rows.forEach(function(r){
           var li=el('li'), b=el('button','m-zeile'), kid='karte-'+(++nr);
           b.type='button'; b.setAttribute('aria-expanded','false'); b.setAttribute('aria-controls',kid);
-          b.appendChild(punkte(r.k)); b.appendChild(el('span','m-name',r.name));
+          b.appendChild(punkte(r.k)); b.appendChild(el('span','m-name',r.name)); b.setAttribute('aria-label',r.name+', '+r.k.map(function(K,i){return 'Zyklus '+(i+1)+': '+K;}).join(', '));
           var k=el('div','karte'); k.id=kid; k.hidden=true;
           var dl=el('dl','kz');
           r.k.forEach(function(K,i){
@@ -98,7 +98,7 @@
             var hw=el('ul','k-hinweise');
             z.hinweis.forEach(function(h){
               var x=el('li',null,h[0]+' ');
-              if(h[1]){ var q=el('a','ql',h[1]+'\u00a0\u2197'); q.href=h[2]; x.appendChild(q); }
+              if(h[1]){ var q=el('a','ql',h[1]); var pf=el('span',null,'\u00a0\u2197'); pf.setAttribute('aria-hidden','true'); q.appendChild(pf); q.href=h[2]; x.appendChild(q); }
               else x.appendChild(el('span','k-eigen','Hinweis dieser Seite'));
               hw.appendChild(x);
             });
@@ -305,12 +305,13 @@
         var kopf=null, gruppen=[], akt=null;
         $$('h2,h3,li,p:not(.quelle):not(.g-k):not(.g-mehr),tr',document.getElementById(pid)).forEach(function(x){
           if(x.closest('#instr-liste, .rand')) return;
-          if(/^H[23]$/.test(x.tagName)){ kopf=x; akt=null; if(x.textContent.toLowerCase().indexOf(q)>-1){ akt={kopf:x,treffer:[]}; gruppen.push(akt); weitere++; } return; }
+          if(/^H[23]$/.test(x.tagName)){ kopf=x; akt=null; if(x.textContent.toLowerCase().indexOf(q)>-1){ akt={kopf:x,treffer:[]}; gruppen.push(akt); } return; }
           if(x.tagName==='P' && x.closest('li,td')) return;
           if(x.textContent.toLowerCase().indexOf(q)<0) return;
           if(!akt){ akt={kopf:kopf,treffer:[]}; gruppen.push(akt); }
           akt.treffer.push(x);
         });
+        weitere+=gruppen.length;
         gruppen.forEach(function(g){
           var box=el('section','erg-v'), h=el('h3'), ziel=g.kopf&&(g.kopf.id?g.kopf:g.kopf.closest('[id]'));
           var titel=g.kopf?g.kopf.textContent:document.getElementById('t-'+pid).textContent;
@@ -318,7 +319,7 @@
           box.appendChild(h);
           if(g.treffer.length){
             var ul=el('ul');
-            g.treffer.forEach(function(x){ ul.appendChild(el('li',null,x.textContent.replace(/\s+/g,' ').trim())); weitere++; });
+            g.treffer.forEach(function(x){ ul.appendChild(el('li',null,x.textContent.replace(/\s+/g,' ').trim())); });
             box.appendChild(ul);
           }
           inhalt.appendChild(box);
@@ -331,15 +332,15 @@
       var mq=kopie(legQuelle); mq.insertBefore(document.createTextNode('Einteilung A, B, C: '),mq.firstChild); inhalt.appendChild(mq);
     }
     if(!inhalt.firstChild){
-      var l=el('div','leer'); l.appendChild(el('p',null,'Keine Treffer für diese Auswahl.'));
+      var l=el('div','leer'); l.appendChild(el('p',null,'Keine Treffer. Ein kürzeres Wort oder eine andere Schreibweise versuchen, z. B. «Säge» statt «Stichsägen».'));
       if(q) l.appendChild(kopie(mLeer));
       inhalt.appendChild(l);
     }
     var tx=[];
     if(n.mas){ var t2=mz(n.mas,'Maschine','Maschinen'); if(s.z) t2+=' ('+n.A+' A, '+n.B+' B, '+n.C+' C)'; tx.push(t2); }
     if(n.th) tx.push(mz(n.th,'Thema','Themen'));
-    if(n.vb) tx.push(mz(n.vb,'Verbot','Verbote'));
-    if(weitere) tx.push(mz(weitere,'Treffer in anderen Registern','Treffer in anderen Registern'));
+    if(n.vb) tx.push(mz(n.vb,'Warnpunkt','Warnpunkte'));
+    if(weitere) tx.push(mz(weitere,'Abschnitt in anderen Registern','Abschnitte in anderen Registern'));
     status.textContent=tx.length?tx.join(', ')+'.':'Keine Treffer.';
   }
 
@@ -386,7 +387,7 @@
           }
           gesehen[id]=true;
           var vor=rest, treffer=vor.splitText(start), nach=treffer.splitText(wort.length);
-          var b=el('a','b-wort',wort); b.href='#'+id; b.setAttribute('data-b',id); b.setAttribute('aria-haspopup','dialog');
+          var b=el('a','b-wort',wort); b.href='#'+id; b.setAttribute('data-b',id); b.setAttribute('aria-haspopup','dialog'); b.setAttribute('aria-expanded','false');
           treffer.parentNode.replaceChild(b,treffer);
           rest=nach;
         }
@@ -467,6 +468,15 @@
   window.addEventListener('hashchange',function(){ gehe(decodeURIComponent(location.hash.slice(1))); });
 
   render();
+  // Links, die in ein anderes Register führen, mit dem Registernamen kennzeichnen
+  $$('.panel .text a[href^="#"]').forEach(function(a){
+    if(a.closest('#grundlage,#material,.rand,.sprung,.gruppen,.ql,.b-wort,.plakat,.psa-figur,.karte,nav,.psa-bezug,.quelle')) return;
+    var z=document.getElementById(a.getAttribute('href').slice(1)), von=a.closest('.panel'), nach=z&&z.closest('.panel');
+    if(!nach||!von||nach===von) return;
+    if(a.textContent.trim()===(document.getElementById('t-'+nach.id)||{}).textContent) return;
+    var t=document.getElementById('t-'+nach.id); if(!t) return;
+    a.appendChild(el('span','reg-hin',' (Register '+t.textContent.trim()+')'));
+  });
   if(!gehe(decodeURIComponent(location.hash.slice(1)))){
     var h=location.hash; zeige('grundlage');
     if(!h){ try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){} }

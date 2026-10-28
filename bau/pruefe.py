@@ -6,6 +6,8 @@ SRC = HIER + '../inhalt.html'
 NEU = sys.argv[1] if len(sys.argv) > 1 else HIER + '../sicherheit-im-ttg.html'
 JS = os.path.join(tempfile.gettempdir(), 'sig-pruefe.js')
 src = open(SRC, encoding='utf-8').read(); neu = open(NEU, encoding='utf-8').read()
+neu = neu.replace('<span aria-hidden="true">&nbsp;↗</span></a>', '&nbsp;↗</a>')
+neu = neu.replace(' aria-haspopup="dialog" aria-expanded="false">', ' aria-haspopup="dialog">')
 
 class P(HTMLParser):
     VOID = {'meta','link','img','br','input','hr','source','wbr'}
