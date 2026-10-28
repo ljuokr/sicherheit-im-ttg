@@ -396,3 +396,9 @@ ul.amp-l{list-style:none;padding:0;margin:.3rem 0 0;display:grid;gap:.35rem}
 ul.amp-l li{display:flex;gap:.45rem;align-items:center;margin:0;font-size:.9rem}
 ul.amp-l img.icon{width:1.9rem;height:1.9rem;flex:none}
 .mat-verw{margin:.3rem 0}
+.ges{display:inline-block;font-size:.8rem;padding:0 .4rem;border:1px solid var(--muted);color:var(--fg);margin-left:.3rem;border-radius:3px}
+.ermutigung{font-size:1.1rem;max-width:68ch;margin:0 0 .5rem}
+.neu{background:var(--tint);padding:.5rem .7rem;max-width:68ch}
+.neu a{font-weight:600}
+table.sl td,table.sl th{vertical-align:top}
+@media (max-width:63.99rem){ #grundlage > .text.mit-rand{display:flex;flex-direction:column} #grundlage .rand{order:2} }

@@ -88,13 +88,16 @@ KLEINGERAET = ['Lötkolben, Heissleimpistolen und Heissluftföhn samt Kabel rege
 def heiss(teil): return ['%s: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.' % teil, '', '']
 SCHNITT = ['Schnittgefahr an Messer oder Klinge: Finger ausserhalb des Schneidbereichs, Schutzvorrichtung benützen.', '', '']
 QUETSCH = ['Quetschgefahr: Finger ausserhalb des Arbeitsbereichs halten.', '', '']
+TK = 'https://www.hep-verlag.ch/downloads/lhh_lehrhilfe_tud_2024_tk.pdf#page='
+S44023 = 'https://www.suva.ch/de-ch/download/dokument/so-arbeiten-sie-sicher-an-der-tischkreissaege--44023.d'
+S67057 = 'https://www.suva.ch/de-ch/download/checklisten/bandsaege/bandsaege--67057.D'
 ZUORDNUNG = {
  'Laminiergerät': {'hinweis': [heiss('Die Folie ist beim Austritt heiss')]},
- 'Heissleimpistole': {'hinweis': [heiss('Düse und Kleber werden heiss'), KLEINGERAET, ['Heissleim enthält kaum gefährliche Inhaltsstoffe.', 'chemsuisse, S. 23', CHEM]]},
+ 'Heissleimpistole': {'hinweis': [heiss('Düse und Kleber werden heiss'), ['Heissleim enthält kaum gefährliche Inhaltsstoffe.', 'chemsuisse, S. 23', CHEM]]},
  'Folienschweissgerät': {'hinweis': [heiss('Die Schweissleiste wird heiss')]},
  'Nähmaschine': {'hinweis': [['Stichverletzung durch die Nadel: Finger vom Nähfuss fernhalten, beim Einfädeln den Motor ausschalten.', '', '']], 'video': [('Nähen mit der Nähmaschine', TUD+'naehenmitdernaehmaschine')]},
  'Heftklammerpistole': {'hinweis': [['Nie auf Personen richten, Finger nicht vor die Austrittsöffnung.', '', '']]},
- 'Weichlötvorrichtung': {'themen': ['weichloeten'], 'hinweis': [KLEINGERAET], 'video': [('Weichlöten mit dem Lötkolben', TUD+'weichloeten')]},
+ 'Weichlötvorrichtung': {'themen': ['weichloeten'], 'video': [('Weichlöten mit dem Lötkolben', TUD+'weichloeten')]},
  'Bunsenbrenner (Brenngas und Luft)': {'themen': ['gasflaschen'], 'hinweis': [heiss('Die Flamme ist kaum sichtbar, das Werkstück wird heiss')]},
  'Hartlötanlage (Propan-/Butan-Sauerstoff)*': {'themen': ['hartloeten', 'gasflaschen'], 'video': [('Hartlöten', TUD+'hartloeten')]},
  'Autogenschweissanlage (Acetylen-Sauerstoff)*': {'themen': ['schweissen', 'gasflaschen']},
@@ -106,7 +109,7 @@ ZUORDNUNG = {
  'Handbohrmaschine': {'themen': ['holzstaub']},
  'Ständerbohrmaschine': {'themen': ['psa', 'holzstaub'], 'video': [('Bohren mit der Tischbohrmaschine', TUD+'tischbohrmaschine')], 'suva': True},
  'Hebelblechschere': {'hinweis': [SCHNITT, ['Blechkanten sind scharf: Handschuhe tragen.', '', '']]},
- 'Bandsäge': {'themen': ['holzstaub'], 'video': [('Bandsäge', TUD+'bandsaege')]},
+ 'Bandsäge': {'themen': ['holzstaub'], 'hinweis': [['Verdeckung bis höchstens 10 mm über das Werkstück absenken, mit Stossholz arbeiten, Hände mindestens eine Faustbreite vom Sägeband.', 'Suva 67057, Fragen 1, 3', S67057]], 'video': [('Bandsäge', TUD+'bandsaege')]},
  'Gehrungskappsäge': {'themen': ['holzstaub']},
  'Lamellen-Dübelfräse': {'themen': ['holzstaub'], 'video': [('Runddübeln und Flachdübeln', TUD+'duebeln')]},
  'Holzdrechselbank': {'themen': ['holzstaub', 'psa']},
@@ -120,7 +123,7 @@ ZUORDNUNG = {
  'Heissluftföhn/Industrieföhn': {'hinweis': [heiss('Die Düse wird heiss')]},
  'Tiefziehgerät': {'themen': ['tiefziehen'], 'hinweis': [heiss('Die Folie wird heiss')]},
  'Abkantgerät (Bleche)': {'hinweis': [QUETSCH]},
- 'Tischkreissäge': {'themen': ['holzstaub']},
+ 'Tischkreissäge': {'themen': ['holzstaub'], 'hinweis': [['Rückschlag verhindern: Spaltkeil höchstens 5 mm vom Sägeblatt, Schutzhaube ganz auf das Werkstück absenken, schmale Stücke mit dem Längsstossholz schieben. Niemand steht im Bereich eines möglichen Rückschlags.', 'Suva 44023, S. 6, 7, 9, 12', S44023]]},
  'Handkreissäge': {'themen': ['holzstaub']},
  'Elektrohandhobel': {'themen': ['holzstaub']},
  'Abricht- und Dickenhobelmaschine': {'themen': ['holzstaub']},
@@ -128,8 +131,11 @@ ZUORDNUNG = {
  'Kehlmaschine': {'themen': ['holzstaub']},
  'Keramikbrennofen': {'themen': ['glasieren-und-brennen']},
 }
+for n, sei in {'Dekupiersäge': 4, 'Stichsäge': 4, 'Bandsäge': 6, 'Ständerbohrmaschine': 7, 'Handbohrmaschine': 7, 'Tellerschleifmaschine': 10, 'Heissleimpistole': 13, 'Lamellen-Dübelfräse': 16, 'Weichlötvorrichtung': 17, 'Nähmaschine': 21, 'Heissluftföhn/Industrieföhn': 11}.items(): ZUORDNUNG[n]['tk'] = sei
+for n in ['Heissleimpistole', 'Weichlötvorrichtung', 'Heissluftföhn/Industrieföhn']: ZUORDNUNG[n].setdefault('themen', []).insert(0, 'heissgeraete')
 for z in ZUORDNUNG.values():
-    if z.get('suva'): z['suva'] = SUVA
+    if z.pop('suva', None): z.setdefault('links', []).append(['Suva-Checkliste 67036', SUVA])
+    if 'tk' in z: z.setdefault('links', []).append(['Technologiekarte Technik und Design', TK + str(z.pop('tk'))])
 import json
 ZUORDNUNG_JSON = json.dumps(ZUORDNUNG, ensure_ascii=False)
 
@@ -300,6 +306,7 @@ body = f'''<header class="kopf"><div class="in">
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#recht">Rechtlicher Rahmen</a></li>
 <li><a href="#zustaendig">Zuständigkeiten</a></li>
+<li><a href="#schulleitung">Für Schulleitungen</a></li>
 </ul>
 {ohne_erste_id(recht, 'recht')}
 {zustaendig}

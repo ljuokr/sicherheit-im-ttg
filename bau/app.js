@@ -112,7 +112,7 @@
           }
           var extra=[];
           (z.video||[]).forEach(function(v){ var l=el('a',null,'Video: '+v[0]); l.href=v[1]; extra.push(l); });
-          if(z.suva){ var s=el('a',null,'Suva-Checkliste 67036'); s.href=z.suva; extra.push(s); }
+          (z.links||[]).forEach(function(v){ var l=el('a',null,v[0]); l.href=v[1]; extra.push(l); });
           if(extra.length){
             var ex=el('p','k-extra'); extra.forEach(function(l,i){ if(i) ex.appendChild(document.createTextNode(' · ')); ex.appendChild(l); });
             k.appendChild(ex);
@@ -123,7 +123,7 @@
               if(t.indexOf(stern+' ')===0) k.appendChild(el('p','k-fuss',t));
             });
           }
-          if(!z.themen && !z.video && !z.hinweis) k.appendChild(el('p','k-fuss','Zu dieser Maschine nennen die Quellen keine eigenen Regeln. Es gelten die allgemeinen Regeln unter «Für jeden Fachraum».'));
+          if(!z.themen && !z.video && !z.hinweis && !z.links) k.appendChild(el('p','k-fuss','Zu dieser Maschine nennen die Quellen keine eigenen Regeln. Es gelten die allgemeinen Regeln unter «Für jeden Fachraum».'));
           b.addEventListener('click',function(){
             var offen=b.getAttribute('aria-expanded')!=='true';
             b.setAttribute('aria-expanded',offen?'true':'false'); k.hidden=!offen;
