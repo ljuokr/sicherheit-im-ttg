@@ -377,3 +377,18 @@ ul.emissionen b{display:block;margin:.2rem 0}
 .psa-rumpf,.psa-kopf-f{fill:var(--tint);stroke:var(--muted);stroke-width:2}
 .psa-figur a:hover image,.psa-figur a:focus image{filter:drop-shadow(0 0 3px var(--fg))}
 img.vb-z{width:1.5rem;height:1.5rem;vertical-align:-.35rem;margin-right:.45rem}
+/* Themen zuklappbar */
+details.thema-d>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .7rem;padding:.55rem 0}
+details.thema-d>summary::-webkit-details-marker{display:none}
+details.thema-d>summary::before{content:"\25B8";color:var(--muted)}
+details.thema-d[open]>summary::before{content:"\25BE"}
+details.thema-d>summary h3{margin:0;font-size:1.05rem}
+.t-meta{color:var(--muted);font-size:.875rem}
+img.vb-z.klein{width:1.05rem;height:1.05rem;vertical-align:-.15rem;margin:0 .1rem 0 0}
+details.thema-d[open]{padding-bottom:.6rem}
+section.thema{border-top:1px solid var(--line)}
+details.videos{margin:.2rem 0 .6rem;font-size:.9rem}
+details.videos summary{cursor:pointer;color:var(--muted)}
+details.videos p{margin:.3rem 0}
+.warum{display:block;color:var(--muted);font-size:.875rem;margin-top:.15rem}
+section.thema{margin:0;padding-top:0}

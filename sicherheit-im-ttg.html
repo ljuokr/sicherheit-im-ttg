@@ -388,6 +388,21 @@ ul.emissionen b{display:block;margin:.2rem 0}
 .psa-rumpf,.psa-kopf-f{fill:var(--tint);stroke:var(--muted);stroke-width:2}
 .psa-figur a:hover image,.psa-figur a:focus image{filter:drop-shadow(0 0 3px var(--fg))}
 img.vb-z{width:1.5rem;height:1.5rem;vertical-align:-.35rem;margin-right:.45rem}
+/* Themen zuklappbar */
+details.thema-d>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .7rem;padding:.55rem 0}
+details.thema-d>summary::-webkit-details-marker{display:none}
+details.thema-d>summary::before{content:"\25B8";color:var(--muted)}
+details.thema-d[open]>summary::before{content:"\25BE"}
+details.thema-d>summary h3{margin:0;font-size:1.05rem}
+.t-meta{color:var(--muted);font-size:.875rem}
+img.vb-z.klein{width:1.05rem;height:1.05rem;vertical-align:-.15rem;margin:0 .1rem 0 0}
+details.thema-d[open]{padding-bottom:.6rem}
+section.thema{border-top:1px solid var(--line)}
+details.videos{margin:.2rem 0 .6rem;font-size:.9rem}
+details.videos summary{cursor:pointer;color:var(--muted)}
+details.videos p{margin:.3rem 0}
+.warum{display:block;color:var(--muted);font-size:.875rem;margin-top:.15rem}
+section.thema{margin:0;padding-top:0}
 </style>
 </head>
 <body>
@@ -539,12 +554,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 </div>
 <ul><li>** Aufsätze zur Oberflächenbearbeitung (z. B. Schrubben).</li></ul>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 21&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301&nbsp;↗</a></p>
-<p class="videos"><span class="vlabel">Lernvideos auf tud.ch, nicht auf Sicherheitsaussagen geprüft:</span> <a href="https://www.tud.ch/lernvideos/verfahren/#schneiden-blechschere">Blechschere</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#japansaege">Japansäge</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#dekupiersaege">Dekupiersäge</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#stichsaege">Stichsäge</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#bandsaege">Bandsäge</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#tischbohrmaschine">Tischbohrmaschine</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#tellerschleifmaschine">Tellerschleifmaschine</a></p>
+<details class="videos"><summary>Lernvideos auf tud.ch (7)</summary><p>Nicht auf Sicherheitsaussagen geprüft: <a href="https://www.tud.ch/lernvideos/verfahren/#schneiden-blechschere">Blechschere</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#japansaege">Japansäge</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#dekupiersaege">Dekupiersäge</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#stichsaege">Stichsäge</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#bandsaege">Bandsäge</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#tischbohrmaschine">Tischbohrmaschine</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#tellerschleifmaschine">Tellerschleifmaschine</a></p></details>
 <p class="keine" hidden>Zu diesem Material nennen die Quellen bei diesem Verfahren keine eigenen Regeln. Die allgemeinen Abschnitte und die Maschinentabelle gelten trotzdem.</p>
 
 <section class="thema" data-mat="holz kunststoff" id="holzstaub">
-<h3>Staub beim Sägen, Bohren und Schleifen</h3>
-<p class="mat">Material: Holz, Kunststoff</p>
+<details class="thema-d">
+<summary><h3>Staub beim Sägen, Bohren und Schleifen</h3><span class="t-meta">Holz, Kunststoff · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 4</span></summary>
 <p>Feinstaub von Eichen- und Buchenholz ist krebserzeugend. Kunststoffstäube werden in der Lunge nicht abgebaut und können dort über längere Zeit Entzündungen verursachen. Je weniger Staub eingeatmet wird, desto geringer das Risiko.</p>
 <h4>Materialwahl</h4>
 <ul>
@@ -575,11 +590,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Dazu Überkleidung, die beim Verlassen der Werkstatt abgelegt wird.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 6, 7, 15, 16&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 14, 19&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 23, 25&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="alle" id="psa">
-<h3>Säulen- und Tischbohrmaschine</h3>
-<p class="mat">Material: alle Materialien</p>
+<details class="thema-d">
+<summary><h3>Säulen- und Tischbohrmaschine</h3><span class="t-meta">alle Materialien · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNjUiIGhlaWdodD0iMjY1Ij48ZGVmcz48Y2xpcFBhdGggaWQ9IkEiPjxwYXRoIGQ9Ik0wIDBoMTk4LjQyNXYxOTguNDI1SDB6Ii8+PC9jbGlwUGF0aD48L2RlZnM+PGcgY2xpcC1wYXRoPSJ1cmwoI0EpIiB0cmFuc2Zvcm09Im1hdHJpeCgxLjMzNTUxNiAwIDAgLTEuMzM1NTE2IC0uMDAwMDA1IDI2NSkiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTE4OC41MDQgOTkuMjEzYzAgNDkuMzE0LTM5Ljk3NyA4OS4yOTEtODkuMjkxIDg5LjI5MVM5LjkyMSAxNDguNTI3IDkuOTIxIDk5LjIxMyA0OS44OTggOS45MjEgOTkuMjEzIDkuOTIxczg5LjI5MSAzOS45NzcgODkuMjkxIDg5LjI5MSIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik01Ny44NDMgMTA1Ljg4OWMtMS43ODgtNy40NDEtMi40NzktMTUuMTM4LTQuNzY0LTIyLjg0NC0yLjM5NC05LjA2LTUuMjItMTUuNTE3LTEwLjI5MS0yMi43NjQtLjkxLTEuMzAxLTIuOTgzLTMuNjQyLS42NDUtNC4xNzcgMTguMjM0LTQuMTc0IDM0Ljk3OC05LjcxMyA1Mi42NzgtMTUuOTE2IDEuNTk5LS41NjEgMS44ODEuMDY0IDEuODg0IDEuNTQuMDE4IDguMDM0LTEuODg1IDE1LjkzMS0uNzg1IDI0LjMzOSA1LjMwOC0yLjA1OCAxMC40NTktNy4zNjkgMTUuODc2LTkuNjg4LjY1OS0uMjgyIDEuMDk3LS40ODMgMS4zNDguMjI3IDEuMzg0IDMuOTI1IDEuNzE4IDkuMDE0IDIuODc1IDEzLjI1Mi43ODEgMi44NjcgNi40NTcgMTkuMzczIDYuNzMzIDIwLjAxNiA3LjA1OSAxNi40MjMgMTYuODA5IDMxLjMyMiAyNy44MDIgNDUuMzUyIDEuNDc5IDEuODg3IDQuMjM2IDYuMjkgMi45NTIgOS4xODgtMi4yNjUgNS4xMTItNy43NzcgMS41MjItOC42MDcgMS40MDcuMjE0Ljg0Ny44ODcgMS41OTEgMS4yNDQgMi40NjUgMi41NTUgNi4yNjYtMi44NzcgMTAuMDY1LTguOSA1LjM5M2wtNC4zNjUtMy40NTJjLjA5Mi41MTMgNi4wMDQgMTAuODA5LTIuMzU4IDExLjEyNy00LjI0LjE2MS04LjAxMy00Ljc0OC0xMC4zNzMtNy4xMDYuNDQxIDIuMzUgMS4wNjMgNC4zMjUtLjEzNSA2LjA3OS0xLjAxOCAxLjQ5MS0yLjg1NiAxLjk1NC00LjcyMiAxLjE5Mi01LjA1OC0yLjA2My0xMi42OC0xNC42NDUtMTQuNTk3LTE5Ljg1Ni0uNTExLTEuMzkxLTIuNjgxLTUuNTk4LS4xNzctNS4yMjguOTc1LjE0NCAxLjM4NSAxLjYzNSAxLjY1NyAyLjM1MSAxLjkzNCA1LjA5MiA4Ljg1MSAxNy42IDEzLjMzNiAyMC4wNjIgMy45MTMgMi4xNDcgMi4yMTktNC4xODYgMS42NjctNi4zMDktMS4yODctNC45NDEtNC43MzMtOC44NzctNi4xOTEtMTMuNDM2LS42NTQtMi4wNDYuMTU2LTIuOTkzIDEuNDg2LTEuMzY3IDEuNzI3IDIuMTEyIDQuODAxIDkuMTIgOC45NSAxNC42MiAzLjA2MyA0LjA2MSA2Ljg1NiA3LjQ0MyAxMC4zOTEgNi42OTEgMi42LTEuNzI3LTMuMjc0LTExLjc5Mi00LjM5NC0xMy43NDItMS4wMS0xLjc1OC01LjU3Ny03Ljc3Ni02LjQxLTEwLjgzNi0uNTI1LTEuOTI2LjYyNC0yLjEyNiAxLjg1Mi0uNjk3IDEuMDU1IDEuMjI3IDIuMjAzIDMuMzY5IDMuMTI4IDQuNTUzIDEuOTUzIDIuNDk5IDEzLjcxMiAxOC4yNTcgMTcuNTQ5IDE0LjM1MyAzLjAwNS0zLjA1Ny05LjIwMS0xOC4wMy0xMS41NjUtMjEuMTM5LS44MzMtMS4wOTYtMS42MzItMS43MDUtMS40NDYtMy4zNzEgMS45MzUtLjEyNSAyLjI1IDEuMTA3IDQuMTA1IDMuNDE1IDIuOTM2IDMuNjUxIDcuMTU5IDkuNDY5IDExLjIxOCAxMS44NDcgNS44MiAzLjQxMSA2Ljc0LS45MzcgMy42NzctNS4yOTktMTEuMDI5LTE1LjcwNy0yMC45NjQtMjguNDA3LTI4LjkyMy00Ni41MjgtLjg4Mi0yLjAwOS02LjAyOC0xNi45OS02LjU1NS0xOC45NTktMS4yLTQuNDgzLTIuMTAzLTguNTM1LTIuOTgtMTMuMDg2LTEuNDEyLjk2OS0xMS44MDIgOC40OS0xNC43NjkgOS41MDQuMDU3IDMuNTk4IDEuMjM5IDEwLjQ1MiAxLjgzNiAxNC4zMjEuMzE2IDEuOTk5IDYuNjE0IDI5LjI1MyA2Ljk2IDMxLjI0NS44MTggNC42OTkgMS45NDYgOS4wMDkgMi40ODEgMTMuODIyIDEuMDExIDkuMTAxLTUuNTM2IDcuODUyLTcuMTMzIDUuNTUtMS4zNzYtMS45ODMtNi43NzUtMjQuMzM2LTkuNzYxLTM1Ljc3MS0uMjktMS4xMDktMS4yMzEtLjIyOC0uOTU5Ljk0Nmw1LjYyIDIzLjY5NCAyLjU1MiAxMi41NzZjMS42NDUgOC4yNDctNC4zMjEgNy44MTUtNi4zNTYgNS44NTQtMS40NDEtMS4zOS0zLjYxMi04LjkzMS00LjEyOC0xMS4wMzNMODEuNjUgMTA2Ljg1Yy0uMjMzLS45NS0xLjMtLjM2NS0xLjAwNCAxLjAwOCAxLjUzNyA3LjE0MyA2LjIzOCAyNi4wMDkgNi42NTUgMjguNDAxLjQ1MyAyLjU5OS45MzUgNS4yMzMtMS40OTggNi41MzItMS44MzYuOTgxLTQuOTI2LjA4OC01LjcwNy0yLjcxNS0yLjU3Ny05LjI0Ni02LjA5Ni0yMC4zOTctNy4yNzQtMjUuOTQ5aC0uMDAxYy0uMjEyLS42NTktLjM4Mi0xLjc4Mi0uNzU5LTIuNjQ3LS4xOTQtLjQ0NS0uNDQzLS44MjMtLjc4MS0xLjAzMy0uNjA1LjM0Ni0uNDk5LS4zOS0uNDY5IDEuMDY4Ljk3OCA0LjI2NiA0LjIxMSAxMy43MyA1LjQxNyAyMC44MDguMzYyIDIuMTI2LS42NTkgMy43NjktMi4zMyA0LjcyNy0xLjczOS45OTctMy40MzUuNDA1LTUuMDMzLTEuNTQzLTIuMzQzLTIuODU4LTQuMzc3LTcuNzUtNC44MDQtOC44MTQtMy42NjUtOS4xMTgtNC4zMzItMTIuOTYyLTYuMjE3LTIwLjgwNnptNTUuNjU5LTguNzE4Yy0uMzI5LS4zNDYtLjIzMy0xLjA4NS4wOTctMS40MjkuMzUyLS4zNjcgMS41NzItLjE3NyAyLjE3MS4zODQgMS4xNDYgMS4wNzMgMy4zNjkgMy40NzEgNC41MiA0LjczNCA0LjY2MSA1LjExNyAxMS4xMjcgMTMuNDk5IDExLjMxOCAxOS45NjkuMDk4IDMuMzIxLS43NTEgNS44NjctNC42NjkgNS45ODQtNC4yNjIuMTI3LTExLjI5MS00LjAzNS0xNC40NzItNi40NDEtMi42NzItMi4wMjItNi4xMjMtNC4zODItNC45MjUtNS42Mi43NTEtLjc3NSAyLjMyNS42NTEgMy4zNiAxLjQ4OCAyLjk5MSAyLjQxNyAxMS4xMzMgNy42MDEgMTQuOTUxIDguMTIgMy42MzQuNDk0IDMuODEzLTIuOTMxIDIuOTUtNS42OTktMS43MjYtNS41NDEtNC45MjMtMTAuMTI5LTguNjM1LTE0LjQyNGwtNi42NjgtNy4wNjciIGZpbGw9IiMwZTEzMTMiLz48cGF0aCBkPSJNMTc4LjQ4NSA5OS4yMTNjMCA0My43ODEtMzUuNDkxIDc5LjI3Mi03OS4yNzIgNzkuMjcyLTE5LjA5NiAwLTM2LjYxNS02Ljc1My01MC4yOTktMTguMDAxTDE2MC43NTUgNDkuMjUxYTc4LjkzIDc4LjkzIDAgMCAxIDE3LjczIDQ5Ljk2MnpNMzcuNjcgMTQ5LjE3NWMtMTEuMDgzLTEzLjYzNS0xNy43My0zMS4wMjEtMTcuNzMtNDkuOTYyIDAtNDMuNzgxIDM1LjQ5MS03OS4yNzIgNzkuMjcyLTc5LjI3MmE3OC45NCA3OC45NCAwIDAgMSA1MC4yOTkgMTguMDAxem0xNjAuNzU1LTQ5Ljk2MmMwIDU0Ljc5NC00NC40MTkgOTkuMjEzLTk5LjIxMyA5OS4yMTNTMCAxNTQuMDA2IDAgOTkuMjEzIDQ0LjQxOSAwIDk5LjIxMyAwczk5LjIxMyA0NC40MTkgOTkuMjEzIDk5LjIxMyIgZmlsbD0iI2I3MWYyZSIvPjwvZz48L3N2Zz4=" alt="Achtung"> Handschuhverbot bei laufender Maschine: Rotierende Bohrer oder Spindeln erfassen Handschuhe, Kleidung, Haare und Schmuck.</li>
 <li>Schutzbrille ist an der Bohrmaschine obligatorisch.</li>
@@ -587,11 +603,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Späne mit Bürste, Handbesen oder Spänehaken entfernen, nie mit Druckluft.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036, Fragen 9, 10, 14, 15&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="kunststoff" id="kunststoff-saegen-bohren-schleifen">
-<h3>Kunststoff: Thermoschneiden, Acrylglas, Brennprobe</h3>
-<p class="mat">Material: Kunststoff</p>
+<details class="thema-d">
+<summary><h3>Kunststoff: Thermoschneiden, Acrylglas, Brennprobe</h3><span class="t-meta">Kunststoff · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <p>Für den Staub beim Sägen, Bohren und Schleifen gelten die Regeln unter <a href="#holzstaub">Staub</a>. Dazu kommt:</p>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Acrylglas: Kanten nicht mit dem Brenner abflammen, dabei entstehen schädliche Dämpfe und Rauch.</li>
@@ -599,11 +616,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Brennprobe zur Unterscheidung von Kunststoffen nur in einer Kapelle, mit lokaler Absaugung oder im Freien.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 16&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="metall" id="metall-thermisch-trennen">
-<h3>Metall thermisch trennen</h3>
-<p class="mat">Material: Metall</p>
+<details class="thema-d">
+<summary><h3>Metall thermisch trennen</h3><span class="t-meta">Metall · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> In der Umgebung keine brennbaren Flüssigkeiten oder Materialien.</li>
 <li>Für Brenn- und Plasmaschneiden gelten bei Materialwahl und Schutz grundsätzlich die gleichen Regeln wie beim Schweissen (siehe <a href="#schweissen">Schweissen</a>).</li>
@@ -611,11 +629,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Bei kurzen Arbeiten mit dem Brennschneider an unlegiertem Stahl kann eine technische Raumlüftung reichen.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 12&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="holz kunststoff textil" id="lasercutten">
-<h3>Lasercutten</h3>
-<p class="mat">Material: Holz, Kunststoff, Textil</p>
+<details class="thema-d">
+<summary><h3>Lasercutten</h3><span class="t-meta">Holz, Kunststoff, Textil · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Nicht lasern: chlorhaltige Kunststoffe wie PVC, bromhaltige (bromierte Flammschutzmittel), fluorhaltige wie Teflon, Polyurethan, Materialien mit Carbonfasern, Leder mit Chrom(VI).</li>
 <li data-instr="aufsicht">bfu 2.524 führt den Lasercutter unter den Maschinen für Lehrpersonen. chemsuisse verlangt, dass er nur unter Aufsicht einer Lehrperson bedient wird. Auf dem Plakat 4.301 fehlt er.</li>
@@ -625,17 +644,19 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Bei Karton, Papier und Textilien besteht Brandgefahr, sie brauchen dauernde Beobachtung.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 18, 19&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 21&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="keramik" id="speckstein-und-asbest">
-<h3>Speckstein und Asbest</h3>
-<p class="mat">Material: Keramik, Glas, Stein</p>
+<details class="thema-d">
+<summary><h3>Speckstein und Asbest</h3><span class="t-meta">Keramik, Glas, Stein · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Verwendung und Bearbeitung asbesthaltiger Materialien sind untersagt. Produkte, die nach etwa 1990 beschafft wurden, sollten asbestfrei sein. Leicht gebundenen Asbest aus älteren Beständen sofort dicht in Plastik einpacken und als Sonderabfall entsorgen.</li>
 <li>Speckstein kann kleine Mengen Asbest enthalten. Nur Speckstein kaufen, der als asbestfrei zertifiziert ist, im Zweifel beim Lieferanten nachfragen.</li>
 <li>Speckstein beim Bearbeiten befeuchten. Bei Staubentwicklung Staubmaske FFP2 oder P2.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 22&nbsp;↗</a></p>
+</details>
 </section>
 </section>
 <section class="verfahren" id="umformen" data-titel="Umformen">
@@ -654,32 +675,34 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 </table>
 </div>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 21&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301&nbsp;↗</a></p>
-<p class="videos"><span class="vlabel">Lernvideos auf tud.ch, nicht auf Sicherheitsaussagen geprüft:</span> <a href="https://www.tud.ch/lernvideos/verfahren/#kreiselstaender">Kunststoff bearbeiten (Kreiselständer)</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#befestigungsbuegel">Kunststoff bearbeiten (Befestigungsbügel)</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#karosserie">Kunststoff tiefdrücken</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#pet-flasche">PET-Flasche schrumpfen</a></p>
+<details class="videos"><summary>Lernvideos auf tud.ch (4)</summary><p>Nicht auf Sicherheitsaussagen geprüft: <a href="https://www.tud.ch/lernvideos/verfahren/#kreiselstaender">Kunststoff bearbeiten (Kreiselständer)</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#befestigungsbuegel">Kunststoff bearbeiten (Befestigungsbügel)</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#karosserie">Kunststoff tiefdrücken</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#pet-flasche">PET-Flasche schrumpfen</a></p></details>
 <p class="keine" hidden>Zu diesem Material nennen die Quellen bei diesem Verfahren keine eigenen Regeln. Die allgemeinen Abschnitte und die Maschinentabelle gelten trotzdem.</p>
 
 <section class="thema" data-mat="kunststoff" id="tiefziehen">
-<h3>Tiefziehen</h3>
-<p class="mat">Material: Kunststoff</p>
+<details class="thema-d">
+<summary><h3>Tiefziehen</h3><span class="t-meta">Kunststoff</span></summary>
 <ul>
 <li>Beim Tiefziehen thermoplastischer Folien die passende Verarbeitungstemperatur für den jeweiligen Kunststoff wählen, nach Angaben des Herstellers. Zu hohe Temperaturen vermeiden.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 16&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="metall" id="metall-und-zinngiessen">
-<h3>Metall- und Zinngiessen</h3>
-<p class="mat">Material: Metall</p>
+<details class="thema-d">
+<summary><h3>Metall- und Zinngiessen</h3><span class="t-meta">Metall · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Blei und Bleilegierungen, auch bleihaltiges Zierzinn, dürfen nicht zum Giessen verwendet werden.</li>
 <li>Auf Woodsches Metall verzichten: Es enthält Cadmium, dessen Dämpfe giftig sind.</li>
 <li>Giessen mit Reinzinn (95 bis 98 % Zinn) ist grundsätzlich unproblematisch.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 13&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="kunststoff" id="giessen-und-formen-mit-fluessigen-kunststoffen">
-<h3>Giessen und Formen mit flüssigen Kunststoffen</h3>
-<p class="mat">Material: Kunststoff</p>
+<details class="thema-d">
+<summary><h3>Giessen und Formen mit flüssigen Kunststoffen</h3><span class="t-meta">Kunststoff · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <ul>
 <li class="verbot" data-instr="instruktion"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Auf Polyurethan-Montageschaum grundsätzlich verzichten. Wenn er unumgänglich ist: lösungsmittelfrei und möglichst isocyanatfrei, Schülerinnen und Schüler nur nach Instruktion, Arbeitskleidung und Schutzhandschuhe.</li>
 <li>Polyesterharze und Polyesterspachtel nur styrolfrei oder styrolreduziert (ohne Gefahrenhinweis H372).</li>
@@ -691,6 +714,7 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Reste möglichst ausreagieren lassen. Was nicht mehr verarbeitbar ist, als Sonderabfall entsorgen.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 14&nbsp;↗</a></p>
+</details>
 </section>
 </section>
 <section class="verfahren" id="verbinden" data-titel="Verbinden">
@@ -716,12 +740,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 </div>
 <ul><li data-instr="selbst">* Inbetriebnahme, Ausserbetriebsetzung und Brennereinstellungen aller Hartlöt- und Schweissanlagen erfolgen ausschliesslich durch die Lehrperson. Beim Betreiben jeder Anlage ist für gute Abluft zu sorgen, am besten mit einer Quellenabsaugung.</li></ul>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 21&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301&nbsp;↗</a></p>
-<p class="videos"><span class="vlabel">Lernvideos auf tud.ch, nicht auf Sicherheitsaussagen geprüft:</span> <a href="https://www.tud.ch/lernvideos/verfahren/#kleben">Kleben</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#nageln">Nageln</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#schrauben">Schrauben</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#blindnieten">Blindnieten</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#duebeln">Dübeln</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#weichloeten">Weichlöten</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#hartloeten">Hartlöten</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#schutzgasschweissen">Schutzgasschweissen</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#naehenmitdernaehmaschine">Nähmaschine</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#naehenmitderoverlockmaschine">Overlockmaschine</a></p>
+<details class="videos"><summary>Lernvideos auf tud.ch (10)</summary><p>Nicht auf Sicherheitsaussagen geprüft: <a href="https://www.tud.ch/lernvideos/verfahren/#kleben">Kleben</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#nageln">Nageln</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#schrauben">Schrauben</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#blindnieten">Blindnieten</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#duebeln">Dübeln</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#weichloeten">Weichlöten</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#hartloeten">Hartlöten</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#schutzgasschweissen">Schutzgasschweissen</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#naehenmitdernaehmaschine">Nähmaschine</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#naehenmitderoverlockmaschine">Overlockmaschine</a></p></details>
 <p class="keine" hidden>Zu diesem Material nennen die Quellen bei diesem Verfahren keine eigenen Regeln. Die allgemeinen Abschnitte und die Maschinentabelle gelten trotzdem.</p>
 
 <section class="thema" data-mat="metall" id="weichloeten">
-<h3>Weichlöten</h3>
-<p class="mat">Material: Metall</p>
+<details class="thema-d">
+<summary><h3>Weichlöten</h3><span class="t-meta">Metall · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Bleihaltige Weichlote dürfen an Schulen nicht mehr verwendet werden. Erkennbar an «Pb» in der Bezeichnung, z. B. L-Sn60Pb40. Ersatz z. B. L-SnCu, L-Sn97Ag, L-Sn99Cu. Harzfreie Lote werden empfohlen.</li>
 <li>Grundsätzlich Quellenabsaugung, idealerweise gefiltert ins Freie. Bei richtiger Materialwahl und kurzer Exposition reicht Raumlüftung oder ein gekipptes Fenster.</li>
@@ -729,11 +753,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Ätzende Flussmittel (Lötwasser, Lötfett) nur mit Schutzbrille und Schutzhandschuhen.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 11&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="metall" id="hartloeten">
-<h3>Hartlöten</h3>
-<p class="mat">Material: Metall</p>
+<details class="thema-d">
+<summary><h3>Hartlöten</h3><span class="t-meta">Metall · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 3</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Cadmiumhaltige Hartlote dürfen an Schulen nicht mehr verwendet werden. Erkennbar an «Cd» in der Bezeichnung, z. B. L-Ag40Cd. Ersatz z. B. niedrigschmelzendes Silberlot L-Ag55Sn. Blankes Lot ist ummantelten Lötstäben vorzuziehen.</li>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Flussmittel als verwendungsfertige Paste, nicht als Pulver zum Anmischen. Keine borhaltigen Flussmittel, mindestens ohne Borsäure und Tetraborat (H360). Keine hydrazinhaltigen.</li>
@@ -743,11 +768,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Ätzende Flussmittel nur mit Schutzbrille und Schutzhandschuhen.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 10, 11&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="metall" id="schweissen">
-<h3>Schweissen</h3>
-<p class="mat">Material: Metall</p>
+<details class="thema-d">
+<summary><h3>Schweissen</h3><span class="t-meta">Metall · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 2</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Keine Schweissarbeiten an rostfreien Stählen (Cr-/Ni-Stähle) oder an Stählen mit Galvaniküberzügen. Farben, Kunststoffbeschichtungen und Verzinkungen vorher entfernen, mit Schutz gegen Staub.</li>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> In der Umgebung keine brennbaren Flüssigkeiten oder Materialien. Zu Gasflaschen und Flammenrückschlagventilen siehe <a href="#gasflaschen">Gasflaschen und Gasanlagen</a>.</li>
@@ -756,11 +782,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Helm, Schweisserschutzbrille oder Schutzschild, Brandschutzhandschuhe, Lederschürze und geschlossene Schuhe, keine synthetische Kleidung. Auch andere Personen im Gefahrenbereich brauchen Augenschutz.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 8, 9&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="metall" id="gasflaschen">
-<h3>Gasflaschen und Gasanlagen</h3>
-<p class="mat">Material: Metall</p>
+<details class="thema-d">
+<summary><h3>Gasflaschen und Gasanlagen</h3><span class="t-meta">Metall · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Improvisierte Anschlüsse oder Übergangsstücke sind verboten.</li>
 <li data-instr="selbst">Gasanlagen für Hartlöten und Schweissen nehmen nur geschulte Lehrpersonen in und ausser Betrieb. Gasflaschen und Druckreduzierstationen bedienen Lehrpersonen oder es geschieht unter ihrer Aufsicht.</li>
@@ -773,11 +800,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Zur Lagerung grösserer Mengen, von Propan und von Gaskartuschen siehe <a href="#lagerung">Lagerung</a>.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 78, 9, 10&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 16&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="alle" id="kleben">
-<h3>Kleben</h3>
-<p class="mat">Material: alle Materialien</p>
+<details class="thema-d">
+<summary><h3>Kleben</h3><span class="t-meta">alle Materialien · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Verzichten auf: chlorierte Lösungsmittel wie Chloroform und Dichlormethan (etwa zum Kleben von Acrylglas), Gummikleber mit Trichlorethylen, Kontaktklebstoffe mit Cyclohexan, Klebstoffe mit Toluol.</li>
 <li>Weissleim und Heissleim enthalten kaum gefährliche Inhaltsstoffe.</li>
@@ -788,12 +816,13 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li data-instr="instruktion">Epoxy-, Polyurethan- und Sekundenkleber verwenden Schülerinnen und Schüler nur nach Instruktion durch die Lehrperson.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 22, 23, 16&nbsp;↗</a></p>
+</details>
 </section>
 
 </section>
 <section class="verfahren" id="oberflaeche" data-titel="Oberfläche verändern">
 <h2>Oberfläche verändern</h2>
-<p>Streichen, ölen, wachsen, beizen, glasieren und besticken. bfu 2.524 nennt dazu Pinsel, Farbroller, Plotter und Stickcomputer, die Stoffregeln stehen bei chemsuisse.</p>
+<p>Streichen, ölen, wachsen, beizen, glasieren und besticken.</p>
 <div class="wrap">
 <table class="mtab">
 <thead><tr><th>Maschine, Gerät, Anlage</th><th class="z1">Zyklus 1</th><th class="z2">Zyklus 2</th><th class="z3">Zyklus 3</th></tr></thead>
@@ -804,12 +833,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 </table>
 </div>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 21&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301&nbsp;↗</a></p>
-<p class="videos"><span class="vlabel">Lernvideos auf tud.ch, nicht auf Sicherheitsaussagen geprüft:</span> <a href="https://www.tud.ch/lernvideos/verfahren/#lasieren">Lasieren</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#oelen">Ölen</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#drucken">Drucken</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#faerben-textil">Färben textil</a></p>
+<details class="videos"><summary>Lernvideos auf tud.ch (4)</summary><p>Nicht auf Sicherheitsaussagen geprüft: <a href="https://www.tud.ch/lernvideos/verfahren/#lasieren">Lasieren</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#oelen">Ölen</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#drucken">Drucken</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#faerben-textil">Färben textil</a></p></details>
 <p class="keine" hidden>Zu diesem Material nennen die Quellen bei diesem Verfahren keine eigenen Regeln. Die allgemeinen Abschnitte und die Maschinentabelle gelten trotzdem.</p>
 
 <section class="thema" data-mat="holz" id="leinoel">
-<h3>Leinöl und ölgetränkte Lappen</h3>
-<p class="mat">Material: Holz</p>
+<details class="thema-d">
+<summary><h3>Leinöl und ölgetränkte Lappen</h3><span class="t-meta">Holz · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <div class="hinweis">Leinöl wird beim Aushärten durch die Reaktion mit Sauerstoff heiss. Kann die Wärme in einem zusammengeknüllten Lappen nicht abfliessen, entzündet er sich von selbst, zum Beispiel im Abfalleimer. Das gilt für Leinöl und alle leinölhaltigen Produkte, auch für Arbeitskleidung und für Textilien, die nach dem Waschen in den Tumbler kommen.</div>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Getränkte Lappen und Papiere nie in den normalen Kehricht.</li>
@@ -821,21 +850,23 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li data-instr="instruktion">Produkte mit Gefahrenhinweis kennzeichnen, wenn der Hersteller es nicht getan hat. Die Schülerinnen und Schüler über die Entsorgung instruieren.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 7&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, Abb. 34&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="holz" id="wachsen">
-<h3>Wachsen</h3>
-<p class="mat">Material: Holz</p>
+<details class="thema-d">
+<summary><h3>Wachsen</h3><span class="t-meta">Holz · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Auf Produkte mit gesundheitsgefährdenden Inhaltsstoffen verzichten, z. B. mit Butanonoxim (MEKO).</li>
 <li>Bienen- oder Carnaubawachs sind gesundheitlich unbedenklich. Bei anderen Wachsen Etikette und Sicherheitsdatenblatt beachten.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 8&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="alle" id="farben-lacke-spruehen">
-<h3>Farben, Lacke, Sprühen</h3>
-<p class="mat">Material: alle Materialien</p>
+<details class="thema-d">
+<summary><h3>Farben, Lacke, Sprühen</h3><span class="t-meta">alle Materialien · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 3</span></summary>
 <p class="entlastung">Dispersions- und Acrylfarben sind in der Regel lösungsmittelarm und wenig bedenklich.</p>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Nicht verwenden: Pigmente mit Arsen, Barium (ausser Bariumsulfat), Blei, Cadmium, Chromat oder Quecksilber, z. B. Cadmiumrot, Chromgelb, Bleiweiss, Zinnober. Keine Bleimennige.</li>
@@ -847,11 +878,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Pinsel mit wasserverdünnbarer Farbe unter fliessendem Wasser auswaschen.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 26, 27&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="alle" id="loesungsmittel-verduenner-pinselreiniger">
-<h3>Lösungsmittel, Verdünner, Pinselreiniger</h3>
-<p class="mat">Material: alle Materialien</p>
+<details class="thema-d">
+<summary><h3>Lösungsmittel, Verdünner, Pinselreiniger</h3><span class="t-meta">alle Materialien · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Wenn möglich lösungsmittelfreie Alternativen. Nicht verwenden: toluolhaltige Produkte, Abbeizer mit Dichlormethan, Trichlorethen und andere chlorierte Lösungsmittel.</li>
 <li>Behälter nicht offen stehen lassen. Getränkte Lappen in Abfalleimern aus Metall mit selbstschliessendem Deckel entsorgen, nie in Hosentaschen stecken.</li>
@@ -860,11 +892,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Wer Pinselreiniger, Petroleum oder Terpentinersatz verschluckt, muss zum Arzt. Kein Erbrechen herbeiführen, es besteht Lebensgefahr durch Aspiration.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 24, 25&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="metall" id="abbeizen-und-bruenieren">
-<h3>Abbeizen und Brünieren</h3>
-<p class="mat">Material: Metall</p>
+<details class="thema-d">
+<summary><h3>Abbeizen und Brünieren</h3><span class="t-meta">Metall · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 1</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Verboten sind Beizmittel mit Flusssäure, Ammoniumhydrogenfluorid, Chromsäure oder hoch konzentrierten oxidierenden Säuren. Verboten sind auch Brüniermittel mit Selenverbindungen.</li>
 <li>Beizmittel nur einsetzen, wenn die Oberfläche nicht mechanisch bearbeitet werden kann (Bürsten, Schleifen).</li>
@@ -872,11 +905,12 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Schutz nach Angaben des Lieferanten, typischerweise Schutzbrille, Handschuhe und Körperschutz.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 12, 13&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="keramik" id="glasieren-und-brennen">
-<h3>Glasieren und Brennen</h3>
-<p class="mat">Material: Keramik, Glas, Stein</p>
+<details class="thema-d">
+<summary><h3>Glasieren und Brennen</h3><span class="t-meta">Keramik, Glas, Stein</span></summary>
 <ul>
 <li>Nur Materialien zuverlässiger Lieferanten mit Angaben zu den Inhaltsstoffen. Alte Glasuren unbekannter Zusammensetzung entsorgen.</li>
 <li>Farben, Engoben, Glasuren und Fritten mit Schwermetallen ersetzen, insbesondere mit Antimon, Barium, Blei, Cadmium, Chrom, Cobalt, Mangan, Nickel oder Selen, möglichst auch mit Borverbindungen.</li>
@@ -888,28 +922,30 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Am Waschplatz einen Tonabscheider verwenden. Glasurreste mit gefährlichen Inhaltsstoffen als Sonderabfall entsorgen.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 20, 21&nbsp;↗</a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301&nbsp;↗</a></p>
+</details>
 </section>
 
 <section class="thema" data-mat="metall keramik" id="emaillieren-und-glasaetzen">
-<h3>Emaillieren und Glasätzen</h3>
-<p class="mat">Material: Metall, Keramik, Glas, Stein</p>
+<details class="thema-d">
+<summary><h3>Emaillieren und Glasätzen</h3><span class="t-meta">Metall, Keramik, Glas, Stein · <img class="vb-z klein" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> 2</span></summary>
 <ul>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Keine bleihaltige Emaille und keine Emaille unbekannter Zusammensetzung.</li>
 <li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Achtung"> Glasätzen braucht normalerweise Flusssäure und eignet sich darum nicht für die Schule. Ätzmittel mit Flusssäure oder Ammoniumhydrogenfluorid sind verboten.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 21&nbsp;↗</a></p>
+</details>
 </section>
 </section>
 <section class="verfahren" id="flaechen" data-titel="Flächen bilden">
 <h2>Flächen bilden</h2>
-<p>bfu 2.524 zählt dazu Stricken, Häkeln, Filzen und Weben und die Extrusion mit dem 3D-Drucker. Das Plakat 4.301 führt keine Maschinen dieser Gruppe.</p>
+<p>Stricken, häkeln, filzen, weben und 3D-Drucken. Auf dem Plakat stehen dazu keine Maschinen.</p>
 <p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 21&nbsp;↗</a></p>
-<p class="videos"><span class="vlabel">Lernvideos auf tud.ch, nicht auf Sicherheitsaussagen geprüft:</span> <a href="https://www.tud.ch/lernvideos/verfahren/#3ddrucken">3D-Drucken</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#stricken">Stricken</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#haekeln">Häkeln</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#weben">Weben</a></p>
+<details class="videos"><summary>Lernvideos auf tud.ch (4)</summary><p>Nicht auf Sicherheitsaussagen geprüft: <a href="https://www.tud.ch/lernvideos/verfahren/#3ddrucken">3D-Drucken</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#stricken">Stricken</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#haekeln">Häkeln</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#weben">Weben</a></p></details>
 <p class="keine" hidden>Zu diesem Material nennen die Quellen bei diesem Verfahren keine eigenen Regeln. Die allgemeinen Abschnitte und die Maschinentabelle gelten trotzdem.</p>
 
 <section class="thema" data-mat="kunststoff" id="3d-druck">
-<h3>3D-Druck</h3>
-<p class="mat">Material: Kunststoff</p>
+<details class="thema-d">
+<summary><h3>3D-Druck</h3><span class="t-meta">Kunststoff</span></summary>
 <ul>
 <li>Für Schulen wird das Schichtdruckverfahren (FDM, FFF) empfohlen. Stereolithografie (SLA) nur mit umfangreicheren Schutzmassnahmen. Andere Verfahren, auch mit Metall, sind vorläufig nicht geeignet.</li>
 <li>Geräte namhafter Hersteller mit geschlossenem Gehäuse. 3D-Stifte ohne Abdeckung des Bauraums werden nicht empfohlen.</li>
@@ -920,6 +956,7 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 <li>Bei SLA: nicht ausgehärtetes Harz nicht berühren, sonst Schutzhandschuhe nach Sicherheitsdatenblatt. Arbeitskleidung und Schutzbrille, auch beim Reinigen mit Lösungsmitteln.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 17&nbsp;↗</a></p>
+</details>
 </section>
 </section>
 <section class="verfahren" id="lehrpersonen" data-titel="Nur Lehrpersonen">
@@ -1034,13 +1071,13 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
 </div>
 <h2 id="fuer-jeden-fachraum">Für jeden Fachraum</h2>
 <ul>
-<li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNjUiIGhlaWdodD0iMjY1IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yNTEuNzUgMTMyLjVjMC02NS44Ni01My4zOS0xMTkuMjUtMTE5LjI1LTExOS4yNVMxMy4yNSA2Ni42NCAxMy4yNSAxMzIuNSA2Ni42NCAyNTEuNzUgMTMyLjUgMjUxLjc1czExOS4yNS01My4zOSAxMTkuMjUtMTE5LjI1IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTUyLjcwNyAxNDkuMTY4aDczLjkyMmE2Ljk0IDYuOTQgMCAwIDEgNi45MTkgNi45MTh2LjAwMWE2Ljk0IDYuOTQgMCAwIDEtNi45MTkgNi45MThINTIuNzA3YTYuOTQgNi45NCAwIDAgMS02LjkxOS02LjkxOHYtLjAwMWE2Ljk0IDYuOTQgMCAwIDEgNi45MTktNi45MTh6bTYyLjU0MiAzNC4xMzlINjQuMDg2Yy03LjgxMSAwLTE0LjIwMi02LjM5MS0xNC4yMDItMTQuMjAyaDc5LjU2NmMwIDcuODExLTYuMzkxIDE0LjIwMi0xNC4yMDIgMTQuMjAyem0wLTU0LjQ0MUg2NC4wODZjLTcuODExIDAtMTQuMjAyIDYuMzkxLTE0LjIwMiAxNC4yMDJoNzkuNTY2YzAtNy44MTEtNi4zOTEtMTQuMjAyLTE0LjIwMi0xNC4yMDJtMzcuOTYzIDU0LjUzMWg0Mi45NjlsMTQuOTMtMTAzLjA1NGgtNTUuNzNsLTkuNTc0LTMzLjg2M2gtNi44NjhsOS43ODUgMzMuODYzSDEzOC4yOHoiLz48cGF0aCBkPSJNMjM4LjM2OSAxMzIuNWMwLTU4LjQ3LTQ3LjM5OS0xMDUuODY5LTEwNS44NjktMTA1Ljg2OWExMDUuNDIgMTA1LjQyIDAgMCAwLTY3LjE3NSAyNC4wNGwxNDkuMzY2IDE0OC41NTRjMTQuODAyLTE4LjIwOSAyMy42NzgtNDEuNDI5IDIzLjY3OC02Ni43MjV6TTUwLjMwOSA2NS43NzVjLTE0LjgwMSAxOC4yMS0yMy42NzggNDEuNDI5LTIzLjY3OCA2Ni43MjUgMCA1OC40NyA0Ny4zOTkgMTA1Ljg2OSAxMDUuODY5IDEwNS44NjkgMjUuNTAzIDAgNDguODk5LTkuMDE5IDY3LjE3NS0yNC4wNHpNMjY1IDEzMi41QzI2NSA1OS4zMjIgMjA1LjY3OCAwIDEzMi41IDBTMCA1OS4zMjIgMCAxMzIuNSA1OS4zMjIgMjY1IDEzMi41IDI2NSAyNjUgMjA1LjY3OCAyNjUgMTMyLjUiIGZpbGw9IiNiNzFmMmUiLz48L3N2Zz4=" alt="Achtung"> Kein Essen und Trinken im Fachraum. Hände waschen vor den Pausen und am Ende des Unterrichts.</li>
-<li>Möglichst wenig Staub erzeugen, aufwirbeln und verschleppen.</li>
-<li>Absaugen oder lüften, wo Staub, Rauch, Dämpfe oder Sprühnebel entstehen.</li>
-<li>Lösungsmittelfreie Farben, Lacke und Klebstoffe bevorzugen.</li>
+<li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNjUiIGhlaWdodD0iMjY1IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yNTEuNzUgMTMyLjVjMC02NS44Ni01My4zOS0xMTkuMjUtMTE5LjI1LTExOS4yNVMxMy4yNSA2Ni42NCAxMy4yNSAxMzIuNSA2Ni42NCAyNTEuNzUgMTMyLjUgMjUxLjc1czExOS4yNS01My4zOSAxMTkuMjUtMTE5LjI1IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTUyLjcwNyAxNDkuMTY4aDczLjkyMmE2Ljk0IDYuOTQgMCAwIDEgNi45MTkgNi45MTh2LjAwMWE2Ljk0IDYuOTQgMCAwIDEtNi45MTkgNi45MThINTIuNzA3YTYuOTQgNi45NCAwIDAgMS02LjkxOS02LjkxOHYtLjAwMWE2Ljk0IDYuOTQgMCAwIDEgNi45MTktNi45MTh6bTYyLjU0MiAzNC4xMzlINjQuMDg2Yy03LjgxMSAwLTE0LjIwMi02LjM5MS0xNC4yMDItMTQuMjAyaDc5LjU2NmMwIDcuODExLTYuMzkxIDE0LjIwMi0xNC4yMDIgMTQuMjAyem0wLTU0LjQ0MUg2NC4wODZjLTcuODExIDAtMTQuMjAyIDYuMzkxLTE0LjIwMiAxNC4yMDJoNzkuNTY2YzAtNy44MTEtNi4zOTEtMTQuMjAyLTE0LjIwMi0xNC4yMDJtMzcuOTYzIDU0LjUzMWg0Mi45NjlsMTQuOTMtMTAzLjA1NGgtNTUuNzNsLTkuNTc0LTMzLjg2M2gtNi44NjhsOS43ODUgMzMuODYzSDEzOC4yOHoiLz48cGF0aCBkPSJNMjM4LjM2OSAxMzIuNWMwLTU4LjQ3LTQ3LjM5OS0xMDUuODY5LTEwNS44NjktMTA1Ljg2OWExMDUuNDIgMTA1LjQyIDAgMCAwLTY3LjE3NSAyNC4wNGwxNDkuMzY2IDE0OC41NTRjMTQuODAyLTE4LjIwOSAyMy42NzgtNDEuNDI5IDIzLjY3OC02Ni43MjV6TTUwLjMwOSA2NS43NzVjLTE0LjgwMSAxOC4yMS0yMy42NzggNDEuNDI5LTIzLjY3OCA2Ni43MjUgMCA1OC40NyA0Ny4zOTkgMTA1Ljg2OSAxMDUuODY5IDEwNS44NjkgMjUuNTAzIDAgNDguODk5LTkuMDE5IDY3LjE3NS0yNC4wNHpNMjY1IDEzMi41QzI2NSA1OS4zMjIgMjA1LjY3OCAwIDEzMi41IDBTMCA1OS4zMjIgMCAxMzIuNSA1OS4zMjIgMjY1IDEzMi41IDI2NSAyNjUgMjA1LjY3OCAyNjUgMTMyLjUiIGZpbGw9IiNiNzFmMmUiLz48L3N2Zz4=" alt="Achtung"> Kein Essen und Trinken im Fachraum. Hände waschen vor den Pausen und am Ende des Unterrichts. <span class="warum">Warum: So wird kein Staub über Hände und Nahrungsmittel aufgenommen, und Verwechslungen sind ausgeschlossen.</span></li>
+<li>Möglichst wenig Staub erzeugen, aufwirbeln und verschleppen. <span class="warum">Warum: Zu viel Holzstaub reizt die Atemwege, Feinstaub von Eiche und Buche gilt als krebserregend. Je weniger eingeatmet wird, desto kleiner das Risiko.</span></li>
+<li>Absaugen oder lüften, wo Staub, Rauch, Dämpfe oder Sprühnebel entstehen. <span class="warum">Warum: Sonst gelangen sie in die Atemluft. Sprühen führt zu den höchsten Belastungen mit gefährlichen Stoffen.</span></li>
+<li>Lösungsmittelfreie Farben, Lacke und Klebstoffe bevorzugen. <span class="warum">Warum: Lösungsmitteldämpfe können Atemwege und Nervensystem schädigen und sind meist brennbar.</span></li>
 <li>Arbeitskleidung, Haare und Schmuck: siehe <a href="#psa-koerper">Schutzmassnahmen</a>.</li>
 </ul>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V&nbsp;↗</a></p>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V, 6, 25, 26, 39&nbsp;↗</a></p>
 
 
 <details class="abschnitt">
@@ -1889,7 +1926,7 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
         if(th.length){
           da=true;
           box.appendChild(el('p','blocktitel','Regeln zu den Stoffen'));
-          th.forEach(function(t){ var c=kopie(t); n.th++; n.vb+=$$('li.verbot',c).length; box.appendChild(c); });
+          th.forEach(function(t){ var c=kopie(t); $$('details',c).forEach(function(d){ d.open=true; }); n.th++; n.vb+=$$('li.verbot',c).length; box.appendChild(c); });
         }
         if(s.m && !q && !spezifisch && (s.v || da)){ var k=$('.keine',sec); if(k) box.appendChild(kopie(k)); }
       }
@@ -1995,7 +2032,8 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
     document.body.appendChild(pop);
     var offenVon=null;
     function schliessen(){ if(pop.hidden) return; pop.hidden=true; if(offenVon){ offenVon.setAttribute('aria-expanded','false'); offenVon.focus({preventScroll:true}); } offenVon=null; }
-    function oeffnen(btn){
+    var perHover=false;
+    function oeffnen(btn,hover){
       var quelle=document.getElementById(btn.getAttribute('data-b')); if(!quelle) return;
       pop.textContent='';
       var kopf=el('div','b-pop-kopf'), t=el('p','b-pop-titel',$('h3',quelle).textContent), x=el('button','b-zu','Schliessen'); x.type='button';
@@ -2019,14 +2057,29 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
         else { if(ph>platzO) pop.style.maxHeight=Math.max(160,platzO)+'px'; ph=pop.getBoundingClientRect().height; top=r.top-8-ph; }
         pop.style.top=(top+window.pageYOffset)+'px'; pop.style.left=(left+window.pageXOffset)+'px';
       } else { pop.style.left=''; pop.style.top=''; pop.style.width=''; pop.style.maxHeight=''; }
-      x.focus({preventScroll:true});
+      perHover=!!hover; if(!hover) x.focus({preventScroll:true});
     }
     document.addEventListener('click',function(e){
       var b=e.target.closest('.b-wort');
-      if(b){ e.preventDefault(); e.stopImmediatePropagation(); if(offenVon===b) schliessen(); else oeffnen(b); return; }
+      if(b){ e.preventDefault(); e.stopImmediatePropagation(); if(offenVon===b && perHover){ perHover=false; return; } if(offenVon===b) schliessen(); else oeffnen(b); return; }
       if(!pop.hidden && !pop.contains(e.target)) schliessen();
     });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape') schliessen(); });
+    // Mit Maus: nach einer halben Sekunde über dem Begriff öffnen, beim Verlassen wieder schliessen
+    if(window.matchMedia && window.matchMedia('(hover:hover)').matches){
+      var tAuf=null, tZu=null;
+      function spaeterZu(){ clearTimeout(tZu); tZu=setTimeout(function(){ if(perHover) { pop.hidden=true; if(offenVon) offenVon.setAttribute('aria-expanded','false'); offenVon=null; perHover=false; } },300); }
+      document.addEventListener('mouseover',function(e){
+        var b=e.target.closest('.b-wort');
+        if(b){ clearTimeout(tZu); if(offenVon!==b){ clearTimeout(tAuf); tAuf=setTimeout(function(){ oeffnen(b,true); },500); } return; }
+        if(pop.contains(e.target)){ clearTimeout(tZu); return; }
+      });
+      document.addEventListener('mouseout',function(e){
+        var b=e.target.closest('.b-wort'), nach=e.relatedTarget;
+        if(b && !(nach && (b.contains(nach)||pop.contains(nach)))){ clearTimeout(tAuf); spaeterZu(); }
+        if(pop.contains(e.target) && !(nach && (pop.contains(nach)||(offenVon && offenVon.contains(nach))))) spaeterZu();
+      });
+    }
   })();
 
   /* Sprungziele: einfache Anker öffnen das passende Register */
@@ -2035,8 +2088,9 @@ Siehe <a href="#unterricht">Unterricht</a> und <a href="#notfall">Notfälle vorb
     if(!z || erg.contains(z) || leiste.contains(z)) return false;
     var panel=z.closest('.panel'); if(!panel) return false;
     if(!erg.hidden) beenden();
-    var sub=z.closest('.sub'), auf=z.closest('details');
+    var sub=z.closest('.sub'), auf=z.closest('details')||z.querySelector(':scope > details');
     if(auf) auf.open=true;
+    var aus=z.closest('details'); if(aus && aus.parentNode) { var ob=aus.parentNode.closest('details'); if(ob) ob.open=true; }
     zeige(panel.id,sub?sub.id:null,id);
     if(z===panel||z===sub) nachOben(); else z.scrollIntoView();
     if(fokus){ if(!z.hasAttribute('tabindex')) z.setAttribute('tabindex','-1'); z.focus({preventScroll:true}); }

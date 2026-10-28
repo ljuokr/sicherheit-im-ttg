@@ -289,7 +289,7 @@
         if(th.length){
           da=true;
           box.appendChild(el('p','blocktitel','Regeln zu den Stoffen'));
-          th.forEach(function(t){ var c=kopie(t); n.th++; n.vb+=$$('li.verbot',c).length; box.appendChild(c); });
+          th.forEach(function(t){ var c=kopie(t); $$('details',c).forEach(function(d){ d.open=true; }); n.th++; n.vb+=$$('li.verbot',c).length; box.appendChild(c); });
         }
         if(s.m && !q && !spezifisch && (s.v || da)){ var k=$('.keine',sec); if(k) box.appendChild(kopie(k)); }
       }
@@ -395,7 +395,8 @@
     document.body.appendChild(pop);
     var offenVon=null;
     function schliessen(){ if(pop.hidden) return; pop.hidden=true; if(offenVon){ offenVon.setAttribute('aria-expanded','false'); offenVon.focus({preventScroll:true}); } offenVon=null; }
-    function oeffnen(btn){
+    var perHover=false;
+    function oeffnen(btn,hover){
       var quelle=document.getElementById(btn.getAttribute('data-b')); if(!quelle) return;
       pop.textContent='';
       var kopf=el('div','b-pop-kopf'), t=el('p','b-pop-titel',$('h3',quelle).textContent), x=el('button','b-zu','Schliessen'); x.type='button';
@@ -419,14 +420,29 @@
         else { if(ph>platzO) pop.style.maxHeight=Math.max(160,platzO)+'px'; ph=pop.getBoundingClientRect().height; top=r.top-8-ph; }
         pop.style.top=(top+window.pageYOffset)+'px'; pop.style.left=(left+window.pageXOffset)+'px';
       } else { pop.style.left=''; pop.style.top=''; pop.style.width=''; pop.style.maxHeight=''; }
-      x.focus({preventScroll:true});
+      perHover=!!hover; if(!hover) x.focus({preventScroll:true});
     }
     document.addEventListener('click',function(e){
       var b=e.target.closest('.b-wort');
-      if(b){ e.preventDefault(); e.stopImmediatePropagation(); if(offenVon===b) schliessen(); else oeffnen(b); return; }
+      if(b){ e.preventDefault(); e.stopImmediatePropagation(); if(offenVon===b && perHover){ perHover=false; return; } if(offenVon===b) schliessen(); else oeffnen(b); return; }
       if(!pop.hidden && !pop.contains(e.target)) schliessen();
     });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape') schliessen(); });
+    // Mit Maus: nach einer halben Sekunde über dem Begriff öffnen, beim Verlassen wieder schliessen
+    if(window.matchMedia && window.matchMedia('(hover:hover)').matches){
+      var tAuf=null, tZu=null;
+      function spaeterZu(){ clearTimeout(tZu); tZu=setTimeout(function(){ if(perHover) { pop.hidden=true; if(offenVon) offenVon.setAttribute('aria-expanded','false'); offenVon=null; perHover=false; } },300); }
+      document.addEventListener('mouseover',function(e){
+        var b=e.target.closest('.b-wort');
+        if(b){ clearTimeout(tZu); if(offenVon!==b){ clearTimeout(tAuf); tAuf=setTimeout(function(){ oeffnen(b,true); },500); } return; }
+        if(pop.contains(e.target)){ clearTimeout(tZu); return; }
+      });
+      document.addEventListener('mouseout',function(e){
+        var b=e.target.closest('.b-wort'), nach=e.relatedTarget;
+        if(b && !(nach && (b.contains(nach)||pop.contains(nach)))){ clearTimeout(tAuf); spaeterZu(); }
+        if(pop.contains(e.target) && !(nach && (pop.contains(nach)||(offenVon && offenVon.contains(nach))))) spaeterZu();
+      });
+    }
   })();
 
   /* Sprungziele: einfache Anker öffnen das passende Register */
@@ -435,8 +451,9 @@
     if(!z || erg.contains(z) || leiste.contains(z)) return false;
     var panel=z.closest('.panel'); if(!panel) return false;
     if(!erg.hidden) beenden();
-    var sub=z.closest('.sub'), auf=z.closest('details');
+    var sub=z.closest('.sub'), auf=z.closest('details')||z.querySelector(':scope > details');
     if(auf) auf.open=true;
+    var aus=z.closest('details'); if(aus && aus.parentNode) { var ob=aus.parentNode.closest('details'); if(ob) ob.open=true; }
     zeige(panel.id,sub?sub.id:null,id);
     if(z===panel||z===sub) nachOben(); else z.scrollIntoView();
     if(fokus){ if(!z.hasAttribute('tabindex')) z.setAttribute('tabindex','-1'); z.focus({preventScroll:true}); }

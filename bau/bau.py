@@ -319,6 +319,21 @@ body = f'''<header class="kopf"><div class="in">
 </div></main>'''
 
 body = themen(lists(body))
+
+# Themen zuklappen: Kopfzeile mit Titel, Material und Zahl der Warnpunkte
+def zuklappen(m):
+    kopf, inhalt = m.group(1), m.group(4)
+    n = inhalt.count('<li class="verbot"')
+    warn = ' · <img class="vb-z klein" data-icon="iso-W001.svg" alt="Achtung"> %d' % n if n else ''
+    return ('%s<details class="thema-d">\n<summary><h3>%s</h3><span class="t-meta">%s%s</span></summary>%s</details>\n</section>'
+            % (kopf, m.group(2), m.group(3), warn, inhalt))
+body = re.sub(r'(<section class="thema" data-mat="[^"]+" id="[^"]+">\n)<h3>(.*?)</h3>\n<p class="mat">Material: (.*?)</p>(.*?)</section>', zuklappen, body, flags=re.S)
+
+# Lernvideos je Verfahren zuklappen
+def videos(m):
+    n = m.group(1).count('<a ')
+    return '<details class="videos"><summary>Lernvideos auf tud.ch (%d)</summary><p>Nicht auf Sicherheitsaussagen geprüft: %s</p></details>' % (n, m.group(1))
+body = re.sub(r'<p class="videos"><span class="vlabel">Lernvideos auf tud\.ch, nicht auf Sicherheitsaussagen geprüft:</span> (.*?)</p>', videos, body, flags=re.S)
 # Quellen erst nach der Listenbearbeitung einsetzen, damit die Base64-Cover nicht durch die Regex laufen
 # Begriffe ganz am Schluss, aber vor der Fusszeile
 if '<footer' in quellen:
