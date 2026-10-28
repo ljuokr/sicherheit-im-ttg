@@ -149,15 +149,16 @@
     }); });
   })();
 
-  /* Material: Themen nach data-mat, als Klon */
+  /* Material: Themen nach data-mat, als Verweise auf die Verfahren */
   $$('#material section[data-key]').forEach(function(sub){
     var key=sub.getAttribute('data-key'), ziel=$('.slot',sub), n=0;
     verfahren.forEach(function(sec){
       var th=$$('.thema',sec).filter(function(t){ return t.getAttribute('data-mat').split(' ').indexOf(key)>-1; });
       if(!th.length) return;
-      var lab=el('p','vlabel'); lab.appendChild(document.createTextNode('Verfahren: '));
-      var a=el('a',null,VNAME[sec.id]); a.href='#'+sec.id; lab.appendChild(a); ziel.appendChild(lab);
-      th.forEach(function(t){ ziel.appendChild(kopie(t)); n++; });
+      // Nur Verweise, damit die Regeln einmal bei den Verfahren stehen
+      var zeile=el('p','mat-verw'); zeile.appendChild(el('b',null,VNAME[sec.id]+': '));
+      th.forEach(function(t,i){ if(i) zeile.appendChild(document.createTextNode(', ')); var l=el('a',null,$('h3',t).textContent); l.href='#'+t.id; zeile.appendChild(l); n++; });
+      ziel.appendChild(zeile);
     });
     var tab=$('#t-'+sub.id+' .n'); if(tab){ tab.textContent=n; tab.hidden=false; }
   });

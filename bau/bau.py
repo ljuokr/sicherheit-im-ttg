@@ -205,8 +205,8 @@ fach_html = ['''<div class="gruppen">
 </div>''', allg] + [zu(x) for x in fach_teile] + [zu(planen)]
 mat_html = []
 for mid, name, key in MATS:
-    hint = '' if key == 'alle' else '\n<p class="einleitung">Themen aus allen Verfahren, die %s betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>.</p>' % ('«%s»' % name)
-    if key == 'alle': hint = '\n' + re.sub(r'<h2( id="[^"]+")?>(.*?)</h2>', r'<h3\1>\2</h3>', stoffe) + '\n<p class="einleitung">Dazu diese Themen aus den Verfahren:</p>'
+    hint = '' if key == 'alle' else '\n<p class="einleitung">Themen bei den Verfahren, die %s betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>.</p>' % ('«%s»' % name)
+    if key == 'alle': hint = '\n' + re.sub(r'<h2( id="[^"]+")?>(.*?)</h2>', r'<h3\1>\2</h3>', stoffe) + '\n<p class="einleitung">Dazu diese Themen bei den Verfahren:</p>'
     mat_html.append('<section class="mat-teil" id="%s" data-key="%s">\n<h2>%s</h2>%s\n<div class="slot"></div>\n</section>' % (mid, key, name, hint))
 mat_html.insert(1, '<section class="mat-teil">\n' + emissionen + '</section>')
 mat_html = ['<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % (m[0], m[1]) for m in MATS[:1] + [('emissionen', 'Emissionen')] + MATS[1:]) + '\n</ul>'] + mat_html
@@ -258,10 +258,8 @@ body = f'''<header class="kopf"><div class="in">
 <h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen <span>Gefahrenkategorien nach Zyklus</span></h2>
 <noscript><p>Die Maschinentabellen stehen bei den einzelnen Verfahren.</p></noscript>
 <div class="p-legende nurjs" id="p-legende"></div>
-<p class="p-unten nurjs">Zyklus 1: Kindergarten bis 2. Klasse · Zyklus 2: 3. bis 6. Klasse · Zyklus 3: 7. bis 9. Klasse (Lehrplan 21)</p>
 <div class="plakat nurjs" id="plakat-ziel"></div>
-<p class="p-unten nurjs">Aufgebaut wie das bfu-Plakat «Umgang mit Maschinen und Anlagen». Eine Maschine antippen zeigt die Einteilung und die Regeln dazu. Ein Gruppentitel führt zum Verfahren.</p>
-<p class="quelle">Nachgebaut nach <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301, 09.2020&nbsp;↗</a> · Regeln, Videos und Checklisten je Maschine: eigene Zusammenstellung</p>
+<p class="quelle">Nachgebaut nach <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301 «Umgang mit Maschinen und Anlagen», 09.2020&nbsp;↗</a>. Maschine antippen zeigt Einteilung und Regeln, ein Gruppentitel führt zum Verfahren. Regeln, Videos und Checklisten je Maschine: eigene Zusammenstellung.</p>
 <p>Nicht auf dem Plakat: <a href="#flaechen">Flächen bilden</a> (Stricken, Häkeln, Weben, 3D-Druck) und der Lasercutter (<a href="#lasercutten">Lasercutten</a>). Einzelne Kantone, etwa Zürich und Luzern, teilen in eigenen Listen anders ein, siehe <a href="#kantone">Kantonale Vorgaben</a>.</p>
 {leer}
 <section id="aufsicht" hidden>

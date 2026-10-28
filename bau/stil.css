@@ -392,3 +392,7 @@ details.videos summary{cursor:pointer;color:var(--muted)}
 details.videos p{margin:.3rem 0}
 .warum{display:block;color:var(--muted);font-size:.875rem;margin-top:.15rem}
 section.thema{margin:0;padding-top:0}
+ul.amp-l{list-style:none;padding:0;margin:.3rem 0 0;display:grid;gap:.35rem}
+ul.amp-l li{display:flex;gap:.45rem;align-items:center;margin:0;font-size:.9rem}
+ul.amp-l img.icon{width:1.9rem;height:1.9rem;flex:none}
+.mat-verw{margin:.3rem 0}
