@@ -405,7 +405,7 @@ ul.amp-l li{display:flex;gap:.45rem;align-items:center;margin:0;font-size:.9rem}
 ul.amp-l img.icon{width:1.9rem;height:1.9rem;flex:none}
 .ges{display:inline-block;font-size:.8rem;padding:0 .4rem;border:1px solid var(--muted);color:var(--fg);margin-left:.3rem;border-radius:3px}
 ol.kern{max-width:68ch;margin:.25rem 0 .5rem;padding-left:1.5rem}
-ol.kern li{margin:.2rem 0;font-weight:600}
+ol.kern li{margin:.2rem 0}
 table.sl td,table.sl th{vertical-align:top}
 @media (max-width:63.99rem){ #grundlage > .text.mit-rand{display:flex;flex-direction:column} #grundlage .rand{order:2} }
 section.klapp{border-top:1px solid var(--line)}
@@ -465,9 +465,13 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 .mx tr.z-kunststoff td{background:color-mix(in srgb,var(--kunst-g) 35%,var(--bg))}
 .mx-leer{color:var(--line)}
 .mx-mat{color:var(--fg);display:block}
+.mx th.mx-nv{background:var(--pc);color:var(--on-c);border-color:var(--pc)}
+.mx td.mx-nv{background:color-mix(in srgb,var(--c) 45%,var(--bg));width:19%}
+.mx td.mx-nv ul{margin:0;padding:0;list-style:none}
+.mx td.mx-nv li{margin:0 0 .35rem;padding-left:.45rem;border-left:3px solid var(--pc);line-height:1.3}
+.mx td.mx-nv a{color:var(--fg)}
 .mx-mat[aria-current="true"]{text-decoration-thickness:3px}
 .mx-klein{display:block;font-weight:400;font-size:.78rem;color:var(--muted);line-height:1.3;margin-top:.15rem}
-.f-zusatz{margin:1.25rem 0 .25rem;color:var(--muted)}
 .f-in h3{margin:1rem 0 .2rem}
 /* Ampel: Regeln je Stufe unter den Piktogrammen */
 .amp>ul:not(.amp-l){margin:.6rem 0 0;padding:.5rem 0 0 1.1rem;border-top:1px solid var(--line);font-size:.9rem}
@@ -492,7 +496,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 </head>
 <body>
 <header class="kopf"><div class="in">
-<h1>Sicherheit im TTG</h1>
+<span class="mx-mat">Textil</span>
 </div></header>
 
 <div class="leiste" id="leiste">
@@ -1065,15 +1069,28 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 <section class="panel nurjs" id="matrix"><div class="text breit">
 <h2 class="sr">Verfahren und Material</h2>
 <div class="mx-wrap"><table class="mx"><caption class="sr">Sicherheitsthemen nach Material und Verfahren</caption>
-<thead><tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th><th scope="col"><a href="#trennen">Trennen</a></th><th scope="col"><a href="#umformen">Umformen</a></th><th scope="col"><a href="#verbinden">Verbinden</a></th><th scope="col"><a href="#oberflaeche">Oberfläche verändern</a></th></tr></thead>
+<thead><tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th><th scope="col"><a href="#trennen">Trennen</a></th><th scope="col"><a href="#umformen">Umformen</a></th><th scope="col"><a href="#verbinden">Verbinden</a></th><th scope="col"><a href="#oberflaeche">Oberfläche verändern</a></th><th scope="col" class="mx-nv">Nicht verwenden</th></tr></thead>
 <tbody>
-<tr class="z-alle"><th scope="row" class="mx-zeile" id="mat-alle"><a class="mx-mat" href="#mat-alle">Alle Materialien</a></th><td><a class="mchip" href="#bohrmaschine" title="Ständerbohrmaschine (Säulen- und Tischbohrmaschine)">Ständerbohrmaschine</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#heissgeraete" title="Heissgeräte">Heissgeräte</a><a class="mchip" href="#kleben" title="Kleben">Kleben</a></td><td><a class="mchip" href="#farben-lacke-spruehen" title="Farben, Lacke, Sprühen">Farben, Lacke, Sprühen</a><a class="mchip" href="#loesungsmittel-verduenner-pinselreiniger" title="Lösungsmittel, Verdünner, Pinselreiniger">Lösungsmittel</a></td></tr>
-<tr class="z-holz"><th scope="row" class="mx-zeile" id="mat-holz"><a class="mx-mat" href="#mat-holz">Holz</a><span class="mx-klein">Massivholz, Sperrholz, MDF</span></th><td><a class="mchip" href="#holzstaub" title="Staub beim Sägen, Bohren und Schleifen">Staub beim Sägen, Schleifen</a><a class="mchip" href="#lasercutten" title="Lasercutten">Lasercutten</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#leinoel" title="Leinöl und ölgetränkte Lappen">Leinöl, ölige Lappen</a><a class="mchip" href="#wachsen" title="Wachsen">Wachsen</a></td></tr>
-<tr class="z-metall"><th scope="row" class="mx-zeile" id="mat-metall"><a class="mx-mat" href="#mat-metall">Metall</a><span class="mx-klein">Stahl, Aluminium, Kupfer, Messing, Zinn</span></th><td><a class="mchip" href="#metall-thermisch-trennen" title="Metall thermisch trennen">Thermisch trennen</a></td><td><a class="mchip" href="#metall-und-zinngiessen" title="Metall- und Zinngiessen">Metall- und Zinngiessen</a></td><td><a class="mchip" href="#weichloeten" title="Weichlöten">Weichlöten</a><a class="mchip" href="#hartloeten" title="Hartlöten">Hartlöten</a><a class="mchip" href="#schweissen" title="Schweissen">Schweissen</a><a class="mchip" href="#gasflaschen" title="Gasflaschen und Gasanlagen">Gasflaschen</a></td><td><a class="mchip" href="#abbeizen-und-bruenieren" title="Abbeizen und Brünieren">Abbeizen und Brünieren</a><a class="mchip" href="#emaillieren-und-glasaetzen" title="Emaillieren und Glasätzen">Emaillieren und Glasätzen</a></td></tr>
-<tr class="z-kunststoff"><th scope="row" class="mx-zeile" id="mat-kunststoff"><a class="mx-mat" href="#mat-kunststoff">Kunststoff</a><span class="mx-klein">Acrylglas, PLA, ABS, PVC</span></th><td><a class="mchip" href="#holzstaub" title="Staub beim Sägen, Bohren und Schleifen">Staub beim Sägen, Schleifen</a><a class="mchip" href="#kunststoff-saegen-bohren-schleifen" title="Kunststoff: Thermoschneiden, Acrylglas, Brennprobe">Thermoschneiden, Acrylglas</a><a class="mchip" href="#lasercutten" title="Lasercutten">Lasercutten</a></td><td><a class="mchip" href="#tiefziehen" title="Tiefziehen">Tiefziehen</a><a class="mchip" href="#giessen-und-formen-mit-fluessigen-kunststoffen" title="Giessen und Formen mit flüssigen Kunststoffen">Giessen mit flüssigen Kunststoffen</a><a class="mchip" href="#3d-druck" title="3D-Druck">3D-Druck</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td></tr>
-<tr class="z-keramik"><th scope="row" class="mx-zeile" id="mat-keramik"><a class="mx-mat" href="#mat-keramik">Keramik</a><span class="mx-klein">Ton, Glas, Speckstein</span></th><td><a class="mchip" href="#speckstein-und-asbest" title="Speckstein und Asbest">Speckstein und Asbest</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#glasieren-und-brennen" title="Glasieren und Brennen">Glasieren und Brennen</a><a class="mchip" href="#emaillieren-und-glasaetzen" title="Emaillieren und Glasätzen">Emaillieren und Glasätzen</a></td></tr>
-<tr class="z-textil"><th scope="row" class="mx-zeile" id="mat-textil"><a class="mx-mat" href="#mat-textil">Textil</a><span class="mx-klein">Baumwolle, Wolle, Kunstfasern, Leder</span></th><td><a class="mchip" href="#lasercutten" title="Lasercutten">Lasercutten</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td></tr>
+<tr class="z-alle"><th scope="row" class="mx-zeile" id="mat-alle"><span class="mx-mat">Alle Materialien</span></th><td><a class="mchip" href="#bohrmaschine" title="Ständerbohrmaschine (Säulen- und Tischbohrmaschine)">Ständerbohrmaschine</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#heissgeraete" title="Heissgeräte">Heissgeräte</a><a class="mchip" href="#kleben" title="Kleben">Kleben</a></td><td><a class="mchip" href="#farben-lacke-spruehen" title="Farben, Lacke, Sprühen">Farben, Lacke, Sprühen</a><a class="mchip" href="#loesungsmittel-verduenner-pinselreiniger" title="Lösungsmittel, Verdünner, Pinselreiniger">Lösungsmittel</a></td><td class="mx-nv"><ul class="nv"><li><a href="#farben-lacke-spruehen">Pigmente mit Blei, Cadmium, Chromat, Quecksilber</a></li><li><a href="#farben-lacke-spruehen">2K-Polyurethanlacke</a></li><li><a href="#loesungsmittel-verduenner-pinselreiniger">Toluol, chlorierte Lösungsmittel</a></li></ul></td></tr>
+<tr class="z-holz"><th scope="row" class="mx-zeile" id="mat-holz"><span class="mx-mat">Holz</span><span class="mx-klein">Massivholz, Sperrholz, MDF</span></th><td><a class="mchip" href="#holzstaub" title="Staub beim Sägen, Bohren und Schleifen">Staub beim Sägen, Schleifen</a><a class="mchip" href="#lasercutten" title="Lasercutten">Lasercutten</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#leinoel" title="Leinöl und ölgetränkte Lappen">Leinöl, ölige Lappen</a><a class="mchip" href="#wachsen" title="Wachsen">Wachsen</a></td><td class="mx-nv"><ul class="nv"><li><a href="#holzstaub">Imprägniertes Holz</a></li><li><a href="#farben-lacke-spruehen">Holzschutzmittel mit Bioziden</a></li><li><a href="#wachsen">Wachs mit MEKO</a></li></ul></td></tr>
+<tr class="z-metall"><th scope="row" class="mx-zeile" id="mat-metall"><a class="mx-mat" href="#mat-metall">Metall</a><span class="mx-klein">Stahl, Aluminium, Kupfer, Messing, Zinn</span></th><td><a class="mchip" href="#metall-thermisch-trennen" title="Metall thermisch trennen">Thermisch trennen</a></td><td><a class="mchip" href="#metall-und-zinngiessen" title="Metall- und Zinngiessen">Metall- und Zinngiessen</a></td><td><a class="mchip" href="#weichloeten" title="Weichlöten">Weichlöten</a><a class="mchip" href="#hartloeten" title="Hartlöten">Hartlöten</a><a class="mchip" href="#schweissen" title="Schweissen">Schweissen</a><a class="mchip" href="#gasflaschen" title="Gasflaschen und Gasanlagen">Gasflaschen</a></td><td><a class="mchip" href="#abbeizen-und-bruenieren" title="Abbeizen und Brünieren">Abbeizen und Brünieren</a><a class="mchip" href="#emaillieren-und-glasaetzen" title="Emaillieren und Glasätzen">Emaillieren und Glasätzen</a></td><td class="mx-nv"><ul class="nv"><li><a href="#mat-metall">Blei, Bleiblech, Altmetall mit Blei</a></li><li><a href="#metall-und-zinngiessen">Bleihaltiges Zierzinn</a></li><li><a href="#weichloeten">Bleihaltige Weichlote</a></li><li><a href="#hartloeten">Cadmiumhaltige Hartlote</a></li><li><a href="#hartloeten">Borhaltige Flussmittel</a></li><li><a href="#schweissen">Rostfreie und galvanisierte Stähle schweissen</a></li><li><a href="#abbeizen-und-bruenieren">Beizmittel mit Flusssäure oder Chromsäure</a></li><li><a href="#emaillieren-und-glasaetzen">Bleihaltige Emaille</a></li></ul></td></tr>
+<tr class="z-kunststoff"><th scope="row" class="mx-zeile" id="mat-kunststoff"><span class="mx-mat">Kunststoff</span><span class="mx-klein">Acrylglas, PLA, ABS, PVC</span></th><td><a class="mchip" href="#holzstaub" title="Staub beim Sägen, Bohren und Schleifen">Staub beim Sägen, Schleifen</a><a class="mchip" href="#kunststoff-saegen-bohren-schleifen" title="Kunststoff: Thermoschneiden, Acrylglas, Brennprobe">Thermoschneiden, Acrylglas</a><a class="mchip" href="#lasercutten" title="Lasercutten">Lasercutten</a></td><td><a class="mchip" href="#tiefziehen" title="Tiefziehen">Tiefziehen</a><a class="mchip" href="#giessen-und-formen-mit-fluessigen-kunststoffen" title="Giessen und Formen mit flüssigen Kunststoffen">Giessen mit flüssigen Kunststoffen</a><a class="mchip" href="#3d-druck" title="3D-Druck">3D-Druck</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td class="mx-nv"><ul class="nv"><li><a href="#holzstaub">Kunststoffe mit Carbonfasern bearbeiten</a></li><li><a href="#lasercutten">PVC, Teflon, Polyurethan lasern</a></li><li><a href="#giessen-und-formen-mit-fluessigen-kunststoffen">Polyurethan-Montageschaum</a></li><li><a href="#3d-druck">Filamente mit Nanomaterialien</a></li></ul></td></tr>
+<tr class="z-keramik"><th scope="row" class="mx-zeile" id="mat-keramik"><a class="mx-mat" href="#mat-keramik">Keramik</a><span class="mx-klein">Ton, Glas, Speckstein</span></th><td><a class="mchip" href="#speckstein-und-asbest" title="Speckstein und Asbest">Speckstein und Asbest</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#glasieren-und-brennen" title="Glasieren und Brennen">Glasieren und Brennen</a><a class="mchip" href="#emaillieren-und-glasaetzen" title="Emaillieren und Glasätzen">Emaillieren und Glasätzen</a></td><td class="mx-nv"><ul class="nv"><li><a href="#speckstein-und-asbest">Asbest</a></li><li><a href="#mat-keramik">Glasuren mit Schwermetallen für Geschirr</a></li><li><a href="#emaillieren-und-glasaetzen">Flusssäure zum Glasätzen</a></li></ul></td></tr>
+<tr class="z-textil"><th scope="row" class="mx-zeile" id="mat-textil"><span class="mx-mat">Textil</span><span class="mx-klein">Baumwolle, Wolle, Kunstfasern, Leder</span></th><td><a class="mchip" href="#lasercutten" title="Lasercutten">Lasercutten</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td class="mx-nv"><ul class="nv"><li><a href="#lasercutten">Leder mit Chrom(VI) lasern</a></li></ul></td></tr>
 </tbody></table></div>
+<template id="eigen-metall"><ul>
+<li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Warnpunkt:"> Auf das Bearbeiten von Blei und bleihaltigen Materialien verzichten, auch bei Bleiblech, Bleiruten und Altmetall. <span class="warum">Warum: Blei ist giftig und fortpflanzungsgefährdend (chemsuisse, S. 8, 11)</span></li>
+<li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Warnpunkt:"> Gegenstände aus dem Unterricht dürfen keine Stoffe enthalten, die chemsuisse nicht empfiehlt oder verbietet (Blei, Cadmium usw.). Das ist besonders wichtig, wenn sie mit der Haut oder mit Lebensmitteln in Kontakt kommen. <span class="warum">Warum: Blei und Cadmium in Gegenständen mit Haut- oder Lebensmittelkontakt sind gesundheitsschädlich, Blei kann sich zum Beispiel aus Glasuren in Lebensmittel lösen (chemsuisse, S. 10, 13, 21, 33)</span></li>
+<li>Schmuck: Werkstoffe auf Nickel prüfen, fast jeder zehnte Mensch reagiert allergisch darauf. Nickeltests gibt es in Apotheken.</li>
+<li>Zinn möglichst rein verwenden und eher dekorative Gegenstände ohne Hautkontakt herstellen als Körperschmuck.</li>
+</ul>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 8, 10, 11, 13<span aria-hidden="true">&nbsp;↗</span></a></p></template>
+<template id="eigen-keramik"><ul>
+<li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Warnpunkt:"> Gegenstände aus dem Unterricht dürfen keine Stoffe enthalten, die chemsuisse nicht empfiehlt oder verbietet (Blei, Cadmium usw.). Das ist besonders wichtig, wenn sie mit der Haut oder mit Lebensmitteln in Kontakt kommen. <span class="warum">Warum: Blei und Cadmium in Gegenständen mit Haut- oder Lebensmittelkontakt sind gesundheitsschädlich, Blei kann sich zum Beispiel aus Glasuren in Lebensmittel lösen (chemsuisse, S. 10, 13, 21, 33)</span></li>
+<li>Ess- und Trinkgeschirr nur mit Glasuren, die ausdrücklich dafür geeignet sind und keine Schwermetalle enthalten. Keramikmalfarben, die im Backofen härten, sind dafür nicht geeignet.</li>
+</ul>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 10, 13, 20, 21<span aria-hidden="true">&nbsp;↗</span></a></p></template>
+
 </div></section>
 
 <section class="panel nurjs" id="material"><div class="text">
@@ -2318,24 +2335,12 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
       meta.innerHTML=m?m.innerHTML:'';
       [].forEach.call(d.childNodes,function(c){ if(c.nodeName!=='SUMMARY') fin.appendChild(ohneIds(c.cloneNode(true))); });
     } else if(z.matches('th.mx-zeile')){
-      // Material: Themen der Zeile nach Verfahren, dazu was für alle Materialien gilt
+      // Material: nur was dieses Material betrifft und bei keinem Verfahren steht
       art.textContent='Material';
       titel.textContent=z.querySelector('.mx-mat').textContent;
       var k=z.querySelector('.mx-klein'); meta.textContent=k?k.textContent:'';
-      var koepfe=document.querySelectorAll('table.mx thead th');
-      function liste(zeile,ueber){
-        [].forEach.call(zeile.querySelectorAll('td'),function(td,i){
-          var chips=td.querySelectorAll('.mchip'); if(!chips.length) return;
-          var h=document.createElement('h3'); h.textContent=(ueber?ueber+': ':'')+koepfe[i+1].textContent; fin.appendChild(h);
-          var ul=document.createElement('ul');
-          [].forEach.call(chips,function(c){ var li=document.createElement('li'), a=document.createElement('a'); a.href=c.getAttribute('href'); a.textContent=c.title||c.textContent; li.appendChild(a); ul.appendChild(li); });
-          fin.appendChild(ul);
-        });
-      }
-      liste(z.parentNode,'');
-      var alle=document.querySelector('table.mx tr.z-alle');
-      if(alle && alle!==z.parentNode){ var p=document.createElement('p'); p.className='f-zusatz'; p.textContent='Zusätzlich gilt für alle Materialien:'; fin.appendChild(p); liste(alle,''); }
-      var s=document.createElement('p'); s.className='f-zusatz'; s.innerHTML='Stoffe und Hilfsstoffe: <a href="#einkauf">Stoffe auswählen</a>'; fin.appendChild(s);
+      var tpl=document.getElementById('eigen-'+z.id.slice(4));
+      if(tpl) fin.appendChild(tpl.content.cloneNode(true));
     } else {
       art.textContent='Verfahren';
       titel.textContent=z.querySelector('h2').textContent;

@@ -489,24 +489,12 @@
       meta.innerHTML=m?m.innerHTML:'';
       [].forEach.call(d.childNodes,function(c){ if(c.nodeName!=='SUMMARY') fin.appendChild(ohneIds(c.cloneNode(true))); });
     } else if(z.matches('th.mx-zeile')){
-      // Material: Themen der Zeile nach Verfahren, dazu was für alle Materialien gilt
+      // Material: nur was dieses Material betrifft und bei keinem Verfahren steht
       art.textContent='Material';
       titel.textContent=z.querySelector('.mx-mat').textContent;
       var k=z.querySelector('.mx-klein'); meta.textContent=k?k.textContent:'';
-      var koepfe=document.querySelectorAll('table.mx thead th');
-      function liste(zeile,ueber){
-        [].forEach.call(zeile.querySelectorAll('td'),function(td,i){
-          var chips=td.querySelectorAll('.mchip'); if(!chips.length) return;
-          var h=document.createElement('h3'); h.textContent=(ueber?ueber+': ':'')+koepfe[i+1].textContent; fin.appendChild(h);
-          var ul=document.createElement('ul');
-          [].forEach.call(chips,function(c){ var li=document.createElement('li'), a=document.createElement('a'); a.href=c.getAttribute('href'); a.textContent=c.title||c.textContent; li.appendChild(a); ul.appendChild(li); });
-          fin.appendChild(ul);
-        });
-      }
-      liste(z.parentNode,'');
-      var alle=document.querySelector('table.mx tr.z-alle');
-      if(alle && alle!==z.parentNode){ var p=document.createElement('p'); p.className='f-zusatz'; p.textContent='Zusätzlich gilt für alle Materialien:'; fin.appendChild(p); liste(alle,''); }
-      var s=document.createElement('p'); s.className='f-zusatz'; s.innerHTML='Stoffe und Hilfsstoffe: <a href="#einkauf">Stoffe auswählen</a>'; fin.appendChild(s);
+      var tpl=document.getElementById('eigen-'+z.id.slice(4));
+      if(tpl) fin.appendChild(tpl.content.cloneNode(true));
     } else {
       art.textContent='Verfahren';
       titel.textContent=z.querySelector('h2').textContent;

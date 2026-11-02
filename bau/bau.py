@@ -266,11 +266,38 @@ for (vid, _), sec in zip(VERF, verf_html):
     for mat, tid, h3 in re.findall(r'<section class="thema" data-mat="([^"]+)"(?: id="([^"]+)")?>\n<h3>(.*?)</h3>', sec):
         for key in mat.split(): zellen.setdefault((key, vid), []).append((tid or slug(h3), KURZ.get(h3, h3), h3))
 spalten = [v for v in VERF if v[0] != 'lehrpersonen']
-mx = ['<tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th>' + ''.join('<th scope="col"><a href="#%s">%s</a></th>' % v for v in spalten) + '</tr>']
+# Nicht verwenden: Kurzfassung der Warnpunkte je Material, jeder Eintrag führt zur Regel mit Begründung
+VERBOTEN = {
+ 'alle': [('Pigmente mit Blei, Cadmium, Chromat, Quecksilber', 'farben-lacke-spruehen'), ('2K-Polyurethanlacke', 'farben-lacke-spruehen'),
+          ('Toluol, chlorierte Lösungsmittel', 'loesungsmittel-verduenner-pinselreiniger')],
+ 'holz': [('Imprägniertes Holz', 'holzstaub'), ('Holzschutzmittel mit Bioziden', 'farben-lacke-spruehen'), ('Wachs mit MEKO', 'wachsen')],
+ 'metall': [('Blei, Bleiblech, Altmetall mit Blei', 'mat-metall'), ('Bleihaltiges Zierzinn', 'metall-und-zinngiessen'), ('Bleihaltige Weichlote', 'weichloeten'),
+            ('Cadmiumhaltige Hartlote', 'hartloeten'), ('Borhaltige Flussmittel', 'hartloeten'), ('Rostfreie und galvanisierte Stähle schweissen', 'schweissen'),
+            ('Beizmittel mit Flusssäure oder Chromsäure', 'abbeizen-und-bruenieren'), ('Bleihaltige Emaille', 'emaillieren-und-glasaetzen')],
+ 'kunststoff': [('Kunststoffe mit Carbonfasern bearbeiten', 'holzstaub'), ('PVC, Teflon, Polyurethan lasern', 'lasercutten'),
+                ('Polyurethan-Montageschaum', 'giessen-und-formen-mit-fluessigen-kunststoffen'), ('Filamente mit Nanomaterialien', '3d-druck')],
+ 'keramik': [('Asbest', 'speckstein-und-asbest'), ('Glasuren mit Schwermetallen für Geschirr', 'mat-keramik'), ('Flusssäure zum Glasätzen', 'emaillieren-und-glasaetzen')],
+ 'textil': [('Leder mit Chrom(VI) lasern', 'lasercutten')],
+}
+# Was nur ein Material betrifft und bei keinem Verfahren steht: öffnet sich beim Klick auf den Materialnamen
+def li_mit(anfang):
+    i = S.index('<li>' + anfang); return S[i:S.index('</li>', i) + 5]
+CHEM = 'https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf'
+EIGEN = {
+ 'metall': (['Auf das Bearbeiten von Blei', 'Gegenstände aus dem Unterricht dürfen keine', 'Schmuck: Werkstoffe auf Nickel', 'Zinn möglichst rein'], 'chemsuisse, S. 8, 10, 11, 13'),
+ 'keramik': (['Ess- und Trinkgeschirr nur mit Glasuren', 'Gegenstände aus dem Unterricht dürfen keine'], 'chemsuisse, S. 10, 13, 20, 21'),
+}
+mx = ['<tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th>' + ''.join('<th scope="col"><a href="#%s">%s</a></th>' % v for v in spalten) + '<th scope="col" class="mx-nv">Nicht verwenden</th></tr>']
+eigen_html = ''
 for key, name, klein in MATS:
-    mx.append('<tr class="z-%s"><th scope="row" class="mx-zeile" id="mat-%s"><a class="mx-mat" href="#mat-%s">%s</a>%s</th>' % (key, key, key, name, '<span class="mx-klein">%s</span>' % klein if klein else '') + ''.join('<td>%s</td>' % (''.join('<a class="mchip" href="#%s" title="%s">%s</a>' % (i, lang, kurz) for i, kurz, lang in zellen.get((key, vid), []))
-              or '<span class="mx-leer" aria-label="kein Thema">·</span>') for vid, _ in spalten) + '</tr>')
-matrix_html = ('<h2 class="sr">Verfahren und Material</h2>\n<div class="mx-wrap"><table class="mx"><caption class="sr">Sicherheitsthemen nach Material und Verfahren</caption>\n<thead>%s</thead>\n<tbody>\n%s\n</tbody></table></div>') % (mx[0], '\n'.join(mx[1:]))
+    kopf = '<a class="mx-mat" href="#mat-%s">%s</a>' % (key, name) if key in EIGEN else '<span class="mx-mat">%s</span>' % name
+    mx.append('<tr class="z-%s"><th scope="row" class="mx-zeile" id="mat-%s">%s%s</th>' % (key, key, kopf, '<span class="mx-klein">%s</span>' % klein if klein else '') + ''.join('<td>%s</td>' % (''.join('<a class="mchip" href="#%s" title="%s">%s</a>' % (i, lang, kurz) for i, kurz, lang in zellen.get((key, vid), []))
+              or '<span class="mx-leer" aria-label="kein Thema">·</span>') for vid, _ in spalten)
+              + '<td class="mx-nv"><ul class="nv">%s</ul></td></tr>' % ''.join('<li><a href="#%s">%s</a></li>' % (z, t) for t, z in VERBOTEN.get(key, [])))
+    if key in EIGEN:
+        anf, ql = EIGEN[key]
+        eigen_html += '<template id="eigen-%s"><ul>\n%s\n</ul>\n<p class="quelle"><a class="ql" href="%s">%s&nbsp;↗</a></p></template>\n' % (key, '\n'.join(li_mit(x) for x in anf), CHEM, ql)
+matrix_html = ('<h2 class="sr">Verfahren und Material</h2>\n<div class="mx-wrap"><table class="mx"><caption class="sr">Sicherheitsthemen nach Material und Verfahren</caption>\n<thead>%s</thead>\n<tbody>\n%s\n</tbody></table></div>\n') % (mx[0], '\n'.join(mx[1:])) + eigen_html
 
 body = f'''<header class="kopf"><div class="in">
 {kopf}
