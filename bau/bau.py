@@ -238,6 +238,8 @@ KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschrifte
         'Installationen und Bauteile': 'FI-Schalter, Not-Aus, Absaugung',
         'Notfälle vorbereiten': 'Notfallblatt, Erste-Hilfe-Kasten, Löscher, Abläufe',
         'Fachraum als Lernort': 'Raum für selbstständiges Arbeiten',
+        'Für jeden Fachraum': 'nicht essen, wenig Staub, absaugen, lösungsmittelfrei',
+        'Schutzmassnahmen': 'STOP-Prinzip, Schutzausrüstung von Kopf bis Fuss',
         'Sicher unterrichten': 'Fachkompetenz, Instruktion, Aufsicht, so sieht es konkret aus, was festhalten',
         'Vom Produktions- zum Erschliessungshandeln': 'was sich mit dem Lehrplan 21 ändert',
         'Was der Lehrplan 21 verlangt': 'Sicherheit als Lerninhalt, Kompetenzstufen'}
@@ -250,12 +252,9 @@ def klapp(html, h='h3'):
     return re.sub(r'<%s((?: [a-z]+="[^"]+")*)>(.*?)</%s>(.*?)%s' % (h, h, ende), f, html, flags=re.S)
 recht = klapp(recht)
 zustaendig = klapp(zustaendig)
-# Fachraum: nur Betrieb und Einrichtung, ausserhalb der Lektion; oben eine Übersicht in zwei Gruppen
+# Fachraum: nur Betrieb und Einrichtung, ausserhalb der Lektion, als Zeilen zum Aufklappen
 planen = fach_teile.pop() + lernort
-fach_html = ['''<div class="gruppen">
-<div><p class="g-titel">Betrieb</p><ul><li><a href="#fachraum-betreiben">Fachraum betreiben und Maschinen warten</a></li><li><a href="#lagerung">Lagerung gefährlicher Stoffe</a></li><li><a href="#entsorgung">Entsorgung</a></li></ul></div>
-<div><p class="g-titel">Einrichtung</p><ul><li><a href="#planen">Fachräume planen und einrichten</a></li><li><a href="#lernort">Fachraum als Lernort</a></li></ul></div>
-</div>'''] + [klapp(klapp(x), 'h2') for x in fach_teile] + [klapp(klapp(planen), 'h2')]
+fach_html = [klapp(klapp(x), 'h2') for x in fach_teile] + [klapp(klapp(planen), 'h2')]
 # Material: nur eigener Inhalt, die Themen je Material zeigt die Matrix
 mat_html = ['<section class="mat-teil">\n' + stoffe + '\n</section>', '<section class="mat-teil">\n' + emissionen + '</section>']
 # Matrix: Zeilen Material, Spalten Verfahren, Felder öffnen das Thema im Fenster
@@ -370,18 +369,10 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="unterricht"><div class="text">
-<ul class="sprung" aria-label="In diesem Register">
-<li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
-<li><a href="#fuer-jeden-fachraum">Für jeden Fachraum</a></li>
-<li><a href="#schutzmassnahmen">Schutzmassnahmen</a></li>
-<li><a href="#notfall">Notfälle vorbereiten</a></li>
-<li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
-<li><a href="#lehrplan">Lehrplan 21</a></li>
-</ul>
 {klapp(sicher, 'h2')}
-{allg}
+{klapp(allg, 'h2')}
 <section class="u-schutz">
-{schutz}</section>
+{klapp(schutz, 'h2')}</section>
 {klapp(notfall, 'h2')}
 {klapp(didaktik, 'h2')}
 {klapp(lehrplan, 'h2')}
