@@ -17,10 +17,10 @@ VERBOTE = ["Kein Essen und Trinken","Gegenstände aus dem Unterricht dürfen kei
 "In der Umgebung keine brennbaren","Nicht lasern","Verwendung und Bearbeitung asbesthaltiger","Blei und Bleilegierungen",
 "Auf Polyurethan-Montageschaum","Bleihaltige Weichlote","Cadmiumhaltige Hartlote","Flussmittel als verwendungsfertige Paste","Keine Schweissarbeiten",
 "Verzichten auf","Getränkte Lappen und Papiere nie","Auf Produkte mit gesundheitsgefährdenden","Nicht verwenden: Pigmente","Keine isocyanathaltigen",
-"Leinölhaltige Lacke nie","Nicht verwenden: toluolhaltige","Verboten sind Beizmittel","Ätzmittel mit Flusssäure","Nie Getränkeflaschen",
+"Leinölhaltige Lacke nie","Nicht verwenden: toluolhaltige","Nicht verwenden: Beizmittel","Nicht verwenden: Ätzmittel mit Flusssäure","Nie Getränkeflaschen",
 "Konzentrierte oxidierende Säuren","Keine Gasflaschen","Gefährliche Chemikalien dürfen nie","Alte Restbestände nicht mischen",
-"Lehrpersonen dürfen nach eigenem Ermessen keine","Improvisierte Anschlüsse","Schutzeinrichtungen an Maschinen dürfen nicht","Keine Produkte, die explosiv","Auf das Bearbeiten von Blei"]
-INSTR = [("Was gilt: Schülerinnen und Schüler bedienen den Lasercutter","aufsicht"),
+"Lehrpersonen dürfen nach eigenem Ermessen keine","Nicht verwenden: improvisierte Anschlüsse","Schutzeinrichtungen an Maschinen dürfen nicht","Keine Produkte, die explosiv","Auf das Bearbeiten von Blei"]
+INSTR = [("Schülerinnen und Schüler bedienen den Lasercutter","aufsicht"),
 ("Auf Polyurethan-Montageschaum","instruktion"),("* Inbetriebnahme, Ausserbetriebsetzung","selbst"),
 
 ("Epoxy-, Polyurethan- und Sekundenkleber verwenden","instruktion"),("Produkte mit Gefahrenhinweis kennzeichnen","instruktion"),
@@ -79,7 +79,8 @@ KURZ = {'Staub beim Sägen, Bohren und Schleifen': 'Staub beim Sägen, Schleifen
         'Giessen und Formen mit flüssigen Kunststoffen': 'Giessen mit flüssigen Kunststoffen',
         'Gasflaschen und Gasanlagen': 'Gasflaschen',
         'Leinöl und ölgetränkte Lappen': 'Leinöl, ölige Lappen',
-        'Lösungsmittel, Verdünner, Pinselreiniger': 'Lösungsmittel'}
+        'Lösungsmittel, Verdünner, Pinselreiniger': 'Lösungsmittel, Verdünner',
+        'Heissgeräte: Heissleimpistole, Lötkolben, Heissluftföhn, Bügeleisen': 'Heissgeräte'}
 # Fachraum: Betreiben und warten, dann Planen und einrichten
 FACH = [('<h2 id="fachraum">','<h2 id="planen">'),('<h2 id="lagerung">','<h2 id="entsorgung">'),('<h2 id="entsorgung">','<h2 id="notfall">'),
         ('<h2 id="planen">','<h2 id="zustaendig">')]
@@ -223,16 +224,16 @@ zustaendig = zw('<h2 id="zustaendig">', '<h2 id="begriffe">')
 KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschriften',
         'Sorgfalts- und Obhutspflicht': 'einteilen, instruieren, beaufsichtigen, laufend beurteilen',
         'Haftung': 'der Schulträger haftet, strafbar ist, wer die Sorgfalt verletzt',
-        'Schwangere und stillende Lehrpersonen': 'bestimmte Stoffe nur nach Risikobeurteilung',
-        'Überblick für Schulleitungen': 'Aufgaben mit Pflicht oder Empfehlung und Rhythmus',
+        'Mutterschutz am Arbeitsplatz': 'Arbeitsplätze mit bestimmten Stoffen vorsorglich beurteilen',
+        'Pflichten und Empfehlungen': 'sieben Pflichten, dazu Empfehlungen von bfu und chemsuisse, mit Rhythmus',
         'Wer kontrolliert': 'Arbeitsinspektorat, Suva nur Berufskrankheiten, bfu berät',
-        'An der Schule': 'Schulträger, Chemikalien-Ansprechperson, Pflichtenheft',
+        'Wer an der Schule zuständig ist': 'Schulträger für Räume, Ansprechperson für Chemikalien, Aufgaben ins Pflichtenheft',
         'Fachraum betreiben': 'gemeinsame Regeln, Wartung, Checklisten',
         'Maschinen warten und prüfen': 'Schutzeinrichtungen intakt, Elektro periodisch prüfen',
         'Checklisten': 'bfu 4.323 von täglich bis jährlich',
         'Lagerung gefährlicher Stoffe': 'Kennzeichnung entscheidet, gefährliche Stoffe abschliessen',
-        'Brennbare Flüssigkeiten, Säuren, Gas': 'Höchstmengen, getrennt lagern',
-        'Entsorgung': 'nie in Kehricht oder Abwasser',
+        'Brennbare Flüssigkeiten, Säuren, Gas': 'höchstens 100 Liter pro Fachraum, Säuren und Laugen getrennt',
+        'Entsorgung': 'gefährliche Chemikalien als Sonderabfall, nie in Kehricht oder Abwasser',
         'Fachräume planen und einrichten': 'für Neubau, Umbau und Neuorganisation',
         'Räume': 'Maschinenraum, Sichtkontakt, Zugang',
         'Installationen und Bauteile': 'FI-Schalter, Not-Aus, Absaugung',
@@ -240,8 +241,8 @@ KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschrifte
         'Fachraum als Lernort': 'Raum für selbstständiges Arbeiten',
         'Für jeden Fachraum': 'nicht essen, wenig Staub, absaugen, lösungsmittelfrei',
         'Schutzmassnahmen': 'STOP-Prinzip, Schutzausrüstung von Kopf bis Fuss',
-        'Sicher unterrichten': 'Fachkompetenz, Instruktion, Aufsicht, so sieht es konkret aus, was festhalten',
-        'Vom Produktions- zum Erschliessungshandeln': 'was sich mit dem Lehrplan 21 ändert',
+        'Sicher unterrichten': 'Lehrperson wählt Maschinen, führt ein, beaufsichtigt und hält fest',
+        'Vom Produktions- zum Erschliessungshandeln': 'selbstständiger Arbeiten verändert Raum und Aufsicht',
         'Was der Lehrplan 21 verlangt': 'Sicherheit als Lerninhalt, Kompetenzstufen'}
 def klapp(html, h='h3'):
     def f(m):
@@ -262,16 +263,25 @@ zellen = {}
 for (vid, _), sec in zip(VERF, verf_html):
     for mat, tid, h3 in re.findall(r'<section class="thema" data-mat="([^"]+)"(?: id="([^"]+)")?>\n<h3>(.*?)</h3>', sec):
         for key in mat.split(): zellen.setdefault((key, vid), []).append((tid or slug(h3), KURZ.get(h3, h3), h3))
+# Heissgeräte gelten für alle Materialien, der Heissluftföhn steht auf dem Plakat auch unter Umformen
+zellen.setdefault(('alle', 'umformen'), []).append(('heissgeraete', 'Heissgeräte', 'Heissgeräte: Heissleimpistole, Lötkolben, Heissluftföhn, Bügeleisen'))
+# Textil: Maschinen ohne eigenes Thema öffnen ihre Karte auf dem Plakat (Schlüssel m:Name)
+zellen.setdefault(('textil', 'verbinden'), []).extend([('m:Nähmaschine', 'Nähmaschine', 'Nähmaschine'), ('heissgeraete', 'Heissgeräte', 'Heissgeräte: Heissleimpistole, Lötkolben, Heissluftföhn, Bügeleisen')])
+zellen.setdefault(('textil', 'oberflaeche'), []).extend([('m:Stickcomputer', 'Stickcomputer', 'Stickcomputer'), ('m:Overlockmaschine', 'Overlockmaschine', 'Overlockmaschine')])
+zellen.setdefault(('keramik', 'umformen'), []).append(('glasieren-und-brennen', 'Glasieren und Brennen', 'Glasieren und Brennen'))
+def chip(i, kurz, lang):
+    if i.startswith('m:'): return '<a class="mchip mchip-m" href="#maschinen" data-maschine="%s" title="Auf dem Plakat zeigen">%s</a>' % (i[2:], kurz)
+    return '<a class="mchip" href="#%s" title="%s">%s</a>' % (i, lang, kurz)
 spalten = [v for v in VERF if v[0] != 'lehrpersonen']
 # Nicht verwenden: Kurzfassung der Warnpunkte je Material, jeder Eintrag führt zur Regel mit Begründung
 VERBOTEN = {
- 'alle': [('Pigmente mit Blei, Cadmium, Chromat, Quecksilber', 'farben-lacke-spruehen'), ('2K-Polyurethanlacke', 'farben-lacke-spruehen'),
+ 'alle': [('Pigmente mit Blei, Cadmium, Chromat, Quecksilber', 'farben-lacke-spruehen'), ('Zweikomponenten-Polyurethanlacke (2K)', 'farben-lacke-spruehen'),
           ('Toluol, chlorierte Lösungsmittel', 'loesungsmittel-verduenner-pinselreiniger')],
- 'holz': [('Imprägniertes Holz', 'holzstaub'), ('Holzschutzmittel mit Bioziden', 'farben-lacke-spruehen'), ('Wachs mit MEKO', 'wachsen')],
+ 'holz': [('Imprägniertes Holz', 'holzstaub'), ('Holzschutzmittel im Innenbereich', 'farben-lacke-spruehen'), ('Wachs mit MEKO', 'wachsen')],
  'metall': [('Blei, Bleiblech, Altmetall mit Blei', 'mat-metall'), ('Bleihaltiges Zierzinn', 'metall-und-zinngiessen'), ('Bleihaltige Weichlote', 'weichloeten'),
-            ('Cadmiumhaltige Hartlote', 'hartloeten'), ('Borhaltige Flussmittel', 'hartloeten'), ('Rostfreie und galvanisierte Stähle schweissen', 'schweissen'),
+            ('Cadmiumhaltige Hartlote', 'hartloeten'), ('Borhaltige Flussmittel', 'hartloeten'), ('Rostfreie und galvanisch beschichtete Stähle schweissen', 'schweissen'),
             ('Beizmittel mit Flusssäure oder Chromsäure', 'abbeizen-und-bruenieren'), ('Bleihaltige Emaille', 'emaillieren-und-glasaetzen')],
- 'kunststoff': [('Kunststoffe mit Carbonfasern bearbeiten', 'holzstaub'), ('PVC, Teflon, Polyurethan lasern', 'lasercutten'),
+ 'kunststoff': [('Kunststoffe mit Carbonfasern bearbeiten', 'holzstaub'), ('PVC, Teflon, Polyurethan, bromierte Kunststoffe lasern', 'lasercutten'),
                 ('Polyurethan-Montageschaum', 'giessen-und-formen-mit-fluessigen-kunststoffen'), ('Filamente mit Nanomaterialien', '3d-druck')],
  'keramik': [('Asbest', 'speckstein-und-asbest'), ('Glasuren mit Schwermetallen für Geschirr', 'mat-keramik'), ('Flusssäure zum Glasätzen', 'emaillieren-und-glasaetzen')],
  'textil': [('Leder mit Chrom(VI) lasern', 'lasercutten')],
@@ -284,17 +294,24 @@ EIGEN = {
  'metall': (['Auf das Bearbeiten von Blei', 'Gegenstände aus dem Unterricht dürfen keine', 'Schmuck: Werkstoffe auf Nickel', 'Zinn möglichst rein'], 'chemsuisse, S. 8, 10, 11, 13'),
  'keramik': (['Ess- und Trinkgeschirr nur mit Glasuren', 'Gegenstände aus dem Unterricht dürfen keine'], 'chemsuisse, S. 10, 13, 20, 21'),
 }
-mx = ['<tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th>' + ''.join('<th scope="col">%s</th>' % v[1] for v in spalten) + '<th scope="col" class="mx-nv">Nicht verwenden</th></tr>']
+mx = ['<tr><td class="ecke"><span class="sr">Material und Verfahren</span></td>' + ''.join('<th scope="col">%s</th>' % v[1] for v in spalten) + '<th scope="col" class="mx-nv">Nicht verwenden</th></tr>']
 eigen_html = ''
 for key, name, klein in MATS:
     zkopf = '<a class="mx-mat" href="#mat-%s">%s</a>' % (key, name) if key in EIGEN else '<span class="mx-mat">%s</span>' % name
-    mx.append('<tr class="z-%s"><th scope="row" class="mx-zeile" id="mat-%s">%s%s</th>' % (key, key, zkopf, '<span class="mx-klein">%s</span>' % klein if klein else '') + ''.join('<td>%s</td>' % (''.join('<a class="mchip" href="#%s" title="%s">%s</a>' % (i, lang, kurz) for i, kurz, lang in zellen.get((key, vid), []))
-              or '<span class="mx-leer" aria-label="kein Thema">·</span>') for vid, _ in spalten)
+    mx.append('<tr class="z-%s"><th scope="row" class="mx-zeile" id="mat-%s">%s%s</th>' % (key, key, zkopf, '<span class="mx-klein">%s</span>' % klein if klein else '') + ''.join('<td>%s</td>' % (''.join(chip(*x) for x in zellen.get((key, vid), []))
+              or '<span class="sr">kein Thema</span>') for vid, _ in spalten)
               + '<td class="mx-nv"><ul class="nv">%s</ul></td></tr>' % ''.join('<li><a href="#%s">%s</a></li>' % (z, t) for t, z in VERBOTEN.get(key, [])))
     if key in EIGEN:
         anf, ql = EIGEN[key]
         eigen_html += '<template id="eigen-%s"><ul>\n%s\n</ul>\n<p class="quelle"><a class="ql" href="%s">%s&nbsp;↗</a></p></template>\n' % (key, '\n'.join(li_mit(x) for x in anf), CHEM, ql)
-matrix_html = ('<h2 class="sr">Verfahren und Material</h2>\n<div class="mx-wrap"><table class="mx"><caption class="sr">Sicherheitsthemen nach Material und Verfahren</caption>\n<thead>%s</thead>\n<tbody>\n%s\n</tbody></table></div>\n') % (mx[0], '\n'.join(mx[1:])) + eigen_html
+# Auf dem Handy: dieselben Daten als Liste je Material statt Tabelle
+liste = []
+for key, name, klein in MATS:
+    kopf_l = '<a class="mx-mat" href="#mat-%s">%s</a>' % (key, name) if key in EIGEN else name
+    teile = ''.join('<div><dt>%s</dt><dd>%s</dd></div>' % (vname, ''.join(chip(*x) for x in zellen[(key, vid)])) for vid, vname in spalten if zellen.get((key, vid)))
+    nv = ' · '.join('<a href="#%s">%s</a>' % (z, t) for t, z in VERBOTEN.get(key, []))
+    liste.append('<section class="mxl z-%s"><h3>%s%s</h3><dl>%s</dl>%s</section>' % (key, kopf_l, ' <span class="mx-klein">%s</span>' % klein if klein else '', teile, '<p class="mxl-nv"><b>Nicht verwenden:</b> %s</p>' % nv if nv else ''))
+matrix_html = ('<h2 class="sr">Verfahren und Material</h2>\n<div class="mx-wrap"><table class="mx"><caption class="sr">Sicherheitsthemen nach Material und Verfahren</caption>\n<thead>%s</thead>\n<tbody>\n%s\n</tbody></table></div>\n') % (mx[0], '\n'.join(mx[1:])) + '<div class="mx-liste">\n%s\n</div>\n' % '\n'.join(liste) + eigen_html
 
 body = f'''<header class="kopf"><div class="in">
 {kopf}
@@ -344,6 +361,7 @@ body = f'''<header class="kopf"><div class="in">
 <noscript><p>Die Maschinentabellen stehen bei den einzelnen Verfahren.</p></noscript>
 <div class="plakat nurjs" id="plakat-ziel"></div>
 <div class="p-legende nurjs" id="p-legende"></div>
+<p class="p-zyklen">Zyklus 1: Kindergarten bis 2. Klasse, Zyklus 2: 3. bis 6. Klasse, Zyklus 3: 7. bis 9. Klasse. Einige Kantone haben eigene Maschinenlisten, etwa Luzern und Zürich. Massgebend ist die Vorgabe des Kantons, siehe <a href="#kantone">Kantone</a>.</p>
 <p class="quelle">Nachgebaut nach <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301 «Umgang mit Maschinen und Anlagen», 09.2020&nbsp;↗</a></p>
 {leer}
 <section id="aufsicht" hidden>
@@ -354,7 +372,7 @@ body = f'''<header class="kopf"><div class="in">
 {chr(10).join(verf_html)}
 </div></section>
 
-<section class="panel" id="matrix"><div class="text breit">
+<section class="panel" id="matrix"><div class="text mx-text">
 {matrix_html}
 <ul class="sprung mx-weiter" aria-label="Weiter in diesem Register">
 <li><a href="#einkauf">Stoffe auswählen</a></li>
@@ -385,7 +403,7 @@ body = f'''<header class="kopf"><div class="in">
 <section class="panel" id="recht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#zustaendig">Zuständigkeiten</a></li>
-<li><a href="#schulleitung">Für Schulleitungen</a></li>
+<li><a href="#schulleitung">Pflichten und Empfehlungen</a></li>
 </ul>
 {ohne_erste_id(recht, 'recht')}
 {zustaendig}
@@ -404,13 +422,17 @@ body = f'''<header class="kopf"><div class="in">
 
 body = themen(lists(body))
 
-# Themen zuklappen: Kopfzeile mit Titel, Material und Zahl der Warnpunkte
+# Themen zuklappen: Kopfzeile mit Titel, Kernaussage, Material und Zahl der Warnpunkte
+# Kernaussagen je Thema, vorerst drei zur Ansicht
+THEMA_KERN = {'Weichlöten': 'nur bleifreies Lot, Lötkolben höchstens 300 °C, Rauch absaugen',
+              'Leinöl und ölgetränkte Lappen': 'getränkte Lappen können sich selbst entzünden, nie in den Kehricht',
+              'Lasercutten': 'nur unter Aufsicht, kein PVC, Teflon oder Polyurethan'}
 def zuklappen(m):
     kopf, inhalt = m.group(1), m.group(4)
     n = inhalt.count('<li class="verbot"')
     warn = ' · <img class="vb-z klein" data-icon="iso-W001.svg" alt=""> %d %s' % (n, 'Warnpunkt' if n == 1 else 'Warnpunkte') if n else ''
     return ('%s<details class="thema-d">\n<summary><h3>%s</h3><span class="t-meta">%s%s</span></summary>%s</details>\n</section>'
-            % (kopf, m.group(2), m.group(3), warn, inhalt))
+            % (kopf, m.group(2), (THEMA_KERN[m.group(2)] + ' · ' if m.group(2) in THEMA_KERN else '') + m.group(3), warn, inhalt))
 body = re.sub(r'(<section class="thema" data-mat="[^"]+" id="[^"]+">\n)<h3>(.*?)</h3>\n<p class="mat">Material: (.*?)</p>(.*?)</section>', zuklappen, body, flags=re.S)
 
 # Lernvideos je Verfahren zuklappen

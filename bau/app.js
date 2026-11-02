@@ -23,32 +23,6 @@
   function hoehe(){ document.documentElement.style.setProperty('--hh',leiste.offsetHeight+'px'); }
   if(window.ResizeObserver) new ResizeObserver(hoehe).observe(leiste); hoehe();
 
-  /* Unterricht: Instruktion und Aufsicht, wörtlich gesammelt */
-  (function(){
-    var ziel=$('#instr-liste'), gruppen={instruktion:[],aufsicht:[],selbst:[]};
-    if(!ziel) return;
-    var TITEL={instruktion:'Instruieren',aufsicht:'Beaufsichtigen',selbst:'Selbst übernehmen oder entscheiden'};
-    $$('#register li[data-instr]').forEach(function(li){
-      var g=li.getAttribute('data-instr'), c=kopie(li), thema=li.closest('.thema'), titel, id, quelle=null;
-      if(thema){ titel=$('h3',thema).textContent; id=thema.id; quelle=$('p.quelle',thema); }
-      else {
-        var ul=li.parentNode, h=ul.previousElementSibling;
-        while(h && !/^H[23]$/.test(h.tagName)) h=h.previousElementSibling;
-        titel=h?h.textContent:''; id=(h&&h.id)||li.closest('[id]').id;
-        var q=ul.nextElementSibling; while(q && !(q.tagName==='P' && q.classList.contains('quelle'))) q=q.nextElementSibling; quelle=q;
-      }
-      var hk=el('span','herkunft'); hk.appendChild(document.createTextNode('Herkunft: '));
-      var a=el('a',null,titel); a.href='#'+id; hk.appendChild(a);
-      if(quelle) hk.appendChild(document.createTextNode(', '+quelle.textContent));
-      c.appendChild(hk); gruppen[g].push(c);
-    });
-    Object.keys(gruppen).forEach(function(g){
-      if(!gruppen[g].length) return;
-      ziel.appendChild(el('h3',null,TITEL[g]));
-      var ul=el('ul','instr'); gruppen[g].forEach(function(li){ ul.appendChild(li); }); ziel.appendChild(ul);
-    });
-  })();
-
   /* Plakat: Maschinen wie auf dem bfu-Plakat, gebaut aus den Tabellen der Verfahren */
   var mLeer=$('#leer');
   var ZUORDNUNG=/*ZUORDNUNG*/{};
@@ -141,12 +115,6 @@
       var t=el('p'); t.appendChild(el('b',null,K+' ')); t.appendChild(document.createTextNode(LEG[K]));
       d.appendChild(p); d.appendChild(t); lg.appendChild(d);
     });
-    // Zyklus hervorheben
-    var hl=$$('.z-hl button');
-    hl.forEach(function(b){ b.addEventListener('click',function(){
-      hl.forEach(function(x){ x.setAttribute('aria-pressed',x===b?'true':'false'); });
-      if(b.getAttribute('data-z')) ziel.setAttribute('data-z',b.getAttribute('data-z')); else ziel.removeAttribute('data-z');
-    }); });
   })();
 
   /* Register */
@@ -290,7 +258,7 @@
       ['grundlage','matrix','fachraum','unterricht','kantone','recht','quellen'].forEach(function(pid){
         var kopf=null, gruppen=[], akt=null;
         $$('h2,h3,li,p:not(.quelle):not(.g-k):not(.g-mehr),tr',document.getElementById(pid)).forEach(function(x){
-          if(x.closest('#instr-liste, .rand')) return;
+          if(x.closest('.rand')) return;
           if(/^H[23]$/.test(x.tagName)){ kopf=x; akt=null; if(x.textContent.toLowerCase().indexOf(q)>-1){ akt={kopf:x,treffer:[]}; gruppen.push(akt); } return; }
           if(x.tagName==='P' && x.closest('li,td')) return;
           if(x.textContent.toLowerCase().indexOf(q)<0) return;
@@ -529,6 +497,15 @@
   // Vor dem Register-Sprung von app.js abfangen
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href^="#"]'); if(!a || a.classList.contains('b-wort')) return;
+    // Maschine ohne eigenes Thema: Karte auf dem Plakat öffnen
+    if(a.hasAttribute('data-maschine')){
+      e.preventDefault(); e.stopPropagation(); zu();
+      document.getElementById('t-verfahren').click();
+      var name=a.getAttribute('data-maschine');
+      var b=[].filter.call(document.querySelectorAll('#plakat-ziel .m-zeile'),function(x){ return x.querySelector('.m-name').textContent===name; })[0];
+      if(b){ if(b.getAttribute('aria-expanded')!=='true') b.click(); b.scrollIntoView({block:'center'}); b.focus({preventScroll:true}); }
+      return;
+    }
     var z=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
     if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ e.preventDefault(); e.stopPropagation(); oeffne(z,a); return; }
     if(f.contains(a)) zu();
