@@ -68,13 +68,22 @@ def themen(html):
 
 VERF = [('trennen','Trennen'),('umformen','Umformen'),('verbinden','Verbinden'),
         ('oberflaeche','Oberfläche verändern'),('flaechen','Flächen bilden'),('lehrpersonen','Nur Lehrpersonen')]
-MATS = [('holz','Holz','holz'),('metall','Metall','metall'),('kunststoff','Kunststoff','kunststoff'),
-        ('keramik','Keramik, Glas, Stein','keramik'),('textil','Textil','textil')]
-MATS = [('alle-materialien','Für alle Materialien','alle')] + MATS
+# Zeilen der Matrix Material × Verfahren, Schlüssel wie in data-mat
+MATS = [('alle','Alle Materialien'),('holz','Holz'),('metall','Metall'),('kunststoff','Kunststoff'),
+        ('keramik','Keramik, Glas, Stein'),('textil','Textil')]
+# Kurztitel für die Felder der Matrix, der volle Titel steht im Fenster
+KURZ = {'Staub beim Sägen, Bohren und Schleifen': 'Staub beim Sägen, Schleifen',
+        'Ständerbohrmaschine (Säulen- und Tischbohrmaschine)': 'Ständerbohrmaschine',
+        'Kunststoff: Thermoschneiden, Acrylglas, Brennprobe': 'Thermoschneiden, Acrylglas',
+        'Metall thermisch trennen': 'Thermisch trennen',
+        'Giessen und Formen mit flüssigen Kunststoffen': 'Giessen mit flüssigen Kunststoffen',
+        'Gasflaschen und Gasanlagen': 'Gasflaschen',
+        'Leinöl und ölgetränkte Lappen': 'Leinöl, ölige Lappen',
+        'Lösungsmittel, Verdünner, Pinselreiniger': 'Lösungsmittel'}
 # Fachraum: Betreiben und warten, dann Planen und einrichten
 FACH = [('<h2 id="fachraum">','<h2 id="planen">'),('<h2 id="lagerung">','<h2 id="entsorgung">'),('<h2 id="entsorgung">','<h2 id="notfall">'),
         ('<h2 id="planen">','<h2 id="zustaendig">')]
-HAUPT = [('grundlage','Grundlage'),('verfahren','Maschinen und Verfahren'),('material','Material'),('fachraum','Fachraum'),
+HAUPT = [('grundlage','Grundlage'),('verfahren','Maschinen'),('matrix','Verfahren und Material'),('material','Material'),('fachraum','Fachraum'),
          ('unterricht','Unterricht'),('kantone','Kantone'),('recht','Recht'),('quellen','Quellen')]
 
 # Eigene Zuordnung: welche Themen, Videos und Checklisten zu einer Maschine des Plakats passen
@@ -248,14 +257,21 @@ fach_html = ['''<div class="gruppen">
 <div><p class="g-titel">Betrieb</p><ul><li><a href="#fachraum-betreiben">Fachraum betreiben und Maschinen warten</a></li><li><a href="#lagerung">Lagerung gefährlicher Stoffe</a></li><li><a href="#entsorgung">Entsorgung</a></li></ul></div>
 <div><p class="g-titel">Einrichtung</p><ul><li><a href="#planen">Fachräume planen und einrichten</a></li><li><a href="#lernort">Fachraum als Lernort</a></li></ul></div>
 </div>''', allg, klapp(notfall, 'h2')] + [klapp(klapp(x), 'h2') for x in fach_teile] + [klapp(klapp(planen), 'h2')]
-mat_html = []
-for mid, name, key in MATS:
-    if key == 'textil': hint = '\n<p class="einleitung">Themen bei den Verfahren, die «Textil» betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>. Zu Färben, Batik, Stoffdruck, Filzen, Bleichen und Bügeln enthalten die Quellen keine eigenen Regeln. Es gelten die Grundsätze unter <a href="#einkauf">Stoffe auswählen</a>: Etikette lesen, bei Gefahrenkennzeichnung zuerst Ersatz prüfen.</p>'; mat_html.append('<section class="mat-teil" id="%s" data-key="%s">\n<h2>%s</h2>%s\n<div class="slot"></div>\n</section>' % (mid, key, name, hint)); continue
-    hint = '' if key == 'alle' else '\n<p class="einleitung">Themen bei den Verfahren, die %s betreffen. Zusätzlich gilt immer <a href="#alle-materialien">«Für alle Materialien»</a>.</p>' % ('«%s»' % name)
-    if key == 'alle': hint = '\n' + re.sub(r'<h2( id="[^"]+")?>(.*?)</h2>', r'<h3\1>\2</h3>', stoffe) + '\n<p class="einleitung">Dazu diese Themen bei den Verfahren:</p>'
-    mat_html.append('<section class="mat-teil" id="%s" data-key="%s">\n<h2>%s</h2>%s\n<div class="slot"></div>\n</section>' % (mid, key, name, hint))
-mat_html.insert(1, '<section class="mat-teil">\n' + emissionen + '</section>')
-mat_html = ['<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % (m[0], m[1]) for m in MATS[:1] + [('emissionen', 'Emissionen')] + MATS[1:]) + '\n</ul>'] + mat_html
+# Material: nur eigener Inhalt, die Themen je Material zeigt die Matrix
+mat_html = ['<ul class="sprung" aria-label="In diesem Register">\n<li><a href="#einkauf">Stoffe auswählen</a></li>\n<li><a href="#hergestellt">Was hergestellt wird</a></li>\n<li><a href="#emissionen">Emissionen</a></li>\n</ul>',
+            '<section class="mat-teil">\n' + stoffe + '\n</section>', '<section class="mat-teil">\n' + emissionen + '</section>']
+# Matrix: Zeilen Material, Spalten Verfahren, Felder öffnen das Thema im Fenster
+zellen = {}
+for (vid, _), sec in zip(VERF, verf_html):
+    for mat, tid, h3 in re.findall(r'<section class="thema" data-mat="([^"]+)"(?: id="([^"]+)")?>\n<h3>(.*?)</h3>', sec):
+        for key in mat.split(): zellen.setdefault((key, vid), []).append((tid or slug(h3), KURZ.get(h3, h3), h3))
+spalten = [v for v in VERF if v[0] != 'lehrpersonen']
+mx = ['<tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th>' + ''.join('<th scope="col"><a href="#%s">%s</a></th>' % v for v in spalten) + '</tr>']
+for key, name in MATS:
+    mx.append('<tr class="z-%s"><th scope="row">%s</th>' % (key, name) + ''.join('<td>%s</td>' % (''.join('<a class="mchip" href="#%s" title="%s">%s</a>' % (i, lang, kurz) for i, kurz, lang in zellen.get((key, vid), []))
+              or '<span class="mx-leer" aria-label="kein Thema">·</span>') for vid, _ in spalten) + '</tr>')
+matrix_html = ('<h2 class="sr">Verfahren und Material</h2>\n<div class="mx-wrap"><table class="mx"><caption class="sr">Sicherheitsthemen nach Material und Verfahren</caption>\n<thead>%s</thead>\n<tbody>\n%s\n</tbody></table></div>\n'
+               '<p class="mx-hinweis">Textil: Zu Färben, Batik, Stoffdruck, Filzen, Bleichen und Bügeln enthalten die Quellen keine eigenen Regeln. Es gelten die Grundsätze unter <a href="#einkauf">Stoffe auswählen</a>: Etikette lesen, bei Gefahrenkennzeichnung zuerst Ersatz prüfen.</p>') % (mx[0], '\n'.join(mx[1:]))
 
 body = f'''<header class="kopf"><div class="in">
 {kopf}
@@ -314,6 +330,10 @@ body = f'''<header class="kopf"><div class="in">
 </section>
 </section>
 {chr(10).join(verf_html)}
+</div></section>
+
+<section class="panel nurjs" id="matrix"><div class="text breit">
+{matrix_html}
 </div></section>
 
 <section class="panel nurjs" id="material"><div class="text">

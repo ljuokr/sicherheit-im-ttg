@@ -6,13 +6,17 @@
   --font:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
   --s1:2rem; --s2:1.25rem; --s3:1rem;
   --hh:8rem;
+  /* Materialfarben nach PHBern, dezent: Holz rot, Metall blau, Kunststoff gelb */
+  --holz:#c8423a; --holz-g:#f9e3e1; --metall:#2f6db5; --metall-g:#e1eaf6; --kunst:#c99a00; --kunst-g:#fbf2cc;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
   --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#575757; --tint:#242424;
-  --a:#1d4a40; --b:#4f4818; --c:#5a2e29; --pa:#3dbfa3; --pb:#f7e57e; --pc:#f08576; --on-a:#0b1a0e; --on-b:#4a4100; --on-c:#6b1f16; color-scheme:dark } }
+  --a:#1d4a40; --b:#4f4818; --c:#5a2e29; --pa:#3dbfa3; --pb:#f7e57e; --pc:#f08576; --on-a:#0b1a0e; --on-b:#4a4100; --on-c:#6b1f16;
+  --holz:#e07a72; --holz-g:#3a2422; --metall:#6fa3e0; --metall-g:#1f2c3d; --kunst:#e6c34a; --kunst-g:#3a3317; color-scheme:dark } }
 :root[data-theme="dark"]{
   --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#575757; --tint:#242424;
-  --a:#1d4a40; --b:#4f4818; --c:#5a2e29; --pa:#3dbfa3; --pb:#f7e57e; --pc:#f08576; --on-a:#0b1a0e; --on-b:#4a4100; --on-c:#6b1f16; color-scheme:dark }
+  --a:#1d4a40; --b:#4f4818; --c:#5a2e29; --pa:#3dbfa3; --pb:#f7e57e; --pc:#f08576; --on-a:#0b1a0e; --on-b:#4a4100; --on-c:#6b1f16;
+  --holz:#e07a72; --holz-g:#3a2422; --metall:#6fa3e0; --metall-g:#1f2c3d; --kunst:#e6c34a; --kunst-g:#3a3317; color-scheme:dark }
 
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-padding-top:calc(var(--hh) + 1rem)}
@@ -388,7 +392,6 @@ section.thema{margin:0;padding-top:0}
 ul.amp-l{list-style:none;padding:0;margin:.3rem 0 0;display:grid;gap:.35rem}
 ul.amp-l li{display:flex;gap:.45rem;align-items:center;margin:0;font-size:.9rem}
 ul.amp-l img.icon{width:1.9rem;height:1.9rem;flex:none}
-.mat-verw{margin:.3rem 0}
 .ges{display:inline-block;font-size:.8rem;padding:0 .4rem;border:1px solid var(--muted);color:var(--fg);margin-left:.3rem;border-radius:3px}
 ol.kern{max-width:68ch;margin:.25rem 0 .5rem;padding-left:1.5rem}
 ol.kern li{margin:.2rem 0;font-weight:600}
@@ -426,3 +429,47 @@ ol.drei .kern{display:block;margin:.4rem 0;font-weight:600}
 @media (min-width:48rem){ ol.drei{grid-template-columns:repeat(3,minmax(0,1fr))} ol.drei>li{padding:2.6rem .9rem .8rem} ol.drei>li::before{left:.9rem;top:.8rem} }
 .reg-hin{font-size:.8125rem;color:var(--muted)}
 .ql{white-space:normal}
+
+/* Register Verfahren und Material: Matrix, Zeilen Material, Spalten Verfahren */
+#verfahren section.verfahren{display:none}
+.mx-wrap{overflow-x:auto;margin:1.25rem 0 0;border:1px solid var(--line)}
+table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;margin:0}
+.mx th,.mx td{border:1px solid var(--line);padding:.5rem;vertical-align:top;text-align:left}
+.mx thead th{background:var(--fg);color:var(--bg);font-weight:600;border-color:var(--fg)}
+.mx thead th a{color:var(--bg)}
+.mx thead th.ecke{font-weight:400;font-size:.8rem;opacity:.85}
+.mx tbody th{position:sticky;left:0;z-index:1;background:var(--tint);font-weight:600;width:9.5rem;min-width:7.5rem;border-left:4px solid var(--line)}
+.mx td{width:17%}
+.mx tr.z-alle th,.mx tr.z-alle td{border-bottom:2px solid var(--fg)}
+.mx tr.z-alle th{font-weight:400;font-style:italic}
+.mchip{display:block;color:var(--fg);text-decoration:none;border-left:3px solid var(--fg);padding:.3rem .45rem;margin:0 0 .35rem;background:var(--bg);line-height:1.3;min-height:1.75rem}
+.mchip:last-child{margin-bottom:0}
+.mchip:hover{text-decoration:underline}
+.mchip[aria-current="true"]{background:var(--fg);color:var(--bg)}
+.mx tr.z-holz th{background:var(--holz-g);border-left-color:var(--holz)} .mx tr.z-holz .mchip{border-left-color:var(--holz)}
+.mx tr.z-metall th{background:var(--metall-g);border-left-color:var(--metall)} .mx tr.z-metall .mchip{border-left-color:var(--metall)}
+.mx tr.z-kunststoff th{background:var(--kunst-g);border-left-color:var(--kunst)} .mx tr.z-kunststoff .mchip{border-left-color:var(--kunst)}
+.mx tr.z-holz td{background:color-mix(in srgb,var(--holz-g) 35%,var(--bg))}
+.mx tr.z-metall td{background:color-mix(in srgb,var(--metall-g) 35%,var(--bg))}
+.mx tr.z-kunststoff td{background:color-mix(in srgb,var(--kunst-g) 35%,var(--bg))}
+.mx-leer{color:var(--line)}
+.mx-hinweis{color:var(--muted);font-size:.875rem;margin-top:.75rem}
+/* Ampel: Regeln je Stufe unter den Piktogrammen */
+.amp>ul:not(.amp-l){margin:.6rem 0 0;padding:.5rem 0 0 1.1rem;border-top:1px solid var(--line);font-size:.9rem}
+.amp>ul:not(.amp-l) li{margin:.2rem 0}
+
+/* Themenfenster: rechts als Leiste, auf schmalen Bildschirmen über die ganze Fläche */
+.fenster{position:fixed;z-index:30;top:0;right:0;bottom:0;width:100%;background:var(--bg);color:var(--fg);border-left:2px solid var(--fg);overflow-y:auto;overscroll-behavior:contain;box-shadow:-.5rem 0 1.5rem rgba(0,0,0,.15);
+  padding:calc(env(safe-area-inset-top,0px) + 1rem) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 2rem) max(16px,env(safe-area-inset-left,0px))}
+@media (min-width:64rem){ .fenster{width:min(36rem,45vw);padding-left:1.5rem} body.f-offen #inhalt{padding-right:min(36rem,45vw)} }
+.fenster:focus{outline:none}
+.f-kopf{position:sticky;top:calc(-1rem - env(safe-area-inset-top,0px));background:var(--bg);display:flex;gap:1rem;justify-content:space-between;align-items:start;border-bottom:1px solid var(--line);margin:-1rem 0 1rem;padding:1rem 0 .6rem;z-index:2}
+.f-art{margin:0;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.f-kopf h2{margin:.1rem 0 0;padding:0;border:0;font-size:var(--s2)}
+.f-meta{margin:.2rem 0 0;font-size:.875rem;color:var(--muted)}
+.f-meta img{height:1em;vertical-align:-.1em}
+.f-in table{min-width:0}
+.f-in .mtab-wrap{display:block}
+.f-themen{margin-top:1.5rem;border-top:1px solid var(--line);padding-top:.75rem}
+.f-themen p{margin:0 0 .25rem;font-weight:600}
+@media print{ .fenster{display:none} #verfahren section.verfahren{display:block} }

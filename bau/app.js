@@ -149,20 +149,6 @@
     }); });
   })();
 
-  /* Material: Themen nach data-mat, als Verweise auf die Verfahren */
-  $$('#material section[data-key]').forEach(function(sub){
-    var key=sub.getAttribute('data-key'), ziel=$('.slot',sub), n=0;
-    verfahren.forEach(function(sec){
-      var th=$$('.thema',sec).filter(function(t){ return t.getAttribute('data-mat').split(' ').indexOf(key)>-1; });
-      if(!th.length) return;
-      // Nur Verweise, damit die Regeln einmal bei den Verfahren stehen
-      var zeile=el('p','mat-verw'); zeile.appendChild(el('b',null,VNAME[sec.id]+': '));
-      th.forEach(function(t,i){ if(i) zeile.appendChild(document.createTextNode(', ')); var l=el('a',null,$('h3',t).textContent); l.href='#'+t.id; zeile.appendChild(l); n++; });
-      ziel.appendChild(zeile);
-    });
-    var tab=$('#t-'+sub.id+' .n'); if(tab){ tab.textContent=n; tab.hidden=false; }
-  });
-
   /* Register */
   var haupt=$$('#tl-haupt [role=tab]');
   var SUBS={}; $$('#reg2 [role=tablist]').forEach(function(l){ SUBS[l.getAttribute('data-haupt')]=l; });
@@ -481,4 +467,70 @@
     var h=location.hash; zeige('grundlage');
     if(!h){ try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){} }
   }
+})();
+
+/* Themen und Verfahren öffnen sich in einem Fenster statt in der langen Liste */
+(function(){
+  'use strict';
+  var f=document.createElement('aside'); f.className='fenster'; f.id='fenster'; f.hidden=true; f.tabIndex=-1;
+  f.setAttribute('role','dialog'); f.setAttribute('aria-labelledby','f-titel');
+  f.innerHTML='<div class="f-kopf"><div><p class="f-art" id="f-art"></p><h2 id="f-titel"></h2><p class="f-meta" id="f-meta"></p></div><button type="button" class="knopf" id="f-zu">Schliessen</button></div><div class="f-in" id="f-in"></div>';
+  document.body.appendChild(f);
+  var fin=document.getElementById('f-in'), ausloeser=null;
+  function ohneIds(n){ if(!n.querySelectorAll) return n; n.removeAttribute('id'); [].forEach.call(n.querySelectorAll('[id]'),function(x){ x.removeAttribute('id'); }); return n; }
+  function oeffne(z,von){
+    var verf=z.matches('section.verfahren')?z:z.closest('section.verfahren');
+    var art=document.getElementById('f-art'), titel=document.getElementById('f-titel'), meta=document.getElementById('f-meta');
+    fin.textContent='';
+    if(z.matches('section.thema')){
+      var d=z.querySelector('details.thema-d'), m=z.querySelector('.t-meta');
+      art.textContent=verf?verf.getAttribute('data-titel'):'';
+      titel.textContent=z.querySelector('h3').textContent;
+      meta.innerHTML=m?m.innerHTML:'';
+      [].forEach.call(d.childNodes,function(c){ if(c.nodeName!=='SUMMARY') fin.appendChild(ohneIds(c.cloneNode(true))); });
+    } else {
+      art.textContent='Verfahren';
+      titel.textContent=z.querySelector('h2').textContent;
+      meta.textContent='';
+      [].forEach.call(z.children,function(c){
+        if(c.matches('h2,section.thema')) return;
+        fin.appendChild(ohneIds(c.cloneNode(true)));
+      });
+      var th=z.querySelectorAll('section.thema');
+      if(th.length){
+        var box=document.createElement('div'); box.className='f-themen';
+        box.innerHTML='<p>Themen</p><ul></ul>';
+        [].forEach.call(th,function(t){ var li=document.createElement('li'), a=document.createElement('a'); a.href='#'+t.id; a.textContent=t.querySelector('h3').textContent; li.appendChild(a); box.querySelector('ul').appendChild(li); });
+        fin.appendChild(box);
+      }
+    }
+    [].forEach.call(document.querySelectorAll('.mchip'),function(c){ c.setAttribute('aria-current',c.getAttribute('href')==='#'+z.id?'true':'false'); });
+    if(f.hidden && von && !f.contains(von)) ausloeser=von;
+    f.hidden=false; document.body.classList.add('f-offen');
+    f.scrollTop=0; f.focus({preventScroll:true});
+    try{ history.replaceState(null,'','#'+z.id); }catch(e){}
+  }
+  function zu(){
+    if(f.hidden) return;
+    f.hidden=true; document.body.classList.remove('f-offen');
+    [].forEach.call(document.querySelectorAll('.mchip[aria-current="true"]'),function(c){ c.setAttribute('aria-current','false'); });
+    if(ausloeser && document.contains(ausloeser)) ausloeser.focus({preventScroll:true});
+    ausloeser=null;
+  }
+  document.getElementById('f-zu').addEventListener('click',zu);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !f.hidden && !document.querySelector('.b-pop:not([hidden])')) zu(); });
+  // Vor dem Register-Sprung von app.js abfangen
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]'); if(!a || a.classList.contains('b-wort')) return;
+    var z=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if(z && z.matches('section.thema, section.verfahren')){ e.preventDefault(); e.stopPropagation(); oeffne(z,a); return; }
+    if(f.contains(a)) zu();
+  },true);
+  // Registerhinweise bei Links auf Themen entfernen, die öffnen ja jetzt das Fenster
+  [].forEach.call(document.querySelectorAll('a[href^="#"] .reg-hin'),function(s){
+    var z=document.getElementById(s.parentNode.getAttribute('href').slice(1));
+    if(z && z.matches('section.thema, section.verfahren')) s.remove();
+  });
+  var h=decodeURIComponent(location.hash.slice(1)), z=h&&document.getElementById(h);
+  if(z && z.matches('section.thema, section.verfahren')){ document.getElementById('t-matrix').click(); oeffne(z,null); }
 })();
