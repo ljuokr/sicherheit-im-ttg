@@ -70,7 +70,7 @@ VERF = [('trennen','Trennen'),('umformen','Umformen'),('verbinden','Verbinden'),
         ('oberflaeche','Oberfläche verändern'),('lehrpersonen','Nur Lehrpersonen')]
 # Zeilen der Matrix Material × Verfahren, Schlüssel wie in data-mat
 MATS = [('alle','Alle Materialien',''),('holz','Holz','Massivholz, Sperrholz, MDF'),('metall','Metall','Stahl, Aluminium, Kupfer, Messing, Zinn'),
-        ('kunststoff','Kunststoff','Acrylglas, PLA, ABS, PVC'),('keramik','Keramik','Ton, Glas, Speckstein'),('textil','Textil','Baumwolle, Wolle, Kunstfasern, Leder')]
+        ('kunststoff','Kunststoff','Acrylglas, PLA, ABS, PVC'),('keramik','Keramik','Ton, Porzellan, Glas'),('textil','Textil','Baumwolle, Wolle, Kunstfasern, Leder')]
 # Kurztitel für die Felder der Matrix, der volle Titel steht im Fenster
 KURZ = {'Staub beim Sägen, Bohren und Schleifen': 'Staub beim Sägen, Schleifen',
         'Ständerbohrmaschine (Säulen- und Tischbohrmaschine)': 'Ständerbohrmaschine',
@@ -285,7 +285,7 @@ EIGEN = {
  'metall': (['Auf das Bearbeiten von Blei', 'Gegenstände aus dem Unterricht dürfen keine', 'Schmuck: Werkstoffe auf Nickel', 'Zinn möglichst rein'], 'chemsuisse, S. 8, 10, 11, 13'),
  'keramik': (['Ess- und Trinkgeschirr nur mit Glasuren', 'Gegenstände aus dem Unterricht dürfen keine'], 'chemsuisse, S. 10, 13, 20, 21'),
 }
-mx = ['<tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th>' + ''.join('<th scope="col"><a href="#%s">%s</a></th>' % v for v in spalten) + '<th scope="col" class="mx-nv">Nicht verwenden</th></tr>']
+mx = ['<tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th>' + ''.join('<th scope="col">%s</th>' % v[1] for v in spalten) + '<th scope="col" class="mx-nv">Nicht verwenden</th></tr>']
 eigen_html = ''
 for key, name, klein in MATS:
     zkopf = '<a class="mx-mat" href="#mat-%s">%s</a>' % (key, name) if key in EIGEN else '<span class="mx-mat">%s</span>' % name
