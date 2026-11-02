@@ -452,6 +452,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 .mx tr.z-metall td{background:color-mix(in srgb,var(--metall-g) 35%,var(--bg))}
 .mx tr.z-kunststoff td{background:color-mix(in srgb,var(--kunst-g) 35%,var(--bg))}
 .mx-leer{color:var(--line)}
+.mx-weiter{margin-top:2rem}
 .mx-mat{color:var(--fg);display:block}
 .mx th.mx-nv{background:var(--tint);color:var(--muted);border-color:var(--line);font-weight:600;font-size:.8rem;width:24%}
 .mx td.mx-nv{background:var(--tint);width:24%;font-size:.78rem;color:var(--muted)}

@@ -287,7 +287,7 @@
     // Suche auch in den übrigen Registern: Treffer nach Abschnitt gruppiert, mit Link zum Abschnitt
     var weitere=0;
     if(q){
-      ['grundlage','fachraum','unterricht','kantone','recht','quellen'].forEach(function(pid){
+      ['grundlage','matrix','fachraum','unterricht','kantone','recht','quellen'].forEach(function(pid){
         var kopf=null, gruppen=[], akt=null;
         $$('h2,h3,li,p:not(.quelle):not(.g-k):not(.g-mehr),tr',document.getElementById(pid)).forEach(function(x){
           if(x.closest('#instr-liste, .rand')) return;
@@ -351,7 +351,7 @@
     var muster=new RegExp('(^|[^\\wäöüÄÖÜ\u00df-])('+woerter.map(function(x){ return esc(x.w); }).join('|')+')(?![\\wäöüÄÖÜ\u00df-])');
     var idVon={}; woerter.forEach(function(x){ idVon[x.w]=x.id; });
     // Abschnitte, in denen je Begriff nur das erste Vorkommen verlinkt wird
-    var bloecke=$$('#register .thema, #register .sub:not(#material .sub), #grundlage, #verfahren > .text > section:not(.verfahren), #fachraum, #unterricht, #kantone, #recht, #quellen');
+    var bloecke=$$('#register .thema, #register .sub, #grundlage, #verfahren > .text > section:not(.verfahren), #matrix .mat-teil, #fachraum, #unterricht, #kantone, #recht, #quellen');
     var NICHT=['A','BUTTON','H2','H3','H4','TH','FIGCAPTION','LABEL','OPTION','SCRIPT','STYLE'];
     bloecke.forEach(function(blk){
       if(blk.closest('.begriff')) return;
@@ -456,7 +456,7 @@
   render();
   // Links, die in ein anderes Register führen, mit dem Registernamen kennzeichnen
   $$('.panel .text a[href^="#"]').forEach(function(a){
-    if(a.closest('#grundlage,#material,.rand,.sprung,.gruppen,.ql,.b-wort,.plakat,.psa-figur,.karte,nav,.psa-bezug,.quelle')) return;
+    if(a.closest('#grundlage,.rand,.sprung,.gruppen,.ql,.b-wort,.plakat,.psa-figur,.karte,nav,.psa-bezug,.quelle')) return;
     var z=document.getElementById(a.getAttribute('href').slice(1)), von=a.closest('.panel'), nach=z&&z.closest('.panel');
     if(!nach||!von||nach===von) return;
     if(a.textContent.trim()===(document.getElementById('t-'+nach.id)||{}).textContent) return;

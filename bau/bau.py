@@ -83,8 +83,8 @@ KURZ = {'Staub beim Sägen, Bohren und Schleifen': 'Staub beim Sägen, Schleifen
 # Fachraum: Betreiben und warten, dann Planen und einrichten
 FACH = [('<h2 id="fachraum">','<h2 id="planen">'),('<h2 id="lagerung">','<h2 id="entsorgung">'),('<h2 id="entsorgung">','<h2 id="notfall">'),
         ('<h2 id="planen">','<h2 id="zustaendig">')]
-HAUPT = [('grundlage','Grundlage'),('verfahren','Maschinen'),('matrix','Verfahren und Material'),('material','Material'),('fachraum','Fachraum'),
-         ('unterricht','Unterricht'),('kantone','Kantone'),('recht','Recht'),('quellen','Quellen')]
+HAUPT = [('grundlage','Grundlage'),('verfahren','Maschinen'),('matrix','Verfahren und Material'),('unterricht','Unterricht'),('fachraum','Fachraum'),
+         ('kantone','Kantone'),('recht','Recht'),('quellen','Quellen')]
 
 # Eigene Zuordnung: welche Themen, Videos und Checklisten zu einer Maschine des Plakats passen
 TUD = 'https://www.tud.ch/lernvideos/verfahren/#'
@@ -250,16 +250,14 @@ def klapp(html, h='h3'):
     return re.sub(r'<%s((?: [a-z]+="[^"]+")*)>(.*?)</%s>(.*?)%s' % (h, h, ende), f, html, flags=re.S)
 recht = klapp(recht)
 zustaendig = klapp(zustaendig)
-# Fachraum: Grundregeln offen, längere Abschnitte zugeklappt; oben eine Übersicht in drei Gruppen
+# Fachraum: nur Betrieb und Einrichtung, ausserhalb der Lektion; oben eine Übersicht in zwei Gruppen
 planen = fach_teile.pop() + lernort
 fach_html = ['''<div class="gruppen">
-<div><p class="g-titel">Grundregeln</p><ul><li><a href="#fuer-jeden-fachraum">Für jeden Fachraum</a></li><li><a href="#notfall">Notfälle vorbereiten</a></li><li><a href="#schutzmassnahmen">Schutzmassnahmen und STOP</a></li></ul></div>
 <div><p class="g-titel">Betrieb</p><ul><li><a href="#fachraum-betreiben">Fachraum betreiben und Maschinen warten</a></li><li><a href="#lagerung">Lagerung gefährlicher Stoffe</a></li><li><a href="#entsorgung">Entsorgung</a></li></ul></div>
 <div><p class="g-titel">Einrichtung</p><ul><li><a href="#planen">Fachräume planen und einrichten</a></li><li><a href="#lernort">Fachraum als Lernort</a></li></ul></div>
-</div>''', allg, klapp(notfall, 'h2')] + [klapp(klapp(x), 'h2') for x in fach_teile] + [klapp(klapp(planen), 'h2')]
+</div>'''] + [klapp(klapp(x), 'h2') for x in fach_teile] + [klapp(klapp(planen), 'h2')]
 # Material: nur eigener Inhalt, die Themen je Material zeigt die Matrix
-mat_html = ['<ul class="sprung" aria-label="In diesem Register">\n<li><a href="#einkauf">Stoffe auswählen</a></li>\n<li><a href="#hergestellt">Was hergestellt wird</a></li>\n<li><a href="#emissionen">Emissionen</a></li>\n</ul>',
-            '<section class="mat-teil">\n' + stoffe + '\n</section>', '<section class="mat-teil">\n' + emissionen + '</section>']
+mat_html = ['<section class="mat-teil">\n' + stoffe + '\n</section>', '<section class="mat-teil">\n' + emissionen + '</section>']
 # Matrix: Zeilen Material, Spalten Verfahren, Felder öffnen das Thema im Fenster
 zellen = {}
 for (vid, _), sec in zip(VERF, verf_html):
@@ -357,11 +355,13 @@ body = f'''<header class="kopf"><div class="in">
 {chr(10).join(verf_html)}
 </div></section>
 
-<section class="panel nurjs" id="matrix"><div class="text breit">
+<section class="panel" id="matrix"><div class="text breit">
 {matrix_html}
-</div></section>
-
-<section class="panel nurjs" id="material"><div class="text">
+<ul class="sprung mx-weiter" aria-label="Weiter in diesem Register">
+<li><a href="#einkauf">Stoffe auswählen</a></li>
+<li><a href="#hergestellt">Was hergestellt wird</a></li>
+<li><a href="#emissionen">Emissionen</a></li>
+</ul>
 {chr(10).join(mat_html)}
 </div></section>
 
@@ -372,13 +372,17 @@ body = f'''<header class="kopf"><div class="in">
 <section class="panel" id="unterricht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
+<li><a href="#fuer-jeden-fachraum">Für jeden Fachraum</a></li>
 <li><a href="#schutzmassnahmen">Schutzmassnahmen</a></li>
+<li><a href="#notfall">Notfälle vorbereiten</a></li>
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
 </ul>
 {klapp(sicher, 'h2')}
+{allg}
 <section class="u-schutz">
 {schutz}</section>
+{klapp(notfall, 'h2')}
 {klapp(didaktik, 'h2')}
 {klapp(lehrplan, 'h2')}
 </div></section>

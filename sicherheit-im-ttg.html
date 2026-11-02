@@ -463,6 +463,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 .mx tr.z-metall td{background:color-mix(in srgb,var(--metall-g) 35%,var(--bg))}
 .mx tr.z-kunststoff td{background:color-mix(in srgb,var(--kunst-g) 35%,var(--bg))}
 .mx-leer{color:var(--line)}
+.mx-weiter{margin-top:2rem}
 .mx-mat{color:var(--fg);display:block}
 .mx th.mx-nv{background:var(--tint);color:var(--muted);border-color:var(--line);font-weight:600;font-size:.8rem;width:24%}
 .mx td.mx-nv{background:var(--tint);width:24%;font-size:.78rem;color:var(--muted)}
@@ -506,9 +507,8 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 <button type="button" role="tab" id="t-grundlage" aria-controls="grundlage" aria-selected="true" tabindex="0">Grundlage</button>
 <button type="button" role="tab" id="t-verfahren" aria-controls="verfahren" aria-selected="false" tabindex="-1">Maschinen</button>
 <button type="button" role="tab" id="t-matrix" aria-controls="matrix" aria-selected="false" tabindex="-1">Verfahren und Material</button>
-<button type="button" role="tab" id="t-material" aria-controls="material" aria-selected="false" tabindex="-1">Material</button>
-<button type="button" role="tab" id="t-fachraum" aria-controls="fachraum" aria-selected="false" tabindex="-1">Fachraum</button>
 <button type="button" role="tab" id="t-unterricht" aria-controls="unterricht" aria-selected="false" tabindex="-1">Unterricht</button>
+<button type="button" role="tab" id="t-fachraum" aria-controls="fachraum" aria-selected="false" tabindex="-1">Fachraum</button>
 <button type="button" role="tab" id="t-kantone" aria-controls="kantone" aria-selected="false" tabindex="-1">Kantone</button>
 <button type="button" role="tab" id="t-recht" aria-controls="recht" aria-selected="false" tabindex="-1">Recht</button>
 <button type="button" role="tab" id="t-quellen" aria-controls="quellen" aria-selected="false" tabindex="-1">Quellen</button>
@@ -568,7 +568,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 <h2 id="drei-fragen">Drei Fragen vor jeder Arbeit</h2>
 <ol class="drei">
 <li><span class="frage">Verfahren</span> Welche Gefahren gehen vom Verfahren, vom Werkzeug oder von der Maschine aus? <span class="kern">Gruppe A, B oder C im eigenen Zyklus nachsehen, Schutzmassnahmen kennen.</span> <a href="#maschinen">Plakat</a> · <a href="#schutzmassnahmen">Schutzmassnahmen</a></li>
-<li><span class="frage">Material</span> Welche Gefahren gehen vom Material und von den Hilfsstoffen aus, etwa Staub, Dämpfe oder Brand? <span class="kern">Etikette lesen: Ein Gefahrenpiktogramm heisst nachschlagen, bevor es eingesetzt wird.</span> <a href="#material">Material</a> · <a href="#einkauf">Stoffe auswählen</a></li>
+<li><span class="frage">Material</span> Welche Gefahren gehen vom Material und von den Hilfsstoffen aus, etwa Staub, Dämpfe oder Brand? <span class="kern">Etikette lesen: Ein Gefahrenpiktogramm heisst nachschlagen, bevor es eingesetzt wird.</span> <a href="#matrix">Material</a> · <a href="#einkauf">Stoffe auswählen</a></li>
 <li><span class="frage">Situation</span> Was verlangt die Situation, mit diesen Schülerinnen und Schülern, diesem Raum, zu diesem Zeitpunkt? <span class="kern">Die Klasse instruieren und begleiten, Not-Aus und Notfallausrüstung kennen.</span> <a href="#sicher-unterrichten">Sicher unterrichten</a> · <a href="#notfall">Notfälle</a></li>
 </ol>
 <p class="quelle">Eigene Gliederung: <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 2<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 3, 4<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V, 31, 41<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 14, 18, 19<span aria-hidden="true">&nbsp;↗</span></a></p>
@@ -1066,7 +1066,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 </section>
 </div></section>
 
-<section class="panel nurjs" id="matrix"><div class="text breit">
+<section class="panel" id="matrix"><div class="text breit">
 <h2 class="sr">Verfahren und Material</h2>
 <div class="mx-wrap"><table class="mx"><caption class="sr">Sicherheitsthemen nach Material und Verfahren</caption>
 <thead><tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th><th scope="col"><a href="#trennen">Trennen</a></th><th scope="col"><a href="#umformen">Umformen</a></th><th scope="col"><a href="#verbinden">Verbinden</a></th><th scope="col"><a href="#oberflaeche">Oberfläche verändern</a></th><th scope="col" class="mx-nv">Nicht verwenden</th></tr></thead>
@@ -1091,10 +1091,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 10, 13, 20, 21<span aria-hidden="true">&nbsp;↗</span></a></p></template>
 
-</div></section>
-
-<section class="panel nurjs" id="material"><div class="text">
-<ul class="sprung" aria-label="In diesem Register">
+<ul class="sprung mx-weiter" aria-label="Weiter in diesem Register">
 <li><a href="#einkauf">Stoffe auswählen</a></li>
 <li><a href="#hergestellt">Was hergestellt wird</a></li>
 <li><a href="#emissionen">Emissionen</a></li>
@@ -1151,62 +1148,9 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 
 <section class="panel" id="fachraum"><div class="text">
 <div class="gruppen">
-<div><p class="g-titel">Grundregeln</p><ul><li><a href="#fuer-jeden-fachraum">Für jeden Fachraum</a></li><li><a href="#notfall">Notfälle vorbereiten</a></li><li><a href="#schutzmassnahmen">Schutzmassnahmen und STOP</a></li></ul></div>
 <div><p class="g-titel">Betrieb</p><ul><li><a href="#fachraum-betreiben">Fachraum betreiben und Maschinen warten</a></li><li><a href="#lagerung">Lagerung gefährlicher Stoffe</a></li><li><a href="#entsorgung">Entsorgung</a></li></ul></div>
 <div><p class="g-titel">Einrichtung</p><ul><li><a href="#planen">Fachräume planen und einrichten</a></li><li><a href="#lernort">Fachraum als Lernort</a></li></ul></div>
 </div>
-<h2 id="fuer-jeden-fachraum">Für jeden Fachraum</h2>
-<ul>
-<li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNjUiIGhlaWdodD0iMjY1IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yNTEuNzUgMTMyLjVjMC02NS44Ni01My4zOS0xMTkuMjUtMTE5LjI1LTExOS4yNVMxMy4yNSA2Ni42NCAxMy4yNSAxMzIuNSA2Ni42NCAyNTEuNzUgMTMyLjUgMjUxLjc1czExOS4yNS01My4zOSAxMTkuMjUtMTE5LjI1IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTUyLjcwNyAxNDkuMTY4aDczLjkyMmE2Ljk0IDYuOTQgMCAwIDEgNi45MTkgNi45MTh2LjAwMWE2Ljk0IDYuOTQgMCAwIDEtNi45MTkgNi45MThINTIuNzA3YTYuOTQgNi45NCAwIDAgMS02LjkxOS02LjkxOHYtLjAwMWE2Ljk0IDYuOTQgMCAwIDEgNi45MTktNi45MTh6bTYyLjU0MiAzNC4xMzlINjQuMDg2Yy03LjgxMSAwLTE0LjIwMi02LjM5MS0xNC4yMDItMTQuMjAyaDc5LjU2NmMwIDcuODExLTYuMzkxIDE0LjIwMi0xNC4yMDIgMTQuMjAyem0wLTU0LjQ0MUg2NC4wODZjLTcuODExIDAtMTQuMjAyIDYuMzkxLTE0LjIwMiAxNC4yMDJoNzkuNTY2YzAtNy44MTEtNi4zOTEtMTQuMjAyLTE0LjIwMi0xNC4yMDJtMzcuOTYzIDU0LjUzMWg0Mi45NjlsMTQuOTMtMTAzLjA1NGgtNTUuNzNsLTkuNTc0LTMzLjg2M2gtNi44NjhsOS43ODUgMzMuODYzSDEzOC4yOHoiLz48cGF0aCBkPSJNMjM4LjM2OSAxMzIuNWMwLTU4LjQ3LTQ3LjM5OS0xMDUuODY5LTEwNS44NjktMTA1Ljg2OWExMDUuNDIgMTA1LjQyIDAgMCAwLTY3LjE3NSAyNC4wNGwxNDkuMzY2IDE0OC41NTRjMTQuODAyLTE4LjIwOSAyMy42NzgtNDEuNDI5IDIzLjY3OC02Ni43MjV6TTUwLjMwOSA2NS43NzVjLTE0LjgwMSAxOC4yMS0yMy42NzggNDEuNDI5LTIzLjY3OCA2Ni43MjUgMCA1OC40NyA0Ny4zOTkgMTA1Ljg2OSAxMDUuODY5IDEwNS44NjkgMjUuNTAzIDAgNDguODk5LTkuMDE5IDY3LjE3NS0yNC4wNHpNMjY1IDEzMi41QzI2NSA1OS4zMjIgMjA1LjY3OCAwIDEzMi41IDBTMCA1OS4zMjIgMCAxMzIuNSA1OS4zMjIgMjY1IDEzMi41IDI2NSAyNjUgMjA1LjY3OCAyNjUgMTMyLjUiIGZpbGw9IiNiNzFmMmUiLz48L3N2Zz4=" alt="Warnpunkt:"> Kein Essen und Trinken im Fachraum. Hände waschen vor den Pausen und am Ende des Unterrichts. <span class="warum">Warum: So wird kein Staub über Hände und Nahrungsmittel aufgenommen, und Verwechslungen sind ausgeschlossen.</span></li>
-<li>Möglichst wenig Staub erzeugen, aufwirbeln und verschleppen. <span class="warum">Warum: Zu viel Holzstaub reizt die Atemwege, Feinstaub von Eiche und Buche gilt als krebserregend. Je weniger eingeatmet wird, desto kleiner das Risiko.</span></li>
-<li>Absaugen oder lüften, wo Staub, Rauch, Dämpfe oder Sprühnebel entstehen. <span class="warum">Warum: Sonst gelangen sie in die Atemluft. Sprühen führt zu den höchsten Belastungen mit gefährlichen Stoffen.</span></li>
-<li>Lösungsmittelfreie Farben, Lacke und Klebstoffe bevorzugen. <span class="warum">Warum: Lösungsmitteldämpfe können Atemwege und Nervensystem schädigen und sind meist brennbar.</span></li>
-<li>Arbeitskleidung, Haare und Schmuck: siehe <a href="#psa-koerper">Schutzmassnahmen</a>.</li>
-</ul>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V, 6, 25, 26, 39<span aria-hidden="true">&nbsp;↗</span></a></p>
-
-
-<section class="klapp"><details class="thema-d">
-<summary><h2 id="notfall">Notfälle vorbereiten</h2><span class="t-meta">Notfallblatt, Erste-Hilfe-Kasten, Löscher, Abläufe</span></summary>
-<p class="einleitung">Im Notfall liest niemand auf dieser Seite nach. Entscheidend ist, was im Fachraum bereitliegt und mit der Klasse besprochen ist.</p>
-<ul>
-<li>Ein Telefon für den Notruf. Ein Notfallblatt mit Ansprechpersonen und Notfallnummern, gut sichtbar aufgehängt.</li>
-<li>Ein gekennzeichneter Erste-Hilfe-Kasten mit Verbandsmaterial, Desinfektionsmittel, Brandsalbe und Pinzette.</li>
-<li>Eine Augendusche am Wassernetz oder sterile Spülpackungen, dort, wo Spritzer drohen. Keine nachfüllbaren Augenspülflaschen.</li>
-<li>Ein Feuerlöscher neben der Tür in 80 bis 120 cm Höhe, auf die vorhandenen Stoffe abgestimmt. Eine Löschdecke, wo mit offenem Feuer oder brennbaren Chemikalien gearbeitet wird.</li>
-<li>Universalbindemittel für verschüttete Chemikalien, kein Sägemehl und kein Papier.</li>
-<li>Gekennzeichnete, freie Fluchtwege. Notausgänge lassen sich von innen jederzeit ohne Schlüssel öffnen.</li>
-</ul>
-<details class="mehr">
-<summary>Notrufnummern und Abläufe für das Notfallblatt</summary>
-<div class="wrap">
-<table class="nummern">
-<thead><tr><th>Notruf</th><th>Nummer</th></tr></thead>
-<tbody>
-<tr><td>Sanität</td><td>144</td></tr>
-<tr><td>Feuerwehr</td><td>118</td></tr>
-<tr><td>Tox Info Suisse (Vergiftungen, Verätzungen)</td><td>145</td></tr>
-<tr><td>Polizei</td><td>117</td></tr>
-<tr><td>Allgemeiner Notruf</td><td>112</td></tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li class="verbot" data-instr="selbst"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Warnpunkt:"> Lehrpersonen dürfen nach eigenem Ermessen keine Medikamente abgeben, auch keine rezeptfreien. <span class="warum">Warum: Das Heilmittelgesetz erlaubt die Abgabe von Arzneimitteln nur Fachpersonen. Auch rezeptfreie Mittel können Allergien und Wechselwirkungen auslösen. <a class="ql" href="https://so.ch/fileadmin/internet/ddi/ddi-gesa/PDF/Gesundheit_von_Kindern/schulaerztliche_Untersuchungen/h_013_positionspapier_abgabe_undanwendung_von_am_aus_notfallapotheke__2_-2.pdf">Kantonsapotheker Nordwestschweiz, S. 1-3<span aria-hidden="true">&nbsp;↗</span></a></span></li>
-<li>Vorgehen: schauen (was ist geschehen, wer ist betroffen), denken (Gefahren für Helfende und Betroffene), handeln (sich selbst schützen, Strom und Gas ausschalten, alarmieren, Nothilfe leisten).</li>
-<li>Brand: Ruhe bewahren, 118 anrufen oder Feuermelder betätigen, Personen warnen und retten, über die Fluchtwege hinaus, nie mit dem Lift. Fenster und Türen schliessen. Mit Löschdecke oder Feuerlöscher löschen, auf die eigene Sicherheit achten. Feuerwehr zum Brand leiten.</li>
-<li>Spritzer ins Auge: sofort und lange mit viel Wasser spülen, bei Säuren mindestens 15, bei Laugen mindestens 20 Minuten. Lider offen halten, das unverletzte Auge oben. Danach zum Arzt, bei Laugen in jedem Fall.</li>
-<li>Hautkontakt: benetzte Kleider entfernen (Selbstschutz), mit viel fliessendem Wasser spülen, dann mit Seife nachreinigen. Bei Verätzungen und Verbrennungen keine Seife.</li>
-<li>Säure oder Lauge verschluckt: sofort etwa 2 dl Wasser trinken lassen, keine Neutralisationsversuche, Arzt. Bei anderen Stoffen nur nach Anweisung von Arzt oder Tox Info Suisse handeln.</li>
-<li>Starke Blutung: 144 wählen, Druck auf die Wunde ausüben, bis Hilfe eintrifft, mit Kompresse und wenn möglich Schutzhandschuhen.</li>
-<li>Verbrennung: sofort mindestens zehn Minuten mit fliessendem Wasser kühlen, nicht eiskalt. Brandblasen nicht öffnen, steril abdecken. Keine Hausmittel wie Öl oder Mehl.</li>
-<li>Fremdkörper im Auge: lose Teilchen vorsichtig mit einem Taschentuch entfernen. Feststeckende stecken lassen und sofort zum Augenarzt.</li>
-<li>Stromunfall: die Person nicht berühren, solange sie unter Spannung stehen könnte. Zuerst Stecker ziehen oder Sicherung ausschalten, dann 144. Danach immer ärztlich untersuchen lassen.</li>
-<li>Die Sicherheitsdatenblätter der beteiligten Stoffe für die Rettungsdienste bereithalten.</li>
-</ul>
-</details>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 42-47<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.samariter.ch/sites/default/files/media/documents/Was%20tun%20im%20Notfall_0.pdf">Samariter, Was tun im Notfall, S. 1, 2<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.suva.ch/de-ch/ueber-uns/magazin-und-medien/magazin/augenverletzungen-wenn-berufsunfaelle-ins-auge-gehen">Suva, Augenverletzungen<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.suva.ch/de-ch/ueber-uns/magazin-und-medien/magazin/stromschlag-was-tun">Suva, Stromschlag<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 19<span aria-hidden="true">&nbsp;↗</span></a></p></details></section>
-
 <section class="klapp"><details class="thema-d">
 <summary><h2 id="fachraum-betreiben">Fachraum betreiben</h2><span class="t-meta">gemeinsame Regeln, Wartung, Checklisten</span></summary>
 <ul>
@@ -1334,7 +1278,9 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 <section class="panel" id="unterricht"><div class="text">
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#sicher-unterrichten">Sicher unterrichten</a></li>
+<li><a href="#fuer-jeden-fachraum">Für jeden Fachraum</a></li>
 <li><a href="#schutzmassnahmen">Schutzmassnahmen</a></li>
+<li><a href="#notfall">Notfälle vorbereiten</a></li>
 <li><a href="#erschliessen">Produktions- und Erschliessungshandeln</a></li>
 <li><a href="#lehrplan">Lehrplan 21</a></li>
 </ul>
@@ -1370,6 +1316,17 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 
 
 </details></section>
+
+<h2 id="fuer-jeden-fachraum">Für jeden Fachraum</h2>
+<ul>
+<li class="verbot"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNjUiIGhlaWdodD0iMjY1IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yNTEuNzUgMTMyLjVjMC02NS44Ni01My4zOS0xMTkuMjUtMTE5LjI1LTExOS4yNVMxMy4yNSA2Ni42NCAxMy4yNSAxMzIuNSA2Ni42NCAyNTEuNzUgMTMyLjUgMjUxLjc1czExOS4yNS01My4zOSAxMTkuMjUtMTE5LjI1IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTUyLjcwNyAxNDkuMTY4aDczLjkyMmE2Ljk0IDYuOTQgMCAwIDEgNi45MTkgNi45MTh2LjAwMWE2Ljk0IDYuOTQgMCAwIDEtNi45MTkgNi45MThINTIuNzA3YTYuOTQgNi45NCAwIDAgMS02LjkxOS02LjkxOHYtLjAwMWE2Ljk0IDYuOTQgMCAwIDEgNi45MTktNi45MTh6bTYyLjU0MiAzNC4xMzlINjQuMDg2Yy03LjgxMSAwLTE0LjIwMi02LjM5MS0xNC4yMDItMTQuMjAyaDc5LjU2NmMwIDcuODExLTYuMzkxIDE0LjIwMi0xNC4yMDIgMTQuMjAyem0wLTU0LjQ0MUg2NC4wODZjLTcuODExIDAtMTQuMjAyIDYuMzkxLTE0LjIwMiAxNC4yMDJoNzkuNTY2YzAtNy44MTEtNi4zOTEtMTQuMjAyLTE0LjIwMi0xNC4yMDJtMzcuOTYzIDU0LjUzMWg0Mi45NjlsMTQuOTMtMTAzLjA1NGgtNTUuNzNsLTkuNTc0LTMzLjg2M2gtNi44NjhsOS43ODUgMzMuODYzSDEzOC4yOHoiLz48cGF0aCBkPSJNMjM4LjM2OSAxMzIuNWMwLTU4LjQ3LTQ3LjM5OS0xMDUuODY5LTEwNS44NjktMTA1Ljg2OWExMDUuNDIgMTA1LjQyIDAgMCAwLTY3LjE3NSAyNC4wNGwxNDkuMzY2IDE0OC41NTRjMTQuODAyLTE4LjIwOSAyMy42NzgtNDEuNDI5IDIzLjY3OC02Ni43MjV6TTUwLjMwOSA2NS43NzVjLTE0LjgwMSAxOC4yMS0yMy42NzggNDEuNDI5LTIzLjY3OCA2Ni43MjUgMCA1OC40NyA0Ny4zOTkgMTA1Ljg2OSAxMDUuODY5IDEwNS44NjkgMjUuNTAzIDAgNDguODk5LTkuMDE5IDY3LjE3NS0yNC4wNHpNMjY1IDEzMi41QzI2NSA1OS4zMjIgMjA1LjY3OCAwIDEzMi41IDBTMCA1OS4zMjIgMCAxMzIuNSA1OS4zMjIgMjY1IDEzMi41IDI2NSAyNjUgMjA1LjY3OCAyNjUgMTMyLjUiIGZpbGw9IiNiNzFmMmUiLz48L3N2Zz4=" alt="Warnpunkt:"> Kein Essen und Trinken im Fachraum. Hände waschen vor den Pausen und am Ende des Unterrichts. <span class="warum">Warum: So wird kein Staub über Hände und Nahrungsmittel aufgenommen, und Verwechslungen sind ausgeschlossen.</span></li>
+<li>Möglichst wenig Staub erzeugen, aufwirbeln und verschleppen. <span class="warum">Warum: Zu viel Holzstaub reizt die Atemwege, Feinstaub von Eiche und Buche gilt als krebserregend. Je weniger eingeatmet wird, desto kleiner das Risiko.</span></li>
+<li>Absaugen oder lüften, wo Staub, Rauch, Dämpfe oder Sprühnebel entstehen. <span class="warum">Warum: Sonst gelangen sie in die Atemluft. Sprühen führt zu den höchsten Belastungen mit gefährlichen Stoffen.</span></li>
+<li>Lösungsmittelfreie Farben, Lacke und Klebstoffe bevorzugen. <span class="warum">Warum: Lösungsmitteldämpfe können Atemwege und Nervensystem schädigen und sind meist brennbar.</span></li>
+<li>Arbeitskleidung, Haare und Schmuck: siehe <a href="#psa-koerper">Schutzmassnahmen</a>.</li>
+</ul>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V, 6, 25, 26, 39<span aria-hidden="true">&nbsp;↗</span></a></p>
+
 
 <section class="u-schutz">
 <h2 id="schutzmassnahmen">Schutzmassnahmen</h2>
@@ -1452,6 +1409,47 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. V, 6, 7, 8, 9, 41<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D">Suva 67036, Frage 14<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 6-9, 16<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.suva.ch/de-ch/praevention/nach-gefahren/gefaehrliche-materialien-strahlungen-und-situationen/laerm-und-vibrationen/laerm-am-arbeitsplatz">Suva, Lärm am Arbeitsplatz<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.faechernet.bkd.be.ch/content/dam/faechernet_bkd/dokumente-bilder/de/startseite/fachbereiche/gestalten/umsetzungshilfen-ttg/merkblatt-sicherheit.pdf">Merkblatt Bern, Abschnitt 5<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf">bfu 4.323, S. 12<span aria-hidden="true">&nbsp;↗</span></a></p>
 
 </section>
+<section class="klapp"><details class="thema-d">
+<summary><h2 id="notfall">Notfälle vorbereiten</h2><span class="t-meta">Notfallblatt, Erste-Hilfe-Kasten, Löscher, Abläufe</span></summary>
+<p class="einleitung">Im Notfall liest niemand auf dieser Seite nach. Entscheidend ist, was im Fachraum bereitliegt und mit der Klasse besprochen ist.</p>
+<ul>
+<li>Ein Telefon für den Notruf. Ein Notfallblatt mit Ansprechpersonen und Notfallnummern, gut sichtbar aufgehängt.</li>
+<li>Ein gekennzeichneter Erste-Hilfe-Kasten mit Verbandsmaterial, Desinfektionsmittel, Brandsalbe und Pinzette.</li>
+<li>Eine Augendusche am Wassernetz oder sterile Spülpackungen, dort, wo Spritzer drohen. Keine nachfüllbaren Augenspülflaschen.</li>
+<li>Ein Feuerlöscher neben der Tür in 80 bis 120 cm Höhe, auf die vorhandenen Stoffe abgestimmt. Eine Löschdecke, wo mit offenem Feuer oder brennbaren Chemikalien gearbeitet wird.</li>
+<li>Universalbindemittel für verschüttete Chemikalien, kein Sägemehl und kein Papier.</li>
+<li>Gekennzeichnete, freie Fluchtwege. Notausgänge lassen sich von innen jederzeit ohne Schlüssel öffnen.</li>
+</ul>
+<details class="mehr">
+<summary>Notrufnummern und Abläufe für das Notfallblatt</summary>
+<div class="wrap">
+<table class="nummern">
+<thead><tr><th>Notruf</th><th>Nummer</th></tr></thead>
+<tbody>
+<tr><td>Sanität</td><td>144</td></tr>
+<tr><td>Feuerwehr</td><td>118</td></tr>
+<tr><td>Tox Info Suisse (Vergiftungen, Verätzungen)</td><td>145</td></tr>
+<tr><td>Polizei</td><td>117</td></tr>
+<tr><td>Allgemeiner Notruf</td><td>112</td></tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li class="verbot" data-instr="selbst"><img class="vb-z" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjAwIDUyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMzAwIDE2IDI4NCA0OTJoLTU2OHoiIGZpbGw9IiNGOUE4MDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIzMiIvPjxwYXRoIGQ9Im0zMzcgMTkyYTM3IDM3IDAgMCAwLTc0IDBsMTEgMTQzYTI2IDI2IDAgMCAwIDUyIDBtMTIgODVhMzggMzggMCAxIDEgMC0xIi8+PC9zdmc+Cg==" alt="Warnpunkt:"> Lehrpersonen dürfen nach eigenem Ermessen keine Medikamente abgeben, auch keine rezeptfreien. <span class="warum">Warum: Das Heilmittelgesetz erlaubt die Abgabe von Arzneimitteln nur Fachpersonen. Auch rezeptfreie Mittel können Allergien und Wechselwirkungen auslösen. <a class="ql" href="https://so.ch/fileadmin/internet/ddi/ddi-gesa/PDF/Gesundheit_von_Kindern/schulaerztliche_Untersuchungen/h_013_positionspapier_abgabe_undanwendung_von_am_aus_notfallapotheke__2_-2.pdf">Kantonsapotheker Nordwestschweiz, S. 1-3<span aria-hidden="true">&nbsp;↗</span></a></span></li>
+<li>Vorgehen: schauen (was ist geschehen, wer ist betroffen), denken (Gefahren für Helfende und Betroffene), handeln (sich selbst schützen, Strom und Gas ausschalten, alarmieren, Nothilfe leisten).</li>
+<li>Brand: Ruhe bewahren, 118 anrufen oder Feuermelder betätigen, Personen warnen und retten, über die Fluchtwege hinaus, nie mit dem Lift. Fenster und Türen schliessen. Mit Löschdecke oder Feuerlöscher löschen, auf die eigene Sicherheit achten. Feuerwehr zum Brand leiten.</li>
+<li>Spritzer ins Auge: sofort und lange mit viel Wasser spülen, bei Säuren mindestens 15, bei Laugen mindestens 20 Minuten. Lider offen halten, das unverletzte Auge oben. Danach zum Arzt, bei Laugen in jedem Fall.</li>
+<li>Hautkontakt: benetzte Kleider entfernen (Selbstschutz), mit viel fliessendem Wasser spülen, dann mit Seife nachreinigen. Bei Verätzungen und Verbrennungen keine Seife.</li>
+<li>Säure oder Lauge verschluckt: sofort etwa 2 dl Wasser trinken lassen, keine Neutralisationsversuche, Arzt. Bei anderen Stoffen nur nach Anweisung von Arzt oder Tox Info Suisse handeln.</li>
+<li>Starke Blutung: 144 wählen, Druck auf die Wunde ausüben, bis Hilfe eintrifft, mit Kompresse und wenn möglich Schutzhandschuhen.</li>
+<li>Verbrennung: sofort mindestens zehn Minuten mit fliessendem Wasser kühlen, nicht eiskalt. Brandblasen nicht öffnen, steril abdecken. Keine Hausmittel wie Öl oder Mehl.</li>
+<li>Fremdkörper im Auge: lose Teilchen vorsichtig mit einem Taschentuch entfernen. Feststeckende stecken lassen und sofort zum Augenarzt.</li>
+<li>Stromunfall: die Person nicht berühren, solange sie unter Spannung stehen könnte. Zuerst Stecker ziehen oder Sicherung ausschalten, dann 144. Danach immer ärztlich untersuchen lassen.</li>
+<li>Die Sicherheitsdatenblätter der beteiligten Stoffe für die Rettungsdienste bereithalten.</li>
+</ul>
+</details>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 42-47<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.samariter.ch/sites/default/files/media/documents/Was%20tun%20im%20Notfall_0.pdf">Samariter, Was tun im Notfall, S. 1, 2<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.suva.ch/de-ch/ueber-uns/magazin-und-medien/magazin/augenverletzungen-wenn-berufsunfaelle-ins-auge-gehen">Suva, Augenverletzungen<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.suva.ch/de-ch/ueber-uns/magazin-und-medien/magazin/stromschlag-was-tun">Suva, Stromschlag<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 19<span aria-hidden="true">&nbsp;↗</span></a></p></details></section>
+
 <section class="klapp"><details class="thema-d">
 <summary><h2 id="erschliessen">Vom Produktions- zum Erschliessungshandeln</h2><span class="t-meta">was sich mit dem Lehrplan 21 ändert</span></summary>
 <p>Was sich zwischen Produktions- und Erschliessungshandeln ändert:</p>
@@ -2133,7 +2131,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
     // Suche auch in den übrigen Registern: Treffer nach Abschnitt gruppiert, mit Link zum Abschnitt
     var weitere=0;
     if(q){
-      ['grundlage','fachraum','unterricht','kantone','recht','quellen'].forEach(function(pid){
+      ['grundlage','matrix','fachraum','unterricht','kantone','recht','quellen'].forEach(function(pid){
         var kopf=null, gruppen=[], akt=null;
         $$('h2,h3,li,p:not(.quelle):not(.g-k):not(.g-mehr),tr',document.getElementById(pid)).forEach(function(x){
           if(x.closest('#instr-liste, .rand')) return;
@@ -2197,7 +2195,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
     var muster=new RegExp('(^|[^\\wäöüÄÖÜ\u00df-])('+woerter.map(function(x){ return esc(x.w); }).join('|')+')(?![\\wäöüÄÖÜ\u00df-])');
     var idVon={}; woerter.forEach(function(x){ idVon[x.w]=x.id; });
     // Abschnitte, in denen je Begriff nur das erste Vorkommen verlinkt wird
-    var bloecke=$$('#register .thema, #register .sub:not(#material .sub), #grundlage, #verfahren > .text > section:not(.verfahren), #fachraum, #unterricht, #kantone, #recht, #quellen');
+    var bloecke=$$('#register .thema, #register .sub, #grundlage, #verfahren > .text > section:not(.verfahren), #matrix .mat-teil, #fachraum, #unterricht, #kantone, #recht, #quellen');
     var NICHT=['A','BUTTON','H2','H3','H4','TH','FIGCAPTION','LABEL','OPTION','SCRIPT','STYLE'];
     bloecke.forEach(function(blk){
       if(blk.closest('.begriff')) return;
@@ -2302,7 +2300,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
   render();
   // Links, die in ein anderes Register führen, mit dem Registernamen kennzeichnen
   $$('.panel .text a[href^="#"]').forEach(function(a){
-    if(a.closest('#grundlage,#material,.rand,.sprung,.gruppen,.ql,.b-wort,.plakat,.psa-figur,.karte,nav,.psa-bezug,.quelle')) return;
+    if(a.closest('#grundlage,.rand,.sprung,.gruppen,.ql,.b-wort,.plakat,.psa-figur,.karte,nav,.psa-bezug,.quelle')) return;
     var z=document.getElementById(a.getAttribute('href').slice(1)), von=a.closest('.panel'), nach=z&&z.closest('.panel');
     if(!nach||!von||nach===von) return;
     if(a.textContent.trim()===(document.getElementById('t-'+nach.id)||{}).textContent) return;
