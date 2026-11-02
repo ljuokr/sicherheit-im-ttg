@@ -174,8 +174,8 @@ def teil(a, b): return grund_ohne[grund_ohne.index(a):grund_ohne.index(b) if b e
 def h3zu2(x, ids={}):
     for alt, neu in ids.items(): x = x.replace(alt, neu)
     return re.sub(r'<h3( id="[^"]+")?>(.*?)</h3>', r'<h2\1>\2</h2>', x)
-sicher = h3zu2(teil('<h3 id="sicher-unterrichten">', '<h3>Für jeden Fachraum</h3>'))
-allg = h3zu2(teil('<h3>Für jeden Fachraum</h3>', '<h3 id="schutzmassnahmen">'), {'<h3>Für jeden Fachraum</h3>': '<h3 id="fuer-jeden-fachraum">Für jeden Fachraum</h3>', '<h3>STOP-Prinzip</h3>': '<h3 id="stop">STOP-Prinzip</h3>'})
+sicher = h3zu2(teil('<h3 id="sicher-unterrichten">', '<h3>Grundregeln im Fachraum</h3>'))
+allg = h3zu2(teil('<h3>Grundregeln im Fachraum</h3>', '<h3 id="schutzmassnahmen">'), {'<h3>Grundregeln im Fachraum</h3>': '<h3 id="fuer-jeden-fachraum">Grundregeln im Fachraum</h3>', '<h3>STOP-Prinzip</h3>': '<h3 id="stop">STOP-Prinzip</h3>'})
 schutz = h3zu2(teil('<h3 id="schutzmassnahmen">', '<h3 id="einkauf">'))
 stoffe = h3zu2(teil('<h3 id="einkauf">', '<h3 id="emissionen">'))
 emissionen = h3zu2(teil('<h3 id="emissionen">', None))
@@ -239,7 +239,7 @@ KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschrifte
         'Installationen und Bauteile': 'FI-Schalter, Not-Aus, Absaugung',
         'Notfälle vorbereiten': 'Notfallblatt, Erste-Hilfe-Kasten, Löscher, Abläufe',
         'Fachraum als Lernort': 'Raum für selbstständiges Arbeiten',
-        'Für jeden Fachraum': 'nicht essen, wenig Staub, absaugen, lösungsmittelfrei',
+        'Grundregeln im Fachraum': 'nicht essen, wenig Staub, absaugen, lösungsmittelfrei',
         'Schutzmassnahmen': 'STOP-Prinzip, Schutzausrüstung von Kopf bis Fuss',
         'Sicher unterrichten': 'Lehrperson wählt Maschinen, führt ein, beaufsichtigt und hält fest',
         'Vom Produktions- zum Erschliessungshandeln': 'selbstständiger Arbeiten verändert Raum und Aufsicht',

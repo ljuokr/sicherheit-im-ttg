@@ -97,7 +97,7 @@
               if(t.indexOf(stern+' ')===0) k.appendChild(el('p','k-fuss',t));
             });
           }
-          if(!z.themen && !z.video && !z.hinweis && !z.links) k.appendChild(el('p','k-fuss','Zu dieser Maschine nennen die Quellen keine eigenen Regeln. Es gelten die allgemeinen Regeln unter «Für jeden Fachraum».'));
+          if(!z.themen && !z.video && !z.hinweis && !z.links) k.appendChild(el('p','k-fuss','Zu dieser Maschine nennen die Quellen keine eigenen Regeln. Es gelten die Grundregeln im Fachraum.'));
           b.addEventListener('click',function(){
             var offen=b.getAttribute('aria-expanded')!=='true';
             b.setAttribute('aria-expanded',offen?'true':'false'); k.hidden=!offen;
@@ -424,7 +424,7 @@
   render();
   // Links, die in ein anderes Register führen, mit dem Registernamen kennzeichnen
   $$('.panel .text a[href^="#"]').forEach(function(a){
-    if(a.closest('#grundlage,.rand,.sprung,.gruppen,.ql,.b-wort,.plakat,.psa-figur,.karte,nav,.psa-bezug,.quelle')) return;
+    if(a.closest('#grundlage,.rand,.sprung,.gruppen,.ql,.b-wort,.plakat,.karte,nav,.psa-bezug,.quelle')) return;
     var z=document.getElementById(a.getAttribute('href').slice(1)), von=a.closest('.panel'), nach=z&&z.closest('.panel');
     if(!nach||!von||nach===von) return;
     if(a.textContent.trim()===(document.getElementById('t-'+nach.id)||{}).textContent) return;
