@@ -160,22 +160,22 @@ table.kantone td:first-child{white-space:nowrap}
 .p-zk{margin:0 0 .9rem;font-size:.875rem;font-weight:600;line-height:1.3}
 .p-zk p{margin:0}
 .p-gruppe{border-bottom:1px solid var(--fg);padding-bottom:.7rem}
-.p-kopf{padding-left:calc(4.8rem + 1.1rem);margin:0 0 .2rem}
+.p-kopf{padding-left:calc(1.3rem + 4.8rem + 1.1rem);margin:0 0 .2rem}
 .p-kopf h3{margin:0;font-size:var(--s3)}
 .p-kopf h3 a{text-decoration:none}
 .p-kopf h3 a:hover{text-decoration:underline}
 .p-zyk,.dots{display:grid;grid-template-columns:repeat(3,1.6rem);justify-items:center;flex:none}
-.p-zyk{justify-items:center}
+.p-zyk{justify-items:center;margin-left:1.3rem}
 .p-zyk span{width:1.6rem;text-align:center}
 .p-liste{list-style:none;margin:0;padding:0;max-width:none}
 .p-liste li{margin:0}
 .m-zeile{font:inherit;color:inherit;background:none;border:0;width:100%;display:flex;align-items:center;gap:1.1rem;padding:.2rem 0;text-align:left;cursor:pointer}
 .m-zeile:hover .m-name{text-decoration:underline;text-underline-offset:.2em}
 .m-name{min-width:0}
-/* Punkte wie auf dem Plakat: A gefüllt, B mit Ring, C mit Mittelpunkt */
+/* Punkte wie auf dem Plakat, nur Farbe, einheitlich umrandet */
 .dot{width:.95rem;height:.95rem;border-radius:50%;display:inline-grid;place-items:center;font-size:0;flex:none}
-.dot.A{background:var(--pa)} .dot.B{background:var(--pb);box-shadow:inset 0 0 0 1.5px var(--on-b)} .dot.C{background:var(--pc)}
-.dot.C::after{content:"";width:.28rem;height:.28rem;border-radius:50%;background:var(--on-c)}
+.dot{box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.35)}
+.dot.A{background:var(--pa)} .dot.B{background:var(--pb)} .dot.C{background:var(--pc)}
 .karte{background:var(--tint);padding:.75rem 1rem;margin:0 0 .5rem;border-bottom:1px solid var(--line)}
 .kz{margin:0 0 .6rem;display:grid;gap:.3rem}
 .kz div{display:flex;gap:.6rem;align-items:center}
@@ -407,7 +407,7 @@ details.mehr>summary,details.videos>summary{list-style:none}
 details.mehr>summary::-webkit-details-marker,details.videos>summary::-webkit-details-marker{display:none}
 details.mehr>summary::before,details.videos>summary::before,.m-zeile::before{content:"\25B8";color:var(--muted);margin-right:.45rem}
 details.mehr[open]>summary::before,details.videos[open]>summary::before,.m-zeile[aria-expanded=true]::before{content:"\25BE"}
-.m-zeile::before{margin-right:-.6rem}
+.m-zeile::before{width:.8rem;flex:none;margin-right:-.6rem}
 /* Sprunglisten als Fläche */
 .sprung{background:var(--tint);padding:.5rem .8rem}
 /* Drei Fragen als Kacheln */
@@ -417,7 +417,6 @@ ol.drei>li::before{content:counter(frage);position:absolute;left:1rem;top:.7rem;
 ol.drei>li>ul{margin:.4rem 0}
 .eigen{color:var(--muted);font-style:italic;font-size:.875rem}
 /* Kontrast der Plakatpunkte */
-.dot.A,.dot.C{box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.4)}
 @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .lernort{filter:brightness(.85)} }
 :root[data-theme="dark"] .lernort{filter:brightness(.85)}
 /* Klappzeilen mit h2: keine zweite Linie */
@@ -454,11 +453,12 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 .mx tr.z-kunststoff td{background:color-mix(in srgb,var(--kunst-g) 35%,var(--bg))}
 .mx-leer{color:var(--line)}
 .mx-mat{color:var(--fg);display:block}
-.mx th.mx-nv{background:var(--pc);color:var(--on-c);border-color:var(--pc)}
-.mx td.mx-nv{background:color-mix(in srgb,var(--c) 45%,var(--bg));width:19%}
+.mx th.mx-nv{background:var(--tint);color:var(--muted);border-color:var(--line);font-weight:600;font-size:.8rem;width:24%}
+.mx td.mx-nv{background:var(--tint);width:24%;font-size:.78rem;color:var(--muted)}
 .mx td.mx-nv ul{margin:0;padding:0;list-style:none}
-.mx td.mx-nv li{margin:0 0 .35rem;padding-left:.45rem;border-left:3px solid var(--pc);line-height:1.3}
-.mx td.mx-nv a{color:var(--fg)}
+.mx td.mx-nv li{margin:0 0 .25rem;line-height:1.3}
+.mx td.mx-nv a{color:var(--muted)}
+.mx td.mx-nv a:hover{color:var(--fg)}
 .mx-mat[aria-current="true"]{text-decoration-thickness:3px}
 .mx-klein{display:block;font-weight:400;font-size:.78rem;color:var(--muted);line-height:1.3;margin-top:.15rem}
 .f-in h3{margin:1rem 0 .2rem}
