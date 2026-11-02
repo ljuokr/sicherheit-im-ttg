@@ -290,8 +290,8 @@ EIGEN = {
 mx = ['<tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th>' + ''.join('<th scope="col"><a href="#%s">%s</a></th>' % v for v in spalten) + '<th scope="col" class="mx-nv">Nicht verwenden</th></tr>']
 eigen_html = ''
 for key, name, klein in MATS:
-    kopf = '<a class="mx-mat" href="#mat-%s">%s</a>' % (key, name) if key in EIGEN else '<span class="mx-mat">%s</span>' % name
-    mx.append('<tr class="z-%s"><th scope="row" class="mx-zeile" id="mat-%s">%s%s</th>' % (key, key, kopf, '<span class="mx-klein">%s</span>' % klein if klein else '') + ''.join('<td>%s</td>' % (''.join('<a class="mchip" href="#%s" title="%s">%s</a>' % (i, lang, kurz) for i, kurz, lang in zellen.get((key, vid), []))
+    zkopf = '<a class="mx-mat" href="#mat-%s">%s</a>' % (key, name) if key in EIGEN else '<span class="mx-mat">%s</span>' % name
+    mx.append('<tr class="z-%s"><th scope="row" class="mx-zeile" id="mat-%s">%s%s</th>' % (key, key, zkopf, '<span class="mx-klein">%s</span>' % klein if klein else '') + ''.join('<td>%s</td>' % (''.join('<a class="mchip" href="#%s" title="%s">%s</a>' % (i, lang, kurz) for i, kurz, lang in zellen.get((key, vid), []))
               or '<span class="mx-leer" aria-label="kein Thema">·</span>') for vid, _ in spalten)
               + '<td class="mx-nv"><ul class="nv">%s</ul></td></tr>' % ''.join('<li><a href="#%s">%s</a></li>' % (z, t) for t, z in VERBOTEN.get(key, [])))
     if key in EIGEN:
