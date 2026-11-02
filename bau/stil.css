@@ -185,7 +185,7 @@ table.kantone td:first-child{white-space:nowrap}
 .k-links{margin:0 0 .5rem}
 .k-extra,.k-fuss{margin:.3rem 0 0}
 .k-fuss{color:var(--muted)}
-.p-legende{display:grid;gap:0;margin:0 0 1.5rem}
+.p-legende{display:grid;gap:0;margin:1.5rem 0 .75rem}
 @media (min-width:48rem){ .p-legende{grid-template-columns:repeat(3,1fr)} }
 .p-leg{display:flex;gap:.5rem;align-items:baseline;padding:.5rem .75rem;font-size:.875rem;line-height:1.35}
 .p-leg:nth-child(1){background:var(--a)} .p-leg:nth-child(2){background:var(--b)} .p-leg:nth-child(3){background:var(--c)}
@@ -453,7 +453,11 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 .mx tr.z-metall td{background:color-mix(in srgb,var(--metall-g) 35%,var(--bg))}
 .mx tr.z-kunststoff td{background:color-mix(in srgb,var(--kunst-g) 35%,var(--bg))}
 .mx-leer{color:var(--line)}
-.mx-hinweis{color:var(--muted);font-size:.875rem;margin-top:.75rem}
+.mx-mat{color:var(--fg);display:block}
+.mx-mat[aria-current="true"]{text-decoration-thickness:3px}
+.mx-klein{display:block;font-weight:400;font-size:.78rem;color:var(--muted);line-height:1.3;margin-top:.15rem}
+.f-zusatz{margin:1.25rem 0 .25rem;color:var(--muted)}
+.f-in h3{margin:1rem 0 .2rem}
 /* Ampel: Regeln je Stufe unter den Piktogrammen */
 .amp>ul:not(.amp-l){margin:.6rem 0 0;padding:.5rem 0 0 1.1rem;border-top:1px solid var(--line);font-size:.9rem}
 .amp>ul:not(.amp-l) li{margin:.2rem 0}

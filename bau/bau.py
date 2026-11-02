@@ -67,10 +67,10 @@ def themen(html):
     return re.sub(r'<section class="thema" data-mat="([^"]+)"(?: id="([^"]+)")?>\n<h3>(.*?)</h3>', f, html)
 
 VERF = [('trennen','Trennen'),('umformen','Umformen'),('verbinden','Verbinden'),
-        ('oberflaeche','Oberfläche verändern'),('flaechen','Flächen bilden'),('lehrpersonen','Nur Lehrpersonen')]
+        ('oberflaeche','Oberfläche verändern'),('lehrpersonen','Nur Lehrpersonen')]
 # Zeilen der Matrix Material × Verfahren, Schlüssel wie in data-mat
-MATS = [('alle','Alle Materialien'),('holz','Holz'),('metall','Metall'),('kunststoff','Kunststoff'),
-        ('keramik','Keramik, Glas, Stein'),('textil','Textil')]
+MATS = [('alle','Alle Materialien',''),('holz','Holz','Massivholz, Sperrholz, MDF'),('metall','Metall','Stahl, Aluminium, Kupfer, Messing, Zinn'),
+        ('kunststoff','Kunststoff','Acrylglas, PLA, ABS, PVC'),('keramik','Keramik','Ton, Glas, Speckstein'),('textil','Textil','Baumwolle, Wolle, Kunstfasern, Leder')]
 # Kurztitel für die Felder der Matrix, der volle Titel steht im Fenster
 KURZ = {'Staub beim Sägen, Bohren und Schleifen': 'Staub beim Sägen, Schleifen',
         'Ständerbohrmaschine (Säulen- und Tischbohrmaschine)': 'Ständerbohrmaschine',
@@ -267,11 +267,10 @@ for (vid, _), sec in zip(VERF, verf_html):
         for key in mat.split(): zellen.setdefault((key, vid), []).append((tid or slug(h3), KURZ.get(h3, h3), h3))
 spalten = [v for v in VERF if v[0] != 'lehrpersonen']
 mx = ['<tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th>' + ''.join('<th scope="col"><a href="#%s">%s</a></th>' % v for v in spalten) + '</tr>']
-for key, name in MATS:
-    mx.append('<tr class="z-%s"><th scope="row">%s</th>' % (key, name) + ''.join('<td>%s</td>' % (''.join('<a class="mchip" href="#%s" title="%s">%s</a>' % (i, lang, kurz) for i, kurz, lang in zellen.get((key, vid), []))
+for key, name, klein in MATS:
+    mx.append('<tr class="z-%s"><th scope="row" class="mx-zeile" id="mat-%s"><a class="mx-mat" href="#mat-%s">%s</a>%s</th>' % (key, key, key, name, '<span class="mx-klein">%s</span>' % klein if klein else '') + ''.join('<td>%s</td>' % (''.join('<a class="mchip" href="#%s" title="%s">%s</a>' % (i, lang, kurz) for i, kurz, lang in zellen.get((key, vid), []))
               or '<span class="mx-leer" aria-label="kein Thema">·</span>') for vid, _ in spalten) + '</tr>')
-matrix_html = ('<h2 class="sr">Verfahren und Material</h2>\n<div class="mx-wrap"><table class="mx"><caption class="sr">Sicherheitsthemen nach Material und Verfahren</caption>\n<thead>%s</thead>\n<tbody>\n%s\n</tbody></table></div>\n'
-               '<p class="mx-hinweis">Textil: Zu Färben, Batik, Stoffdruck, Filzen, Bleichen und Bügeln enthalten die Quellen keine eigenen Regeln. Es gelten die Grundsätze unter <a href="#einkauf">Stoffe auswählen</a>: Etikette lesen, bei Gefahrenkennzeichnung zuerst Ersatz prüfen.</p>') % (mx[0], '\n'.join(mx[1:]))
+matrix_html = ('<h2 class="sr">Verfahren und Material</h2>\n<div class="mx-wrap"><table class="mx"><caption class="sr">Sicherheitsthemen nach Material und Verfahren</caption>\n<thead>%s</thead>\n<tbody>\n%s\n</tbody></table></div>') % (mx[0], '\n'.join(mx[1:]))
 
 body = f'''<header class="kopf"><div class="in">
 {kopf}
@@ -317,12 +316,11 @@ body = f'''<header class="kopf"><div class="in">
 
 <section class="panel" id="verfahren"><div class="text">
 <section class="sub" id="plakat" data-titel="Übersicht">
-<h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen <span>Gefahrenkategorien nach Zyklus</span></h2>
+<h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen nach Zyklus</h2>
 <noscript><p>Die Maschinentabellen stehen bei den einzelnen Verfahren.</p></noscript>
-<div class="p-legende nurjs" id="p-legende"></div>
 <div class="plakat nurjs" id="plakat-ziel"></div>
-<p class="quelle">Nachgebaut nach <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301 «Umgang mit Maschinen und Anlagen», 09.2020&nbsp;↗</a>. Maschine antippen zeigt Einteilung und Regeln, ein Gruppentitel führt zum Verfahren. Regeln, Videos und Checklisten je Maschine: eigene Zusammenstellung.</p>
-<p>Nicht auf dem Plakat: <a href="#flaechen">Flächen bilden</a> (Stricken, Häkeln, Weben, 3D-Druck) und der Lasercutter (<a href="#lasercutten">Lasercutten</a>). Einzelne Kantone, etwa Zürich und Luzern, teilen in eigenen Listen anders ein, siehe <a href="#kantone">Kantonale Vorgaben</a>.</p>
+<div class="p-legende nurjs" id="p-legende"></div>
+<p class="quelle">Nachgebaut nach <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301 «Umgang mit Maschinen und Anlagen», 09.2020&nbsp;↗</a></p>
 {leer}
 <section id="aufsicht" hidden>
 <h3>Gefahrenkategorien A, B, C</h3>

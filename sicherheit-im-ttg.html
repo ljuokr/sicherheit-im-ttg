@@ -196,7 +196,7 @@ table.kantone td:first-child{white-space:nowrap}
 .k-links{margin:0 0 .5rem}
 .k-extra,.k-fuss{margin:.3rem 0 0}
 .k-fuss{color:var(--muted)}
-.p-legende{display:grid;gap:0;margin:0 0 1.5rem}
+.p-legende{display:grid;gap:0;margin:1.5rem 0 .75rem}
 @media (min-width:48rem){ .p-legende{grid-template-columns:repeat(3,1fr)} }
 .p-leg{display:flex;gap:.5rem;align-items:baseline;padding:.5rem .75rem;font-size:.875rem;line-height:1.35}
 .p-leg:nth-child(1){background:var(--a)} .p-leg:nth-child(2){background:var(--b)} .p-leg:nth-child(3){background:var(--c)}
@@ -464,7 +464,11 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 .mx tr.z-metall td{background:color-mix(in srgb,var(--metall-g) 35%,var(--bg))}
 .mx tr.z-kunststoff td{background:color-mix(in srgb,var(--kunst-g) 35%,var(--bg))}
 .mx-leer{color:var(--line)}
-.mx-hinweis{color:var(--muted);font-size:.875rem;margin-top:.75rem}
+.mx-mat{color:var(--fg);display:block}
+.mx-mat[aria-current="true"]{text-decoration-thickness:3px}
+.mx-klein{display:block;font-weight:400;font-size:.78rem;color:var(--muted);line-height:1.3;margin-top:.15rem}
+.f-zusatz{margin:1.25rem 0 .25rem;color:var(--muted)}
+.f-in h3{margin:1rem 0 .2rem}
 /* Ampel: Regeln je Stufe unter den Piktogrammen */
 .amp>ul:not(.amp-l){margin:.6rem 0 0;padding:.5rem 0 0 1.1rem;border-top:1px solid var(--line);font-size:.9rem}
 .amp>ul:not(.amp-l) li{margin:.2rem 0}
@@ -572,12 +576,11 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 
 <section class="panel" id="verfahren"><div class="text">
 <section class="sub" id="plakat" data-titel="Übersicht">
-<h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen <span>Gefahrenkategorien nach Zyklus</span></h2>
+<h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen nach Zyklus</h2>
 <noscript><p>Die Maschinentabellen stehen bei den einzelnen Verfahren.</p></noscript>
-<div class="p-legende nurjs" id="p-legende"></div>
 <div class="plakat nurjs" id="plakat-ziel"></div>
-<p class="quelle">Nachgebaut nach <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301 «Umgang mit Maschinen und Anlagen», 09.2020<span aria-hidden="true">&nbsp;↗</span></a>. Maschine antippen zeigt Einteilung und Regeln, ein Gruppentitel führt zum Verfahren. Regeln, Videos und Checklisten je Maschine: eigene Zusammenstellung.</p>
-<p>Nicht auf dem Plakat: <a href="#flaechen">Flächen bilden</a> (Stricken, Häkeln, Weben, 3D-Druck) und der Lasercutter (<a href="#lasercutten">Lasercutten</a>). Einzelne Kantone, etwa Zürich und Luzern, teilen in eigenen Listen anders ein, siehe <a href="#kantone">Kantonale Vorgaben</a>.</p>
+<div class="p-legende nurjs" id="p-legende"></div>
+<p class="quelle">Nachgebaut nach <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.301.01_Umgang%20mit%20Maschinen%20und%20Anlagen%20im%20Technischen%20Gestalten.pdf">bfu-Plakat 4.301 «Umgang mit Maschinen und Anlagen», 09.2020<span aria-hidden="true">&nbsp;↗</span></a></p>
 <p id="leer" hidden>Keine Maschine mit diesem Namen auf dem Plakat. Bei Fragen zu nicht aufgeführten Maschinen: schuleundfamilie@bfu.ch</p>
 <section id="aufsicht" hidden>
 <h3>Gefahrenkategorien A, B, C</h3>
@@ -730,7 +733,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 </section>
 <section class="verfahren" id="umformen" data-titel="Umformen">
 <h2>Umformen</h2>
-<p>Kalt- und Warmbiegen, Modellieren und Giessen, Glätten mit dem Bügeleisen.</p>
+<p>Kalt- und Warmbiegen, Modellieren und Giessen, 3D-Drucken, Glätten mit dem Bügeleisen.</p>
 <div class="wrap mtab-wrap">
 <table class="mtab">
 <thead><tr><th>Maschine, Gerät, Anlage</th><th class="z1">Zyklus 1</th><th class="z2">Zyklus 2</th><th class="z3">Zyklus 3</th></tr></thead>
@@ -782,6 +785,22 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 <li>Reste möglichst ausreagieren lassen. Was nicht mehr verarbeitbar ist, als Sonderabfall entsorgen.</li>
 </ul>
 <p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 14<span aria-hidden="true">&nbsp;↗</span></a></p>
+</details>
+</section>
+
+<section class="thema" data-mat="kunststoff" id="3d-druck">
+<details class="thema-d">
+<summary><h3>3D-Druck</h3><span class="t-meta">Kunststoff</span></summary>
+<ul>
+<li>Für Schulen wird das Schichtdruckverfahren (FDM, FFF) empfohlen. Stereolithografie (SLA) nur mit umfangreicheren Schutzmassnahmen. Andere Verfahren, auch mit Metall, sind vorläufig nicht geeignet.</li>
+<li>Geräte namhafter Hersteller mit geschlossenem Gehäuse. 3D-Stifte ohne Abdeckung des Bauraums werden nicht empfohlen.</li>
+<li>Filamente aus PLA bevorzugen, sie geben weniger Partikel ab als ABS. Keine Werkstoffe mit Nanomaterialien.</li>
+<li>Wenn möglich in einem separaten, gut belüfteten Raum. Auf feuerfester Unterlage, ohne leicht brennbare Stoffe in der Nähe.</li>
+<li>Die Temperaturen des Herstellers nicht überschreiten. Gehäuse im Betrieb geschlossen halten und erst nach der Wartezeit öffnen.</li>
+<li data-instr="aufsicht">Betrieb nur unter Aufsicht einer Lehrperson. Beim Drucker nicht essen und trinken, danach Hände gründlich waschen.</li>
+<li>Bei SLA: nicht ausgehärtetes Harz nicht berühren, sonst Schutzhandschuhe nach Sicherheitsdatenblatt. Arbeitskleidung und Schutzbrille, auch beim Reinigen mit Lösungsmitteln.</li>
+</ul>
+<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 17<span aria-hidden="true">&nbsp;↗</span></a></p>
 </details>
 </section>
 </section>
@@ -1019,28 +1038,6 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 </details>
 </section>
 </section>
-<section class="verfahren" id="flaechen" data-titel="Flächen bilden">
-<h2>Flächen bilden</h2>
-<p>Stricken, häkeln, filzen, weben und 3D-Drucken. Auf dem Plakat stehen dazu keine Maschinen.</p>
-<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 21<span aria-hidden="true">&nbsp;↗</span></a></p>
-<details class="videos"><summary>Lernvideos auf tud.ch (3)</summary><p>Handarbeit ohne Maschine: <a href="https://www.tud.ch/lernvideos/verfahren/#stricken">Stricken</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#haekeln">Häkeln</a>, <a href="https://www.tud.ch/lernvideos/verfahren/#weben">Weben</a></p></details><p class="keine" hidden>Zu diesem Material nennen die Quellen bei diesem Verfahren keine eigenen Regeln. Die allgemeinen Abschnitte und die Maschinentabelle gelten trotzdem.</p>
-
-<section class="thema" data-mat="kunststoff" id="3d-druck">
-<details class="thema-d">
-<summary><h3>3D-Druck</h3><span class="t-meta">Kunststoff</span></summary>
-<ul>
-<li>Für Schulen wird das Schichtdruckverfahren (FDM, FFF) empfohlen. Stereolithografie (SLA) nur mit umfangreicheren Schutzmassnahmen. Andere Verfahren, auch mit Metall, sind vorläufig nicht geeignet.</li>
-<li>Geräte namhafter Hersteller mit geschlossenem Gehäuse. 3D-Stifte ohne Abdeckung des Bauraums werden nicht empfohlen.</li>
-<li>Filamente aus PLA bevorzugen, sie geben weniger Partikel ab als ABS. Keine Werkstoffe mit Nanomaterialien.</li>
-<li>Wenn möglich in einem separaten, gut belüfteten Raum. Auf feuerfester Unterlage, ohne leicht brennbare Stoffe in der Nähe.</li>
-<li>Die Temperaturen des Herstellers nicht überschreiten. Gehäuse im Betrieb geschlossen halten und erst nach der Wartezeit öffnen.</li>
-<li data-instr="aufsicht">Betrieb nur unter Aufsicht einer Lehrperson. Beim Drucker nicht essen und trinken, danach Hände gründlich waschen.</li>
-<li>Bei SLA: nicht ausgehärtetes Harz nicht berühren, sonst Schutzhandschuhe nach Sicherheitsdatenblatt. Arbeitskleidung und Schutzbrille, auch beim Reinigen mit Lösungsmitteln.</li>
-</ul>
-<p class="quelle"><a class="ql" href="https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf">chemsuisse, S. 17<span aria-hidden="true">&nbsp;↗</span></a></p>
-</details>
-</section>
-</section>
 <section class="verfahren" id="lehrpersonen" data-titel="Nur Lehrpersonen">
 <h2>Nur für Lehrpersonen</h2>
 <p>Diese Maschinen und Anlagen dürfen Schülerinnen und Schüler in keinem Zyklus benützen. In der Regel dienen sie der Unterrichtsvorbereitung. Die bfu empfiehlt den Lehrpersonen, sie nur nach entsprechender Schulung zu nutzen, in der Grundausbildung oder in einer Weiterbildung.</p>
@@ -1068,16 +1065,15 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 <section class="panel nurjs" id="matrix"><div class="text breit">
 <h2 class="sr">Verfahren und Material</h2>
 <div class="mx-wrap"><table class="mx"><caption class="sr">Sicherheitsthemen nach Material und Verfahren</caption>
-<thead><tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th><th scope="col"><a href="#trennen">Trennen</a></th><th scope="col"><a href="#umformen">Umformen</a></th><th scope="col"><a href="#verbinden">Verbinden</a></th><th scope="col"><a href="#oberflaeche">Oberfläche verändern</a></th><th scope="col"><a href="#flaechen">Flächen bilden</a></th></tr></thead>
+<thead><tr><th scope="col" class="ecke">Material ↓ · Verfahren →</th><th scope="col"><a href="#trennen">Trennen</a></th><th scope="col"><a href="#umformen">Umformen</a></th><th scope="col"><a href="#verbinden">Verbinden</a></th><th scope="col"><a href="#oberflaeche">Oberfläche verändern</a></th></tr></thead>
 <tbody>
-<tr class="z-alle"><th scope="row">Alle Materialien</th><td><a class="mchip" href="#bohrmaschine" title="Ständerbohrmaschine (Säulen- und Tischbohrmaschine)">Ständerbohrmaschine</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#heissgeraete" title="Heissgeräte">Heissgeräte</a><a class="mchip" href="#kleben" title="Kleben">Kleben</a></td><td><a class="mchip" href="#farben-lacke-spruehen" title="Farben, Lacke, Sprühen">Farben, Lacke, Sprühen</a><a class="mchip" href="#loesungsmittel-verduenner-pinselreiniger" title="Lösungsmittel, Verdünner, Pinselreiniger">Lösungsmittel</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td></tr>
-<tr class="z-holz"><th scope="row">Holz</th><td><a class="mchip" href="#holzstaub" title="Staub beim Sägen, Bohren und Schleifen">Staub beim Sägen, Schleifen</a><a class="mchip" href="#lasercutten" title="Lasercutten">Lasercutten</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#leinoel" title="Leinöl und ölgetränkte Lappen">Leinöl, ölige Lappen</a><a class="mchip" href="#wachsen" title="Wachsen">Wachsen</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td></tr>
-<tr class="z-metall"><th scope="row">Metall</th><td><a class="mchip" href="#metall-thermisch-trennen" title="Metall thermisch trennen">Thermisch trennen</a></td><td><a class="mchip" href="#metall-und-zinngiessen" title="Metall- und Zinngiessen">Metall- und Zinngiessen</a></td><td><a class="mchip" href="#weichloeten" title="Weichlöten">Weichlöten</a><a class="mchip" href="#hartloeten" title="Hartlöten">Hartlöten</a><a class="mchip" href="#schweissen" title="Schweissen">Schweissen</a><a class="mchip" href="#gasflaschen" title="Gasflaschen und Gasanlagen">Gasflaschen</a></td><td><a class="mchip" href="#abbeizen-und-bruenieren" title="Abbeizen und Brünieren">Abbeizen und Brünieren</a><a class="mchip" href="#emaillieren-und-glasaetzen" title="Emaillieren und Glasätzen">Emaillieren und Glasätzen</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td></tr>
-<tr class="z-kunststoff"><th scope="row">Kunststoff</th><td><a class="mchip" href="#holzstaub" title="Staub beim Sägen, Bohren und Schleifen">Staub beim Sägen, Schleifen</a><a class="mchip" href="#kunststoff-saegen-bohren-schleifen" title="Kunststoff: Thermoschneiden, Acrylglas, Brennprobe">Thermoschneiden, Acrylglas</a><a class="mchip" href="#lasercutten" title="Lasercutten">Lasercutten</a></td><td><a class="mchip" href="#tiefziehen" title="Tiefziehen">Tiefziehen</a><a class="mchip" href="#giessen-und-formen-mit-fluessigen-kunststoffen" title="Giessen und Formen mit flüssigen Kunststoffen">Giessen mit flüssigen Kunststoffen</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#3d-druck" title="3D-Druck">3D-Druck</a></td></tr>
-<tr class="z-keramik"><th scope="row">Keramik, Glas, Stein</th><td><a class="mchip" href="#speckstein-und-asbest" title="Speckstein und Asbest">Speckstein und Asbest</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#glasieren-und-brennen" title="Glasieren und Brennen">Glasieren und Brennen</a><a class="mchip" href="#emaillieren-und-glasaetzen" title="Emaillieren und Glasätzen">Emaillieren und Glasätzen</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td></tr>
-<tr class="z-textil"><th scope="row">Textil</th><td><a class="mchip" href="#lasercutten" title="Lasercutten">Lasercutten</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td></tr>
+<tr class="z-alle"><th scope="row" class="mx-zeile" id="mat-alle"><a class="mx-mat" href="#mat-alle">Alle Materialien</a></th><td><a class="mchip" href="#bohrmaschine" title="Ständerbohrmaschine (Säulen- und Tischbohrmaschine)">Ständerbohrmaschine</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#heissgeraete" title="Heissgeräte">Heissgeräte</a><a class="mchip" href="#kleben" title="Kleben">Kleben</a></td><td><a class="mchip" href="#farben-lacke-spruehen" title="Farben, Lacke, Sprühen">Farben, Lacke, Sprühen</a><a class="mchip" href="#loesungsmittel-verduenner-pinselreiniger" title="Lösungsmittel, Verdünner, Pinselreiniger">Lösungsmittel</a></td></tr>
+<tr class="z-holz"><th scope="row" class="mx-zeile" id="mat-holz"><a class="mx-mat" href="#mat-holz">Holz</a><span class="mx-klein">Massivholz, Sperrholz, MDF</span></th><td><a class="mchip" href="#holzstaub" title="Staub beim Sägen, Bohren und Schleifen">Staub beim Sägen, Schleifen</a><a class="mchip" href="#lasercutten" title="Lasercutten">Lasercutten</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#leinoel" title="Leinöl und ölgetränkte Lappen">Leinöl, ölige Lappen</a><a class="mchip" href="#wachsen" title="Wachsen">Wachsen</a></td></tr>
+<tr class="z-metall"><th scope="row" class="mx-zeile" id="mat-metall"><a class="mx-mat" href="#mat-metall">Metall</a><span class="mx-klein">Stahl, Aluminium, Kupfer, Messing, Zinn</span></th><td><a class="mchip" href="#metall-thermisch-trennen" title="Metall thermisch trennen">Thermisch trennen</a></td><td><a class="mchip" href="#metall-und-zinngiessen" title="Metall- und Zinngiessen">Metall- und Zinngiessen</a></td><td><a class="mchip" href="#weichloeten" title="Weichlöten">Weichlöten</a><a class="mchip" href="#hartloeten" title="Hartlöten">Hartlöten</a><a class="mchip" href="#schweissen" title="Schweissen">Schweissen</a><a class="mchip" href="#gasflaschen" title="Gasflaschen und Gasanlagen">Gasflaschen</a></td><td><a class="mchip" href="#abbeizen-und-bruenieren" title="Abbeizen und Brünieren">Abbeizen und Brünieren</a><a class="mchip" href="#emaillieren-und-glasaetzen" title="Emaillieren und Glasätzen">Emaillieren und Glasätzen</a></td></tr>
+<tr class="z-kunststoff"><th scope="row" class="mx-zeile" id="mat-kunststoff"><a class="mx-mat" href="#mat-kunststoff">Kunststoff</a><span class="mx-klein">Acrylglas, PLA, ABS, PVC</span></th><td><a class="mchip" href="#holzstaub" title="Staub beim Sägen, Bohren und Schleifen">Staub beim Sägen, Schleifen</a><a class="mchip" href="#kunststoff-saegen-bohren-schleifen" title="Kunststoff: Thermoschneiden, Acrylglas, Brennprobe">Thermoschneiden, Acrylglas</a><a class="mchip" href="#lasercutten" title="Lasercutten">Lasercutten</a></td><td><a class="mchip" href="#tiefziehen" title="Tiefziehen">Tiefziehen</a><a class="mchip" href="#giessen-und-formen-mit-fluessigen-kunststoffen" title="Giessen und Formen mit flüssigen Kunststoffen">Giessen mit flüssigen Kunststoffen</a><a class="mchip" href="#3d-druck" title="3D-Druck">3D-Druck</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td></tr>
+<tr class="z-keramik"><th scope="row" class="mx-zeile" id="mat-keramik"><a class="mx-mat" href="#mat-keramik">Keramik</a><span class="mx-klein">Ton, Glas, Speckstein</span></th><td><a class="mchip" href="#speckstein-und-asbest" title="Speckstein und Asbest">Speckstein und Asbest</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><a class="mchip" href="#glasieren-und-brennen" title="Glasieren und Brennen">Glasieren und Brennen</a><a class="mchip" href="#emaillieren-und-glasaetzen" title="Emaillieren und Glasätzen">Emaillieren und Glasätzen</a></td></tr>
+<tr class="z-textil"><th scope="row" class="mx-zeile" id="mat-textil"><a class="mx-mat" href="#mat-textil">Textil</a><span class="mx-klein">Baumwolle, Wolle, Kunstfasern, Leder</span></th><td><a class="mchip" href="#lasercutten" title="Lasercutten">Lasercutten</a></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td><td><span class="mx-leer" aria-label="kein Thema">·</span></td></tr>
 </tbody></table></div>
-<p class="mx-hinweis">Textil: Zu Färben, Batik, Stoffdruck, Filzen, Bleichen und Bügeln enthalten die Quellen keine eigenen Regeln. Es gelten die Grundsätze unter <a href="#einkauf">Stoffe auswählen</a>: Etikette lesen, bei Gefahrenkennzeichnung zuerst Ersatz prüfen.</p>
 </div></section>
 
 <section class="panel nurjs" id="material"><div class="text">
@@ -2321,6 +2317,25 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
       titel.textContent=z.querySelector('h3').textContent;
       meta.innerHTML=m?m.innerHTML:'';
       [].forEach.call(d.childNodes,function(c){ if(c.nodeName!=='SUMMARY') fin.appendChild(ohneIds(c.cloneNode(true))); });
+    } else if(z.matches('th.mx-zeile')){
+      // Material: Themen der Zeile nach Verfahren, dazu was für alle Materialien gilt
+      art.textContent='Material';
+      titel.textContent=z.querySelector('.mx-mat').textContent;
+      var k=z.querySelector('.mx-klein'); meta.textContent=k?k.textContent:'';
+      var koepfe=document.querySelectorAll('table.mx thead th');
+      function liste(zeile,ueber){
+        [].forEach.call(zeile.querySelectorAll('td'),function(td,i){
+          var chips=td.querySelectorAll('.mchip'); if(!chips.length) return;
+          var h=document.createElement('h3'); h.textContent=(ueber?ueber+': ':'')+koepfe[i+1].textContent; fin.appendChild(h);
+          var ul=document.createElement('ul');
+          [].forEach.call(chips,function(c){ var li=document.createElement('li'), a=document.createElement('a'); a.href=c.getAttribute('href'); a.textContent=c.title||c.textContent; li.appendChild(a); ul.appendChild(li); });
+          fin.appendChild(ul);
+        });
+      }
+      liste(z.parentNode,'');
+      var alle=document.querySelector('table.mx tr.z-alle');
+      if(alle && alle!==z.parentNode){ var p=document.createElement('p'); p.className='f-zusatz'; p.textContent='Zusätzlich gilt für alle Materialien:'; fin.appendChild(p); liste(alle,''); }
+      var s=document.createElement('p'); s.className='f-zusatz'; s.innerHTML='Stoffe und Hilfsstoffe: <a href="#einkauf">Stoffe auswählen</a>'; fin.appendChild(s);
     } else {
       art.textContent='Verfahren';
       titel.textContent=z.querySelector('h2').textContent;
@@ -2337,7 +2352,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
         fin.appendChild(box);
       }
     }
-    [].forEach.call(document.querySelectorAll('.mchip'),function(c){ c.setAttribute('aria-current',c.getAttribute('href')==='#'+z.id?'true':'false'); });
+    [].forEach.call(document.querySelectorAll('.mchip, .mx-mat'),function(c){ c.setAttribute('aria-current',c.getAttribute('href')==='#'+z.id?'true':'false'); });
     if(f.hidden && von && !f.contains(von)) ausloeser=von;
     f.hidden=false; document.body.classList.add('f-offen');
     f.scrollTop=0; f.focus({preventScroll:true});
@@ -2356,16 +2371,16 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href^="#"]'); if(!a || a.classList.contains('b-wort')) return;
     var z=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
-    if(z && z.matches('section.thema, section.verfahren')){ e.preventDefault(); e.stopPropagation(); oeffne(z,a); return; }
+    if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ e.preventDefault(); e.stopPropagation(); oeffne(z,a); return; }
     if(f.contains(a)) zu();
   },true);
   // Registerhinweise bei Links auf Themen entfernen, die öffnen ja jetzt das Fenster
   [].forEach.call(document.querySelectorAll('a[href^="#"] .reg-hin'),function(s){
     var z=document.getElementById(s.parentNode.getAttribute('href').slice(1));
-    if(z && z.matches('section.thema, section.verfahren')) s.remove();
+    if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')) s.remove();
   });
   var h=decodeURIComponent(location.hash.slice(1)), z=h&&document.getElementById(h);
-  if(z && z.matches('section.thema, section.verfahren')){ document.getElementById('t-matrix').click(); oeffne(z,null); }
+  if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ document.getElementById('t-matrix').click(); oeffne(z,null); }
 })();
 </script>
 </body>

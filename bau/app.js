@@ -488,6 +488,25 @@
       titel.textContent=z.querySelector('h3').textContent;
       meta.innerHTML=m?m.innerHTML:'';
       [].forEach.call(d.childNodes,function(c){ if(c.nodeName!=='SUMMARY') fin.appendChild(ohneIds(c.cloneNode(true))); });
+    } else if(z.matches('th.mx-zeile')){
+      // Material: Themen der Zeile nach Verfahren, dazu was für alle Materialien gilt
+      art.textContent='Material';
+      titel.textContent=z.querySelector('.mx-mat').textContent;
+      var k=z.querySelector('.mx-klein'); meta.textContent=k?k.textContent:'';
+      var koepfe=document.querySelectorAll('table.mx thead th');
+      function liste(zeile,ueber){
+        [].forEach.call(zeile.querySelectorAll('td'),function(td,i){
+          var chips=td.querySelectorAll('.mchip'); if(!chips.length) return;
+          var h=document.createElement('h3'); h.textContent=(ueber?ueber+': ':'')+koepfe[i+1].textContent; fin.appendChild(h);
+          var ul=document.createElement('ul');
+          [].forEach.call(chips,function(c){ var li=document.createElement('li'), a=document.createElement('a'); a.href=c.getAttribute('href'); a.textContent=c.title||c.textContent; li.appendChild(a); ul.appendChild(li); });
+          fin.appendChild(ul);
+        });
+      }
+      liste(z.parentNode,'');
+      var alle=document.querySelector('table.mx tr.z-alle');
+      if(alle && alle!==z.parentNode){ var p=document.createElement('p'); p.className='f-zusatz'; p.textContent='Zusätzlich gilt für alle Materialien:'; fin.appendChild(p); liste(alle,''); }
+      var s=document.createElement('p'); s.className='f-zusatz'; s.innerHTML='Stoffe und Hilfsstoffe: <a href="#einkauf">Stoffe auswählen</a>'; fin.appendChild(s);
     } else {
       art.textContent='Verfahren';
       titel.textContent=z.querySelector('h2').textContent;
@@ -504,7 +523,7 @@
         fin.appendChild(box);
       }
     }
-    [].forEach.call(document.querySelectorAll('.mchip'),function(c){ c.setAttribute('aria-current',c.getAttribute('href')==='#'+z.id?'true':'false'); });
+    [].forEach.call(document.querySelectorAll('.mchip, .mx-mat'),function(c){ c.setAttribute('aria-current',c.getAttribute('href')==='#'+z.id?'true':'false'); });
     if(f.hidden && von && !f.contains(von)) ausloeser=von;
     f.hidden=false; document.body.classList.add('f-offen');
     f.scrollTop=0; f.focus({preventScroll:true});
@@ -523,14 +542,14 @@
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href^="#"]'); if(!a || a.classList.contains('b-wort')) return;
     var z=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
-    if(z && z.matches('section.thema, section.verfahren')){ e.preventDefault(); e.stopPropagation(); oeffne(z,a); return; }
+    if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ e.preventDefault(); e.stopPropagation(); oeffne(z,a); return; }
     if(f.contains(a)) zu();
   },true);
   // Registerhinweise bei Links auf Themen entfernen, die öffnen ja jetzt das Fenster
   [].forEach.call(document.querySelectorAll('a[href^="#"] .reg-hin'),function(s){
     var z=document.getElementById(s.parentNode.getAttribute('href').slice(1));
-    if(z && z.matches('section.thema, section.verfahren')) s.remove();
+    if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')) s.remove();
   });
   var h=decodeURIComponent(location.hash.slice(1)), z=h&&document.getElementById(h);
-  if(z && z.matches('section.thema, section.verfahren')){ document.getElementById('t-matrix').click(); oeffne(z,null); }
+  if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ document.getElementById('t-matrix').click(); oeffne(z,null); }
 })();
