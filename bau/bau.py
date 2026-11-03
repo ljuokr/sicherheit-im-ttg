@@ -291,6 +291,15 @@ VERBOTEN = {
  'keramik': [('Asbest', 'speckstein-und-asbest'), ('Glasuren mit Schwermetallen für Geschirr', 'glasieren-und-brennen'), ('Flusssäure zum Glasätzen', 'emaillieren-und-glasaetzen')],
  'textil': [('Leder mit Chrom(VI) lasern', 'lasercutten')],
 }
+# Bevorzugen: was die Quellen ausdrücklich empfehlen, jeder Eintrag führt zur Regel
+BEVORZUGT = {
+ 'alle': [('Weissleim, Acryl- und Dispersionsfarben', 'einkauf')],
+ 'holz': [('Fichte, Tanne, Kiefer statt Eiche und Buche', 'holzstaub'), ('MDF, OSB, Sperrholz der Klasse E1', 'holzstaub')],
+ 'metall': [('Reinzinn (95 bis 98 % Zinn)', 'metall-und-zinngiessen'), ('Bleifreie Weichlote, z. B. L-Sn99Cu', 'weichloeten')],
+ 'kunststoff': [('PLA statt ABS im 3D-Druck', '3d-druck')],
+ 'keramik': [('Glasuren, die ausdrücklich für Geschirr geeignet sind', 'glasieren-und-brennen')],
+}
+def bevorzugt(key): return ', '.join('<a href="#%s">%s</a>' % (z, t) for t, z in BEVORZUGT.get(key, []))
 # Was nur ein Material betrifft und bei keinem Verfahren steht: öffnet sich beim Klick auf den Materialnamen
 def li_mit(anfang):
     i = S.index('<li>' + anfang); return S[i:S.index('</li>', i) + 5]
@@ -303,7 +312,7 @@ mx = ['<tr><td class="ecke"><span class="sr">Material und Verfahren</span></td>'
 eigen_html = ''
 for key, name, klein in MATS:
     zkopf = '<a class="mx-mat" href="#mat-%s">%s</a>' % (key, name) if key in EIGEN else '<span class="mx-mat">%s</span>' % name
-    mx.append('<tr class="z-%s"><th scope="row" class="mx-zeile" id="mat-%s">%s%s</th>' % (key, key, zkopf, '<span class="mx-klein">%s</span>' % klein if klein else '') + ''.join('<td>%s</td>' % (''.join(chip(*x) for x in zellen.get((key, vid), []))
+    mx.append('<tr class="z-%s"><th scope="row" class="mx-zeile" id="mat-%s">%s%s</th>' % (key, key, zkopf, ('<span class="mx-klein">%s</span>' % klein if klein else '') + ('<span class="mx-pos"><b>Bevorzugen:</b> %s</span>' % bevorzugt(key) if key in BEVORZUGT else '')) + ''.join('<td>%s</td>' % (''.join(chip(*x) for x in zellen.get((key, vid), []))
               or '<span class="sr">kein Thema</span>') for vid, _ in spalten)
               + '<td class="mx-nv"><ul class="nv">%s</ul></td></tr>' % ''.join('<li><a href="#%s">%s</a></li>' % (z, t) for t, z in VERBOTEN.get(key, [])))
     if key in EIGEN:
@@ -315,7 +324,7 @@ for key, name, klein in MATS:
     kopf_l = '<a class="mx-mat" href="#mat-%s">%s</a>' % (key, name) if key in EIGEN else name
     teile = ''.join('<div><dt>%s</dt><dd>%s</dd></div>' % (vname, ''.join(chip(*x) for x in zellen[(key, vid)])) for vid, vname in spalten if zellen.get((key, vid)))
     nv = ' · '.join('<a href="#%s">%s</a>' % (z, t) for t, z in VERBOTEN.get(key, []))
-    liste.append('<section class="mxl z-%s"><h3>%s%s</h3><dl>%s</dl>%s</section>' % (key, kopf_l, ' <span class="mx-klein">%s</span>' % klein if klein else '', teile, '<p class="mxl-nv"><b>Nicht verwenden:</b> %s</p>' % nv if nv else ''))
+    liste.append('<section class="mxl z-%s"><h3>%s%s</h3><dl>%s</dl>%s</section>' % (key, kopf_l, ' <span class="mx-klein">%s</span>' % klein if klein else '', teile, ('<p class="mxl-pos"><b>Bevorzugen:</b> %s</p>' % bevorzugt(key) if key in BEVORZUGT else '') + ('<p class="mxl-nv"><b>Nicht verwenden:</b> %s</p>' % nv if nv else '')))
 matrix_html = ('<h2 class="sr">Verfahren und Material</h2>\n<div class="mx-wrap"><table class="mx"><caption class="sr">Sicherheitsthemen nach Material und Verfahren</caption>\n<thead>%s</thead>\n<tbody>\n%s\n</tbody></table></div>\n') % (mx[0], '\n'.join(mx[1:])) + '<div class="mx-liste">\n%s\n</div>\n' % '\n'.join(liste) + eigen_html
 
 body = f'''<header class="kopf"><div class="in">
