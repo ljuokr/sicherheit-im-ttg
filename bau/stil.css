@@ -280,8 +280,7 @@ html.js #verfahren section.verfahren > .wrap + ul + p.quelle{display:none}
 
 html.js #aufsicht .legende{display:none}
 .k-hinweise{margin:0 0 .5rem}
-.k-hinweise .ql,.k-eigen{font-size:.875rem}
-.k-eigen{color:var(--muted);font-style:italic}
+.k-hinweise .ql{font-size:.875rem}
 .reg-zeile{display:flex;align-items:center;gap:.75rem}
 .reg-zeile .tabs{flex:1 1 auto;min-width:0}
 .suche-klein{flex:0 0 auto;margin:0}
@@ -405,7 +404,6 @@ ol.drei{list-style:none;padding:0;counter-reset:frage;display:grid;gap:.75rem}
 ol.drei>li{counter-increment:frage;background:var(--tint);border-left:4px solid var(--fg);padding:.75rem 1rem .75rem 3.25rem;position:relative;margin:0}
 ol.drei>li::before{content:counter(frage);position:absolute;left:1rem;top:.7rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;font-weight:700;font-size:.9rem}
 ol.drei>li>ul{margin:.4rem 0}
-.eigen{color:var(--muted);font-style:italic;font-size:.875rem}
 /* Kontrast der Plakatpunkte */
 @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .lernort{filter:brightness(.85)} }
 :root[data-theme="dark"] .lernort{filter:brightness(.85)}
@@ -494,3 +492,5 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
   .mxl.z-kunststoff{border-left-color:var(--kunst);background:var(--kunst-g)}
   .mxl.z-holz .mchip{border-left-color:var(--holz)} .mxl.z-metall .mchip{border-left-color:var(--metall)} .mxl.z-kunststoff .mchip{border-left-color:var(--kunst)}
 }
+.lp{font-size:.875rem;color:var(--muted);margin:.4rem 0 0}
+.lp a{color:inherit}

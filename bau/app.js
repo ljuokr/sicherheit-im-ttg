@@ -73,7 +73,6 @@
             z.hinweis.forEach(function(h){
               var x=el('li',null,h[0]+' ');
               if(h[1]){ var q=el('a','ql',h[1]); var pf=el('span',null,'\u00a0\u2197'); pf.setAttribute('aria-hidden','true'); q.appendChild(pf); q.href=h[2]; x.appendChild(q); }
-              else x.appendChild(el('span','k-eigen','Hinweis dieser Seite'));
               hw.appendChild(x);
             });
             k.appendChild(hw);
