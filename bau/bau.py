@@ -94,7 +94,7 @@ TUDH = 'https://www.tud.ch/lernvideos/hilfsger%C3%A4te/#'
 SUVA = 'https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrmaschinen/tisch--und-staenderbohrmaschinen--67036.D'
 B4323 = 'https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf'
 CHEM = 'https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf'
-# Hinweise je Maschine: [Text, Quelle, Link]. Ohne Quelle = eigener Hinweis dieser Seite (erklärt im Randkasten Grundlage)
+# Hinweise je Maschine: [Text, Quelle, Link]. Jeder Hinweis braucht eine Quelle.
 TK = 'https://www.hep-verlag.ch/downloads/lhh_lehrhilfe_tud_2024_tk.pdf#page='
 S44023 = 'https://www.suva.ch/de-ch/download/dokument/so-arbeiten-sie-sicher-an-der-tischkreissaege--44023.d'
 S67092 = 'https://www.suva.ch/de-ch/download/checklisten/elektrohandwerkzeuge/elektrohandwerkzeuge--67092.D'
@@ -107,7 +107,7 @@ BERNINA = 'https://www.bernina.com/Bernina/media/Support/Sewing_Quilting_Embroid
 RAPESCO = 'https://de.rapesco.com/kd733/wp-content/uploads/2024/04/DE-T14-Alu-ECO-Tacker_1766-_MANUAL_WEB-2.pdf'
 SEILNACHT = 'https://www.seilnacht.com/versuche/ch_bren.pdf'
 ZUORDNUNG = {
- 'Heissleimpistole': {'hinweis': [['Verbrennungsgefahr an Düse und Kleber. Für jüngere Schülerinnen und Schüler gibt es Niedertemperatur-Schmelzkleber.', 'Technologiekarte, S. 67', TK + '13'], ['Heissleim enthält kaum gefährliche Inhaltsstoffe.', 'chemsuisse, S. 23', CHEM]]},
+ 'Heissleimpistole': {'hinweis': [['Verbrennungsgefahr an Düse und Kleber.', 'Technologiekarte, S. 67', TK + '13'], ['Heissleim enthält kaum gefährliche Inhaltsstoffe.', 'chemsuisse, S. 23', CHEM]]},
  'Nähmaschine': {'hinweis': [['Finger von beweglichen Teilen fernhalten, besonders im Bereich der Nadel. Beim Einfädeln, Nadel- oder Nähfusswechsel die Maschine am Hauptschalter ausschalten.', 'Bernina, Bedienungsanleitung B 335, S. 5', BERNINA]], 'video': [('Nähen mit der Nähmaschine', TUD+'naehenmitdernaehmaschine')]},
  'Heftklammerpistole': {'hinweis': [['Nur abdrücken, wenn das Gerät auf dem Werkstück aufliegt, nie in die Luft. Schutzbrille tragen, auch Personen in der Nähe.', 'Rapesco, Betriebsanleitung Tacker T14', RAPESCO]]},
  'Weichlötvorrichtung': {'themen': ['weichloeten'], 'video': [('Weichlöten mit dem Lötkolben', TUD+'weichloeten')]},
@@ -118,18 +118,18 @@ ZUORDNUNG = {
  'Dekupiersäge': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen. Arbeitshöhe so wählen, dass der Kopf höher ist als das Sägeblatt.', 'Technologiekarte, S. 59', TK + '5']], 'video': [('Sägen mit der Dekupiersäge', TUD+'dekupiersaege')]},
  'Thermoschneider': {'themen': ['kunststoff-saegen-bohren-schleifen'], 'video': [('Styroporschneider', TUDH+'styroporschneider')]},
  'Stichsäge': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen, auf die Kabelführung achten. Beim Einschalten darf das Sägeblatt das Werkstück nicht berühren. Werkstück mit Schraubzwinge befestigen, Stichsäge mit beiden Händen führen.', 'Technologiekarte, S. 59', TK + '5']], 'video': [('Sägen mit der Stichsäge', TUD+'stichsaege')]},
- 'Handbohrmaschine': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen, lange Haare zusammenbinden, Schmuck und Halstuch ablegen. Werkstück mit Bohrbrett, Schraubstock oder Feilkloben gegen Mitdrehen sichern. Wechsel und Einstellungen nur im Stillstand.', 'Technologiekarte, S. 61, 62', TK + '8']]},
+ 'Handbohrmaschine': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen, lange Haare zusammenbinden, Schmuck und Halstuch ablegen. Werkstück mit Bohrbrett, Schraubstock oder Feilkloben gegen Mitdrehen sichern. Wechsel und Einstellungen nur im Stillstand.', 'Technologiekarte, S. 62', TK + '8']]},
  'Ständerbohrmaschine': {'themen': ['bohrmaschine', 'holzstaub'], 'video': [('Bohren mit der Tischbohrmaschine', TUD+'tischbohrmaschine')]},
- 'Bandsäge': {'themen': ['holzstaub'], 'hinweis': [['Verdeckung bis höchstens 10 mm über das Werkstück absenken. Hände mindestens eine Faustbreite vom Sägeband, sonst mit Stossholz arbeiten. Rundholz so führen, dass es sich nicht drehen kann, etwa in einem Prisma.', 'Suva 67057, Fragen 3, 15 · Technologiekarte, S. 61', S67057]], 'video': [('Bandsäge', TUD+'bandsaege')]},
+ 'Bandsäge': {'themen': ['holzstaub'], 'hinweis': [['Verdeckung bis höchstens 10 mm über das Werkstück absenken. Hände mindestens eine Faustbreite vom Sägeband, sonst mit Stossholz arbeiten. Rundholz so führen, dass es sich nicht drehen kann, etwa in einem Prisma. Gehörschutz tragen.', 'Suva 67057, S. 2, Sicherheitsregeln · Technologiekarte, S. 61', S67057]], 'video': [('Bandsäge', TUD+'bandsaege')]},
  'Gehrungskappsäge': {'themen': ['holzstaub'], 'hinweis': [['Werkstück am Anschlag fixieren, eine Faustbreite Abstand halten, nie in die Schnittebene greifen. Keine kleinen, unfixierten Teile sägen. Gehörschutz und Schutzbrille tragen.', 'Suva 67125, S. 3, Fragen 11 bis 13', S67125]]},
  'Lamellen-Dübelfräse': {'themen': ['holzstaub'], 'video': [('Runddübeln und Flachdübeln', TUD+'duebeln')]},
  'Holzdrechselbank': {'themen': ['holzstaub']},
- 'Dreieckschleifer, Schwingschleifer': {'themen': ['holzstaub']},
+ 'Dreieckschleifer, Schwingschleifer': {'themen': ['holzstaub'], 'hinweis': [['Staubbeutel oder Staubsauger anschliessen.', 'Suva 67092, Frage 11', S67092]]},
  'Exzenterschleifer': {'themen': ['holzstaub'], 'hinweis': [['Staubbeutel oder Staubsauger anschliessen.', 'Suva 67092, Frage 11', S67092]]},
  'Akkubohrschrauber (kleine Bauweise)': {'hinweis': [['Werkstück gegen Mitdrehen sichern. Schutzbrille tragen, lange Haare zusammenbinden, Schmuck ablegen.', 'Technologiekarte, S. 62', TK + '8']]},
- 'Winkelschleifer mit stumpfen Aufsätzen**': {'hinweis': [['Schutzhaube und Zusatzhandgriff montiert. Nur unbeschädigte Scheiben verwenden, die zur Drehzahl passen. Schutzbrille und Gehörschutz tragen.', 'Suva 67092, Fragen 4, 10, 14', S67092]]},
- 'Winkelschleifer mit Trennscheibenaufsätzen': {'hinweis': [['Schutzhaube und Zusatzhandgriff montiert. Nur unbeschädigte Scheiben verwenden, die zur Drehzahl passen. Schutzbrille und Gehörschutz tragen.', 'Suva 67092, Fragen 4, 10, 14', S67092]]},
- 'Tellerschleifmaschine': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen. Nur auf der Seite schleifen, auf der sich die Scheibe nach unten bewegt, sonst kann das Werkstück weggeschleudert werden. Keine zu kleinen Stücke schleifen. Der Abstand zwischen Schleiftisch und Scheibe ist höchstens 3 mm.', 'Technologiekarte, S. 64', TK + '10']], 'video': [('Schleifen an der Tellerschleifmaschine', TUD+'tellerschleifmaschine')]},
+ 'Winkelschleifer mit stumpfen Aufsätzen**': {'hinweis': [['Nur mit montierter Schutzhaube und Zusatzhandgriff arbeiten. Nur Scheiben verwenden, die in Durchmesser und Drehzahl zur Maschine passen. Schutzbrille tragen.', 'Suva 67092, Fragen 4, 10, 14', S67092]]},
+ 'Winkelschleifer mit Trennscheibenaufsätzen': {'hinweis': [['Nur mit montierter Schutzhaube und Zusatzhandgriff arbeiten. Nur Scheiben verwenden, die in Durchmesser und Drehzahl zur Maschine passen. Schutzbrille tragen.', 'Suva 67092, Fragen 4, 10, 14', S67092]]},
+ 'Tellerschleifmaschine': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen. Nur auf der Seite schleifen, auf der sich die Scheibe nach unten bewegt, sonst kann das Werkstück weggeschleudert werden. Keine zu kleinen Stücke schleifen. Abstand zwischen Schleiftisch und Scheibe auf höchstens 3 mm einstellen.', 'Technologiekarte, S. 64', TK + '10']], 'video': [('Schleifen an der Tellerschleifmaschine', TUD+'tellerschleifmaschine')]},
  'Bandschleifmaschine': {'themen': ['holzstaub']},
  'Overlockmaschine': {'hinweis': [['Die Maschine schneidet und näht zugleich: langsam nähen, Finger weg von Messer und Nadel, keine Stecknadeln im Nähgut. Das Einfädeln übernimmt mit Vorteil die Lehrperson.', 'Technologiekarte, S. 76', TK + '22']], 'video': [('Nähen mit der Overlockmaschine', TUD+'naehenmitderoverlockmaschine')]},
  'Linearbiegegerät': {'hinweis': [['Heizdraht und Werkstück werden heiss, beim Warmbiegen Handschuhe tragen.', 'Technologiekarte, S. 65', TK + '11']], 'video': [('Linearbiegegerät', TUDH+'linearbiegegeraet')]},
@@ -148,14 +148,13 @@ for n in ['Heissleimpistole', 'Weichlötvorrichtung', 'Heissluftföhn/Industrief
 # Suva-Checklisten als weiterführende Links auf den Karten
 SUVA_LINKS = {'Tischkreissäge': [('Suva-Checkliste 67002', S67002)], 'Handkreissäge': [('Suva-Checkliste 67016', S67016)],
  'Abricht- und Dickenhobelmaschine': [('Suva-Checkliste 67058 (Abrichthobel)', S67058)], 'Bandsäge': [('Suva-Checkliste 67057', S67057)],
- 'Gehrungskappsäge': [('Suva-Checkliste 67125', S67125)]}
+ 'Gehrungskappsäge': [('Suva-Checkliste 67125', S67125)], 'Ständerbohrmaschine': [('Suva-Checkliste 67036', SUVA)]}
 for n in ['Stichsäge', 'Handbohrmaschine', 'Handoberfräse', 'Elektrohandhobel', 'Exzenterschleifer', 'Dreieckschleifer, Schwingschleifer',
           'Akkubohrschrauber (kleine Bauweise)', 'Winkelschleifer mit stumpfen Aufsätzen**', 'Winkelschleifer mit Trennscheibenaufsätzen']:
     SUVA_LINKS[n] = [('Suva-Checkliste 67092 Elektrohandwerkzeuge', S67092)]
 for n, l in SUVA_LINKS.items(): ZUORDNUNG[n].setdefault('links', []).extend([list(x) for x in l])
 # Lernvideos auf tud.ch zeigen die Arbeitstechnik, die Sicherheitsregeln stehen auf der Karte
 for z in ZUORDNUNG.values():
-    if z.pop('suva', None): z.setdefault('links', []).append(['Suva-Checkliste 67036', SUVA])
     if 'tk' in z: z.setdefault('links', []).append(['Technologiekarte Technik und Design', TK + str(z.pop('tk'))])
 import json
 ZUORDNUNG_JSON = json.dumps(ZUORDNUNG, ensure_ascii=False)
@@ -235,7 +234,7 @@ KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschrifte
         'Maschinen warten und prüfen': 'Schutzeinrichtungen intakt, Elektro periodisch prüfen',
         'Checklisten': 'bfu 4.323 mit Prüfintervall je Punkt',
         'Lagerung gefährlicher Stoffe': 'Kennzeichnung entscheidet, gefährliche Stoffe abschliessen',
-        'Brennbare Flüssigkeiten, Säuren, Gas': 'höchstens 100 Liter pro Fachraum, Säuren und Laugen getrennt',
+        'Brennbare Flüssigkeiten, Säuren, Gas': 'im Schrank höchstens 100 Liter pro Fachraum, Säuren und Laugen getrennt',
         'Entsorgung': 'gefährliche Chemikalien als Sonderabfall, nie in Kehricht oder Abwasser',
         'Fachräume planen und einrichten': 'für Neubau, Umbau und Neuorganisation',
         'Räume': 'Maschinenraum, Sichtkontakt, Zugang',
@@ -293,11 +292,11 @@ VERBOTEN = {
 }
 # Bevorzugen: was die Quellen ausdrücklich empfehlen, jeder Eintrag führt zur Regel
 BEVORZUGT = {
- 'alle': [('Weissleim', 'kleben'), ('Acryl- und Dispersionsfarben', 'einkauf'), ('lösungsmittelarme Lacke und Lasuren', 'farben-lacke-spruehen')],
- 'holz': [('Fichte, Tanne, Kiefer statt Eiche, Buche, Tropenholz', 'holzstaub'), ('MDF, OSB, Sperrholz der Klasse E1', 'holzstaub'), ('Bienen- oder Carnaubawachs', 'wachsen')],
+ 'alle': [('Weissleim', 'kleben'), ('Acryl- und Dispersionsfarben', 'farben-lacke-spruehen'), ('lösungsmittelarme Lacke und Lasuren', 'farben-lacke-spruehen')],
+ 'holz': [('Fichte, Tanne, Kiefer statt Eiche, Buche, Tropenholz, wo viel Staub entsteht', 'holzstaub'), ('MDF, OSB, Sperrholz der Klasse E1', 'holzstaub'), ('Bienen- oder Carnaubawachs', 'wachsen')],
  'metall': [('Reinzinn (95 bis 98 % Zinn)', 'metall-und-zinngiessen'), ('bleifreie Weichlote, z. B. L-Sn99Cu', 'weichloeten'), ('cadmiumfreies Silberlot, blank statt ummantelt', 'hartloeten')],
  'kunststoff': [('PLA statt ABS im 3D-Druck', '3d-druck'), ('styrolfreie Polyesterharze', 'giessen-und-formen-mit-fluessigen-kunststoffen')],
- 'keramik': [('Glasuren, die ausdrücklich für Geschirr geeignet sind', 'glasieren-und-brennen'), ('Pasten oder Pellets statt Pulver', 'glasieren-und-brennen')],
+ 'keramik': [('Glasuren, Engoben und Farben ohne Schwermetalle', 'glasieren-und-brennen'), ('Pasten oder Pellets statt Pulver', 'glasieren-und-brennen')],
 }
 def bevorzugt(key): return ' · '.join('<a href="#%s">%s</a>' % (z, t) for t, z in BEVORZUGT.get(key, []))
 # Was nur ein Material betrifft und bei keinem Verfahren steht: öffnet sich beim Klick auf den Materialnamen
