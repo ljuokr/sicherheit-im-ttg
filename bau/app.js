@@ -39,6 +39,8 @@
     d.appendChild(el('span','sr',k.map(function(K,i){ return 'Zyklus '+(i+1)+' '+K; }).join(', ')));
     return d;
   }
+  // Einstufung je Thema, für das Themenfenster: Maschinen des Plakats, die auf dieses Thema verweisen
+  var STUFEN={}; window.TTG_STUFEN={themen:STUFEN,kurz:KURZ,punkte:punkte};
   (function(){
     var ziel=$('#plakat-ziel'), nr=0;
     GRUPPEN.forEach(function(spalte){
@@ -68,6 +70,7 @@
           });
           k.appendChild(dl);
           var z=ZUORDNUNG[r.name]||{};
+          (z.themen||[]).forEach(function(t){ (STUFEN[t]=STUFEN[t]||[]).push(r); });
           if(z.hinweis&&z.hinweis.length){
             var hw=el('ul','k-hinweise');
             z.hinweis.forEach(function(h){
@@ -465,6 +468,34 @@
       titel.textContent=z.querySelector('h3').textContent;
       meta.innerHTML=m?m.innerHTML:'';
       [].forEach.call(d.childNodes,function(c){ if(c.nodeName!=='SUMMARY') fin.appendChild(ohneIds(c.cloneNode(true))); });
+      // Einstufung nach Zyklus wie auf dem bfu-Plakat, nur wenn das Thema zu wenigen Maschinen gehört (Staub betrifft fast alle)
+      var st=window.TTG_STUFEN, ms=st&&st.themen[z.id];
+      if(ms && ms.length<=4){
+        var box=document.createElement('div'); box.className='f-stufe';
+        var t=document.createElement('p'); t.className='f-stufe-t'; t.textContent='Einstufung bfu-Plakat'; box.appendChild(t);
+        ms.forEach(function(r){
+          var a=document.createElement('a'); a.href='#maschinen'; a.setAttribute('data-maschine',r.name); a.className='f-stufe-m'; a.textContent=r.name;
+          if(ms.length===1){
+            box.appendChild(a);
+            var dl=document.createElement('dl'); dl.className='kz';
+            r.k.forEach(function(K,i){
+              var row=document.createElement('div'), dt=document.createElement('dt'), dd=document.createElement('dd'), p=document.createElement('span');
+              dt.textContent='Zyklus '+(i+1); p.className='dot '+K; p.setAttribute('aria-hidden','true'); dd.appendChild(p);
+              dd.appendChild(document.createTextNode(K+': '+st.kurz[K])); row.appendChild(dt); row.appendChild(dd); dl.appendChild(row);
+            });
+            box.appendChild(dl);
+          } else {
+            var z2=document.createElement('div'); z2.className='f-stufe-z'; z2.appendChild(st.punkte(r.k)); z2.appendChild(a); box.appendChild(z2);
+          }
+        });
+        // Fussnote des Plakats mitnehmen, wenn eine Maschine einen Stern trägt
+        if(ms.some(function(r){ return /\*$/.test(r.name) && !/\*\*$/.test(r.name); })){
+          var fn=[].filter.call(document.querySelectorAll('#verfahren li'),function(li){ return /^\* /.test(li.textContent.trim()); })[0];
+          if(fn){ var pf=document.createElement('p'); pf.className='f-stufe-l'; pf.textContent=fn.textContent.trim(); box.appendChild(pf); }
+        }
+        if(ms.length>1) { var lg=document.createElement('p'); lg.className='f-stufe-l'; lg.textContent='Punkte für Zyklus 1, 2, 3. A '+st.kurz.A+', B '+st.kurz.B+', C '+st.kurz.C+'.'; box.appendChild(lg); }
+        fin.insertBefore(box,fin.firstChild);
+      }
     } else if(z.matches('th.mx-zeile')){
       // Material: nur was dieses Material betrifft und bei keinem Verfahren steht
       art.textContent='Material';

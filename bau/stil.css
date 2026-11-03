@@ -464,6 +464,12 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 .f-kopf h2{margin:.1rem 0 0;padding:0;border:0;font-size:var(--s2)}
 .f-meta{margin:.2rem 0 0;font-size:.875rem;color:var(--muted)}
 .f-meta img{height:1em;vertical-align:-.1em}
+.f-stufe{border:1px solid var(--line);padding:.6rem .75rem;margin:0 0 1rem;font-size:.875rem}
+.f-stufe-t{margin:0 0 .4rem;font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.f-stufe-m{font-weight:600;color:inherit}
+.f-stufe .kz{margin:.4rem 0 0}
+.f-stufe-z{display:flex;gap:.6rem;align-items:center;margin:.2rem 0}
+.f-stufe-l{margin:.5rem 0 0;color:var(--muted);font-size:.8rem}
 .f-in table{min-width:0}
 .f-in .mtab-wrap{display:block}
 .f-themen{margin-top:1.5rem;border-top:1px solid var(--line);padding-top:.75rem}
