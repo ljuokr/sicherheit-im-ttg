@@ -13,18 +13,19 @@ css = open(HIER+'stil.css', encoding='utf-8').read()
 js = open(HIER+'app.js', encoding='utf-8').read()
 
 VERBOTE = ["Kein Essen und Trinken","Gegenstände aus dem Unterricht dürfen keine","Keine bleihaltige Emaille","Kein imprägniertes",
-"Nie mit Pressluft abblasen","Schleifpapier nicht ausklopfen","Handschuhverbot","Keine mechanische Bearbeitung","Acrylglas: Kanten nicht",
+"Nie mit Druckluft abblasen","Schleifpapier nicht ausklopfen","Handschuhverbot","Keine mechanische Bearbeitung","Acrylglas: Kanten nicht",
 "In der Umgebung keine brennbaren","Nicht lasern","Verwendung und Bearbeitung asbesthaltiger","Blei und Bleilegierungen",
 "Auf Polyurethan-Montageschaum","Bleihaltige Weichlote","Cadmiumhaltige Hartlote","Flussmittel als verwendungsfertige Paste","Keine Schweissarbeiten",
-"Verzichten auf","Getränkte Lappen und Papiere nie","Auf Produkte mit gesundheitsgefährdenden","Nicht verwenden: Pigmente","Keine isocyanathaltigen",
+"Nicht verwenden: chlorierte","Getränkte Lappen und Papiere nie","Auf Produkte mit gesundheitsgefährdenden","Nicht verwenden: Pigmente","Keine isocyanathaltigen",
 "Leinölhaltige Lacke nie","Nicht verwenden: toluolhaltige","Nicht verwenden: Beizmittel","Nicht verwenden: Ätzmittel mit Flusssäure","Nie Getränkeflaschen",
 "Konzentrierte oxidierende Säuren","Keine Gasflaschen","Gefährliche Chemikalien dürfen nie","Alte Restbestände nicht mischen",
-"Lehrpersonen dürfen nach eigenem Ermessen keine","Nicht verwenden: improvisierte Anschlüsse","Schutzeinrichtungen an Maschinen dürfen nicht","Keine Produkte, die explosiv","Auf das Bearbeiten von Blei"]
-INSTR = [("Schülerinnen und Schüler bedienen den Lasercutter","aufsicht"),
+"Lehrpersonen dürfen nach eigenem Ermessen keine","Nicht verwenden: improvisierte Anschlüsse","Schutzeinrichtungen an Maschinen dürfen nicht","Keine Produkte, die explosiv","Auf das Bearbeiten von Blei",
+"Keine Werkstoffe mit Nanomaterialien","Kein Woodsches Metall","Keine Geräte der Laserklassen","Für Ess- und Trinkgeschirr nur Glasuren"]
+INSTR = [
 ("Auf Polyurethan-Montageschaum","instruktion"),("* Inbetriebnahme, Ausserbetriebsetzung","selbst"),
 
 ("Epoxy-, Polyurethan- und Sekundenkleber verwenden","instruktion"),("Produkte mit Gefahrenhinweis kennzeichnen","instruktion"),
-("Brennofen in einem gut durchlüfteten Raum","selbst"),("Betrieb nur unter Aufsicht einer Lehrperson","aufsicht"),
+("Den Keramikbrennofen bedienen nur Lehrpersonen","selbst"),("Betrieb nur unter Aufsicht einer Lehrperson","aufsicht"),
 ("Die Schule stellt die Behälter","selbst"),("Lehrpersonen dürfen nach eigenem Ermessen","selbst"),("Teilen sich mehrere Lehrpersonen","selbst"),
 ("Eine Fachraumordnung mit Bekleidungs","instruktion"),("Bei Mehrfachnutzung empfiehlt die bfu ein Zutrittsmanagement","instruktion"),
 ("Lehrpersonen haben während der Unterrichtszeit","selbst"),("Gasanlagen für Hartlöten und Schweissen nehmen nur geschulte","selbst")]
@@ -69,8 +70,8 @@ def themen(html):
 VERF = [('trennen','Trennen'),('umformen','Umformen'),('verbinden','Verbinden'),
         ('oberflaeche','Oberfläche verändern'),('lehrpersonen','Nur Lehrpersonen')]
 # Zeilen der Matrix Material × Verfahren, Schlüssel wie in data-mat
-MATS = [('alle','Alle Materialien',''),('holz','Holz','Massivholz, Sperrholz, MDF'),('metall','Metall','Stahl, Aluminium, Kupfer, Messing, Zinn'),
-        ('kunststoff','Kunststoff','Acrylglas, PLA, ABS, PVC'),('keramik','Keramik','Ton, Porzellan, Glas'),('textil','Textil','Baumwolle, Wolle, Kunstfasern, Leder')]
+MATS = [('alle','Alle Materialien',''),('holz','Holz','Massivholz, Sperrholz, MDF'),('metall','Metall','Stahl, Aluminium, Kupfer, Messing, Reinzinn'),
+        ('kunststoff','Kunststoff','Acrylglas, Sagex, PLA, ABS'),('keramik','Keramik','Ton, Porzellan, Glas'),('textil','Textil','Baumwolle, Wolle, Kunstfasern, Leder')]
 # Kurztitel für die Felder der Matrix, der volle Titel steht im Fenster
 KURZ = {'Staub beim Sägen, Bohren und Schleifen': 'Staub beim Sägen, Schleifen',
         'Ständerbohrmaschine (Säulen- und Tischbohrmaschine)': 'Ständerbohrmaschine',
@@ -94,7 +95,6 @@ SUVA = 'https://www.suva.ch/de-ch/download/checklisten/tisch--und-staenderbohrma
 B4323 = 'https://www.bfu.ch/api/publications/bfu_4.323.01_Sicherheit%20im%20Technischen%20Gestalten%20%E2%80%93%20Checklisten%20zur%20%C3%9Cberpr%C3%BCfung%20der%20Fachr%C3%A4ume.pdf'
 CHEM = 'https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf'
 # Hinweise je Maschine: [Text, Quelle, Link]. Ohne Quelle = eigener Hinweis dieser Seite, wird so gekennzeichnet
-KLEINGERAET = ['Lötkolben, Heissleimpistolen und Heissluftföhn samt Kabel regelmässig auf einwandfreien Zustand prüfen. Zum Auskühlen aufhängen, damit die Kabel nicht anschmelzen.', 'bfu 4.323, Checkliste 3, Punkt 4', B4323]
 def heiss(teil): return ['%s: Verbrennungsgefahr. Nicht berühren und nach Gebrauch sicher abstellen.' % teil, '', '']
 SCHNITT = ['Schnittgefahr an Messer oder Klinge: Finger ausserhalb des Schneidbereichs, Schutzvorrichtung benützen.', '', '']
 QUETSCH = ['Quetschgefahr: Finger ausserhalb des Arbeitsbereichs halten.', '', '']
@@ -105,7 +105,7 @@ S67125 = 'https://www.suva.ch/de-ch/download/checklisten/kapp--und-gehrungskreis
 S67057 = 'https://www.suva.ch/de-ch/download/checklisten/bandsaege/bandsaege--67057.D'
 ZUORDNUNG = {
  'Laminiergerät': {'hinweis': [heiss('Die Folie ist beim Austritt heiss')]},
- 'Heissleimpistole': {'hinweis': [heiss('Düse und Kleber werden heiss'), ['Heissleim enthält kaum gefährliche Inhaltsstoffe.', 'chemsuisse, S. 23', CHEM]]},
+ 'Heissleimpistole': {'hinweis': [['Verbrennungsgefahr an Düse und Kleber. Für jüngere Schülerinnen und Schüler gibt es Niedertemperatur-Schmelzkleber.', 'Technologiekarte, S. 67', TK + '13'], ['Heissleim enthält kaum gefährliche Inhaltsstoffe.', 'chemsuisse, S. 23', CHEM]]},
  'Folienschweissgerät': {'hinweis': [heiss('Die Schweissleiste wird heiss')]},
  'Nähmaschine': {'hinweis': [['Stichverletzung durch die Nadel: Finger vom Nähfuss fernhalten, beim Einfädeln den Motor ausschalten.', '', '']], 'video': [('Nähen mit der Nähmaschine', TUD+'naehenmitdernaehmaschine')]},
  'Heftklammerpistole': {'hinweis': [['Nie auf Personen richten, Finger nicht vor die Austrittsöffnung.', '', '']]},
@@ -115,27 +115,27 @@ ZUORDNUNG = {
  'Autogenschweissanlage (Acetylen-Sauerstoff)*': {'themen': ['schweissen', 'gasflaschen']},
  'Schutzgasschweissanlage (MIG/MAG)*': {'themen': ['schweissen', 'gasflaschen'], 'video': [('Schutzgasschweissen', TUD+'schutzgasschweissen')]},
  'Papierschneidemaschine': {'hinweis': [SCHNITT]},
- 'Dekupiersäge': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen, der Kopf ist höher als das Sägeblatt.', 'Technologiekarte, S. 59', TK + '5']], 'video': [('Sägen mit der Dekupiersäge', TUD+'dekupiersaege')]},
+ 'Dekupiersäge': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen. Arbeitshöhe so wählen, dass der Kopf höher ist als das Sägeblatt.', 'Technologiekarte, S. 59', TK + '5']], 'video': [('Sägen mit der Dekupiersäge', TUD+'dekupiersaege')]},
  'Thermoschneider': {'themen': ['kunststoff-saegen-bohren-schleifen'], 'hinweis': [heiss('Der Heizdraht wird heiss')], 'video': [('Styroporschneider', TUDH+'styroporschneider')]},
- 'Stichsäge': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen, auf die Kabelführung achten. Das Sägeblatt berührt beim Einschalten das Werkstück nicht. Werkstück mit Schraubzwinge befestigen, Stichsäge mit beiden Händen führen.', 'Technologiekarte, S. 59', TK + '5']], 'video': [('Sägen mit der Stichsäge', TUD+'stichsaege')]},
+ 'Stichsäge': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen, auf die Kabelführung achten. Beim Einschalten darf das Sägeblatt das Werkstück nicht berühren. Werkstück mit Schraubzwinge befestigen, Stichsäge mit beiden Händen führen.', 'Technologiekarte, S. 59', TK + '5']], 'video': [('Sägen mit der Stichsäge', TUD+'stichsaege')]},
  'Handbohrmaschine': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen, lange Haare zusammenbinden, Schmuck und Halstuch ablegen. Werkstück mit Bohrbrett, Schraubstock oder Feilkloben gegen Mitdrehen sichern. Wechsel und Einstellungen nur im Stillstand.', 'Technologiekarte, S. 61, 62', TK + '8']]},
- 'Ständerbohrmaschine': {'themen': ['bohrmaschine', 'holzstaub'], 'video': [('Bohren mit der Tischbohrmaschine', TUD+'tischbohrmaschine')], 'suva': True},
+ 'Ständerbohrmaschine': {'themen': ['bohrmaschine', 'holzstaub'], 'video': [('Bohren mit der Tischbohrmaschine', TUD+'tischbohrmaschine')]},
  'Hebelblechschere': {'hinweis': [SCHNITT]},
- 'Bandsäge': {'themen': ['holzstaub'], 'hinweis': [['Verdeckung bis höchstens 10 mm über das Werkstück absenken, mit Stossholz arbeiten, Hände mindestens eine Faustbreite vom Sägeband. Rundholz so führen, dass es sich nicht drehen kann, etwa in einem Prisma.', 'Suva 67057, Fragen 1, 3', S67057]], 'video': [('Bandsäge', TUD+'bandsaege')]},
- 'Gehrungskappsäge': {'themen': ['holzstaub'], 'hinweis': [['Werkstück am Anschlag fixieren, eine Faustbreite Abstand halten, nie in die Schnittebene greifen. Keine kleinen, unfixierten Teile sägen. Gehörschutz tragen.', 'Suva 67125, S. 3, Fragen 11, 12', S67125]]},
+ 'Bandsäge': {'themen': ['holzstaub'], 'hinweis': [['Verdeckung bis höchstens 10 mm über das Werkstück absenken. Hände mindestens eine Faustbreite vom Sägeband, sonst mit Stossholz arbeiten. Rundholz so führen, dass es sich nicht drehen kann, etwa in einem Prisma.', 'Suva 67057, Fragen 3, 15 · Technologiekarte, S. 61', S67057]], 'video': [('Bandsäge', TUD+'bandsaege')]},
+ 'Gehrungskappsäge': {'themen': ['holzstaub'], 'hinweis': [['Werkstück am Anschlag fixieren, eine Faustbreite Abstand halten, nie in die Schnittebene greifen. Keine kleinen, unfixierten Teile sägen. Gehörschutz und Schutzbrille tragen.', 'Suva 67125, S. 3, Fragen 11 bis 13', S67125]]},
  'Lamellen-Dübelfräse': {'themen': ['holzstaub'], 'video': [('Runddübeln und Flachdübeln', TUD+'duebeln')]},
  'Holzdrechselbank': {'themen': ['holzstaub']},
- 'Dreieckschleifer, Schwingschleifer': {'themen': ['holzstaub'], 'hinweis': [['Werkstück einspannen, Schutzbrille tragen.', 'Technologiekarte, S. 64', TK + '10']]},
- 'Exzenterschleifer': {'themen': ['holzstaub'], 'hinweis': [['Staubbeutel oder Staubsauger anschliessen, bei viel Staub Maske FFP2.', 'Suva 67092, Frage 11', S67092]]},
+ 'Dreieckschleifer, Schwingschleifer': {'themen': ['holzstaub'], 'hinweis': [['Werkstück einspannen, Schutzbrille tragen.', '', '']]},
+ 'Exzenterschleifer': {'themen': ['holzstaub'], 'hinweis': [['Staubbeutel oder Staubsauger anschliessen.', 'Suva 67092, Frage 11', S67092]]},
  'Akkubohrschrauber (kleine Bauweise)': {'hinweis': [['Werkstück gegen Mitdrehen sichern. Schutzbrille tragen, lange Haare zusammenbinden, Schmuck ablegen.', 'Technologiekarte, S. 62', TK + '8']]},
- 'Winkelschleifer mit stumpfen Aufsätzen**': {'hinweis': [['Schutzhaube und Zusatzhandgriff montiert. Nur unbeschädigte Scheiben verwenden, die zur Drehzahl passen. Schutzbrille und Gehörschutz tragen.', 'Suva 67092, Fragen 10, 14', S67092]]},
- 'Winkelschleifer mit Trennscheibenaufsätzen': {'hinweis': [['Schutzhaube und Zusatzhandgriff montiert. Nur unbeschädigte Scheiben verwenden, die zur Drehzahl passen. Schutzbrille und Gehörschutz tragen.', 'Suva 67092, Fragen 10, 14', S67092]]},
- 'Tellerschleifmaschine': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen. Der Abstand zwischen Schleiftisch und Scheibe ist höchstens 3 mm.', 'Technologiekarte, S. 64', TK + '10']], 'video': [('Schleifen an der Tellerschleifmaschine', TUD+'tellerschleifmaschine')]},
+ 'Winkelschleifer mit stumpfen Aufsätzen**': {'hinweis': [['Schutzhaube und Zusatzhandgriff montiert. Nur unbeschädigte Scheiben verwenden, die zur Drehzahl passen. Schutzbrille und Gehörschutz tragen.', 'Suva 67092, Fragen 4, 10, 14', S67092]]},
+ 'Winkelschleifer mit Trennscheibenaufsätzen': {'hinweis': [['Schutzhaube und Zusatzhandgriff montiert. Nur unbeschädigte Scheiben verwenden, die zur Drehzahl passen. Schutzbrille und Gehörschutz tragen.', 'Suva 67092, Fragen 4, 10, 14', S67092]]},
+ 'Tellerschleifmaschine': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen. Nur auf der Seite schleifen, auf der sich die Scheibe nach unten bewegt, sonst kann das Werkstück weggeschleudert werden. Keine zu kleinen Stücke schleifen. Der Abstand zwischen Schleiftisch und Scheibe ist höchstens 3 mm.', 'Technologiekarte, S. 64', TK + '10']], 'video': [('Schleifen an der Tellerschleifmaschine', TUD+'tellerschleifmaschine')]},
  'Bandschleifmaschine': {'themen': ['holzstaub']},
- 'Overlockmaschine': {'hinweis': [['Messer und Nadel: Finger vom Nähfuss fernhalten, beim Einfädeln den Motor ausschalten.', '', '']], 'video': [('Nähen mit der Overlockmaschine', TUD+'naehenmitderoverlockmaschine')]},
+ 'Overlockmaschine': {'hinweis': [['Die Maschine schneidet und näht zugleich: langsam nähen, Finger weg von Messer und Nadel, keine Stecknadeln im Nähgut. Das Einfädeln übernimmt mit Vorteil die Lehrperson.', 'Technologiekarte, S. 76', TK + '22']], 'video': [('Nähen mit der Overlockmaschine', TUD+'naehenmitderoverlockmaschine')]},
  'Spindelpresse': {'hinweis': [QUETSCH]},
- 'Linearbiegegerät': {'hinweis': [heiss('Heizstab und Werkstück werden heiss')], 'video': [('Linearbiegegerät', TUDH+'linearbiegegeraet')]},
- 'Heissluftföhn/Industrieföhn': {'hinweis': [heiss('Die Düse wird heiss')]},
+ 'Linearbiegegerät': {'hinweis': [['Heizdraht und Werkstück werden heiss, beim Warmbiegen Handschuhe tragen.', 'Technologiekarte, S. 65', TK + '11']], 'video': [('Linearbiegegerät', TUDH+'linearbiegegeraet')]},
+ 'Heissluftföhn/Industrieföhn': {'hinweis': [['Die Düse wird heiss, nur mit Unterlage verwenden.', 'Technologiekarte, S. 65', TK + '11']]},
  'Tiefziehgerät': {'themen': ['tiefziehen'], 'hinweis': [heiss('Die Folie wird heiss')]},
  'Abkantgerät (Bleche)': {'hinweis': [QUETSCH]},
  'Tischkreissäge': {'themen': ['holzstaub'], 'hinweis': [['Rückschlag verhindern: Spaltkeil höchstens 5 mm vom Sägeblatt, Schutzhaube ganz auf das Werkstück absenken, schmale Stücke mit dem Längsstossholz schieben. Niemand steht im Bereich eines möglichen Rückschlags.', 'Suva 44023, S. 6, 7, 9, 12', S44023]]},
@@ -224,13 +224,13 @@ zustaendig = zw('<h2 id="zustaendig">', '<h2 id="begriffe">')
 KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschriften',
         'Sorgfalts- und Obhutspflicht': 'einteilen, instruieren, beaufsichtigen, laufend beurteilen',
         'Haftung': 'der Schulträger haftet, strafbar ist, wer die Sorgfalt verletzt',
-        'Mutterschutz am Arbeitsplatz': 'Arbeitsplätze mit bestimmten Stoffen vorsorglich beurteilen',
-        'Pflichten und Empfehlungen': 'sieben Pflichten, dazu Empfehlungen von bfu und chemsuisse, mit Rhythmus',
+        'Gesundheitsschutz bei Mutterschaft': 'Arbeitsplätze mit bestimmten Stoffen vorsorglich beurteilen',
+        'Pflichten und Empfehlungen': 'neun Pflichten, dazu Empfehlungen von bfu und chemsuisse, mit Rhythmus',
         'Wer kontrolliert': 'Arbeitsinspektorat, Suva nur Berufskrankheiten, bfu berät',
         'Wer an der Schule zuständig ist': 'Schulträger für Räume, Ansprechperson für Chemikalien, Aufgaben ins Pflichtenheft',
         'Fachraum betreiben': 'gemeinsame Regeln, Wartung, Checklisten',
         'Maschinen warten und prüfen': 'Schutzeinrichtungen intakt, Elektro periodisch prüfen',
-        'Checklisten': 'bfu 4.323 von täglich bis jährlich',
+        'Checklisten': 'bfu 4.323 mit Prüfintervall je Punkt',
         'Lagerung gefährlicher Stoffe': 'Kennzeichnung entscheidet, gefährliche Stoffe abschliessen',
         'Brennbare Flüssigkeiten, Säuren, Gas': 'höchstens 100 Liter pro Fachraum, Säuren und Laugen getrennt',
         'Entsorgung': 'gefährliche Chemikalien als Sonderabfall, nie in Kehricht oder Abwasser',
@@ -241,7 +241,7 @@ KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschrifte
         'Fachraum als Lernort': 'Raum für selbstständiges Arbeiten',
         'Grundregeln im Fachraum': 'nicht essen, wenig Staub, absaugen, lösungsmittelfrei',
         'Schutzmassnahmen': 'STOP-Prinzip, Schutzausrüstung von Kopf bis Fuss',
-        'Sicher unterrichten': 'Lehrperson wählt Maschinen, führt ein, beaufsichtigt und hält fest',
+        'Sicher unterrichten': 'Lehrperson wählt Maschinen, führt ein, beaufsichtigt laufend und hält fest',
         'Vom Produktions- zum Erschliessungshandeln': 'selbstständiger Arbeiten verändert Raum und Aufsicht',
         'Was der Lehrplan 21 verlangt': 'Sicherheit als Lerninhalt, Kompetenzstufen'}
 def klapp(html, h='h3'):
@@ -279,11 +279,11 @@ VERBOTEN = {
           ('Toluol, chlorierte Lösungsmittel', 'loesungsmittel-verduenner-pinselreiniger')],
  'holz': [('Imprägniertes Holz', 'holzstaub'), ('Holzschutzmittel im Innenbereich', 'farben-lacke-spruehen'), ('Wachs mit MEKO', 'wachsen')],
  'metall': [('Blei, Bleiblech, Altmetall mit Blei', 'mat-metall'), ('Bleihaltiges Zierzinn', 'metall-und-zinngiessen'), ('Bleihaltige Weichlote', 'weichloeten'),
-            ('Cadmiumhaltige Hartlote', 'hartloeten'), ('Borhaltige Flussmittel', 'hartloeten'), ('Rostfreie und galvanisch beschichtete Stähle schweissen', 'schweissen'),
+            ('Cadmiumhaltige Hartlote', 'hartloeten'), ('Borhaltige Flussmittel', 'hartloeten'), ('Rostfreie, verchromte oder vernickelte Stähle schweissen', 'schweissen'),
             ('Beizmittel mit Flusssäure oder Chromsäure', 'abbeizen-und-bruenieren'), ('Bleihaltige Emaille', 'emaillieren-und-glasaetzen')],
  'kunststoff': [('Kunststoffe mit Carbonfasern bearbeiten', 'holzstaub'), ('PVC, Teflon, Polyurethan, bromierte Kunststoffe lasern', 'lasercutten'),
                 ('Polyurethan-Montageschaum', 'giessen-und-formen-mit-fluessigen-kunststoffen'), ('Filamente mit Nanomaterialien', '3d-druck')],
- 'keramik': [('Asbest', 'speckstein-und-asbest'), ('Glasuren mit Schwermetallen für Geschirr', 'mat-keramik'), ('Flusssäure zum Glasätzen', 'emaillieren-und-glasaetzen')],
+ 'keramik': [('Asbest', 'speckstein-und-asbest'), ('Glasuren mit Schwermetallen für Geschirr', 'glasieren-und-brennen'), ('Flusssäure zum Glasätzen', 'emaillieren-und-glasaetzen')],
  'textil': [('Leder mit Chrom(VI) lasern', 'lasercutten')],
 }
 # Was nur ein Material betrifft und bei keinem Verfahren steht: öffnet sich beim Klick auf den Materialnamen
@@ -425,8 +425,8 @@ body = themen(lists(body))
 # Themen zuklappen: Kopfzeile mit Titel, Kernaussage, Material und Zahl der Warnpunkte
 # Kernaussagen je Thema, vorerst drei zur Ansicht
 THEMA_KERN = {'Weichlöten': 'nur bleifreies Lot, Lötkolben höchstens 300 °C, Rauch absaugen',
-              'Leinöl und ölgetränkte Lappen': 'getränkte Lappen können sich selbst entzünden, nie in den Kehricht',
-              'Lasercutten': 'nur unter Aufsicht, kein PVC, Teflon oder Polyurethan'}
+              'Leinöl und ölgetränkte Lappen': 'getränkte Lappen können sich selbst entzünden, nie lose in den Abfall',
+              'Lasercutten': 'bfu: nur Lehrpersonen, chemsuisse: unter Aufsicht, kein PVC, Teflon oder Polyurethan'}
 def zuklappen(m):
     kopf, inhalt = m.group(1), m.group(4)
     n = inhalt.count('<li class="verbot"')

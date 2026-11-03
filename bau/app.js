@@ -15,7 +15,7 @@
   var leiste=$('#leiste'), reg=$('#reg'), reg2=$('#reg2'), register=$('#register');
   var verfahren=$$('#verfahren section.verfahren');
   var VNAME={}; verfahren.forEach(function(s){ VNAME[s.id]=s.getAttribute('data-titel'); });
-  var MAT={holz:'Holz',metall:'Metall',kunststoff:'Kunststoff',keramik:'Keramik, Glas, Stein',textil:'Textil'};
+  var MAT={holz:'Holz',metall:'Metall',kunststoff:'Kunststoff',keramik:'Keramik',textil:'Textil'};
   var legende=$('#aufsicht .legende'), legQuelle=$('#aufsicht .legende + p.quelle');
   var LEG={}; $$('span',legende).forEach(function(sp){ LEG[sp.textContent.trim()]=sp.nextElementSibling.textContent; });
 
@@ -97,7 +97,7 @@
               if(t.indexOf(stern+' ')===0) k.appendChild(el('p','k-fuss',t));
             });
           }
-          if(!z.themen && !z.video && !z.hinweis && !z.links) k.appendChild(el('p','k-fuss','Zu dieser Maschine nennen die Quellen keine eigenen Regeln. Es gelten die Grundregeln im Fachraum.'));
+          if(!z.themen && !z.video && !z.hinweis && !z.links) k.appendChild(el('p','k-fuss','Diese Seite nennt zu dieser Maschine keine eigenen Hinweise. Es gelten die Betriebsanleitung und die Grundregeln im Fachraum.'));
           b.addEventListener('click',function(){
             var offen=b.getAttribute('aria-expanded')!=='true';
             b.setAttribute('aria-expanded',offen?'true':'false'); k.hidden=!offen;
