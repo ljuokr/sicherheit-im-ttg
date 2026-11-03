@@ -1,0 +1,69 @@
+# G8 · Register «Kantone» und «Recht» (Prüfung wie Juristin Schulrecht, 2026-11-02)
+
+Grundlage: seite-text.md Z. 578-656, inhalt.html h2 #zustaendig, #recht, #kantone. Die in r8 als D verworfenen Punkte habe ich nicht erneut aufgenommen. C1 (Straffen von Recht und Zuständigkeiten) ist vorausgesetzt.
+
+## Geprüft
+
+| Angabe | Ergebnis | Wie geprüft |
+|---|---|---|
+| UVG Art. 82 Abs. 1 (Formel notwendig, Stand der Technik, angemessen) | stimmt | Wortlaut bekannt, fedlex lädt nur mit JavaScript |
+| ArG Art. 6, Art. 3a | stimmt, aber unpräzise (G8-07) | Wortlaut bekannt, fedlex nicht lesbar |
+| ArG Art. 35, ArGV 1 Art. 63 | stimmt, Gesetz-Marke unvollständig (G8-10) | Wortlaut bekannt |
+| VUV Art. 6, 11a, 32b, 47, 50 | Titel stimmen (Information und Anleitung, Beizugspflicht, Instandhaltung von Arbeitsmitteln, Kantonale Durchführungsorgane des ArG, Berufskrankheiten) | koordination.ch, Artikelverzeichnis VUV |
+| VUV Art. 8 | fehlt, ist für die Pflicht/Empfehlung-Tabelle relevant (G8-05) | admin.ch-Suchauszug |
+| NIV Art. 36 | Ablauf stimmt (Netzbetreiberin fordert mind. 6 Monate vorher auf, unabhängiges Kontrollorgan oder akkreditierte Inspektionsstelle) | ESTI-Infoblatt «Periodische Kontrolle», 2017 |
+| NIV, Schulhäuser alle 5 Jahre | plausibel, nur über Sekundärquelle (Kategorie «Räume mit grosser Personenbelegung: Kindergärten, Schulhäuser und Hochschulen», 5 Jahre) | Lernkarten 2018, Anhang NIV nicht direkt lesbar |
+| ChemG Art. 25 Abs. 2, ChemV Art. 59 | stimmt, «auf Anfrage» steht nicht in Art. 59 (G8-11) | droit-bilingue.ch, Art. 59 ChemV |
+| StGB Art. 117, 125 | stimmt, Absatz und Fahrlässigkeitsbegriff ungenau (G8-09) | Wortlaut bekannt |
+| BGE 122 IV 303 | Datum 26. September 1996 stimmt, Link erreichbar, Sachverhalt ist eine Bergwanderung (G8-03) | servat.unibe.ch |
+| LAV Bern (BSG 430.251.0) Art. 52-60 | Art. 52 trägt die Aussage, 53-60 nicht (G8-08) | belex API |
+| GAL Aargau (SAR 411.200) § 25 | allgemeine Sorgfaltspflicht, passt. § 34 belegt den Rückgriff (G8-02) | gesetzessammlungen.ag.ch API |
+| VBG Luzern (SRL 400a) § 24 | stimmt: Abs. 1 «beaufsichtigen sie angemessen» | srl.lu.ch API |
+| bfu Rechtsfrage | stützt Garantenstellung, Haftung Schulträger, Rückgriff «bei grober Pflichtverletzung», Verweis, BGer-Urteil 26.9.1996 | bfu.ch |
+| Merkblatt Bern | stützt Kantone-Zeile und LAV 52-60 (dort so zitiert), nennt zusätzlich ArG Art. 6 Abs. 3 (G8-06) | PDF gelesen |
+| Merkblatt Luzern «Haftung im Schulalltag» | Link tot (G8-01) | DNS-Fehler sport-beruf.lu.ch |
+| Kantone: Basel-Stadt eduBS, Luzern 2003 (zebis), PH FHNW, PH St. Gallen, ASAschule ZH | erreichbar, Inhalt korrekt wiedergegeben | gelesen |
+| Kantone: Aargau Schulportal, Zug-Präsentation, Zürcher Maschinenliste | nicht prüfbar (Zertifikatsfehler bzw. Datei über 10 MB) | - |
+| Gutachten Geiser 2017 | Link erreichbar, Inhalt nicht lesbar (PDF ohne Textauszug) | - |
+| Visana Bern | gestützt durch Merkblatt Personalamt Bern, Juli 2024 | Suchauszug |
+| Mutterschutzverordnung Art. 13, H-Satz-Liste | entspricht der EU-Liste (RL 92/85/EWG Anhang I), Schweizer Fassung nicht direkt gelesen | Suchauszug |
+
+## Befunde
+
+**G8-01** · Recht / Haftung, Quellenzeile · Der Link «Merkblatt Kanton Luzern, Haftung im Schulalltag» (sport-beruf.lu.ch) ist tot, die Domain löst nicht mehr auf. Zudem ist dieses Merkblatt die Fassung der Dienststelle Berufs- und Weiterbildung für Berufsfachschulen (Träger dort der Kanton). Für die Volksschule gibt es ein eigenes Merkblatt der Dienststelle Volksschulbildung (volksschulbildung.lu.ch, Schulrecht > Unterricht & Recht > Merkblätter, Datei «merkblatt_haftung_schulalltag.pdf»). · Vorschlag: Link auf das Volksschul-Merkblatt ersetzen, Linktext «Merkblatt Luzern, Haftung im Schulalltag (Volksschule)». Vor dem Einsetzen Inhalt prüfen. · **hoch**
+
+**G8-02** · Recht / Haftung, Absatz 1 und Karte «Schulträger» · «Für Schäden aus dem Unterricht haftet in der Regel der öffentliche Schulträger» ist zu absolut. Die Staatshaftung greift nur für Schäden, die Angestellte in Ausübung ihrer Tätigkeit widerrechtlich verursachen. Ein Unfall ohne Pflichtverletzung löst keine Haftung aus. Die Karte «haftet gegenüber Geschädigten» ist noch absoluter. Der Rückgriff ist richtig wiedergegeben (bfu: «bei grober Pflichtverletzung», GAL Aargau § 34 Abs. 1: «absichtlich oder grobfahrlässig», Luzerner Haftungsgesetz § 11 laut Merkblatt LU). · Vorschlag Absatz 1: «Verursacht eine Lehrperson im Unterricht widerrechtlich einen Schaden, etwa weil sie ihre Sorgfaltspflicht verletzt, haftet dafür in der Regel der öffentliche Schulträger nach dem kantonalen Haftungsrecht. Geschädigte richten ihre Forderungen an ihn, nicht an die Lehrperson. Auf die Lehrperson Rückgriff nehmen, also sich den bezahlten Schaden von ihr zurückholen, kann er in den meisten Kantonen nur bei Vorsatz oder grober Fahrlässigkeit, z. B. Aargau GAL § 34.» Karte: «… haftet in der Regel gegenüber Geschädigten, siehe Haftung.» Für Privatschulen gilt das nicht. Ein Halbsatz «An Privatschulen gilt das Obligationenrecht» könnte das klären, falls die Seite auch dort gelesen wird. · **hoch**
+
+**G8-03** · Recht / Sorgfalts- und Obhutspflicht · BGE 122 IV 303 betrifft eine Bergwanderung im Klassenlager (Schüler tödlich auf einem Schneefeld verunglückt), keinen Fachraum. Ohne diese Angabe meinen Studierende, es gehe um einen Maschinenunfall. Zudem hat das Bundesgericht nicht verurteilt, sondern den Freispruch aufgehoben und zurückgewiesen. · Vorschlag: «Gute Vorbereitung allein genügt nicht, so das Bundesgericht 1996 zu einer Bergwanderung im Klassenlager, bei der ein Schüler tödlich verunglückte (BGE 122 IV 303). Der Grundsatz gilt auch im Fachraum.» Der letzte Satz ist eine Übertragung dieser Seite, eventuell als «Hinweis dieser Seite» markieren. · **mittel**
+
+**G8-04** · Recht / Haftung, fehlende Ebene · Die Seite sagt nicht, wer bei einem Unfall einer Schülerin oder eines Schülers zuerst zahlt. Schülerinnen und Schüler sind nicht nach UVG versichert, Heilungskosten trägt die obligatorische Krankenversicherung mit Unfalldeckung. Die Haftung des Schulträgers kommt erst bei einer Pflichtverletzung dazu. Ohne diesen Satz wirkt «haftet der Schulträger» wie eine Versicherung. · Vorschlag, als erster Satz unter Haftung: «Unfälle von Schülerinnen und Schülern deckt in erster Linie ihre Krankenversicherung, sie sind nicht nach UVG versichert.» Quelle wäre noch zu belegen, z. B. mit dem Luzerner Volksschul-Merkblatt (G8-01). · **mittel**
+
+**G8-05** · Recht / Pflichten und Empfehlungen, Zeile «Weiterbildung zu Maschinen» · «nach Vorgabe des Kantons, sonst Empfehlung» unterschätzt die Pflicht. VUV Art. 8 Abs. 1: Der Arbeitgeber darf «Arbeiten mit besonderen Gefahren nur Arbeitnehmern übertragen, die dafür entsprechend ausgebildet sind». Wer als Lehrperson Maschinen der Kategorie C bedient, braucht also die Ausbildung, und der Arbeitgeber muss sie sicherstellen. Offen ist, ob Formatkreissäge, Abricht- und Dickenhobel im Sinne der VUV als «besondere Gefahren» gelten (Suva-Listen sind nicht abschliessend). · Vorschlag: Verbindlichkeit «Pflicht des Arbeitgebers, wenn Lehrpersonen gefährliche Maschinen bedienen (VUV Art. 6, 8), Umfang nach Vorgabe des Kantons», Rhythmus «vor dem ersten Einsatz, danach bei Bedarf». Als Frage an Lukas, ob er das so weit tragen will. · **mittel**
+
+**G8-06** · Recht / Pflichten und Empfehlungen, Lücke · Die Mitwirkungspflicht der Lehrpersonen fehlt. Das Merkblatt Bern, Abschnitt 1, nennt sie ausdrücklich: «Die Lehrpersonen sind im Gegenzug dazu verpflichtet, Mitverantwortung bei der Ausführung der Massnahmen zu übernehmen (Art. 6 Abs. 3 ArG).» Dazu VUV Art. 11 (Weisungen befolgen, Schutzausrüstung benützen). Die Seite wirkt sonst, als liege alles beim Arbeitgeber. · Vorschlag, in «Warum Gesetze offen formuliert sind» nach «Diese Gesetze schützen die Lehrpersonen als Arbeitnehmende.»: «Sie verpflichten sie auch, bei den Schutzmassnahmen mitzuwirken und Weisungen zu befolgen (ArG Art. 6 Abs. 3, VUV Art. 11).» · **mittel**
+
+**G8-07** · Recht / Warum Gesetze offen formuliert sind · «nach dem Arbeitsgesetz (ArG Art. 6), das nach Art. 3a auch an öffentlichen Schulen anwendbar ist» klingt, als gelte das ganze ArG. Nach Art. 3a gelten für Verwaltungen von Kantonen und Gemeinden nur die Bestimmungen über den Gesundheitsschutz (Art. 6, 35, 36a), nicht etwa die Arbeits- und Ruhezeiten. · Vorschlag: «Für den Gesundheitsschutz gilt dasselbe nach dem Arbeitsgesetz (ArG Art. 6). Diese Bestimmungen gelten nach Art. 3a auch für Kantone und Gemeinden, also auch an öffentlichen Schulen.» · **mittel**
+
+**G8-08** · Recht / Sorgfalts- und Obhutspflicht · «Bern LAV Art. 52 bis 60» übernimmt die Angabe des Merkblatts Bern. Die Verantwortung für die anvertrauten Schülerinnen und Schüler steht aber nur in Art. 52. Art. 53 bis 60 regeln Unterrichten, Erziehen, Beraten, Weiterbildung und den Anteil an der Jahresarbeitszeit. Eine Juristin würde «52 bis 60» als unscharfen Beleg lesen. · Vorschlag: «z. B. Bern LAV Art. 52, Aargau GAL § 25, Luzern VBG § 24.» · **klein**
+
+**G8-09** · Recht / Haftung, Absatz 2 · «schon bei einfacher Fahrlässigkeit strafbar» vermischt zwei Begriffe: Das Strafrecht kennt keine Stufen einfacher und grober Fahrlässigkeit (StGB Art. 12 Abs. 3), «einfach» bezieht sich bei Art. 125 auf die Schwere der Verletzung. Zudem steht die Verfolgung von Amtes wegen bei schwerer Körperverletzung in Abs. 2, nicht Abs. 1. · Vorschlag: «Fahrlässige Tötung und fahrlässige Körperverletzung sind strafbar, eine grobe Fahrlässigkeit braucht es dafür nicht (Strafgesetzbuch, StGB Art. 12 Abs. 3, 117, 125). Eine einfache Körperverletzung wird nur auf Antrag verfolgt, eine schwere von Amtes wegen (StGB Art. 125 Abs. 1 und 2).» · **klein**
+
+**G8-10** · Recht / Gesundheitsschutz bei Mutterschaft · Die Gesetz-Marke nennt «ArG Art. 35, SR 822.111.52», die Tabelle «ArG Art. 35, ArGV 1 Art. 63». Die Pflicht zur vorsorglichen Risikobeurteilung steht in ArGV 1 Art. 63, «erst dann zulässig» in ArGV 1 Art. 62 Abs. 3, die Stoffliste in Art. 13 der Mutterschutzverordnung. · Vorschlag Gesetz-Marke: «Gesetz: ArG Art. 35, ArGV 1 Art. 62 und 63, Mutterschutzverordnung Art. 13 (SR 822.111.52)». Die H-Satz-Liste entspricht der EU-Liste, die Schweizer Fassung konnte ich nicht direkt lesen, bitte einmal an fedlex prüfen. · **klein**
+
+**G8-11** · Recht / Pflichten und Empfehlungen, Zeile Chemikalien-Ansprechperson · ChemV Art. 59 Abs. 1 verlangt, die Ansprechperson «den kantonalen Vollzugsbehörden mit[zu]teilen», ohne Einschränkung. Dass Schulen sie nur «auf Anfrage» melden, regelt erst die EDI-Verordnung über die Chemikalien-Ansprechperson (SR 813.113.11), so auch die Erläuterung des Kantons Zürich. · Vorschlag: «Pflicht (ChemG Art. 25 Abs. 2, Meldung nach ChemV Art. 59 und Verordnung des EDI über die Chemikalien-Ansprechperson)». · **klein**
+
+**G8-12** · Recht / Sorgfalts- und Obhutspflicht, Punkt 1 · «Sie ergibt sich aus Strafrecht, kantonalem Schulrecht, …» folgt der bfu, ist juristisch aber schief. Das Strafrecht ist nicht Quelle der Pflicht, es knüpft an die Garantenstellung an, die aus Gesetz, Vertrag oder tatsächlicher Übernahme entsteht (StGB Art. 11 Abs. 2). · Vorschlag: «Sie ergibt sich aus dem kantonalen Schulrecht, dem Arbeitsverhältnis und der tatsächlich übernommenen Aufsicht, z. B. … Wer sie verletzt, kann auch strafrechtlich verantwortlich werden, siehe Haftung.» · **klein**
+
+**G8-13** · Recht / Haftung, «disziplinarische Massnahmen nach Personalrecht, etwa ein Verweis» · Wortlaut der bfu. Mehrere Kantone haben das Disziplinarrecht für Staatspersonal durch personalrechtliche Massnahmen ersetzt (Verwarnung, Kündigung). Ob das für die Volksschul-Lehrpersonen in BE, AG, LU gilt, habe ich nicht geprüft. · Frage: Soll es neutraler heissen «Dazu können personalrechtliche Massnahmen kommen, etwa eine Verwarnung.»? · **klein**
+
+**G8-14** · Recht / Pflichten und Empfehlungen, Zeile EKAS 6508 · Die EKAS-Richtlinie ist kein Gesetz. Pflicht ist der Beizug von Spezialistinnen und Spezialisten der Arbeitssicherheit nach VUV Art. 11a, die Richtlinie konkretisiert sie. Die Zeile liest sich, als sei die Richtlinie selbst Pflicht. · Vorschlag Aufgabe: «Arbeitssicherheit organisieren, etwa über eine Branchenlösung nach der EKAS-Richtlinie 6508», Verbindlichkeit unverändert. · **klein**
+
+**G8-15** · Kantone / Bern · Beim Merkblatt fehlt das Jahr, die Abkürzung AKVB ist nicht aufgelöst. Am Dokument steht die Geschäftsnummer «2019.ERZ.6383». · Vorschlag: «… Bildungs- und Kulturdirektion, Amt für Kindergarten, Volksschule und Beratung (AKVB), 2019». Das Jahr nur übernehmen, wenn Lukas die Nummer als Jahresangabe gelten lässt. · **klein**
+
+**G8-16** · Kantone / Einleitung · «beim Volksschulamt» passt für Zürich, andere Kantone sagen Amt für Kindergarten, Volksschule und Beratung (BE), Dienststelle Volksschulbildung (LU), Departement Bildung, Kultur und Sport (AG). · Vorschlag: «Im Zweifel bei der kantonalen Volksschulverwaltung oder der Fachberatung TTG des Kantons nachfragen.» · **klein**
+
+**G8-17** · Kantone / Kurse · Der Link PH FHNW führt auf einen einzelnen Kurs «Umgang mit Holzbearbeitungsmaschinen» (Zyklus 2 und 3). Aargau finanziert ihn, Solothurn zusammen mit der Gemeinde. «für Lehrpersonen aus den Kantonen Aargau und Solothurn finanziert» stimmt im Kern. · Vorschlag: «… die PH FHNW mit dem Kurs «Umgang mit Holzbearbeitungsmaschinen» (für Lehrpersonen aus den Kantonen Aargau und Solothurn bezahlt der Kanton bzw. Kanton und Gemeinde) …». · **klein**
+
+## Nicht prüfbar
+- Aargau Schulportal (Zertifikatsfehler), Zug-Präsentation und Zürcher Maschinenliste (über 10 MB), Inhalt Gutachten Geiser, Lehrplan 21 Bern Kapitel 8.1, NIV-Anhang direkt auf fedlex.
+- Wortwahl im Bereich ist durchgehend schweizerisch (Arbeitnehmende, Pflichtenheft, Hausdienst, Evakuationsplan, Netzbetreiberin, Rückgriff). Kein Befund dazu.

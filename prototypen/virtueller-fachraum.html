@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Virtueller Fachraum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Skizze: Grundriss links (bleibt stehen), Zone rechts. Jede Regel steht genau einmal, sonst nur Verweis-Chips. */
+:root{
+  --bg:#fbfbf9; --fg:#18191a; --muted:#5d6166; --line:#d9dad6; --tint:#f0f1ed; --paper:#ffffff;
+  --pa:#3dbfa3; --pb:#f7e57e; --pc:#f08576;
+  --a-soft:#d8f1ea; --b-soft:#fbf3c4; --c-soft:#fbdcd7; --sel:#18191a; --dim:.28;
+  --font:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --cond:"IBM Plex Sans Condensed","Arial Narrow",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141514; --fg:#eeeeea; --muted:#a6aaa6; --line:#3b3e3b; --tint:#1f211f; --paper:#1a1c1a;
+  --a-soft:#173a32; --b-soft:#3a3519; --c-soft:#3f2420; --sel:#eeeeea; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141514; --fg:#eeeeea; --muted:#a6aaa6; --line:#3b3e3b; --tint:#1f211f; --paper:#1a1c1a;
+  --a-soft:#173a32; --b-soft:#3a3519; --c-soft:#3f2420; --sel:#eeeeea; color-scheme:dark}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:1rem;line-height:1.55;margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:1.5rem 4rem}
+.wrap{max-width:76rem;margin:0 auto}
+h1,h2,h3{font-family:var(--cond);text-wrap:balance;line-height:1.15;margin:0}
+h1{font-size:clamp(1.7rem,3.5vw,2.3rem)}
+h2{font-size:1.5rem}
+h3{font-size:1rem;letter-spacing:.02em}
+p{margin:.45rem 0}
+a{color:inherit}
+.kicker{font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lead{max-width:64ch}
+.skizze{display:inline-block;font-family:var(--mono);font-size:.72rem;border:1px dashed var(--fg);padding:0 .4rem;margin-left:.4rem;vertical-align:middle}
+/* Steuerung */
+.steuer{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:center;margin:1rem 0 .8rem}
+.seg{display:inline-flex;border:1.5px solid var(--fg);flex-wrap:wrap}
+.seg button{font:600 .82rem var(--font);background:transparent;color:var(--fg);border:0;border-right:1px solid var(--line);padding:.35rem .65rem;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.btn{font:600 .85rem var(--font);background:transparent;color:var(--fg);border:1.5px solid var(--fg);padding:.35rem .75rem;cursor:pointer}
+.btn:hover,.seg button:hover{outline:2px solid var(--pa);outline-offset:-2px}
+.lbl{font-family:var(--mono);font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+/* Layout */
+.buehne{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:1.6rem;align-items:start}
+.plan{position:sticky;top:max(.8rem,env(safe-area-inset-top,0px));background:var(--paper);border:1px solid var(--line);padding:.6rem}
+.plan svg{width:100%;height:auto;display:block}
+.plan figcaption{font-size:.78rem;color:var(--muted);margin-top:.3rem}
+/* SVG */
+.wand{fill:none;stroke:var(--fg);stroke-width:3}
+.zone rect.f{stroke:var(--fg);stroke-width:1;transition:opacity .2s}
+.zone{cursor:pointer;outline:none}
+.zone text{pointer-events:none}
+.z-a{fill:var(--a-soft)} .z-b{fill:var(--b-soft)} .z-c{fill:var(--c-soft)} .z-n{fill:var(--tint)}
+.zone .ring{fill:none;stroke:transparent;stroke-width:3.5}
+.zone:hover .ring,.zone:focus-visible .ring{stroke:var(--pa)}
+.zone.aktiv .ring{stroke:var(--sel);stroke-width:4}
+.zone.ziel .ring{stroke:var(--fg);stroke-dasharray:5 4;stroke-width:2}
+.zone.leer{opacity:var(--dim)}
+.zn{fill:var(--fg);font:700 12px var(--cond)}
+.zs{fill:var(--muted);font:400 9.5px var(--font)}
+.zz{fill:var(--fg);font:700 10px var(--mono)}
+.moebel{fill:var(--fg);opacity:.16}
+.glas{stroke:var(--fg);stroke-width:2;stroke-dasharray:6 4;fill:none}
+.verw{stroke:var(--fg);stroke-width:1.6;stroke-dasharray:4 4;fill:none;pointer-events:none}
+.pa{fill:var(--pa)} .pb{fill:var(--pb);stroke:var(--fg);stroke-width:.8} .pc{fill:var(--pc)}
+/* Zonen-Text */
+.zone-kopf{display:flex;gap:.7rem;align-items:baseline;flex-wrap:wrap;border-bottom:2px solid var(--fg);padding-bottom:.4rem}
+.zone-nr{font-family:var(--mono);font-size:.82rem;border:1px solid var(--fg);padding:.05rem .4rem}
+.zone-kurz{color:var(--muted);margin:.5rem 0 1rem}
+.regel{border-bottom:1px solid var(--line);padding:.6rem 0 .7rem}
+.regel[hidden]{display:none}
+.regel p{margin:0}
+.regel .warum{display:block;font-size:.9rem;color:var(--muted);margin-top:.25rem}
+.regel .warum b{color:var(--fg);font-weight:600}
+.meta{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.35rem;align-items:center}
+.q{font-size:.78rem;color:var(--muted)}
+.zeit{font-family:var(--mono);font-size:.7rem;border:1px solid var(--muted);padding:0 .35rem;color:var(--muted)}
+.vp{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--pc);border:1.5px solid var(--fg);vertical-align:-1px;margin-right:.3rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 1rem}
+.chip{font:600 .8rem var(--font);background:transparent;color:var(--fg);border:1px solid var(--muted);border-radius:999px;padding:.15rem .65rem;cursor:pointer}
+.chip:hover,.chip:focus-visible{border-color:var(--fg);background:var(--tint)}
+.themen{font-size:.88rem;background:var(--tint);padding:.6rem .8rem;margin:1rem 0}
+.themen b{font-family:var(--cond)}
+.leer-hinweis{font-size:.9rem;color:var(--muted);font-style:italic}
+details.ablauf{border:1px solid var(--line);padding:.4rem .7rem;margin:.6rem 0}
+details.ablauf summary{cursor:pointer;font-weight:600}
+table.nr{border-collapse:collapse;font-size:.92rem;margin:.4rem 0}
+table.nr td{padding:.15rem .9rem .15rem 0;border-bottom:1px solid var(--line)}
+table.nr td:last-child{font-family:var(--mono);font-weight:600}
+.schubladen{list-style:none;padding:0;margin:.4rem 0;display:grid;gap:.4rem}
+.schubladen li{border:1px solid var(--line);padding:.45rem .7rem;font-size:.92rem}
+.schubladen b{font-family:var(--cond);display:block}
+.liste{display:none}
+.notiz{border:2px solid var(--fg);padding:.9rem 1.1rem;margin-top:2.5rem;max-width:66ch;font-size:.94rem}
+.notiz ul{margin:.3rem 0;padding-left:1.1rem}
+footer{margin-top:2rem;font-size:.8rem;color:var(--muted);max-width:66ch}
+@media (max-width:56rem){
+  .buehne{grid-template-columns:minmax(0,1fr)}
+  .plan{position:static}
+  .liste{display:flex;flex-wrap:wrap;gap:.35rem;margin:.6rem 0 0}
+}
+@media (prefers-reduced-motion:reduce){ .zone rect.f{transition:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="kicker">Sicherheit im TTG · Strukturvorschlag 1 · <a href="struktur-vorschlaege.html">zurück zum Vergleich</a></p>
+<h1>Virtueller Fachraum <span class="skizze">Skizze</span></h1>
+<p class="lead">Jede Regel steht an dem Ort im Raum, an dem sie gilt, und nur dort. Andere Orte zeigen einen Verweis. Eine Zone wählen, um ihre Regeln zu sehen. Die Regeln sind aus der heutigen Seite übernommen, die Auswahl ist unvollständig.</p>
+
+<div class="steuer">
+<span class="lbl" id="wann-l">Wann</span>
+<div class="seg" role="group" aria-labelledby="wann-l" id="wann">
+<button type="button" data-z="alle" aria-pressed="true">Alles</button>
+<button type="button" data-z="einrichten">Einrichten</button>
+<button type="button" data-z="betreiben">Betreiben</button>
+<button type="button" data-z="planen">Planen</button>
+<button type="button" data-z="lektion">In der Lektion</button>
+</div>
+<button type="button" class="btn" id="rundgang">Rundgang starten →</button>
+</div>
+
+<div class="buehne">
+<figure class="plan" style="margin:0">
+<svg viewBox="0 0 600 440" role="group" aria-label="Grundriss des Fachraums mit wählbaren Zonen">
+<defs>
+<filter id="hand" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="2.2"/></filter>
+</defs>
+<g id="zonen"></g>
+<g filter="url(#hand)">
+<rect class="wand" x="20" y="20" width="560" height="380"/>
+<line class="glas" x1="370" y1="20" x2="370" y2="190"/>
+<line class="glas" x1="370" y1="190" x2="580" y2="190"/>
+<!-- Tür und Fenster -->
+<line x1="150" y1="400" x2="200" y2="400" stroke="var(--bg)" stroke-width="5"/>
+<path d="M150 400 A 50 50 0 0 1 200 350" fill="none" stroke="var(--fg)" stroke-width="1.3"/>
+<g stroke="var(--fg)" stroke-width="1.2"><line x1="40" y1="16" x2="160" y2="16"/><line x1="200" y1="16" x2="340" y2="16"/><line x1="400" y1="16" x2="560" y2="16"/></g>
+</g>
+<text x="40" y="12" class="zs">Fenster</text>
+<text x="205" y="432" class="zs">Tür, Fluchtweg</text>
+<g id="verweise"></g>
+</svg>
+<figcaption>Gestrichelt: Glaswand zum Maschinenraum. Punkte im Maschinenraum: Maschinen in den Plakatfarben A, B, C (Platzhalter). Bei gewählter Zone zeigen gestrichelte Linien, wohin ihre Verweise führen.</figcaption>
+<div class="liste" id="liste" aria-label="Zonen als Liste"></div>
+</figure>
+
+<div id="ansicht" aria-live="polite"></div>
+</div>
+
+<div class="notiz">
+<p class="kicker">Was die Skizze zeigen soll</p>
+<ul>
+<li><b>Keine Doppelung:</b> «Nichts Brennbares in der Nähe» steht nur am Heissplatz, die Absaugung nur im Maschinenraum, die Schutzausrüstung nur am Eingang. Alle anderen Stellen zeigen einen Chip.</li>
+<li><b>Zeit als zweite Achse:</b> Jede Regel trägt einen Zeitpunkt. Der Schalter «Wann» blendet Zonen ohne passende Regeln ab. So liesse sich der Fachraum mit dem Zeithorizont kombinieren, ohne etwas doppelt zu schreiben.</li>
+<li><b>Was keinen Ort hat,</b> liegt im Pult der Lehrperson: Unterricht, Recht, Zuständigkeiten, Lehrplan, Quellen.</li>
+<li><b>Offen:</b> Primarschulen ohne Maschinenraum, Textilräume, und ob die Verfahrensregister ganz wegfallen oder als zweiter Zugang bleiben.</li>
+</ul>
+</div>
+<footer>Regeltexte gekürzt aus inhalt.html, Version 52. Achtung Skizze: Einige «Warum»-Sätze und Seitenzahlen sind für die Skizze vereinfacht oder ergänzt und nicht gegen die Quellen geprüft. Zuordnung der Zeitpunkte und der Zonen ist ein Vorschlag.</footer>
+</div>
+
+<script>
+// Zonen: Geometrie, Farbe, Regeln (Heimat), Verweise. z = Zeitpunkt der Regel
+var ZONEN = [
+ {id:'eingang', nr:1, name:'Eingang', kurz:'Fachraumordnung und Schutzausrüstung, bevor die Arbeit beginnt.', x:110,y:320,w:140,h:80, f:'z-n',
+  regeln:[
+   {t:'Kein Essen und Trinken im Fachraum. Hände waschen vor den Pausen und am Ende des Unterrichts.', w:'So wird kein Staub über Hände und Nahrungsmittel aufgenommen, und Verwechslungen sind ausgeschlossen.', q:'chemsuisse, S. V, 6', z:'lektion'},
+   {t:'Arbeitskleidung tragen und beim Verlassen ablegen. An drehenden Maschinen enganliegende Kleidung, lange Haare zusammenbinden, Schmuck ablegen. Geschlossene Schuhe, auch für Lehrpersonen.', w:'Drehende Teile erfassen lose Kleidung, Haare und Schmuck.', q:'bfu 2.524, S. 16 · Merkblatt Bern, Abschnitt 5', z:'lektion'},
+   {t:'Schutzbrille bei Gefahr für die Augen, an der Bohrmaschine immer. Gehörschutz in passenden Grössen griffbereit.', w:'Späne, Spritzer und Lärm treffen sofort. Ab 85 dB(A) gilt nach Suva eine Tragepflicht.', q:'chemsuisse, S. 41 · Suva, Gehörschutz', z:'lektion'},
+   {t:'Atemschutz erst, wenn Absaugen und Lüften nicht reichen. Bei starker Staubbildung FFP2, bei Harthölzern und Glasfaserkunststoffen FFP3. FFP1 ist nutzlos.', w:'Schutzausrüstung ist die letzte Stufe nach Ersatz, Technik und Organisation.', q:'bfu 2.524, S. 18 · chemsuisse, S. 6, 7', z:'lektion'},
+   {t:'Gekennzeichnete, freie Fluchtwege. Notausgänge lassen sich von innen jederzeit ohne Schlüssel öffnen.', w:'Im Brandfall muss die Klasse ohne Umweg hinaus.', q:'chemsuisse, S. 42-47', z:'einrichten'}
+  ],
+  themen:'Schutzmassnahmen (STOP und Schutzfigur), Kleidung, Fachraumordnung',
+  chips:[['erstehilfe','Notfallblatt'],['pult','Drei Fragen vor jeder Arbeit']]},
+
+ {id:'werkbank', nr:2, name:'Werkbänke', kurz:'Handarbeit, kleine Handmaschinen und Heissgeräte.', x:110,y:130,w:250,h:180, f:'z-a',
+  regeln:[
+   {t:'Bei Handarbeit reicht in der Regel die natürliche Lüftung: Fenster gekippt, nach dem Aufräumen querlüften. Handmaschinen mindestens mit Staubbeutel oder Staubsauger.', w:'Je weniger Staub eingeatmet wird, desto kleiner das Risiko.', q:'chemsuisse, S. 6, 7', z:'lektion'},
+   {t:'Bei stark staubenden Verfahren Fichte, Tanne oder Kiefer statt Eiche, Buche oder Tropenholz prüfen.', w:'Feinstaub von Eichen- und Buchenholz ist krebserzeugend.', q:'chemsuisse, S. 6', z:'planen'},
+   {t:'Nie mit Pressluft abblasen. Staubsaugen statt wischen, Schleifpapier nicht ausklopfen.', w:'Staub soll möglichst wenig aufgewirbelt und verschleppt werden.', q:'chemsuisse, S. V, 6, 15', z:'lektion'},
+   {t:'Heissleimpistole, Lötkolben, Heissluftföhn und Bügeleisen nur mit Ständer und feuerfester Unterlage.', w:'Düse, Spitze und Sohle verbrennen die Haut. Abgelegte Geräte schmelzen Kabel an.', q:'bfu 4.323, S. 19', z:'lektion'}
+  ],
+  themen:'Staub (Teil Handarbeit), Kleben, Heissgeräte, Holz und Kunststoff von Hand',
+  chips:[['maschinen','Quellenabsaugung'],['eingang','Atemschutz'],['schrank','Stoffe auswählen']]},
+
+ {id:'maschinen', nr:3, name:'Maschinenraum', kurz:'Plakat A, B, C mit den Maschinenkarten. Hier wohnt die Absaugung.', x:370,y:20,w:210,h:170, f:'z-c',
+  regeln:[
+   {t:'Gruppe A nach Einführung selbstständig. Gruppe B nur unter Aufsicht: Die Lehrperson ist im Raum, bei abgetrenntem Maschinenraum mit Sichtkontakt. Gruppe C nicht durch Schülerinnen und Schüler.', w:'Die bfu stuft Maschinen nach Gefahr ein und führt sie gestaffelt über die drei Zyklen ein.', q:'bfu-Plakat 4.301 · bfu 4.302, S. 2', z:'planen'},
+   {t:'Schleifmaschinen und grosse Holzbearbeitungsmaschinen mit Quellenabsaugung direkt am Entstehungsort.', w:'Was am Entstehungsort abgesaugt wird, gelangt nicht in die Atemluft. Die bfu verlangt eine wirksame Absaugvorrichtung an allen stauberzeugenden Maschinen.', q:'bfu 2.524, S. 14', z:'einrichten', heimat:'Absaugung'},
+   {t:'Keine Handschuhe an drehenden Maschinen.', w:'Bohrer und Spindeln erfassen sie.', q:'Suva 67036, Frage 14', z:'lektion', vb:1},
+   {t:'Schutzeinrichtungen nicht entfernen, abdecken oder verändern.', w:'Manipulierte Schutzeinrichtungen führen oft zu schweren Unfällen, etwa wenn reflexartig in die laufende Maschine gegriffen wird.', q:'Suva 67146', z:'betreiben', vb:1},
+   {t:'Stromversorgung über einen zentralen Schlüsselschalter, allenfalls mit Not-Aus.', w:'So gibt die Lehrperson die Maschinen frei und stoppt sie zentral.', q:'bfu 2.524, S. 15', z:'einrichten'}
+  ],
+  themen:'Maschinenkarten, Ständerbohrmaschine, Lärm, Maschinen warten und prüfen',
+  chips:[['pult','Maschinen einführen'],['heiss','Funken und Holzstaub']]},
+
+ {id:'heiss', nr:4, name:'Heiss- und Funkenplatz', kurz:'Löten, Schweissen, Trennen, Giessen.', x:370,y:190,w:210,h:110, f:'z-c', lab:['Heiss- und Funkenplatz'],
+  regeln:[
+   {t:'Brennbare Flüssigkeiten und Materialien aus der Umgebung entfernen, Löschgeräte bereithalten, nach der Arbeit auf Schwelbrände kontrollieren.', w:'Funken und Schlacke fliegen weit und können unbemerkt weiterglimmen.', q:'chemsuisse, S. 37 · Suva 84012', z:'lektion', heimat:'Nichts Brennbares'},
+   {t:'Werden Holz und Metall im selben Raum bearbeitet: Staubsauger und Absaugung abhängen, sobald Metall bearbeitet wird.', w:'Funken können den Holzstaub im Beutel entzünden.', q:'chemsuisse, S. 6', z:'lektion'},
+   {t:'Keine bleihaltigen Weichlote. Erkennbar an «Pb», z. B. L-Sn60Pb40.', w:'Blei ist giftig und fortpflanzungsgefährdend.', q:'chemsuisse, S. 11 · ChemRRV Anhang 1.10', z:'planen', vb:1},
+   {t:'Gasschweissen: Schweisserschutzbrille Stufe 4 bis 7. Lichtbogenschweissen: immer Schild oder Helm Stufe 8 bis 14. Umstehende mit Vorhang schützen.', w:'Die Strahlung schädigt die Augen, auch bei kurzem Hinsehen.', q:'Suva 67104, Fragen 8, 17 · Suva 67103, Frage 12', z:'lektion'}
+  ],
+  themen:'Weichlöten, Hartlöten, Schweissen, Metall thermisch trennen, Giessen, Thermoschneiden',
+  chips:[['gas','Gasflaschen'],['maschinen','Quellenabsaugung'],['erstehilfe','Löschdecke, Verbrennung'],['eingang','Augenschutz']]},
+
+ {id:'gas', nr:10, name:'Gasflaschen', kurz:'Gasanlagen für Hartlöten und Schweissen.', x:480,y:300,w:100,h:100, f:'z-n', lab:['Gasflaschen'],
+  regeln:[
+   {t:'Keine improvisierten Anschlüsse oder Übergangsstücke.', w:'Nur ein passender, dichter Anschluss verhindert Gasaustritt, Brand oder Explosion.', q:'Suva 67068, Fragen 2, 11', z:'betreiben', vb:1},
+   {t:'Flaschen mit einer Kette sichern, nur mit Schutzkappe und Transportwagen bewegen.', w:'Ein abgebrochenes Ventil macht die Flasche zum Geschoss.', q:'chemsuisse, S. 9, 10', z:'betreiben'},
+   {t:'Armaturen für Sauerstoff öl- und fettfrei halten. Acetylenflaschen stehend verwenden.', w:'Öl und Fett können in reinem Sauerstoff in Brand geraten. Liegend tritt flüssiger Inhalt aus.', q:'Suva 66122, S. 6, 7, 9, 11', z:'lektion'},
+   {t:'Gasanlagen nehmen nur geschulte Lehrpersonen in und ausser Betrieb.', w:'Fehler beim Öffnen und Schliessen führen zu Flammenrückschlag oder Gasaustritt.', q:'bfu 2.524, S. 16', z:'lektion'}
+  ],
+  themen:'Gasflaschen und Gasanlagen, Flammenrückschlagventil',
+  chips:[['schrank','Gaskartuschen lagern'],['heiss','Nichts Brennbares']]},
+
+ {id:'abfall', nr:8, name:'Abfall', kurz:'Was nicht in den Kehricht darf.', x:370,y:300,w:110,h:100, f:'z-n',
+  regeln:[
+   {t:'Mit Leinöl getränkte Lappen nie in den Kehricht. 48 Stunden aufhängen oder ausbreiten, oder im zugeknoteten Plastikbeutel entsorgen.', w:'Leinöl wird beim Aushärten heiss, der Lappen kann sich im Abfalleimer selbst entzünden.', q:'chemsuisse, S. 7', z:'lektion', vb:1},
+   {t:'Gefährliche Chemikalien nie in den Kehricht oder ins Abwasser.', w:'Schadstoffe wie Schwermetalle dürfen nicht in die Kanalisation gelangen.', q:'chemsuisse, S. 48, 49', z:'betreiben', vb:1},
+   {t:'Alte Restbestände nicht mischen und in ihrer Verpackung lassen.', w:'Die Stoffe können miteinander reagieren.', q:'chemsuisse, S. 48, 49', z:'betreiben'}
+  ],
+  themen:'Entsorgung, Leinöl, Sonderabfall',
+  chips:[['schrank','Periodisch aussortieren'],['nass','Tonabscheider']]},
+
+ {id:'schrank', nr:7, name:'Chemikalienschrank', kurz:'Stoffe auswählen, lagern, Liste führen.', x:180,y:20,w:180,h:50, f:'z-n',
+  regeln:[
+   {t:'Was abgeschlossen werden muss, entscheidet die Gefahrenkennzeichnung. Verbrauchsmaterial wie Schrauben, Farben und Schleifpapier steht sichtbar und griffbereit.', w:'Die bfu will, dass Lernende selbstständig zum Material greifen können.', q:'bfu 2.524, S. 13', z:'betreiben', heimat:'sichtbar und griffbereit'},
+   {t:'Gekennzeichnete Chemikalien in einem feuerfesten, abschliessbaren Schrank, in Wannen, getrennt von Lebensmitteln. Höchstens 100 Liter brennbare Flüssigkeiten pro Fachraum.', w:'Ein Brand oder ein Leck bleibt so begrenzt.', q:'chemsuisse, S. 35-38', z:'einrichten'},
+   {t:'Nur Originalgebinde, nie Getränkeflaschen oder Konfitürengläser.', w:'So besteht keine Verwechslungsgefahr mit Lebensmitteln.', q:'chemsuisse, S. 36', z:'betreiben', vb:1},
+   {t:'Konzentrierte oxidierende Säuren weder lagern noch verwenden.', w:'Sie sind stark ätzend, konzentrierte Salpetersäure wirkt zudem brandfördernd.', q:'chemsuisse, S. 37, 38', z:'planen', vb:1}
+  ],
+  themen:'Stoffe auswählen, GHS-Piktogramme, Sicherheitsdatenblatt, Lagerung, Chemikalienliste',
+  chips:[['abfall','Entsorgung'],['pult','Chemikalien-Ansprechperson']]},
+
+ {id:'geraete', nr:5, name:'Laser, 3D-Druck, Brennofen', kurz:'Geräte mit Emissionen, die laufen, während niemand daneben steht.', x:20,y:20,w:150,h:100, f:'z-b', lab:['Laser, 3D-Druck,','Brennofen'],
+  regeln:[
+   {t:'Schülerinnen und Schüler bedienen den Lasercutter nur unter Aufsicht einer Lehrperson. Auf dem Plakat fehlt er, massgebend ist zudem der Kanton.', w:'Bei Karton, Papier und Textilien besteht Brandgefahr, sie brauchen dauernde Beobachtung.', q:'chemsuisse, S. 18, 19', z:'lektion'},
+   {t:'Kein PVC, Teflon, Polyurethan oder Carbon lasern.', w:'Es entstehen gesundheitsgefährdende Emissionen, bei PVC zum Beispiel Salzsäure.', q:'chemsuisse, S. 16, 18', z:'planen', vb:1},
+   {t:'3D-Drucker mit geschlossenem Gehäuse, PLA statt ABS, nur unter Aufsicht.', w:'PLA gibt weniger Partikel ab als ABS.', q:'chemsuisse, S. 17', z:'einrichten'},
+   {t:'Brennofen in einem gut durchlüfteten Raum mit Entlüftung ins Freie, keine brennbaren Materialien im Raum.', w:'Beim Brand entweichen Gase aus Ton und Glasur.', q:'chemsuisse, S. 20, 21', z:'einrichten'}
+  ],
+  themen:'Lasercutten, 3D-Druck, Glasieren und Brennen',
+  chips:[['heiss','Nichts Brennbares'],['maschinen','Quellenabsaugung']]},
+
+ {id:'nass', nr:6, name:'Nass- und Spritzzone', kurz:'Farben, Lacke, Glasuren, Waschplatz.', x:20,y:130,w:80,h:100, f:'z-n', lab:['Nass- und','Spritzzone'],
+  regeln:[
+   {t:'Sprühen im Fachraum nur für kleine, punktuelle Arbeiten. Sonst in einem separaten Raum mit Spritzwand und Filter.', w:'Sprühen führt zu den höchsten Belastungen mit gefährlichen Stoffen.', q:'chemsuisse, S. 26, 27', z:'planen'},
+   {t:'Leinölhaltige Lacke nie an einer Spritzwand mit Filtermatten versprühen.', w:'Leinöl erhitzt sich beim Aushärten, an Filtermatten besteht Brandgefahr.', q:'chemsuisse, S. 7, 27', z:'lektion', vb:1},
+   {t:'Am Waschplatz einen Tonabscheider verwenden.', w:'Glasur- und Tonreste mit Schwermetallen gehören nicht ins Abwasser.', q:'chemsuisse, S. 20, 21', z:'einrichten'}
+  ],
+  themen:'Farben, Lacke, Sprühen, Lösungsmittel, Abbeizen',
+  chips:[['schrank','Stoffe auswählen'],['abfall','Leinöl-Lappen']]},
+
+ {id:'erstehilfe', nr:9, name:'Erste-Hilfe-Wand', kurz:'Im Notfall liest niemand nach. Entscheidend ist, was hier bereitliegt.', x:20,y:240,w:80,h:160, f:'z-n', lab:['Erste-Hilfe-','Wand'],
+  regeln:[
+   {t:'Telefon für den Notruf und ein Notfallblatt mit Ansprechpersonen und Nummern, gut sichtbar.', w:'Im Notfall zählt jede Minute bis zur Alarmierung.', q:'chemsuisse, S. 42', z:'einrichten'},
+   {t:'Gekennzeichneter Erste-Hilfe-Kasten. Augendusche am Wassernetz oder sterile Spülpackungen, keine nachfüllbaren Spülflaschen.', w:'Bei Spritzern ins Auge muss sofort und lange gespült werden.', q:'chemsuisse, S. 43 · bfu 2.524, S. 19', z:'einrichten'},
+   {t:'Feuerlöscher neben der Tür in 80 bis 120 cm Höhe, Löschdecke bei offenem Feuer. Universalbindemittel statt Sägemehl.', w:'Löschmittel müssen auf die vorhandenen Stoffe abgestimmt und ohne Suchen erreichbar sein.', q:'chemsuisse, S. 44', z:'einrichten'},
+   {t:'Keine Medikamente abgeben, auch keine rezeptfreien.', w:'Das Heilmittelgesetz erlaubt die Abgabe nur Fachpersonen.', q:'Kantonsapotheker Nordwestschweiz, S. 1-3', z:'lektion', vb:1}
+  ],
+  themen:'Notfälle vorbereiten, Abläufe, Notrufnummern',
+  extra:'notfall',
+  chips:[['eingang','Fluchtweg']]},
+
+ {id:'pult', nr:'P', name:'Pult der Lehrperson', kurz:'Was keinen Ort im Raum hat. Schubladen statt Regeln.', x:260,y:320,w:100,h:80, f:'z-b', lab:['Pult der','Lehrperson'],
+  regeln:[], pult:1,
+  chips:[]}
+];
+
+var SCHUBLADEN = [
+ ['Drei Fragen vor jeder Arbeit','Verfahren, Material, Situation. Der Einstieg für jede Planung.','planen'],
+ ['Sicher unterrichten','Maschinen einführen, Aufsicht, so sieht das im Unterricht aus, was festhalten.','lektion'],
+ ['Maschinen nach Zyklus','Das Plakat als Tabelle mit Filtern. Die Karten selbst hängen im Maschinenraum.','planen'],
+ ['Lehrplan 21','Sicherheit als Lerninhalt, Fachraum als Lernort.','planen'],
+ ['Recht und Haftung','Sorgfaltspflicht, Haftung, Strafrecht, Mutterschutz.','einrichten'],
+ ['Zuständigkeiten','Überblick für Schulleitungen, wer kontrolliert, Chemikalien-Ansprechperson.','einrichten'],
+ ['Kantonale Vorgaben','Was abweichen kann.','einrichten'],
+ ['Quellen und Begriffe','Alle Dokumente, GHS, H-Sätze.','alle']
+];
+
+var NUMMERN=[['Sanität','144'],['Feuerwehr','118'],['Tox Info Suisse','145'],['Polizei','117'],['Allgemeiner Notruf','112']];
+var ZEITNAME={einrichten:'Einrichten',betreiben:'Betreiben',planen:'Planen',lektion:'In der Lektion'};
+var RUNDE=['eingang','werkbank','maschinen','heiss','gas','abfall','schrank','nass','geraete','erstehilfe','pult'];
+
+var ns='http://www.w3.org/2000/svg', gZ=document.getElementById('zonen'), gV=document.getElementById('verweise');
+var ans=document.getElementById('ansicht'), wann='alle', aktiv=null;
+function el(t,a,p){var e=document.createElementNS(ns,t);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function byId(id){return ZONEN.filter(function(z){return z.id===id})[0]}
+function mitte(z){return [z.x+z.w/2,z.y+z.h/2]}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+
+// Grundriss zeichnen
+ZONEN.forEach(function(z){
+  var g=el('g',{'class':'zone','data-id':z.id,tabindex:0,role:'button','aria-label':z.name},gZ);
+  el('rect',{'class':'f '+z.f,x:z.x,y:z.y,width:z.w,height:z.h},g);
+  if(z.id==='werkbank'){[[130,150],[200,150],[270,150],[130,230],[200,230],[270,230]].forEach(function(p){el('rect',{'class':'moebel',x:p[0],y:p[1],width:58,height:28},g)})}
+  if(z.id==='maschinen'){[['pa',395,70],['pb',430,70],['pc',465,70],['pb',500,70],['pa',540,70],['pc',405,120],['pb',450,120],['pc',495,120],['pb',540,120]].forEach(function(p){el('circle',{'class':p[0],cx:p[1],cy:p[2],r:9},g)})}
+  if(z.id==='pult'){el('rect',{'class':'moebel',x:275,y:350,width:70,height:24},g)}
+  (z.lab||[z.name]).forEach(function(l,i){var t=el('text',{'class':'zn',x:z.x+8,y:z.y+18+i*14},g); t.textContent=l});
+  var n=el('text',{'class':'zz',x:z.x+z.w-8,y:z.y+z.h-8,'text-anchor':'end'},g); n.textContent=z.nr;
+  el('rect',{'class':'ring',x:z.x+2,y:z.y+2,width:z.w-4,height:z.h-4},g);
+  g.addEventListener('click',function(){zeige(z.id,true)});
+  g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();zeige(z.id,true)}});
+  // Liste für schmale Bildschirme
+  var b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=z.nr+' '+z.name; b.dataset.id=z.id;
+  b.addEventListener('click',function(){zeige(z.id,true)}); document.getElementById('liste').appendChild(b);
+});
+
+function passt(r){return wann==='alle'||r.z===wann}
+function zoneHat(z){ if(z.pult) return wann==='alle'||SCHUBLADEN.some(function(s){return s[2]===wann||s[2]==='alle'}); return z.regeln.some(passt)}
+
+function dimmen(){
+  [].forEach.call(gZ.querySelectorAll('.zone'),function(g){g.classList.toggle('leer',!zoneHat(byId(g.dataset.id)))});
+}
+
+function zeige(id,scroll){
+  aktiv=id; var z=byId(id);
+  [].forEach.call(gZ.querySelectorAll('.zone'),function(g){g.classList.toggle('aktiv',g.dataset.id===id);g.classList.remove('ziel')});
+  // Verweislinien
+  while(gV.firstChild) gV.removeChild(gV.firstChild);
+  var a=mitte(z);
+  z.chips.forEach(function(c){var t=byId(c[0]),b=mitte(t);el('line',{'class':'verw',x1:a[0],y1:a[1],x2:b[0],y2:b[1]},gV);
+    gZ.querySelector('[data-id="'+c[0]+'"]').classList.add('ziel')});
+  var h='<div class="zone-kopf"><span class="zone-nr">'+z.nr+'</span><h2 id="z-t" tabindex="-1">'+esc(z.name)+'</h2></div><p class="zone-kurz">'+esc(z.kurz)+'</p>';
+  if(z.pult){
+    h+='<ul class="schubladen">'+SCHUBLADEN.map(function(s){var weg=!(wann==='alle'||s[2]===wann||s[2]==='alle');
+      return '<li'+(weg?' hidden':'')+'><b>'+esc(s[0])+'</b>'+esc(s[1])+'</li>'}).join('')+'</ul>';
+  } else {
+    var sicht=0;
+    z.regeln.forEach(function(r){ var ok=passt(r); if(ok) sicht++;
+      h+='<div class="regel"'+(ok?'':' hidden')+'><p>'+(r.vb?'<span class="vp" role="img" aria-label="Warnpunkt"></span>':'')+esc(r.t)+
+        '<span class="warum"><b>Warum:</b> '+esc(r.w)+'</span></p><div class="meta"><span class="zeit">'+ZEITNAME[r.z]+'</span>'+
+        (r.heimat?'<span class="zeit" style="border-color:var(--fg);color:var(--fg)">Heimat: '+esc(r.heimat)+'</span>':'')+'<span class="q">'+esc(r.q)+'</span></div></div>'});
+    if(!sicht) h+='<p class="leer-hinweis">Zu «'+ZEITNAME[wann]+'» gibt es hier keine Regel. Schalter «Wann» auf «Alles» stellen.</p>';
+    if(z.extra==='notfall'){
+      h+='<details class="ablauf"><summary>Notrufnummern</summary><table class="nr">'+NUMMERN.map(function(n){return '<tr><td>'+n[0]+'</td><td>'+n[1]+'</td></tr>'}).join('')+'</table></details>'+
+         '<details class="ablauf"><summary>Abläufe: Brand, Auge, Verbrennung, Blutung, Strom</summary><p>Schauen, denken, handeln. Verbrennung: mindestens zehn Minuten mit fliessendem Wasser kühlen, nicht eiskalt. Spritzer ins Auge: bei Säuren mindestens 15, bei Laugen mindestens 20 Minuten spülen. Stromunfall: Person nicht berühren, zuerst Stecker oder Sicherung, dann 144.</p><p class="q">chemsuisse, S. 42-47 · Samariter, Was tun im Notfall · Suva, Stromschlag</p></details>';
+    }
+    h+='<div class="themen"><b>Themen der heutigen Seite, die hier einziehen:</b> '+esc(z.themen)+'</div>';
+  }
+  if(z.chips.length){
+    h+='<h3>Verweise, ohne Regeltext</h3><div class="chips">'+z.chips.map(function(c){return '<button type="button" class="chip" data-ziel="'+c[0]+'">→ '+esc(c[1])+' <span class="q">('+esc(byId(c[0]).name)+')</span></button>'}).join('')+'</div>';
+  }
+  var i=RUNDE.indexOf(id);
+  if(i>-1&&i<RUNDE.length-1) h+='<button type="button" class="btn" data-ziel="'+RUNDE[i+1]+'">Weiter im Rundgang: '+esc(byId(RUNDE[i+1]).name)+' →</button>';
+  ans.innerHTML=h;
+  [].forEach.call(ans.querySelectorAll('[data-ziel]'),function(b){b.addEventListener('click',function(){zeige(b.dataset.ziel,true)})});
+  try{history.replaceState(null,'','#'+id)}catch(e){}
+  if(scroll){ var k=document.getElementById('z-t'); if(k){ k.focus({preventScroll:true}); if(window.matchMedia('(max-width:56rem)').matches) ans.scrollIntoView({behavior:'smooth',block:'start'}); } }
+}
+
+[].forEach.call(document.querySelectorAll('#wann button'),function(b){
+  b.addEventListener('click',function(){
+    wann=b.dataset.z;
+    [].forEach.call(document.querySelectorAll('#wann button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    dimmen(); zeige(aktiv||'eingang',false);
+  });
+});
+document.getElementById('rundgang').addEventListener('click',function(){zeige(RUNDE[0],true)});
+
+var start=(location.hash||'').slice(1);
+dimmen(); zeige(byId(start)?start:'maschinen',false);
+</script>
+</body>
+</html>

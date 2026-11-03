@@ -181,8 +181,7 @@ def h3zu2(x, ids={}):
 sicher = h3zu2(teil('<h3 id="sicher-unterrichten">', '<h3>Grundregeln im Fachraum</h3>'))
 allg = h3zu2(teil('<h3>Grundregeln im Fachraum</h3>', '<h3 id="schutzmassnahmen">'), {'<h3>Grundregeln im Fachraum</h3>': '<h3 id="fuer-jeden-fachraum">Grundregeln im Fachraum</h3>', '<h3>STOP-Prinzip</h3>': '<h3 id="stop">STOP-Prinzip</h3>'})
 schutz = h3zu2(teil('<h3 id="schutzmassnahmen">', '<h3 id="einkauf">'))
-stoffe = h3zu2(teil('<h3 id="einkauf">', '<h3 id="emissionen">'))
-emissionen = h3zu2(teil('<h3 id="emissionen">', None))
+stoffe = h3zu2(teil('<h3 id="einkauf">', '<!-- Nur Quelle'))
 grund_ohne = grund_ohne[:grund_ohne.index('<h3 id="sicher-unterrichten">')]
 grund_ohne = re.sub(r'<h2 id="grundsatz">.*?</h2>\n', '', grund_ohne).replace('<h3 id="drei-fragen">Drei Fragen vor jeder Arbeit</h3>', '<h2 id="drei-fragen">Drei Fragen vor jeder Arbeit</h2>').replace('<h3 id="wichtigste">Das Wichtigste für den Anfang</h3>', '<h2 id="wichtigste">Das Wichtigste für den Anfang</h2>')
 def sprung(html): return '<ul class="sprung" aria-label="In diesem Register">\n' + '\n'.join('<li><a href="#%s">%s</a></li>' % m for m in re.findall(r'<h2 id="([^"]+)"[^>]*>(.*?)</h2>', html)) + '\n</ul>'
@@ -249,8 +248,7 @@ KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschrifte
         'Vom Produktions- zum Erschliessungshandeln': 'selbstständiger Arbeiten verändert Raum und Aufsicht',
         'Was der Lehrplan 21 verlangt': 'Sicherheit als Lerninhalt, Kompetenzstufen',
         'Stoffe auswählen': 'Etikette lesen: einsetzen, Ersatz prüfen oder nicht verwenden',
-        'Was hergestellt wird': 'kein Blei, Cadmium oder Nickel bei Haut- und Lebensmittelkontakt',
-        'Emissionen': 'Staub, Rauch, Strahlung, Hitze, Lärm und wo die Regeln stehen'}
+}
 def klapp(html, h='h3'):
     def f(m):
         titel = re.sub(r'<[^>]+>', '', m.group(2))
@@ -264,7 +262,7 @@ zustaendig = klapp(zustaendig)
 planen = fach_teile.pop() + lernort
 fach_html = [klapp(klapp(x), 'h2') for x in fach_teile] + [klapp(klapp(planen), 'h2')]
 # Material: nur eigener Inhalt, die Themen je Material zeigt die Matrix
-mat_html = ['<section class="mat-teil">\n' + klapp(stoffe, 'h2') + '\n</section>', '<section class="mat-teil">\n' + klapp(emissionen, 'h2') + '</section>']
+mat_html = ['<section class="mat-teil">\n' + klapp(stoffe, 'h2') + '\n</section>']
 # Matrix: Zeilen Material, Spalten Verfahren, Felder öffnen das Thema im Fenster
 zellen = {}
 for (vid, _), sec in zip(VERF, verf_html):
