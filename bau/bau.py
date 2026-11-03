@@ -293,13 +293,13 @@ VERBOTEN = {
 }
 # Bevorzugen: was die Quellen ausdrücklich empfehlen, jeder Eintrag führt zur Regel
 BEVORZUGT = {
- 'alle': [('Weissleim, Acryl- und Dispersionsfarben', 'einkauf')],
- 'holz': [('Fichte, Tanne, Kiefer statt Eiche und Buche', 'holzstaub'), ('MDF, OSB, Sperrholz der Klasse E1', 'holzstaub')],
- 'metall': [('Reinzinn (95 bis 98 % Zinn)', 'metall-und-zinngiessen'), ('Bleifreie Weichlote, z. B. L-Sn99Cu', 'weichloeten')],
- 'kunststoff': [('PLA statt ABS im 3D-Druck', '3d-druck')],
- 'keramik': [('Glasuren, die ausdrücklich für Geschirr geeignet sind', 'glasieren-und-brennen')],
+ 'alle': [('Weissleim', 'kleben'), ('Acryl- und Dispersionsfarben', 'einkauf'), ('lösungsmittelarme Lacke und Lasuren', 'farben-lacke-spruehen')],
+ 'holz': [('Fichte, Tanne, Kiefer statt Eiche, Buche, Tropenholz', 'holzstaub'), ('MDF, OSB, Sperrholz der Klasse E1', 'holzstaub'), ('Bienen- oder Carnaubawachs', 'wachsen')],
+ 'metall': [('Reinzinn (95 bis 98 % Zinn)', 'metall-und-zinngiessen'), ('bleifreie Weichlote, z. B. L-Sn99Cu', 'weichloeten'), ('cadmiumfreies Silberlot, blank statt ummantelt', 'hartloeten')],
+ 'kunststoff': [('PLA statt ABS im 3D-Druck', '3d-druck'), ('styrolfreie Polyesterharze', 'giessen-und-formen-mit-fluessigen-kunststoffen')],
+ 'keramik': [('Glasuren, die ausdrücklich für Geschirr geeignet sind', 'glasieren-und-brennen'), ('Pasten oder Pellets statt Pulver', 'glasieren-und-brennen')],
 }
-def bevorzugt(key): return ', '.join('<a href="#%s">%s</a>' % (z, t) for t, z in BEVORZUGT.get(key, []))
+def bevorzugt(key): return ' · '.join('<a href="#%s">%s</a>' % (z, t) for t, z in BEVORZUGT.get(key, []))
 # Was nur ein Material betrifft und bei keinem Verfahren steht: öffnet sich beim Klick auf den Materialnamen
 def li_mit(anfang):
     i = S.index('<li>' + anfang); return S[i:S.index('</li>', i) + 5]
@@ -312,7 +312,7 @@ mx = ['<tr><td class="ecke"><span class="sr">Material und Verfahren</span></td>'
 eigen_html = ''
 for key, name, klein in MATS:
     zkopf = '<a class="mx-mat" href="#mat-%s">%s</a>' % (key, name) if key in EIGEN else '<span class="mx-mat">%s</span>' % name
-    mx.append('<tr class="z-%s"><th scope="row" class="mx-zeile" id="mat-%s">%s%s</th>' % (key, key, zkopf, ('<span class="mx-klein">%s</span>' % klein if klein else '') + ('<span class="mx-pos"><b>Bevorzugen:</b> %s</span>' % bevorzugt(key) if key in BEVORZUGT else '')) + ''.join('<td>%s</td>' % (''.join(chip(*x) for x in zellen.get((key, vid), []))
+    mx.append('<tr class="z-%s"><th scope="row" class="mx-zeile" id="mat-%s">%s%s</th>' % (key, key, zkopf, ('<span class="mx-klein">%s</span>' % klein if klein else '') + ('<span class="mx-pos"><b>Bevorzugen:</b></span><ul class="pos">%s</ul>' % ''.join('<li><a href="#%s">%s</a></li>' % (z, t) for t, z in BEVORZUGT[key]) if key in BEVORZUGT else '')) + ''.join('<td>%s</td>' % (''.join(chip(*x) for x in zellen.get((key, vid), []))
               or '<span class="sr">kein Thema</span>') for vid, _ in spalten)
               + '<td class="mx-nv"><ul class="nv">%s</ul></td></tr>' % ''.join('<li><a href="#%s">%s</a></li>' % (z, t) for t, z in VERBOTEN.get(key, [])))
     if key in EIGEN:

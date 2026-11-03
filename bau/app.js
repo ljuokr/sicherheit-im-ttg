@@ -278,6 +278,16 @@
           inhalt.appendChild(box);
         });
       });
+      // Materialfenster (Metall, Keramik): Inhalt liegt in einem template und wird sonst nicht gefunden
+      $$('template[id^="eigen-"]').forEach(function(tp){
+        var tr=[].filter.call(tp.content.querySelectorAll('li'),function(x){ return x.textContent.toLowerCase().indexOf(q)>-1; });
+        if(!tr.length) return;
+        weitere++;
+        var key=tp.id.slice(6), box=el('section','erg-v'), h=el('h3'), l=el('a',null,'Material: '+document.querySelector('#mat-'+key+' .mx-mat').textContent);
+        l.href='#mat-'+key; h.appendChild(l); box.appendChild(h);
+        var ul=el('ul'); tr.forEach(function(x){ ul.appendChild(el('li',null,x.textContent.replace(/\s+/g,' ').trim())); }); box.appendChild(ul);
+        inhalt.appendChild(box);
+      });
     }
 
     if(mitTabelle){
@@ -507,7 +517,8 @@
     }
     var z=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
     if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ e.preventDefault(); e.stopPropagation(); oeffne(z,a); return; }
-    if(f.contains(a)) zu();
+    // Link auf einen gewöhnlichen Abschnitt: Fenster schliessen, sonst liegt es über dem Ziel
+    if(f.contains(a) || z) zu();
   },true);
   // Registerhinweise bei Links auf Themen entfernen, die öffnen ja jetzt das Fenster
   [].forEach.call(document.querySelectorAll('a[href^="#"] .reg-hin'),function(s){
