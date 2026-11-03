@@ -305,7 +305,6 @@
     var tx=[];
     if(n.mas){ var t2=mz(n.mas,'Maschine','Maschinen'); if(s.z) t2+=' ('+n.A+' A, '+n.B+' B, '+n.C+' C)'; tx.push(t2); }
     if(n.th) tx.push(mz(n.th,'Thema','Themen'));
-    if(n.vb) tx.push(mz(n.vb,'Warnpunkt','Warnpunkte'));
     if(weitere) tx.push(mz(weitere,'Abschnitt in anderen Registern','Abschnitte in anderen Registern'));
     status.textContent=tx.length?tx.join(', ')+'.':'Keine Treffer.';
   }

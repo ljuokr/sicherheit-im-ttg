@@ -55,7 +55,7 @@ def lists(html):
                 if txt.startswith(v): treffer[v] += 1; isv = True
             for p, g in INSTR:
                 if txt.startswith(p): itreffer[p] += 1; attrs += ' data-instr="%s"' % g
-            if isv: vb.append('<li class="verbot"%s><img class="vb-z" data-icon="%s" alt="Warnpunkt:"> %s</li>' % (attrs, zeichen(txt), it))
+            if isv: vb.append('<li class="verbot"%s><img class="vb-z" data-icon="%s" alt="Achtung:"> %s</li>' % (attrs, zeichen(txt), it))
             else: rest.append('<li%s>%s</li>' % (attrs, it))
         sep = '\n' if '\n' in inner else ''
         return '<ul>' + sep + sep.join(vb + rest) + sep + '</ul>'
@@ -277,7 +277,7 @@ def chip(i, kurz, lang):
     if i.startswith('m:'): return '<a class="mchip mchip-m" href="#maschinen" data-maschine="%s" title="Auf dem Plakat zeigen">%s</a>' % (i[2:], kurz)
     return '<a class="mchip" href="#%s" title="%s">%s</a>' % (i, lang, kurz)
 spalten = [v for v in VERF if v[0] != 'lehrpersonen']
-# Nicht verwenden: Kurzfassung der Warnpunkte je Material, jeder Eintrag führt zur Regel mit Begründung
+# Nicht verwenden: Kurzfassung der Warnkästen je Material, jeder Eintrag führt zur Regel mit Begründung
 VERBOTEN = {
  'alle': [('Pigmente mit Blei, Cadmium, Chromat, Quecksilber', 'farben-lacke-spruehen'), ('Zweikomponenten-Polyurethanlacke (2K)', 'farben-lacke-spruehen'),
           ('Toluol, chlorierte Lösungsmittel', 'loesungsmittel-verduenner-pinselreiniger')],
@@ -429,15 +429,14 @@ body = f'''<header class="kopf"><div class="in">
 
 body = themen(lists(body))
 
-# Themen zuklappen: Kopfzeile mit Titel, Kernaussage, Material und Zahl der Warnpunkte
+# Themen zuklappen: Kopfzeile mit Titel, Kernaussage und Material (ohne Zähler der Warnkästen, Lukas 2026-11-03)
 # Kernaussagen je Thema, vorerst drei zur Ansicht
 THEMA_KERN = {'Weichlöten': 'nur bleifreies Lot, Lötkolben höchstens 300 °C, Rauch absaugen',
               'Leinöl und ölgetränkte Lappen': 'getränkte Lappen können sich selbst entzünden, nie lose in den Abfall',
               'Lasercutten': 'bfu: nur Lehrpersonen, chemsuisse: unter Aufsicht, kein PVC, Teflon oder Polyurethan'}
 def zuklappen(m):
     kopf, inhalt = m.group(1), m.group(4)
-    n = inhalt.count('<li class="verbot"')
-    warn = ' · <img class="vb-z klein" data-icon="iso-W001.svg" alt=""> %d %s' % (n, 'Warnpunkt' if n == 1 else 'Warnpunkte') if n else ''
+    warn = ''
     return ('%s<details class="thema-d">\n<summary><h3>%s</h3><span class="t-meta">%s%s</span></summary>%s</details>\n</section>'
             % (kopf, m.group(2), (THEMA_KERN[m.group(2)] + ' · ' if m.group(2) in THEMA_KERN else '') + m.group(3), warn, inhalt))
 body = re.sub(r'(<section class="thema" data-mat="[^"]+" id="[^"]+">\n)<h3>(.*?)</h3>\n<p class="mat">Material: (.*?)</p>(.*?)</section>', zuklappen, body, flags=re.S)
