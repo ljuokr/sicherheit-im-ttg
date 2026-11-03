@@ -19,7 +19,7 @@ VERBOTE = ["Kein Essen und Trinken","Gegenstände aus dem Unterricht dürfen kei
 "Nicht verwenden: chlorierte","Getränkte Lappen und Papiere nie","Auf Produkte mit gesundheitsgefährdenden","Nicht verwenden: Pigmente","Keine isocyanathaltigen",
 "Leinölhaltige Lacke nie","Nicht verwenden: toluolhaltige","Nicht verwenden: Beizmittel","Nicht verwenden: Ätzmittel mit Flusssäure","Nie Getränkeflaschen",
 "Konzentrierte oxidierende Säuren","Keine Gasflaschen","Gefährliche Chemikalien dürfen nie","Alte Restbestände nicht mischen",
-"Lehrpersonen dürfen nach eigenem Ermessen keine","Nicht verwenden: improvisierte Anschlüsse","Schutzeinrichtungen an Maschinen dürfen nicht","Keine Produkte, die explosiv","Auf das Bearbeiten von Blei",
+"Lehrpersonen dürfen nach eigenem Ermessen keine","Nicht verwenden: improvisierte Anschlüsse","Schutzeinrichtungen an Maschinen dürfen nicht","Keine Produkte mit diesen Eigenschaften","Auf das Bearbeiten von Blei",
 "Keine Werkstoffe mit Nanomaterialien","Kein Woodsches Metall","Keine Geräte der Laserklassen","Für Ess- und Trinkgeschirr nur Glasuren"]
 INSTR = [
 ("Auf Polyurethan-Montageschaum","instruktion"),("* Inbetriebnahme, Ausserbetriebsetzung","selbst"),
@@ -247,7 +247,10 @@ KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschrifte
         'Schutzmassnahmen': 'STOP-Prinzip, Schutzausrüstung von Kopf bis Fuss',
         'Sicher unterrichten': 'Lehrperson wählt Maschinen, führt ein, beaufsichtigt laufend und hält fest',
         'Vom Produktions- zum Erschliessungshandeln': 'selbstständiger Arbeiten verändert Raum und Aufsicht',
-        'Was der Lehrplan 21 verlangt': 'Sicherheit als Lerninhalt, Kompetenzstufen'}
+        'Was der Lehrplan 21 verlangt': 'Sicherheit als Lerninhalt, Kompetenzstufen',
+        'Stoffe auswählen': 'Etikette lesen: einsetzen, Ersatz prüfen oder nicht verwenden',
+        'Was hergestellt wird': 'kein Blei, Cadmium oder Nickel bei Haut- und Lebensmittelkontakt',
+        'Emissionen': 'Staub, Rauch, Strahlung, Hitze, Lärm und wo die Regeln stehen'}
 def klapp(html, h='h3'):
     def f(m):
         titel = re.sub(r'<[^>]+>', '', m.group(2))
@@ -261,7 +264,7 @@ zustaendig = klapp(zustaendig)
 planen = fach_teile.pop() + lernort
 fach_html = [klapp(klapp(x), 'h2') for x in fach_teile] + [klapp(klapp(planen), 'h2')]
 # Material: nur eigener Inhalt, die Themen je Material zeigt die Matrix
-mat_html = ['<section class="mat-teil">\n' + stoffe + '\n</section>', '<section class="mat-teil">\n' + emissionen + '</section>']
+mat_html = ['<section class="mat-teil">\n' + klapp(stoffe, 'h2') + '\n</section>', '<section class="mat-teil">\n' + klapp(emissionen, 'h2') + '</section>']
 # Matrix: Zeilen Material, Spalten Verfahren, Felder öffnen das Thema im Fenster
 zellen = {}
 for (vid, _), sec in zip(VERF, verf_html):
@@ -378,11 +381,6 @@ body = f'''<header class="kopf"><div class="in">
 
 <section class="panel" id="matrix"><div class="text mx-text">
 {matrix_html}
-<ul class="sprung mx-weiter" aria-label="Weiter in diesem Register">
-<li><a href="#einkauf">Stoffe auswählen</a></li>
-<li><a href="#hergestellt">Was hergestellt wird</a></li>
-<li><a href="#emissionen">Emissionen</a></li>
-</ul>
 {chr(10).join(mat_html)}
 </div></section>
 
