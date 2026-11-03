@@ -487,8 +487,8 @@
             var z2=document.createElement('div'); z2.className='f-stufe-z'; z2.appendChild(st.punkte(r.k)); z2.appendChild(a); box.appendChild(z2);
           }
         });
-        // Fussnote des Plakats mitnehmen, wenn eine Maschine einen Stern trägt
-        if(ms.some(function(r){ return /\*$/.test(r.name) && !/\*\*$/.test(r.name); })){
+        // Fussnote des Plakats mitnehmen, wenn eine Maschine einen Stern trägt und das Thema die Regel nicht schon nennt
+        if(ms.some(function(r){ return /\*$/.test(r.name) && !/\*\*$/.test(r.name); }) && fin.textContent.indexOf('ausser Betrieb')<0){
           var fn=[].filter.call(document.querySelectorAll('#verfahren li'),function(li){ return /^\* /.test(li.textContent.trim()); })[0];
           if(fn){ var pf=document.createElement('p'); pf.className='f-stufe-l'; pf.textContent=fn.textContent.trim(); box.appendChild(pf); }
         }

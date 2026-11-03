@@ -1573,7 +1573,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 <li>Für die Schülerinnen und Schüler ist das Arbeitsinspektorat nicht zuständig.</li>
 <li>Laut einem Gutachten im Auftrag des LCH von 2017 sind die Arbeitsinspektorate auch für öffentliche Schulen zuständig, kontrollieren dort aber selten. Die Pflichten gelten trotzdem.</li>
 </ul>
-<p class="quelle"><a class="ql" href="https://www.suva.ch/de-ch/ueber-uns/die-suva/kontrolle-beratung-arbeitssicherheit">Suva, Kontrolle und Beratung<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.bag.admin.ch/de/unfallverhuetung-durchfuehrungsorgane">BAG, Durchführungsorgane<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.lch.ch/fileadmin/user_upload_lch/Politik/Stellungnahmen/170106_Stellungnahme_zum_Gesundheitsschutz_von_Lehrpersonen_Prof.Dr.Thomas_Geiser.pdf">Gutachten Geiser 2017 (LCH)<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.bfu.ch/media/zgol3ddg/sitipp_sicherheitsdelegiertebfu_2306_de.pdf">bfu, Sicherheitsdelegierte<span aria-hidden="true">&nbsp;↗</span></a></p>
+<p class="quelle"><a class="ql" href="https://www.suva.ch/de-ch/ueber-uns/die-suva/kontrolle-beratung-arbeitssicherheit">Suva, Kontrolle und Beratung<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.bag.admin.ch/de/unfallverhuetung-durchfuehrungsorgane">BAG, Durchführungsorgane<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.lch.ch/fileadmin/user_upload_lch/Politik/Stellungnahmen/170106_Stellungnahme_zum_Gesundheitsschutz_von_Lehrpersonen_Prof.Dr.Thomas_Geiser.pdf">Gutachten Geiser 2017 (LCH)<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.bfu.ch/de/services/unfallpraevention-in-der-schweiz-sicherheitsdelegierte/gemeinden-und-behoerden">bfu, Sicherheitsdelegierte<span aria-hidden="true">&nbsp;↗</span></a></p>
 </details></section>
 <section class="klapp"><details class="thema-d">
 <summary><h3>Wer an der Schule zuständig ist</h3><span class="t-meta">Schulträger für Räume, Ansprechperson für Chemikalien, Aufgaben ins Pflichtenheft</span></summary>
@@ -2348,8 +2348,8 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
             var z2=document.createElement('div'); z2.className='f-stufe-z'; z2.appendChild(st.punkte(r.k)); z2.appendChild(a); box.appendChild(z2);
           }
         });
-        // Fussnote des Plakats mitnehmen, wenn eine Maschine einen Stern trägt
-        if(ms.some(function(r){ return /\*$/.test(r.name) && !/\*\*$/.test(r.name); })){
+        // Fussnote des Plakats mitnehmen, wenn eine Maschine einen Stern trägt und das Thema die Regel nicht schon nennt
+        if(ms.some(function(r){ return /\*$/.test(r.name) && !/\*\*$/.test(r.name); }) && fin.textContent.indexOf('ausser Betrieb')<0){
           var fn=[].filter.call(document.querySelectorAll('#verfahren li'),function(li){ return /^\* /.test(li.textContent.trim()); })[0];
           if(fn){ var pf=document.createElement('p'); pf.className='f-stufe-l'; pf.textContent=fn.textContent.trim(); box.appendChild(pf); }
         }
