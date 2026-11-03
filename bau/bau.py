@@ -111,7 +111,7 @@ ZUORDNUNG = {
  'Nähmaschine': {'hinweis': [['Finger von beweglichen Teilen fernhalten, besonders im Bereich der Nadel. Beim Einfädeln, Nadel- oder Nähfusswechsel die Maschine am Hauptschalter ausschalten.', 'Bernina, Bedienungsanleitung B 335, S. 5', BERNINA]], 'video': [('Nähen mit der Nähmaschine', TUD+'naehenmitdernaehmaschine')]},
  'Heftklammerpistole': {'hinweis': [['Nur abdrücken, wenn das Gerät auf dem Werkstück aufliegt, nie in die Luft. Schutzbrille tragen, auch Personen in der Nähe.', 'Rapesco, Betriebsanleitung Tacker T14', RAPESCO]]},
  'Weichlötvorrichtung': {'themen': ['weichloeten'], 'video': [('Weichlöten mit dem Lötkolben', TUD+'weichloeten')]},
- 'Bunsenbrenner (Brenngas und Luft)': {'themen': ['gasflaschen'], 'hinweis': [['Bei offener Luftzufuhr ist die rauschende Flamme fast unsichtbar. Hände, Gesicht und Haare fernhalten, lange Haare zusammenbinden.', 'Seilnacht, Sicherheitsbetrachtung Gasbrenner, S. 3', SEILNACHT]]},
+ 'Bunsenbrenner (Brenngas und Luft)': {'themen': ['gasflaschen'], 'hinweis': [['Bei offener Luftzufuhr ist die rauschende Flamme fast unsichtbar. Hände, Gesicht und Haare fernhalten, lange Haare zusammenbinden.', 'Seilnacht, Sicherheitsbetrachtung Gasbrenner, S. 3, 4', SEILNACHT]]},
  'Hartlötanlage (Propan-/Butan-Sauerstoff)*': {'themen': ['hartloeten', 'gasflaschen'], 'video': [('Hartlöten', TUD+'hartloeten')]},
  'Autogenschweissanlage (Acetylen-Sauerstoff)*': {'themen': ['schweissen', 'gasflaschen']},
  'Schutzgasschweissanlage (MIG/MAG)*': {'themen': ['schweissen', 'gasflaschen'], 'video': [('Schutzgasschweissen', TUD+'schutzgasschweissen')]},
@@ -131,7 +131,7 @@ ZUORDNUNG = {
  'Winkelschleifer mit Trennscheibenaufsätzen': {'hinweis': [['Nur mit montierter Schutzhaube und Zusatzhandgriff arbeiten. Nur Scheiben verwenden, die in Durchmesser und Drehzahl zur Maschine passen. Schutzbrille tragen.', 'Suva 67092, Fragen 4, 10, 14', S67092]]},
  'Tellerschleifmaschine': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen. Nur auf der Seite schleifen, auf der sich die Scheibe nach unten bewegt, sonst kann das Werkstück weggeschleudert werden. Keine zu kleinen Stücke schleifen. Abstand zwischen Schleiftisch und Scheibe auf höchstens 3 mm einstellen.', 'Technologiekarte, S. 64', TK + '10']], 'video': [('Schleifen an der Tellerschleifmaschine', TUD+'tellerschleifmaschine')]},
  'Bandschleifmaschine': {'themen': ['holzstaub']},
- 'Overlockmaschine': {'hinweis': [['Die Maschine schneidet und näht zugleich: langsam nähen, Finger weg von Messer und Nadel, keine Stecknadeln im Nähgut. Das Einfädeln übernimmt mit Vorteil die Lehrperson.', 'Technologiekarte, S. 76', TK + '22']], 'video': [('Nähen mit der Overlockmaschine', TUD+'naehenmitderoverlockmaschine')]},
+ 'Overlockmaschine': {'hinweis': [['Nur wer an der Nähmaschine sicher arbeitet und von der Lehrperson eingeführt wurde. Die Maschine schneidet und näht zugleich: langsam und konzentriert nähen, keine Stecknadeln im Nähgut. Das Einfädeln übernimmt mit Vorteil die Lehrperson.', 'Technologiekarte, S. 76', TK + '22']], 'video': [('Nähen mit der Overlockmaschine', TUD+'naehenmitderoverlockmaschine')]},
  'Linearbiegegerät': {'hinweis': [['Heizdraht und Werkstück werden heiss, beim Warmbiegen Handschuhe tragen.', 'Technologiekarte, S. 65', TK + '11']], 'video': [('Linearbiegegerät', TUDH+'linearbiegegeraet')]},
  'Heissluftföhn/Industrieföhn': {'hinweis': [['Die Düse wird heiss, nur mit Unterlage verwenden.', 'Technologiekarte, S. 65', TK + '11']]},
  'Tiefziehgerät': {'themen': ['tiefziehen']},
@@ -294,9 +294,9 @@ VERBOTEN = {
 BEVORZUGT = {
  'alle': [('Weissleim', 'kleben'), ('Acryl- und Dispersionsfarben', 'farben-lacke-spruehen'), ('lösungsmittelarme Lacke und Lasuren', 'farben-lacke-spruehen')],
  'holz': [('Fichte, Tanne, Kiefer statt Eiche, Buche, Tropenholz, wo viel Staub entsteht', 'holzstaub'), ('MDF, OSB, Sperrholz der Klasse E1', 'holzstaub'), ('Bienen- oder Carnaubawachs', 'wachsen')],
- 'metall': [('Reinzinn (95 bis 98 % Zinn)', 'metall-und-zinngiessen'), ('bleifreie Weichlote, z. B. L-Sn99Cu', 'weichloeten'), ('cadmiumfreies Silberlot, blank statt ummantelt', 'hartloeten')],
+ 'metall': [('Reinzinn (95 bis 98 % Zinn)', 'metall-und-zinngiessen'), ('bleifreie Weichlote, z. B. L-Sn99Cu', 'weichloeten'), ('cadmiumfreies Silberlot, blank statt ummantelt', 'hartloeten'), ('Flussmittel als Paste statt Pulver', 'hartloeten')],
  'kunststoff': [('PLA statt ABS im 3D-Druck', '3d-druck'), ('styrolfreie Polyesterharze', 'giessen-und-formen-mit-fluessigen-kunststoffen')],
- 'keramik': [('Glasuren, Engoben und Farben ohne Schwermetalle', 'glasieren-und-brennen'), ('Pasten oder Pellets statt Pulver', 'glasieren-und-brennen')],
+ 'keramik': [('Glasuren, Engoben und Farben ohne Schwermetalle', 'glasieren-und-brennen'), ('Pasten oder Pellets statt Pulver', 'glasieren-und-brennen'), ('Speckstein, als asbestfrei zertifiziert', 'speckstein-und-asbest')],
 }
 def bevorzugt(key): return ' · '.join('<a href="#%s">%s</a>' % (z, t) for t, z in BEVORZUGT.get(key, []))
 # Was nur ein Material betrifft und bei keinem Verfahren steht: öffnet sich beim Klick auf den Materialnamen
@@ -305,7 +305,6 @@ def li_mit(anfang):
 CHEM = 'https://chemsuisse.ch/files/278/DE-Schulen-Leitfaden-TTG/1391/Leitfaden-Schulen-TTG.pdf'
 EIGEN = {
  'metall': (['Auf das Bearbeiten von Blei', 'Gegenstände aus dem Unterricht dürfen keine', 'Schmuck: Werkstoffe auf Nickel', 'Zinn möglichst rein'], 'chemsuisse, S. 8, 10, 11, 13'),
- 'keramik': (['Ess- und Trinkgeschirr nur mit Glasuren', 'Gegenstände aus dem Unterricht dürfen keine'], 'chemsuisse, S. 10, 13, 20, 21'),
 }
 mx = ['<tr><td class="ecke"><span class="sr">Material und Verfahren</span></td>' + ''.join('<th scope="col">%s</th>' % v[1] for v in spalten) + '<th scope="col" class="mx-nv">Nicht verwenden</th></tr>']
 eigen_html = ''
