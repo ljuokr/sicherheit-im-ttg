@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Fachraum chronologisch</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+/* Prototyp: Register Fachraum als Ablauf vom Plan bis zur Wartung, Farben und Schrift wie die Seite */
+:root{
+  --bg:#ffffff; --fg:#111111; --muted:#5a5a5a; --line:#d9d9d9; --tint:#f3f3f1;
+  --p1:#e4ecf7; --p2:#e7f0e1; --p3:#fbf1d6; --p4:#f6e1dc; --stoff:#ece6f4;
+  --font:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --s1:2rem; --s2:1.25rem; --s3:1rem;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#575757; --tint:#242424;
+  --p1:#1f2c3d; --p2:#22311f; --p3:#3a321b; --p4:#3d2621; --stoff:#2d2638; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#141414; --fg:#f2f2f2; --muted:#a8a8a8; --line:#575757; --tint:#242424;
+  --p1:#1f2c3d; --p2:#22311f; --p3:#3a321b; --p4:#3d2621; --stoff:#2d2638; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:var(--s3);line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 4rem}
+main{max-width:60rem;margin:0 auto}
+h1{font-size:var(--s1);font-weight:600;line-height:1.15;margin:2.5rem 0 .5rem;text-wrap:balance}
+h2{font-size:var(--s2);font-weight:600;line-height:1.3;margin:0;text-wrap:balance}
+p{margin:0 0 .75rem;max-width:68ch}
+a{color:var(--fg);text-underline-offset:.2em}
+:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.lead{color:var(--muted);margin-bottom:1.75rem}
+.proto{display:inline-block;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:2rem}
+
+/* Zeitstrahl */
+.strahl{list-style:none;margin:0 0 .5rem;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.strahl li{position:relative;padding:0 .4rem}
+.strahl a{display:block;text-decoration:none;color:inherit;border-radius:.4rem;padding:.9rem .9rem 1rem;height:100%;border:1px solid transparent}
+.strahl a:hover{border-color:var(--line)}
+.strahl a[aria-current="true"]{border-color:var(--fg)}
+.strahl .nr{display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;font-weight:600;border:2px solid var(--fg);background:var(--bg);margin-bottom:.6rem;position:relative;z-index:1}
+.strahl b{display:block;font-size:1.05rem}
+.strahl .wann{display:block;font-size:.8rem;color:var(--muted)}
+.strahl .was{display:block;font-size:.85rem;margin-top:.35rem}
+.p1 a{background:var(--p1)} .p2 a{background:var(--p2)} .p3 a{background:var(--p3)} .p4 a{background:var(--p4)}
+/* Verbindungslinie zwischen den Kreisen */
+.strahl li:not(:last-child)::after{content:"";position:absolute;top:2.1rem;left:calc(.4rem + 3.3rem);right:-.4rem;height:2px;background:var(--fg);z-index:0}
+.schleife{display:grid;grid-template-columns:repeat(4,1fr);margin:0 0 2.5rem;font-size:.8rem;color:var(--muted)}
+.schleife svg{grid-column:3/5;width:100%;height:2.4rem;overflow:visible}
+.schleife path{fill:none;stroke:var(--fg);stroke-width:1.5}
+.schleife text{fill:var(--muted);font-size:12px;font-family:var(--font)}
+@media (max-width:44rem){
+  .strahl{grid-template-columns:1fr;gap:.6rem}
+  .strahl li{padding:0}
+  .strahl li:not(:last-child)::after{top:auto;bottom:-.6rem;left:2.1rem;right:auto;width:2px;height:.6rem}
+  .strahl a{display:grid;grid-template-columns:2.4rem 1fr;column-gap:.8rem}
+  .strahl .nr{grid-row:1/4;margin:0}
+  .schleife{display:block;margin:-.2rem 0 2rem 3.2rem}
+  .schleife svg{display:none}
+  .schleife::before{content:"↺ Betreiben und Warten wiederholen sich, solange der Raum genutzt wird."}
+}
+
+/* Phasen */
+.phase{border-top:1px solid var(--line);padding-top:1.25rem;margin-top:2.25rem;scroll-margin-top:1rem}
+.kopf{display:flex;gap:.9rem;align-items:center;margin-bottom:.4rem}
+.kopf .nr{display:grid;place-items:center;flex:none;width:2.2rem;height:2.2rem;border-radius:50%;font-weight:600}
+.phase.p1 .nr{background:var(--p1)} .phase.p2 .nr{background:var(--p2)} .phase.p3 .nr{background:var(--p3)} .phase.p4 .nr{background:var(--p4)}
+.kopf .wann{color:var(--muted);font-size:.875rem}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;padding:.7rem 0;list-style:none;display:flex;gap:.75rem;align-items:baseline;flex-wrap:wrap}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";font-weight:600;width:1rem;flex:none}
+details[open] summary::before{content:"−"}
+summary b{font-weight:600}
+summary span{color:var(--muted);font-size:.875rem}
+details ul{margin:0 0 1rem;padding-left:2.75rem;max-width:72ch}
+details li{margin-bottom:.35rem}
+.quelle{color:var(--muted);font-size:.85rem;margin:0 0 1rem 1.75rem}
+.wer{display:inline-block;font-size:.75rem;border:1px solid var(--line);border-radius:1rem;padding:0 .5rem;margin-left:.3rem;color:var(--muted);white-space:nowrap}
+
+/* Prüfrhythmus */
+.rhythmus{margin:1.25rem 0 1.5rem;padding:1rem;background:var(--tint);border-radius:.4rem}
+.rhythmus h3{font-size:1rem;margin:0 0 .75rem}
+.takt{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem}
+.takt li{background:var(--bg);border:1px solid var(--line);border-radius:.4rem;padding:.6rem .7rem;font-size:.85rem;min-width:0}
+.takt b{display:block;font-size:.95rem;margin-bottom:.2rem}
+.takt .bar{display:flex;gap:2px;height:.45rem;margin-bottom:.5rem}
+.takt .bar i{flex:1;background:var(--fg);border-radius:1px}
+.takt .bar i.leer{background:var(--line)}
+@media (max-width:44rem){ .takt{grid-template-columns:1fr 1fr} }
+
+/* Stoffkreislauf */
+.stoff{margin-top:3rem;border:1px dashed var(--muted);border-radius:.5rem;padding:1.25rem}
+.stoff h2{margin-bottom:.5rem}
+.kreis{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:1rem 0}
+.kreis span{background:var(--stoff);border-radius:2rem;padding:.35rem .9rem;font-weight:600;font-size:.9rem}
+.kreis i{font-style:normal;color:var(--muted)}
+.frage{background:var(--tint);border-left:3px solid var(--fg);padding:.8rem 1rem;margin-top:1rem;max-width:72ch}
+.frage p:last-child{margin:0}
+</style>
+</head>
+<body>
+<main>
+<span class="proto">Prototyp · Register Fachraum</span>
+<h1>Fachraum: vom Plan bis zur Wartung</h1>
+<p class="lead">Die Inhalte des Registers in der Reihenfolge, in der ein Fachraum entsteht und genutzt wird. Planen und Einrichten geschehen einmal, Betreiben und Warten laufen, solange der Raum genutzt wird.</p>
+
+<nav aria-label="Ablauf">
+<ol class="strahl">
+  <li class="p1"><a href="#planen"><span class="nr">1</span><b>Planen</b><span class="wann">einmalig, bei Neu- oder Umbau</span><span class="was">Räume, Lernort, Zugang</span></a></li>
+  <li class="p2"><a href="#einrichten"><span class="nr">2</span><b>Einrichten</b><span class="wann">einmalig, bei Anschaffung</span><span class="was">Installationen, Abstände, Schränke</span></a></li>
+  <li class="p3"><a href="#betreiben"><span class="nr">3</span><b>Betreiben</b><span class="wann">jeden Tag</span><span class="was">Ordnung, Regeln, Zugang</span></a></li>
+  <li class="p4"><a href="#warten"><span class="nr">4</span><b>Warten und prüfen</b><span class="wann">täglich bis alle 5 Jahre</span><span class="was">Wartung, Kontrollen, Checklisten</span></a></li>
+</ol>
+</nav>
+<div class="schleife" aria-hidden="true">
+  <svg viewBox="0 0 400 40" preserveAspectRatio="none"><path d="M330 2 C330 34, 70 34, 70 6" marker-end="url(#pfeil)"/><defs><marker id="pfeil" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill:var(--fg);stroke:none"/></marker></defs><text x="200" y="38" text-anchor="middle">wiederholt sich, solange der Raum genutzt wird</text></svg>
+</div>
+
+<section class="phase p1" id="planen">
+<div class="kopf"><span class="nr">1</span><div><h2>Planen</h2><span class="wann">Neubau, Umbau oder Neuorganisation</span></div></div>
+<p>Anforderungen an Schulräume und Klassengrössen gibt in der Regel der Kanton vor, siehe <a href="#">Kantonale Vorgaben</a>.</p>
+<details open><summary><b>Räume</b><span>Maschinenraum, Sichtkontakt, Zugang</span></summary>
+<ul>
+<li>Ein abgetrennter Maschinenraum dient der Sicherheit und hält Staub und Lärm von den Schülerinnen und Schülern fern. Sichtkontakt über Trennwände aus Sicherheitsglas.</li>
+<li>Metallarbeiten mit offener Flamme oder Funkenbildung in einem separaten Raum, sonst Brandschutz wie ein Schweisser-Schutzvorhang.</li>
+<li>Hindernisfreier Zugang, damit Material geliefert und bei einem Notfall rasch evakuiert werden kann. Technik und Design empfiehlt einen direkten Ausgang ins Freie.</li>
+<li>Holzstaub ist brennbar und kann explodieren. Filteranlagen gehören darum ins Freie.</li>
+</ul>
+<p class="quelle">bfu 2.524, S. 6-9, 17 · Technik und Design, S. 185 · ESTI, Bulletin 9/2010</p>
+</details>
+<details><summary><b>Fachraum als Lernort</b><span>Raum für selbstständiges Arbeiten</span></summary>
+<ul><li>Die Übersicht von Barbara Wyss zeigt, wie Funktionsbereiche und Orte für Lerntätigkeiten im Fachraum angeordnet werden können. (Grafik wie heute)</li></ul>
+<p class="quelle">Wyss, PH FHNW, «Fachraum als Lernort», 2019</p>
+</details>
+</section>
+
+<section class="phase p2" id="einrichten">
+<div class="kopf"><span class="nr">2</span><div><h2>Einrichten</h2><span class="wann">bei Bau, Umbau und jeder Anschaffung</span></div></div>
+<details open><summary><b>Installationen</b><span>FI-Schalter, Schlüsselschalter, Not-Aus, Absaugung</span></summary>
+<ul>
+<li>FI-Schutzschalter mit 30 mA in allen Fachräumen, bestehende nachrüsten.</li>
+<li>Die Stromversorgung der Maschinen über einen zentralen Schlüsselschalter, allenfalls mit zentralem Not-Aus.</li>
+<li>Maschinen und Kleingeräte ohne Verlängerungskabel anschliessen, wo nötig über Hängesteckdosen.</li>
+<li>Eine Absauganlage für Staub und Rauch, Quellenabsaugung an Hartlöt- und Schutzgasschweissanlagen.</li>
+</ul>
+<p class="quelle">bfu 2.524, S. 10, 14-16</p>
+</details>
+<details><summary><b>Abstände und Mobiliar</b><span>85 bis 120 cm, Regale, Leitern</span></summary>
+<ul>
+<li>Zwischen Arbeitstisch und Wand mindestens 85 bis 90 cm, zwischen zwei Arbeitstischen mindestens 120 cm, an der Ständerbohrmaschine mindestens 80 cm Freiraum.</li>
+<li>Regale mit gut sichtbar angeschriebener Traglast. Erhöhte Ablagen nur über trittsichere Leitern.</li>
+<li>Schon beim Kauf von Mobiliar, Werkzeugen, Geräten und Maschinen Sicherheitsanforderungen festlegen, prüfen und einhalten.</li>
+</ul>
+<p class="quelle">bfu 2.524, S. 16, 17 · Suva 67036, Frage 1</p>
+</details>
+<details><summary><b>Schränke für gefährliche Stoffe</b><span>was der Raum dafür braucht</span></summary>
+<ul>
+<li>Feuerhemmende, abschliessbare Schränke mit Wannen, mit Warnzeichen gekennzeichnet.</li>
+<li>Pro Fachraum höchstens 100 Liter brennbare Flüssigkeiten in Schränken mit Auffangwanne.</li>
+<li>Gaskartuschen in Schränken mit Lüftungsöffnungen in Bodennähe. Propangas nur in baulich dafür vorgesehenen Räumen.</li>
+</ul>
+<p class="quelle">chemsuisse, S. 35-38</p>
+</details>
+</section>
+
+<section class="phase p3" id="betreiben">
+<div class="kopf"><span class="nr">3</span><div><h2>Betreiben</h2><span class="wann">im Alltag, jede Lektion</span></div></div>
+<details open><summary><b>Ordnung und Regeln</b><span>Fachraumordnung, Beschriftung, Zugang</span></summary>
+<ul>
+<li>Teilen sich mehrere Lehrpersonen einen Fachraum, braucht es ein gemeinsames Verständnis von Sicherheit, Ordnung und Regeln.</li>
+<li>Eine Fachraumordnung mit Bekleidungs- und Verhaltensregeln.</li>
+<li>Ordnungssysteme beschriften. Sicherheitshinweise mit QR-Codes oder Piktogrammen gut sichtbar anbringen, Bedienungsanleitungen direkt bei den Maschinen.</li>
+<li>Bei Mehrfachnutzung empfiehlt die bfu ein Zutrittsmanagement.</li>
+</ul>
+<p class="quelle">bfu 2.524, S. 18, 19 · bfu 4.323, S. 12</p>
+</details>
+<details><summary><b>Griffbereit</b><span>Sicherheitshilfsmittel und Schutzausrüstung</span></summary>
+<ul>
+<li>Anschlaghölzer und Werkstückhalter sowie Schutzbrillen und Gehörschutz in ausreichender Menge und passenden Grössen griffbereit halten.</li>
+</ul>
+<p class="quelle">bfu 2.524, S. 15</p>
+</details>
+</section>
+
+<section class="phase p4" id="warten">
+<div class="kopf"><span class="nr">4</span><div><h2>Warten und prüfen</h2><span class="wann">in festen Abständen</span></div></div>
+
+<div class="rhythmus">
+<h3>Prüfrhythmus</h3>
+<ol class="takt">
+<li><span class="bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><b>täglich</b>Notausgänge und Zirkulationswege frei</li>
+<li><span class="bar" aria-hidden="true"><i></i><i></i><i></i><i class="leer"></i><i class="leer"></i></span><b>halbjährlich</b>Notfallblatt mit Notrufnummern überprüfen</li>
+<li><span class="bar" aria-hidden="true"><i></i><i></i><i class="leer"></i><i class="leer"></i><i class="leer"></i></span><b>jährlich</b>Werkzeuge, Maschinen, Schutzausrüstung, Piktogramme, Chemikalien</li>
+<li><span class="bar" aria-hidden="true"><i></i><i class="leer"></i><i class="leer"></i><i class="leer"></i><i class="leer"></i></span><b>alle 5 Jahre</b>Sicherheitsnachweis der Elektroinstallation</li>
+<li><span class="bar" aria-hidden="true"><i class="leer"></i><i class="leer"></i><i class="leer"></i><i class="leer"></i><i class="leer"></i></span><b>situativ</b>vor Gebrauch, bei einer neuen Lehrperson</li>
+</ol>
+<p class="quelle" style="margin:.75rem 0 0">bfu 4.323, S. 3, 4 und Checklisten · NIV Art. 36</p>
+</div>
+
+<details open><summary><b>Maschinen warten</b><span>Schutzeinrichtungen intakt, Defekte kennzeichnen</span></summary>
+<ul>
+<li>Schutzeinrichtungen dürfen nicht manipuliert werden. Schutzhauben und Anschläge ordnungsgemäss montiert oder griffbereit.</li>
+<li>Maschinen und Anlagen nach der Betriebsanleitung warten. Die vollständigen Betriebsanleitungen mit Garantie- und Wartungsunterlagen griffbereit aufbewahren.</li>
+<li>Defekte Maschinen rechtzeitig erkennen, kennzeichnen und entfernen oder reparieren.</li>
+<li>Gasanlagen periodisch von Fachleuten oder vom Hersteller prüfen lassen.</li>
+</ul>
+<p class="quelle">bfu 2.524, S. 10, 14-16 · bfu 4.323, S. 19</p>
+</details>
+<details><summary><b>Checklisten</b><span>bfu 4.323 mit Prüfintervall je Punkt</span></summary>
+<ul>
+<li>bfu 4.323 enthält drei Checklisten zum Ankreuzen (Ja, Teils, Nein) mit empfohlenem Prüfintervall. Für die Bohrmaschine zusätzlich Suva 67036, für Stoffe die Checklisten von chemsuisse.</li>
+</ul>
+<p class="quelle">bfu 4.323, S. 3, 4 · chemsuisse, S. 84-93</p>
+</details>
+</section>
+
+<aside class="stoff" aria-labelledby="stoff-t">
+<h2 id="stoff-t">Lagern und Entsorgen: zum Material</h2>
+<p>Lagern und Entsorgen hängen am Stoff, nicht am Raum. Im Register «Verfahren und Material» würden sie den Weg eines Stoffs vervollständigen:</p>
+<div class="kreis" role="img" aria-label="Stoffkreislauf: auswählen, lagern, verwenden, entsorgen">
+<span>Auswählen</span><i>→</i><span>Lagern</span><i>→</i><span>Verwenden</span><i>→</i><span>Entsorgen</span>
+</div>
+<ul>
+<li><b>Auswählen:</b> heute «Stoffe auswählen» mit der Ampel</li>
+<li><b>Lagern:</b> Originalgebinde, Chemikalienliste, Sicherheitsdatenblätter, Zugang nur für Fachpersonen, periodisch aussortieren</li>
+<li><b>Verwenden:</b> die Themen in der Matrix</li>
+<li><b>Entsorgen:</b> Sonderabfall, nicht mischen, Abholung durch die Entsorgungsfirma</li>
+</ul>
+<p>Was der Raum dafür braucht (Schränke, Wannen, Mengengrenzen, Propan-Raum), bleibt oben unter «Einrichten».</p>
+<div class="frage"><p><b>Offen:</b> Soll «Lagerung» ganz zum Material wandern, oder bleibt der Alltag (Gebinde, Liste, Aussortieren) beim Fachraum unter «Betreiben»?</p></div>
+</aside>
+</main>
+<script>
+// Aktive Phase im Zeitstrahl markieren, während man liest
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.strahl a'));
+  var ziele=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  if(!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ var i=ziele.indexOf(e.target); links.forEach(function(a,j){ a.setAttribute('aria-current', i===j?'true':'false'); }); } });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  ziele.forEach(function(z){ io.observe(z); });
+})();
+</script>
+</body>
+</html>
