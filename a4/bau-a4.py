@@ -42,7 +42,7 @@ SCHULE = [
     'Fachraum ausrüsten mit FI-Schutzschalter 30 mA, Schlüsselschalter, Not-Aus und wirksamer Absaugung.',
     'Fachraumordnung mit Bekleidungs- und Verhaltensregeln festlegen, vom Team gemeinsam getragen.',
     'Chemikalien-Ansprechperson bezeichnen, Chemikalienliste führen, Sicherheitsdatenblätter zugänglich.',
-    'Gefährliche Stoffe abgeschlossen lagern. Brennbare Flüssigkeiten höchstens 100 Liter pro Fachraum in feuerhemmenden Schränken, an den Arbeitsplätzen höchstens 25 Liter.',
+    'Gefährliche Stoffe abgeschlossen lagern. Brennbare Flüssigkeiten höchstens 100 Liter pro Fachraum in feuerhemmenden Schränken.',
     'Fachraum mit den bfu-Checklisten 4.323 prüfen, je Punkt im dort empfohlenen Intervall. Notfallblatt halbjährlich überprüfen.',
     'Elektroinstallation periodisch kontrollieren lassen, bei Schulhäusern alle 5 Jahre (NIV).',
 ]
