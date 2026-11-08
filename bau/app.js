@@ -532,6 +532,8 @@
     ausloeser=null;
   }
   document.getElementById('f-zu').addEventListener('click',zu);
+  // Registerwechsel schliesst das Fenster
+  document.addEventListener('click',function(e){ var t=e.target.closest('#tl-haupt [role=tab], #reg2 [role=tab]'); if(t && t.getAttribute('aria-selected')!=='true') zu(); },true);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !f.hidden && !document.querySelector('.b-pop:not([hidden])')) zu(); });
   // Vor dem Register-Sprung von app.js abfangen
   document.addEventListener('click',function(e){
@@ -546,7 +548,12 @@
       return;
     }
     var z=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
-    if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ e.preventDefault(); e.stopPropagation(); oeffne(z,a); return; }
+    if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){
+      e.preventDefault(); e.stopPropagation();
+      // Zweiter Klick auf das Feld, dessen Fenster offen ist, schliesst es wieder
+      if(!f.hidden && a.getAttribute('aria-current')==='true'){ zu(); return; }
+      oeffne(z,a); return;
+    }
     // Link auf einen gewöhnlichen Abschnitt: Fenster schliessen, sonst liegt es über dem Ziel
     if(f.contains(a) || z) zu();
   },true);

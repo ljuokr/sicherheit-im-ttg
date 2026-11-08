@@ -295,7 +295,7 @@ VERBOTEN = {
 # Bevorzugen: was die Quellen ausdrücklich empfehlen, jeder Eintrag führt zur Regel
 BEVORZUGT = {
  'alle': [('Weissleim', 'kleben'), ('Acryl- und Dispersionsfarben', 'farben-lacke-spruehen'), ('lösungsmittelarme Lacke und Lasuren', 'farben-lacke-spruehen')],
- 'holz': [('Fichte, Tanne, Kiefer statt Eiche, Buche, Tropenholz, wo viel Staub entsteht', 'holzstaub'), ('MDF, OSB, Sperrholz der Klasse E1', 'holzstaub'), ('Bienen- oder Carnaubawachs', 'wachsen')],
+ 'holz': [('für staubreiche Arbeiten Fichte, Tanne, Kiefer statt Eiche, Buche, Tropenholz', 'holzstaub'), ('MDF, OSB, Sperrholz der Klasse E1', 'holzstaub'), ('Bienen- oder Carnaubawachs', 'wachsen')],
  'metall': [('Reinzinn (95 bis 98 % Zinn)', 'metall-und-zinngiessen'), ('bleifreie Weichlote, z. B. L-Sn99Cu', 'weichloeten'), ('cadmiumfreies Silberlot, blank statt ummantelt', 'hartloeten'), ('Flussmittel als Paste statt Pulver', 'hartloeten')],
  'kunststoff': [('PLA statt ABS im 3D-Druck', '3d-druck'), ('styrolfreie Polyesterharze', 'giessen-und-formen-mit-fluessigen-kunststoffen')],
  'keramik': [('Glasuren, Engoben und Farben ohne Schwermetalle', 'glasieren-und-brennen'), ('Pasten oder Pellets statt Pulver', 'glasieren-und-brennen'), ('Speckstein, als asbestfrei zertifiziert', 'speckstein-und-asbest')],
