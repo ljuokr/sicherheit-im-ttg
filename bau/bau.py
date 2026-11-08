@@ -82,9 +82,9 @@ KURZ = {'Staub beim Sägen, Bohren und Schleifen': 'Staub beim Sägen, Schleifen
         'Leinöl und ölgetränkte Lappen': 'Leinöl, ölige Lappen',
         'Lösungsmittel, Verdünner, Pinselreiniger': 'Lösungsmittel, Verdünner',
         'Heissgeräte: Heissleimpistole, Lötkolben, Heissluftföhn, Bügeleisen': 'Heissgeräte'}
-# Fachraum: Betreiben und warten, dann Planen und einrichten
-FACH = [('<h2 id="fachraum">','<h2 id="planen">'),('<h2 id="lagerung">','<h2 id="entsorgung">'),('<h2 id="entsorgung">','<h2 id="notfall">'),
-        ('<h2 id="planen">','<h2 id="zustaendig">')]
+# Fachraum im Lebenslauf des Raums: planen und einrichten, betreiben, warten, dann Lagerung und Entsorgung der Stoffe
+FACH = [('<h2 id="planen">','<h2 id="zustaendig">'),('<h2 id="fachraum">','<h2 id="maschinen-warten">'),('<h2 id="maschinen-warten">','<h2 id="planen">'),
+        ('<h2 id="lagerung">','<h2 id="entsorgung">'),('<h2 id="entsorgung">','<h2 id="notfall">')]
 HAUPT = [('grundlage','Grundlage'),('verfahren','Maschinen'),('matrix','Verfahren und Material'),('unterricht','Unterricht'),('fachraum','Fachraum'),
          ('kantone','Kantone'),('recht','Recht'),('quellen','Quellen')]
 
@@ -177,8 +177,8 @@ def teil(a, b): return grund_ohne[grund_ohne.index(a):grund_ohne.index(b) if b e
 def h3zu2(x, ids={}):
     for alt, neu in ids.items(): x = x.replace(alt, neu)
     return re.sub(r'<h3( id="[^"]+")?>(.*?)</h3>', r'<h2\1>\2</h2>', x)
-sicher = h3zu2(teil('<h3 id="sicher-unterrichten">', '<h3>Grundregeln im Fachraum</h3>'))
-allg = h3zu2(teil('<h3>Grundregeln im Fachraum</h3>', '<h3 id="schutzmassnahmen">'), {'<h3>Grundregeln im Fachraum</h3>': '<h3 id="fuer-jeden-fachraum">Grundregeln im Fachraum</h3>', '<h3>STOP-Prinzip</h3>': '<h3 id="stop">STOP-Prinzip</h3>'})
+sicher = h3zu2(teil('<h3 id="sicher-unterrichten">', '<h3>Regeln für die Klasse</h3>'))
+allg = h3zu2(teil('<h3>Regeln für die Klasse</h3>', '<h3 id="schutzmassnahmen">'), {'<h3>Regeln für die Klasse</h3>': '<h3 id="fuer-jeden-fachraum">Regeln für die Klasse</h3>', '<h3>STOP-Prinzip</h3>': '<h3 id="stop">STOP-Prinzip</h3>'})
 schutz = h3zu2(teil('<h3 id="schutzmassnahmen">', '<h3 id="einkauf">'))
 stoffe = h3zu2(teil('<h3 id="einkauf">', '<!-- Nur Quelle'))
 grund_ohne = grund_ohne[:grund_ohne.index('<h3 id="sicher-unterrichten">')]
@@ -230,8 +230,10 @@ KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschrifte
         'Pflichten und Empfehlungen': 'neun Pflichten, dazu Empfehlungen von bfu und chemsuisse, mit Rhythmus',
         'Wer kontrolliert': 'Arbeitsinspektorat, Suva nur Berufskrankheiten, bfu berät',
         'Wer an der Schule zuständig ist': 'Schulträger für Räume, Ansprechperson für Chemikalien, Aufgaben ins Pflichtenheft',
-        'Fachraum betreiben': 'gemeinsame Regeln, Wartung, Checklisten',
-        'Maschinen warten und prüfen': 'Schutzeinrichtungen intakt, Elektro periodisch prüfen',
+        'Fachraum betreiben': 'Fachraumordnung, Schutzausrüstung bereit, Notfallausstattung, Dokumentation',
+        'Notfallausstattung': 'Notfallblatt, Erste-Hilfe-Kasten, Augendusche, Löscher, Fluchtwege',
+        'Dokumentation': 'Checklisten, Wartung, Chemikalienliste',
+        'Warten und prüfen': 'Schutzeinrichtungen intakt, Elektro periodisch prüfen, Checklisten',
         'Checklisten': 'bfu 4.323 mit Prüfintervall je Punkt',
         'Lagerung gefährlicher Stoffe': 'Kennzeichnung entscheidet, gefährliche Stoffe abschliessen',
         'Brennbare Flüssigkeiten, Säuren, Gas': 'im Schrank höchstens 100 Liter pro Fachraum, Säuren und Laugen getrennt',
@@ -239,9 +241,9 @@ KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschrifte
         'Fachräume planen und einrichten': 'für Neubau, Umbau und Neuorganisation',
         'Räume': 'Maschinenraum, Sichtkontakt, Zugang',
         'Installationen und Bauteile': 'FI-Schalter, Not-Aus, Absaugung',
-        'Notfälle vorbereiten': 'Notfallblatt, Erste-Hilfe-Kasten, Löscher, Abläufe',
+        'Im Notfall': 'Notrufnummern und Abläufe, mit der Klasse besprochen',
         'Fachraum als Lernort': 'Raum für selbstständiges Arbeiten',
-        'Grundregeln im Fachraum': 'nicht essen, wenig Staub, absaugen, lösungsmittelfrei',
+        'Regeln für die Klasse': 'nicht essen, wenig Staub, absaugen, lösungsmittelfrei',
         'Schutzmassnahmen': 'STOP-Prinzip, Schutzausrüstung von Kopf bis Fuss',
         'Sicher unterrichten': 'Lehrperson wählt Maschinen, führt ein, beaufsichtigt laufend und hält fest',
         'Vom Produktions- zum Erschliessungshandeln': 'selbstständiger Arbeiten verändert Raum und Aufsicht',
@@ -258,8 +260,8 @@ def klapp(html, h='h3'):
 recht = klapp(recht)
 zustaendig = klapp(zustaendig)
 # Fachraum: nur Betrieb und Einrichtung, ausserhalb der Lektion, als Zeilen zum Aufklappen
-planen = fach_teile.pop() + lernort
-fach_html = [klapp(klapp(x), 'h2') for x in fach_teile] + [klapp(klapp(planen), 'h2')]
+fach_teile[0] += lernort
+fach_html = [klapp(klapp(x), 'h2') for x in fach_teile]
 # Material: nur eigener Inhalt, die Themen je Material zeigt die Matrix
 mat_html = ['<section class="mat-teil">\n' + klapp(stoffe, 'h2') + '\n</section>']
 # Matrix: Zeilen Material, Spalten Verfahren, Felder öffnen das Thema im Fenster

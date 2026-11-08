@@ -99,7 +99,7 @@
               if(t.indexOf(stern+' ')===0) k.appendChild(el('p','k-fuss',t));
             });
           }
-          if(!z.themen && !z.video && !z.hinweis && !z.links) k.appendChild(el('p','k-fuss','Diese Seite nennt zu dieser Maschine keine eigenen Hinweise. Es gelten die Betriebsanleitung und die Grundregeln im Fachraum.'));
+          if(!z.themen && !z.video && !z.hinweis && !z.links) k.appendChild(el('p','k-fuss','Diese Seite nennt zu dieser Maschine keine eigenen Hinweise. Es gelten die Betriebsanleitung und die Regeln für die Klasse.'));
           b.addEventListener('click',function(){
             var offen=b.getAttribute('aria-expanded')!=='true';
             b.setAttribute('aria-expanded',offen?'true':'false'); k.hidden=!offen;
@@ -331,7 +331,7 @@
     var idVon={}; woerter.forEach(function(x){ idVon[x.w]=x.id; });
     // Abschnitte, in denen je Begriff nur das erste Vorkommen verlinkt wird
     var bloecke=$$('#register .thema, #register .sub, #grundlage, #verfahren > .text > section:not(.verfahren), #matrix .mat-teil, #fachraum, #unterricht, #kantone, #recht, #quellen');
-    var NICHT=['A','BUTTON','H2','H3','H4','TH','FIGCAPTION','LABEL','OPTION','SCRIPT','STYLE'];
+    var NICHT=['A','BUTTON','H2','H3','H4','TH','FIGCAPTION','LABEL','OPTION','SCRIPT','STYLE','SUMMARY'];
     bloecke.forEach(function(blk){
       if(blk.closest('.begriff')) return;
       var gesehen={};
@@ -435,7 +435,7 @@
   render();
   // Links, die in ein anderes Register führen, mit dem Registernamen kennzeichnen
   $$('.panel .text a[href^="#"]').forEach(function(a){
-    if(a.closest('#grundlage,.rand,.sprung,.gruppen,.ql,.b-wort,.plakat,.karte,nav,.psa-bezug,.quelle')) return;
+    if(a.closest('#grundlage,.rand,.sprung,.gruppen,.ql,.b-wort,.plakat,.karte,nav,.psa-bezug,.quelle,.mchip')) return;
     var z=document.getElementById(a.getAttribute('href').slice(1)), von=a.closest('.panel'), nach=z&&z.closest('.panel');
     if(!nach||!von||nach===von) return;
     if(a.textContent.trim()===(document.getElementById('t-'+nach.id)||{}).textContent) return;
