@@ -1,15 +1,15 @@
 {
  "ffp-maske.jpg": {
-  "alt": "Einweg-Atemschutzmaske FFP3 mit Ausatemventil",
-  "credit": "Foto: Rudolf Goldhammer, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:Atemluftfilter_Einwegmaske.jpg\">Wikimedia Commons</a>"
+  "alt": "Partikelfiltrierende Halbmaske mit Aufdruck FFP2 und EN 149",
+  "credit": "Foto: dronepicr, CC BY 2.0, <a href=\"https://commons.wikimedia.org/wiki/File:Covid_Face_mask_FFP2_(50577264611).jpg\">Wikimedia Commons</a>"
  },
  "industriesauger.jpg": {
   "alt": "Industriesauger, Beispielbild",
   "credit": "Beispielbild, Staubklasse nicht erkennbar. Foto: Bjoertvedt, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:Cleantex_Festool_CTL_36_IMG_2485_antistatic_vacuumcleaner_(cropped).JPG\">Wikimedia Commons</a>"
  },
  "absaugung.jpg": {
-  "alt": "Lötrauchabsauger mit beweglichem Absaugarm",
-  "credit": "Foto: Ivan Albion, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:%D0%94%D1%8B%D0%BC%D0%BE%D1%83%D0%BB%D0%BE%D0%B2%D0%B8%D1%82%D0%B5%D0%BB%D1%8C.jpg\">Wikimedia Commons</a>"
+  "alt": "Lötplätze in einer Werkstatt mit beweglichen Absaugarmen über den Tischen",
+  "credit": "Foto (Ausschnitt): Jens Eickhoff, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:L%C3%B6trauchabsaugung.jpg\">Wikimedia Commons</a>"
  },
  "mig-schweissen.jpg": {
   "alt": "Schweissplatz mit Schutzgasschweissgerät, Gasflasche und Schweissvorhang",
@@ -24,8 +24,8 @@
   "credit": "Gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:Conformit%C3%A9_Europ%C3%A9enne_(logo).svg\">Wikimedia Commons</a>"
  },
  "fi-schalter.jpg": {
-  "alt": "FI-Schutzschalter im Sicherungskasten",
-  "credit": "Foto: Raimond Spekking, CC BY-SA 4.0, <a href=\"https://commons.wikimedia.org/wiki/File:Moeller_Xpole_PXF-40-4-003-A-2288.jpg\">Wikimedia Commons</a>"
+  "alt": "FI-Schutzschalter für 30 mA (0,03 A) mit Prüftaste",
+  "credit": "Foto: Diermaier, CC0, <a href=\"https://commons.wikimedia.org/wiki/File:Residual_current_device_(RCD).jpg\">Wikimedia Commons</a>"
  },
  "schluesselschalter.jpg": {
   "alt": "Schlüsselschalter mit den Stellungen Aus und Ein",
@@ -36,23 +36,23 @@
   "credit": "Beispielbild ohne Gasflasche. Foto: GasSafetyExpert, CC BY-SA 4.0, <a href=\"https://commons.wikimedia.org/wiki/File:Gebrauchsstellenvorlagen.jpg\">Wikimedia Commons</a>"
  },
  "fdm-drucker.jpg": {
-  "alt": "3D-Drucker im Schmelzschichtverfahren mit geschlossenem Gehäuse",
-  "credit": "Foto: Justin Lohman, U.S. Space Force, gemeinfrei, <a href=\"https://commons.wikimedia.org/wiki/File:Vandenberg_Hosts_AI_and_3D_Printing_Workshops_(9572946)_(cropped).jpg\">Wikimedia Commons</a>"
+  "alt": "3D-Drucker im Schmelzschichtverfahren mit geschlossenem Gehäuse, auf der Druckplatte ein gedrucktes Modell",
+  "credit": "Foto: Oleg Bor, CC BY-SA 4.0, <a href=\"https://commons.wikimedia.org/wiki/File:3D_printer_in_a_school_workshop.jpg\">Wikimedia Commons</a>"
  },
  "spritzkabine.jpg": {
-  "alt": "Kleine Spritzkabine mit Absaugung, Beispielbild",
-  "credit": "Beispielbild einer Tisch-Spritzkabine. Foto: Leehitchens, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:Spray_booth_designed_for_application_of_conformal_coatings,_lacquers_and_RFI_shielding_paints.png\">Wikimedia Commons</a>"
+  "alt": "Zwei offene Spritzwände mit Absaugung und Filter in einer Werkstatt",
+  "credit": "Foto: Cjp24, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:Paint_booths.jpg\">Wikimedia Commons</a>"
  },
  "glasur.jpg": {
-  "alt": "Tassen werden in eine Glasur getaucht",
-  "credit": "Foto: Chriewue, CC BY 4.0, <a href=\"https://commons.wikimedia.org/wiki/File:Glazing_with_mineral-based,_hand-mixed_glazes_Taiz%C3%A9_pottery_workshop.jpg\">Wikimedia Commons</a>"
+  "alt": "Zwei Häufchen Fritten, farblos und dunkel gefärbt, mit Schild «Fritten»",
+  "credit": "Foto: Oktobersonne, CC BY-SA 4.0, <a href=\"https://commons.wikimedia.org/wiki/File:FrittenL1110809_(2).jpg\">Wikimedia Commons</a>"
  },
  "bindemittel.jpg": {
-  "alt": "Bindemittel wird auf eine ausgelaufene Flüssigkeit gestreut, Beispielbild",
-  "credit": "Beispielbild mit Ölbindemittel auf der Strasse. Foto: Magnus Mertens, CC BY-SA 2.0 DE, <a href=\"https://commons.wikimedia.org/wiki/File:Oelspur_goe_grone.jpg\">Wikimedia Commons</a>"
+  "alt": "Bindemittel bedeckt eine ausgelaufene Ölspur auf Asphalt, Beispielbild",
+  "credit": "Beispielbild mit Ölbindemittel auf der Strasse. Foto: Flominator, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:Smear_of_oil.jpg\">Wikimedia Commons</a>"
  },
  "etikett.jpg": {
-  "alt": "Muster einer Produktetikette mit drei GHS-Piktogrammen",
+  "alt": "Muster einer Produktetikette mit drei GHS-Piktogrammen, Signalwort sowie H- und P-Sätzen",
   "credit": "Grafik: Dr.cueppers, CC BY-SA 3.0, <a href=\"https://commons.wikimedia.org/wiki/File:GHS_Diethylzink.png\">Wikimedia Commons</a>"
  },
  "ce-vergleich.svg": {

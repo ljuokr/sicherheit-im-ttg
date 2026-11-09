@@ -83,6 +83,7 @@ li.verbot+li:not(.verbot){margin-top:.6rem}
 
 /* Tabellen */
 .wrap{overflow-x:auto;margin:0 0 1rem}
+.wrap:not(.mtab-wrap){background:linear-gradient(to right,var(--bg) 30%,transparent),linear-gradient(to left,var(--bg) 30%,transparent) 100% 0,radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.25),transparent),radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.25),transparent) 100% 0;background-repeat:no-repeat;background-size:2rem 100%,2rem 100%,.75rem 100%,.75rem 100%;background-attachment:local,local,scroll,scroll}
 table{border-collapse:collapse;width:100%;min-width:30rem;font-variant-numeric:tabular-nums}
 th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
 th{font-weight:600}
@@ -145,6 +146,10 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);color:v
 .videos{max-width:68ch;margin:0 0 1.5rem}
 .vlabel{color:var(--muted)}
 table.kantone tbody th{white-space:nowrap;vertical-align:top;text-align:left;font-weight:400}
+table.kantone td.auff{color:var(--muted);font-size:.875rem;min-width:14rem}
+figure.raumplan{margin:1rem 0 1.25rem;max-width:40rem}
+figure.raumplan svg{width:100%;height:auto;color:var(--fg)}
+figure.raumplan figcaption{color:var(--muted);font-size:.85rem;margin-top:.4rem}
 /* Titelkarte statt Coverbild, wo die Bildrechte nicht geklärt sind */
 .titelkarte{box-sizing:border-box;width:100%;max-width:14rem;aspect-ratio:1/1.414;border:1px solid var(--line);background:var(--tint);padding:1rem;display:flex;flex-direction:column;justify-content:space-between;color:var(--muted)}
 .titelkarte .tk-titel{color:var(--fg);font-weight:600;text-wrap:balance}
@@ -172,10 +177,12 @@ table.kantone tbody th{white-space:nowrap;vertical-align:top;text-align:left;fon
 .m-zeile{font:inherit;color:inherit;background:none;border:0;width:100%;display:flex;align-items:center;gap:1.1rem;padding:.2rem 0;text-align:left;cursor:pointer}
 .m-zeile:hover .m-name{text-decoration:underline;text-underline-offset:.2em}
 .m-name{min-width:0}
-/* Punkte wie auf dem Plakat, nur Farbe, einheitlich umrandet */
+/* Punkte wie auf dem Plakat, einheitlich umrandet */
 .dot{width:.95rem;height:.95rem;border-radius:50%;display:inline-grid;place-items:center;font-size:0;flex:none}
 .dot{box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.35)}
 .dot.A{background:var(--pa)} .dot.B{background:var(--pb)} .dot.C{background:var(--pc)}
+/* In der Plakatliste klein A, B, C im Punkt, nicht nur Farbe */
+.dots .dot{font-size:.6rem;font-weight:700;line-height:1;color:#111}
 .karte{background:var(--tint);padding:.75rem 1rem;margin:0 0 .5rem;border-bottom:1px solid var(--line)}
 .kz{margin:0 0 .6rem;display:grid;gap:.3rem}
 .kz div{display:flex;gap:.6rem;align-items:center}
@@ -457,7 +464,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 /* Themenfenster: rechts als Leiste, auf schmalen Bildschirmen über die ganze Fläche */
 .fenster{position:fixed;z-index:30;top:0;right:0;bottom:0;width:100%;background:var(--bg);color:var(--fg);border-left:2px solid var(--fg);overflow-y:auto;overscroll-behavior:contain;box-shadow:-.5rem 0 1.5rem rgba(0,0,0,.15);
   padding:calc(env(safe-area-inset-top,0px) + 1rem) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 2rem) max(16px,env(safe-area-inset-left,0px))}
-@media (min-width:64rem){ .fenster{width:min(36rem,45vw);padding-left:1.5rem} body.f-offen #inhalt{padding-right:min(36rem,45vw)} }
+@media (min-width:64rem){ .fenster{width:min(36rem,45vw);padding-left:1.5rem} body.f-offen #inhalt,body.f-offen #leiste{padding-right:min(36rem,45vw)} }
 .fenster:focus{outline:none}
 .f-kopf{position:sticky;top:calc(-1rem - env(safe-area-inset-top,0px));background:var(--bg);display:flex;gap:1rem;justify-content:space-between;align-items:start;border-bottom:1px solid var(--line);margin:-1rem 0 1rem;padding:1rem 0 .6rem;z-index:2}
 .f-art{margin:0;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}

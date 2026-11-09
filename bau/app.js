@@ -5,8 +5,8 @@
   function el(tag,cls,text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
   function kopie(node){
     var c=node.cloneNode(true);
-    [c].concat($$('[id],[data-instr],[tabindex],[role],[aria-labelledby]',c)).forEach(function(x){
-      ['id','data-instr','tabindex','role','aria-labelledby'].forEach(function(a){ x.removeAttribute(a); });
+    [c].concat($$('[id],[tabindex],[role],[aria-labelledby]',c)).forEach(function(x){
+      ['id','tabindex','role','aria-labelledby'].forEach(function(a){ x.removeAttribute(a); });
     });
     c.hidden=false; return c;
   }
@@ -35,8 +35,9 @@
   function themaTitel(id){ var t=document.getElementById(id); return t?$('h3',t).textContent:id; }
   function punkte(k){
     var d=el('span','dots');
-    k.forEach(function(K,i){ var p=el('span','dot '+K); p.setAttribute('aria-hidden','true'); d.appendChild(p); });
-    d.appendChild(el('span','sr',k.map(function(K,i){ return 'Zyklus '+(i+1)+' '+K; }).join(', ')));
+    // Buchstabe im Punkt, damit die Stufe nicht nur an der Farbe hängt (Rot-grün-Schwäche)
+    k.forEach(function(K,i){ var p=el('span','dot '+K,K); p.setAttribute('aria-hidden','true'); d.appendChild(p); });
+    d.appendChild(el('span','sr',k.map(function(K,i){ return 'Zyklus '+(i+1)+': '+KURZ[K]; }).join(', ')));
     return d;
   }
   // Einstufung je Thema, für das Themenfenster: Maschinen des Plakats, die auf dieses Thema verweisen
@@ -60,7 +61,7 @@
         rows.forEach(function(r){
           var li=el('li'), b=el('button','m-zeile'), kid='karte-'+(++nr);
           b.type='button'; b.setAttribute('aria-expanded','false'); b.setAttribute('aria-controls',kid);
-          b.appendChild(punkte(r.k)); b.appendChild(el('span','m-name',r.name)); b.setAttribute('aria-label',r.name+', '+r.k.map(function(K,i){return 'Zyklus '+(i+1)+': '+K;}).join(', '));
+          b.appendChild(punkte(r.k)); b.appendChild(el('span','m-name',r.name)); b.setAttribute('aria-label',r.name+', '+r.k.map(function(K,i){return 'Zyklus '+(i+1)+': '+KURZ[K];}).join(', '));
           var k=el('div','karte'); k.id=kid; k.hidden=true;
           var dl=el('dl','kz');
           r.k.forEach(function(K,i){
@@ -260,10 +261,11 @@
       ['grundlage','matrix','fachraum','unterricht','kantone','recht','quellen'].forEach(function(pid){
         var kopf=null, gruppen=[], akt=null;
         $$('h2,h3,li,p:not(.quelle):not(.g-k):not(.g-mehr),tr',document.getElementById(pid)).forEach(function(x){
-          if(x.closest('.rand')) return;
+          if(x.closest('.rand,.h-saetze')) return;
+          if(x.closest('footer') && kopf && !kopf.closest('footer')){ kopf=null; akt=null; }
           if(/^H[23]$/.test(x.tagName)){ kopf=x; akt=null; if(x.textContent.toLowerCase().indexOf(q)>-1){ akt={kopf:x,treffer:[]}; gruppen.push(akt); } return; }
           if(x.tagName==='P' && x.closest('li,td')) return;
-          if(x.textContent.toLowerCase().indexOf(q)<0) return;
+          if(x.textContent.replace(/ \(Register [^)]*\)/g,'').toLowerCase().indexOf(q)<0) return;
           if(!akt){ akt={kopf:kopf,treffer:[]}; gruppen.push(akt); }
           akt.treffer.push(x);
         });
@@ -275,7 +277,7 @@
           box.appendChild(h);
           if(g.treffer.length){
             var ul=el('ul');
-            g.treffer.forEach(function(x){ ul.appendChild(el('li',null,x.textContent.replace(/\s+/g,' ').trim())); });
+            g.treffer.forEach(function(x){ var t=x.tagName==='TR'?[].map.call(x.cells,function(c){ return c.textContent.trim(); }).join(' · '):x.textContent.replace(/ \(Register [^)]*\)/g,''); ul.appendChild(el('li',null,t.replace(/\s+/g,' ').trim())); });
             box.appendChild(ul);
           }
           inhalt.appendChild(box);
@@ -288,6 +290,16 @@
         weitere++;
         var key=tp.id.slice(6), box=el('section','erg-v'), h=el('h3'), l=el('a',null,'Material: '+document.querySelector('#mat-'+key+' .mx-mat').textContent);
         l.href='#mat-'+key; h.appendChild(l); box.appendChild(h);
+        var ul=el('ul'); tr.forEach(function(x){ ul.appendChild(el('li',null,x.textContent.replace(/\s+/g,' ').trim())); }); box.appendChild(ul);
+        inhalt.appendChild(box);
+      });
+      // Hinweise auf den Maschinenkarten stehen nur dort und werden sonst nicht gefunden
+      $$('#plakat-ziel .karte').forEach(function(k){
+        var tr=$$('.k-hinweise li',k).filter(function(x){ return x.textContent.toLowerCase().indexOf(q)>-1; });
+        if(!tr.length) return;
+        weitere++;
+        var name=$('.m-name',k.previousElementSibling).textContent, box=el('section','erg-v'), h=el('h3'), l=el('a',null,'Maschine: '+name.replace(/\*+$/,''));
+        l.href='#maschinen'; l.setAttribute('data-maschine',name); h.appendChild(l); box.appendChild(h);
         var ul=el('ul'); tr.forEach(function(x){ ul.appendChild(el('li',null,x.textContent.replace(/\s+/g,' ').trim())); }); box.appendChild(ul);
         inhalt.appendChild(box);
       });
@@ -337,7 +349,7 @@
       var gesehen={};
       var walker=document.createTreeWalker(blk,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
         var p=n.parentNode;
-        while(p && p!==blk){ if(NICHT.indexOf(p.tagName)>-1 || (p.classList && (p.classList.contains('quelle')||p.classList.contains('begriff')||p.classList.contains('vb')||p.classList.contains('uebersicht')||p.classList.contains('lernort')))) return NodeFilter.FILTER_REJECT; p=p.parentNode; }
+        while(p && p!==blk){ if(NICHT.indexOf(p.tagName)>-1 || (p.classList && (p.classList.contains('quelle')||p.classList.contains('begriff')||p.classList.contains('vb')||p.classList.contains('uebersicht')||p.classList.contains('lernort')||p.classList.contains('vw-t'))) || (p.getAttribute && p.getAttribute('aria-hidden')==='true')) return NodeFilter.FILTER_REJECT; p=p.parentNode; }
         return NodeFilter.FILTER_ACCEPT;
       }});
       var knoten=[]; while(walker.nextNode()) knoten.push(walker.currentNode);
@@ -346,7 +358,7 @@
         while(rest && (m=muster.exec(rest.nodeValue))){
           var wort=m[2], id=idVon[wort];
           var start=m.index+m[1].length;
-          if(gesehen[id] || blk.closest('#'+id)){
+          if(gesehen[id] || blk.closest('#'+id) || [].some.call(rest.parentNode.querySelectorAll('a:not(.b-wort)'),function(x){ return x.textContent.indexOf(wort)>-1; })){
             // schon verlinkt: hinter dem Treffer weitersuchen
             var weiter=rest.splitText(start+wort.length); rest=weiter; continue;
           }
@@ -361,7 +373,7 @@
     var pop=el('div','b-pop'); pop.id='b-pop'; pop.setAttribute('role','dialog'); pop.setAttribute('aria-modal','false'); pop.hidden=true;
     document.body.appendChild(pop);
     var offenVon=null;
-    function schliessen(){ if(pop.hidden) return; pop.hidden=true; if(offenVon){ offenVon.setAttribute('aria-expanded','false'); offenVon.focus({preventScroll:true}); } offenVon=null; }
+    function schliessen(ohneFokus){ if(pop.hidden) return; pop.hidden=true; if(offenVon){ offenVon.setAttribute('aria-expanded','false'); if(ohneFokus!==true) offenVon.focus({preventScroll:true}); } offenVon=null; }
     var perHover=false;
     function oeffnen(btn,hover){
       var quelle=document.getElementById(btn.getAttribute('data-b')); if(!quelle) return;
@@ -391,10 +403,11 @@
     }
     document.addEventListener('click',function(e){
       var b=e.target.closest('.b-wort');
-      if(b){ e.preventDefault(); e.stopImmediatePropagation(); if(offenVon===b && perHover){ perHover=false; return; } if(offenVon===b) schliessen(); else oeffnen(b); return; }
-      if(!pop.hidden && !pop.contains(e.target)) schliessen();
+      if(b){ e.preventDefault(); e.stopImmediatePropagation(); clearTimeout(tAuf); if(offenVon===b && perHover){ perHover=false; return; } if(offenVon===b) schliessen(); else oeffnen(b); return; }
+      if(!pop.hidden && !pop.contains(e.target)) schliessen(true);
     });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape') schliessen(); });
+    document.addEventListener('scroll',function(e){ if(!pop.hidden && offenVon && e.target!==document && e.target.contains && e.target.contains(offenVon)) schliessen(true); },true);
     // Mit Maus: nach einer halben Sekunde über dem Begriff öffnen, beim Verlassen wieder schliessen
     if(window.matchMedia && window.matchMedia('(hover:hover)').matches){
       var tAuf=null, tZu=null;
@@ -455,7 +468,7 @@
   f.setAttribute('role','dialog'); f.setAttribute('aria-labelledby','f-titel');
   f.innerHTML='<div class="f-kopf"><div><p class="f-art" id="f-art"></p><h2 id="f-titel"></h2><p class="f-meta" id="f-meta"></p></div><button type="button" class="knopf" id="f-zu">Schliessen</button></div><div class="f-in" id="f-in"></div>';
   document.body.appendChild(f);
-  var fin=document.getElementById('f-in'), ausloeser=null;
+  var fin=document.getElementById('f-in'), ausloeser=null, zuletzt=null;
   function ohneIds(n){ if(!n.querySelectorAll) return n; n.removeAttribute('id'); [].forEach.call(n.querySelectorAll('[id]'),function(x){ x.removeAttribute('id'); }); return n; }
   function oeffne(z,von){
     var verf=z.matches('section.verfahren')?z:z.closest('section.verfahren');
@@ -520,27 +533,30 @@
     }
     [].forEach.call(document.querySelectorAll('.mchip, .mx-mat'),function(c){ c.setAttribute('aria-current',c.getAttribute('href')==='#'+z.id?'true':'false'); });
     if(f.hidden && von && !f.contains(von)) ausloeser=von;
-    f.hidden=false; document.body.classList.add('f-offen');
+    f.hidden=false; document.body.classList.add('f-offen'); var schmal=!window.matchMedia('(min-width:64rem)').matches; ['leiste','inhalt'].forEach(function(id){ var n=document.getElementById(id); if(n) n.inert=schmal; });
     f.scrollTop=0; f.focus({preventScroll:true});
     try{ history.replaceState(null,'','#'+z.id); }catch(e){}
   }
   function zu(){
     if(f.hidden) return;
-    f.hidden=true; document.body.classList.remove('f-offen');
+    f.hidden=true; document.body.classList.remove('f-offen'); ['leiste','inhalt'].forEach(function(id){ var n=document.getElementById(id); if(n) n.inert=false; });
+    var ers=ausloeser&&document.contains(ausloeser)?ausloeser:([].filter.call(document.querySelectorAll('.mchip[aria-current="true"], .mx-mat[aria-current="true"]'),function(c){ return c.getClientRects().length; })[0]||document.querySelector('#tl-haupt [aria-selected=true]'));
+    if(ers) ers.focus({preventScroll:true});
     [].forEach.call(document.querySelectorAll('.mchip[aria-current="true"]'),function(c){ c.setAttribute('aria-current','false'); });
-    if(ausloeser && document.contains(ausloeser)) ausloeser.focus({preventScroll:true});
-    ausloeser=null;
+    ausloeser=null; zuletzt=null;
   }
   document.getElementById('f-zu').addEventListener('click',zu);
   // Registerwechsel schliesst das Fenster
-  document.addEventListener('click',function(e){ var t=e.target.closest('#tl-haupt [role=tab], #reg2 [role=tab]'); if(t && t.getAttribute('aria-selected')!=='true') zu(); },true);
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !f.hidden && !document.querySelector('.b-pop:not([hidden])')) zu(); });
+  document.addEventListener('click',function(e){ var t=e.target.closest('#tl-haupt [role=tab], #reg2 [role=tab]'); if(t && t.getAttribute('aria-selected')!=='true'){ ausloeser=null; zu(); } },true);
+  // Capture-Phase: läuft vor dem Popover-Listener, sieht also noch, ob ein Popover offen ist
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !f.hidden && !document.querySelector('.b-pop:not([hidden])')) zu(); },true);
   // Vor dem Register-Sprung von app.js abfangen
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href^="#"]'); if(!a || a.classList.contains('b-wort')) return;
     // Maschine ohne eigenes Thema: Karte auf dem Plakat öffnen
     if(a.hasAttribute('data-maschine')){
       e.preventDefault(); e.stopPropagation(); zu();
+      if(!document.getElementById('ergebnis').hidden) document.getElementById('zurueck').click();
       document.getElementById('t-verfahren').click();
       var name=a.getAttribute('data-maschine');
       var b=[].filter.call(document.querySelectorAll('#plakat-ziel .m-zeile'),function(x){ return x.querySelector('.m-name').textContent===name; })[0];
@@ -551,8 +567,8 @@
     if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){
       e.preventDefault(); e.stopPropagation();
       // Zweiter Klick auf das Feld, dessen Fenster offen ist, schliesst es wieder
-      if(!f.hidden && a.getAttribute('aria-current')==='true'){ zu(); return; }
-      oeffne(z,a); return;
+      if(!f.hidden && (a.getAttribute('aria-current')==='true' || a===zuletzt)){ zu(); return; }
+      oeffne(z,a); zuletzt=a; return;
     }
     // Link auf einen gewöhnlichen Abschnitt: Fenster schliessen, sonst liegt es über dem Ziel
     if(f.contains(a) || z) zu();
@@ -562,6 +578,8 @@
     var z=document.getElementById(s.parentNode.getAttribute('href').slice(1));
     if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')) s.remove();
   });
+  // Hash ändert sich bei offener Seite: Themen und Materialien im Fenster öffnen wie beim Laden
+  window.addEventListener('hashchange',function(){ var z2=document.getElementById(decodeURIComponent(location.hash.slice(1))); if(z2 && z2.matches('section.thema, section.verfahren, th.mx-zeile') && f.hidden){ document.getElementById('t-matrix').click(); oeffne(z2,null); } });
   var h=decodeURIComponent(location.hash.slice(1)), z=h&&document.getElementById(h);
   if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ document.getElementById('t-matrix').click(); oeffne(z,null); }
 })();

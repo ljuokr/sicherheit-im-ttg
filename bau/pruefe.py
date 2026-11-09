@@ -55,7 +55,6 @@ print('Ausrufezeichen im Text:', txt.count('!'))
 print('[hidden]-Regel:', '[hidden]{display:none!important}' in neu)
 vb = re.findall(r'<li class="verbot"[^>]*><img class="vb-z"[^>]*> (.*?)</li>', neu)
 print('Verbote markiert:', len(vb))
-print('data-instr:', len(re.findall(r'data-instr=', neu)))
 js = neu.split('<script>')[-1].split('</script>')[0]
 open(JS, 'w').write(js)
 print('node --check:', subprocess.run(['node', '--check', JS], capture_output=True, text=True).returncode)

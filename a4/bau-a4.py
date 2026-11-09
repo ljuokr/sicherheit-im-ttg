@@ -35,7 +35,7 @@ LP = [
     'Erst einführen, dann arbeiten lassen. Laufend beaufsichtigen, eingreifen oder abbrechen, wenn nötig.',
     'Festhalten, welche Klasse wann an welcher Maschine instruiert wurde.',
     'Maschinen mit dem Schlüsselschalter freigeben und mit Not-Aus zentral stoppen.',
-    'Gefährliche Stoffe nie unbeaufsichtigt stehen lassen, auch nicht in der Pause, und nie in Getränkeflaschen umfüllen.',
+    'Gefährliche Stoffe nicht unbeaufsichtigt stehen lassen, auch nicht in der Pause, und nicht in Getränkeflaschen umfüllen.',
     'Mit Leinöl getränkte Lappen können sich selbst entzünden: nie lose in den Abfalleimer, zuerst 48 Stunden ausgebreitet trocknen lassen.',
 ]
 SCHULE = [
@@ -99,7 +99,7 @@ li{margin:0 0 1.1mm}
 .fuss .qr{text-align:center;font-size:6.5pt}
 </style></head><body>
 <main class="blatt">
-<header class="kopf"><div><h1>Sicherheit im TTG auf einen Blick</h1><p>Das Wichtigste für Schülerinnen und Schüler, Lehrpersonen und Schulleitung</p></div><div class="stand">Stand November 2026<br>nach bfu, chemsuisse und Suva</div></header>
+<header class="kopf"><div><h1>Sicherheit im TTG auf einen Blick</h1><p>Sicher arbeiten lernen gehört zum TTG. Das Wichtigste für Schülerinnen und Schüler, Lehrpersonen und Schulleitung</p></div><div class="stand">Stand November 2026<br>nach bfu, chemsuisse und Suva</div></header>
 
 <section class="alle"><h2><span class="tag">alle</span>Im Fachraum gilt für alle</h2><div class="pgrid">%(picto)s</div></section>
 

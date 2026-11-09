@@ -11,6 +11,6 @@
     <path transform="translate(-55,0)" d="M280,199.498744A100,100 0 0 1 270,200A100,100 0 0 1 270,0A100,100 0 0 1 280,0.501256L280,30.501256A70,70 0 0 0 270,30A70,70 0 0 0 201.620283,85L260,85L260,115L201.620283,115A70,70 0 0 0 270,170A70,70 0 0 0 280,169.498744Z"/>
   </g>
   <line x1="280" y1="15" x2="280" y2="175" stroke="#999" stroke-width="1"/>
-  <text x="124" y="180" font-family="Arial, sans-serif" font-size="15" text-anchor="middle" fill="#000">CE-Kennzeichnung</text>
-  <text x="413" y="180" font-family="Arial, sans-serif" font-size="15" text-anchor="middle" fill="#000">verwechselbar: Buchstaben eng</text>
+  <text x="124" y="180" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#000">CE-Kennzeichnung</text>
+  <text x="413" y="180" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#000">verwechselbar: zu eng</text>
 </svg>
