@@ -358,7 +358,7 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="verfahren"><div class="text">
-<p class="einleitung reg-lead">Welche Maschine eine Klasse bedienen kann, hängt vom Zyklus ab. Das bfu-Plakat teilt jede Maschine ein: A selbstständig nach Einführung, B unter Aufsicht der Lehrperson, C nur für Lehrpersonen. Eine Maschine antippen öffnet ihre Karte mit Hinweisen, Checkliste und Lernvideo.</p>
+<p class="einleitung reg-lead">Welche Maschine eine Klasse bedienen kann, hängt vom Zyklus ab. Die Ständerbohrmaschine etwa ist im Zyklus 1 den Lehrpersonen vorbehalten, im Zyklus 2 steht sie unter Aufsicht, im Zyklus 3 arbeiten die Schülerinnen und Schüler nach der Einführung selbstständig daran. Aufsicht heisst, dass die Lehrperson im Fachraum anwesend ist. Hat der Kanton eine eigene Maschinenliste, etwa Luzern oder Zürich, gilt diese.</p>
 <section class="sub" id="plakat" data-titel="Übersicht">
 <h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen nach Zyklus</h2>
 <noscript><p>Die Maschinentabellen stehen bei den einzelnen Verfahren.</p></noscript>
@@ -411,7 +411,7 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="recht"><div class="text">
-<p class="einleitung reg-lead">Die Gesetze sagen selten im Detail, wie ein Fachraum aussehen muss. Sie verlangen, was nach Erfahrung nötig und nach dem Stand der Technik zumutbar ist, die Leitfäden von bfu und chemsuisse zeigen, was das heisst. Wer sorgfältig einführt, beaufsichtigt und festhält, handelt richtig. Das LCH-Merkblatt fasst es so zusammen: «Die Verantwortung ist gross, das Risiko klein.» <a class="ql" href="https://phbern.ch/media/3318/download">LCH (1998), S. 4&nbsp;↗</a></p>
+<p class="einleitung reg-lead">Die Gesetze sagen selten im Detail, wie ein Fachraum aussehen muss. Sie verlangen, was nach Erfahrung nötig und nach dem Stand der Technik anwendbar ist, die Leitfäden von bfu und chemsuisse zeigen, was das heisst. Für Schäden im Unterricht haftet in der Regel der Schulträger, Rückgriff auf die Lehrperson ist meist nur bei grober Pflichtverletzung möglich. Das LCH-Merkblatt fasst es so zusammen: «Die Verantwortung ist gross, das Risiko klein.» <a class="ql" href="https://phbern.ch/media/3318/download">LCH (1998), S. 4&nbsp;↗</a></p>
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#sorgfalt">Sorgfalts- und Obhutspflicht</a></li>
 <li><a href="#haftung">Haftung</a></li>
@@ -422,7 +422,7 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="quellen"><div class="text">
-<p class="einleitung reg-lead">Die Dokumente, auf die sich die Seite stützt, mit Links zu den Originalen, dazu die wichtigsten Begriffe. Wer genauer nachlesen will, findet hier alles an einem Ort.</p>
+<p class="einleitung reg-lead">Die meisten Angaben dieser Seite stammen aus Dokumenten, die für Schulen geschrieben sind: den Unterlagen der bfu zu Maschinen und Fachräumen und dem Leitfaden von chemsuisse zu Materialien und Stoffen. Ältere Merkblätter wie «Sicherheit im Werkraum» der bfu von 2001 sind ersetzt und stehen nur noch im Archiv. Alle Links sind im November 2026 geprüft.</p>
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#quellen">Quellen und Downloads</a></li>
 <li><a href="#begriffe">Begriffe</a></li>
