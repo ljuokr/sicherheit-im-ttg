@@ -376,18 +376,27 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="matrix"><div class="text mx-text">
-<p class="einleitung reg-lead">Worauf zu achten ist, hängt davon ab, was bearbeitet wird und wie. Die Matrix verbindet Material und Verfahren: Ein Feld öffnet die Regeln dazu, «Bevorzugen» zeigt, was die Quellen empfehlen, «Nicht verwenden», was sie an Schulen ausschliessen. Für die meisten Vorhaben genügen gut gewählte Materialien und ein paar einfache Regeln.</p>
+<p class="einleitung reg-lead">Wie viel Schutz eine Arbeit braucht, entscheidet sich oft schon beim Einkauf. Mit bleifreiem Lot genügt für kurzes Löten ein gekipptes Fenster, mit Fichte statt Buche entsteht beim Schleifen kein als krebserzeugend eingestufter Staub. Darum nennt die Matrix bei den Materialien zuerst, was die Quellen bevorzugen.</p>
 {matrix_html}
 {chr(10).join(mat_html)}
 </div></section>
 
 <section class="panel" id="fachraum"><div class="text">
-<p class="einleitung reg-lead">Hier steht, was im Raum bereit sein muss, bevor die Klasse kommt, und wer dafür sorgt. Die Abschnitte folgen dem Lauf des Raums: planen und einrichten, betreiben, warten und prüfen, dazu Lagerung und Entsorgung der Stoffe. Ein gut eingerichteter Fachraum macht selbstständiges Arbeiten erst möglich.</p>
+<p class="einleitung reg-lead">Ein gut eingerichteter Fachraum lässt die Klasse selbstständig arbeiten. Verbrauchsmaterial wie Schrauben, Farben und Schleifpapier steht sichtbar und griffbereit, abgeschlossen wird nur, was nach der Gefahrenkennzeichnung gefährlich ist. Was regelmässig zu prüfen ist, zeigen die Checklisten der bfu, von der täglichen Sichtkontrolle bis zu Abständen von mehreren Jahren.</p>
+<nav class="ablauf" aria-label="Ablauf im Fachraum">
+<ol>
+<li><a href="#planen"><span class="ab-nr">1</span><b>Planen und einrichten</b><span class="ab-wann">einmalig, bei Neubau, Umbau oder Anschaffung</span></a></li>
+<li><a href="#fachraum-betreiben"><span class="ab-nr">2</span><b>Betreiben</b><span class="ab-wann">in jeder Lektion</span></a></li>
+<li><a href="#maschinen-warten"><span class="ab-nr">3</span><b>Warten und prüfen</b><span class="ab-wann">täglich bis alle paar Jahre</span></a></li>
+<li><a href="#lagerung"><span class="ab-nr">4</span><b>Stoffe lagern</b><span class="ab-wann">laufend</span></a></li>
+<li><a href="#entsorgung"><span class="ab-nr">5</span><b>Entsorgen</b><span class="ab-wann">wenn Reste anfallen</span></a></li>
+</ol>
+</nav>
 {chr(10).join(fach_html)}
 </div></section>
 
 <section class="panel" id="unterricht"><div class="text">
-<p class="einleitung reg-lead">Hier steht, was die Lehrperson mit der Klasse tut: Maschinen wählen, einführen, begleiten und im Notfall handeln. Sicherheit ist dabei auch Lerninhalt. Schon im Zyklus 1 lernen die Schülerinnen und Schüler, auf die Arbeitssicherheit zu achten, und übernehmen mit jeder Einführung mehr Verantwortung. Was sie dabei lernen, nützt ihnen auch beim Gestalten und Heimwerken in der Freizeit.</p>
+<p class="einleitung reg-lead">Was mit der Klasse besprochen und geübt ist, trägt im Fachraum, auch im Notfall. Darum lohnt sich die Zeit für eine sorgfältige Einführung. Sicherheit ist so zugleich Lerninhalt: Der Lehrplan 21 verlangt schon im Zyklus 1, auf die Arbeitssicherheit zu achten, bis zum Zyklus 3 lernen die Schülerinnen und Schüler, Werkzeuge und Maschinen selbstständig zu wählen. Das nützt ihnen auch beim Heimwerken in der Freizeit.</p>
 {klapp(sicher, 'h2')}
 {klapp(allg, 'h2')}
 <section class="u-schutz">

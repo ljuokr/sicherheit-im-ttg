@@ -517,6 +517,25 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 }
 .lp{font-size:.875rem;color:var(--muted);margin:.4rem 0 0}
 .lp a{color:inherit}
+
+/* Ablaufleiste oben im Register Fachraum: fünf Schritte, jeder führt zu seinem Abschnitt */
+.ablauf{margin:0 0 1.75rem;max-width:none}
+.ablauf ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.5rem}
+.ablauf li{margin:0;position:relative;min-width:0}
+.ablauf li:not(:last-child)::after{content:"";position:absolute;top:1.55rem;right:-.5rem;width:.5rem;height:2px;background:var(--fg)}
+.ablauf a{display:block;height:100%;padding:.7rem .75rem .8rem;background:var(--tint);border:1px solid transparent;border-radius:.35rem;color:var(--fg);text-decoration:none}
+.ablauf a:hover{border-color:var(--line)}
+.ablauf a:hover b{text-decoration:underline}
+.ablauf .ab-nr{display:grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:50%;border:2px solid var(--fg);background:var(--bg);font-weight:600;font-size:.875rem;margin-bottom:.45rem}
+.ablauf b{display:block;font-size:.95rem;line-height:1.3}
+.ablauf .ab-wann{display:block;font-size:.8rem;color:var(--muted);margin-top:.2rem;line-height:1.35}
+@media (max-width:44rem){
+  .ablauf ol{grid-template-columns:minmax(0,1fr);gap:.4rem}
+  .ablauf li:not(:last-child)::after{top:auto;bottom:-.4rem;right:auto;left:1.65rem;width:2px;height:.4rem}
+  .ablauf a{display:grid;grid-template-columns:1.8rem minmax(0,1fr);column-gap:.7rem;align-items:center;padding:.5rem .7rem}
+  .ablauf .ab-nr{grid-row:1/3;margin:0}
+  .ablauf .ab-wann{margin-top:0}
+}
 </style>
 </head>
 <body>
@@ -1113,7 +1132,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 </div></section>
 
 <section class="panel" id="matrix"><div class="text mx-text">
-<p class="einleitung reg-lead">Worauf zu achten ist, hängt davon ab, was bearbeitet wird und wie. Die Matrix verbindet Material und Verfahren: Ein Feld öffnet die Regeln dazu, «Bevorzugen» zeigt, was die Quellen empfehlen, «Nicht verwenden», was sie an Schulen ausschliessen. Für die meisten Vorhaben genügen gut gewählte Materialien und ein paar einfache Regeln.</p>
+<p class="einleitung reg-lead">Wie viel Schutz eine Arbeit braucht, entscheidet sich oft schon beim Einkauf. Mit bleifreiem Lot genügt für kurzes Löten ein gekipptes Fenster, mit Fichte statt Buche entsteht beim Schleifen kein als krebserzeugend eingestufter Staub. Darum nennt die Matrix bei den Materialien zuerst, was die Quellen bevorzugen.</p>
 <h2 class="sr">Verfahren und Material</h2>
 <div class="mx-wrap"><table class="mx"><caption class="sr">Sicherheitsthemen nach Material und Verfahren</caption>
 <thead><tr><td class="ecke"><span class="sr">Material und Verfahren</span></td><th scope="col">Trennen</th><th scope="col">Umformen</th><th scope="col">Verbinden</th><th scope="col">Oberfläche verändern</th><th scope="col" class="mx-nv">Nicht verwenden</th></tr></thead>
@@ -1175,7 +1194,16 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 </div></section>
 
 <section class="panel" id="fachraum"><div class="text">
-<p class="einleitung reg-lead">Hier steht, was im Raum bereit sein muss, bevor die Klasse kommt, und wer dafür sorgt. Die Abschnitte folgen dem Lauf des Raums: planen und einrichten, betreiben, warten und prüfen, dazu Lagerung und Entsorgung der Stoffe. Ein gut eingerichteter Fachraum macht selbstständiges Arbeiten erst möglich.</p>
+<p class="einleitung reg-lead">Ein gut eingerichteter Fachraum lässt die Klasse selbstständig arbeiten. Verbrauchsmaterial wie Schrauben, Farben und Schleifpapier steht sichtbar und griffbereit, abgeschlossen wird nur, was nach der Gefahrenkennzeichnung gefährlich ist. Was regelmässig zu prüfen ist, zeigen die Checklisten der bfu, von der täglichen Sichtkontrolle bis zu Abständen von mehreren Jahren.</p>
+<nav class="ablauf" aria-label="Ablauf im Fachraum">
+<ol>
+<li><a href="#planen"><span class="ab-nr">1</span><b>Planen und einrichten</b><span class="ab-wann">einmalig, bei Neubau, Umbau oder Anschaffung</span></a></li>
+<li><a href="#fachraum-betreiben"><span class="ab-nr">2</span><b>Betreiben</b><span class="ab-wann">in jeder Lektion</span></a></li>
+<li><a href="#maschinen-warten"><span class="ab-nr">3</span><b>Warten und prüfen</b><span class="ab-wann">täglich bis alle paar Jahre</span></a></li>
+<li><a href="#lagerung"><span class="ab-nr">4</span><b>Stoffe lagern</b><span class="ab-wann">laufend</span></a></li>
+<li><a href="#entsorgung"><span class="ab-nr">5</span><b>Entsorgen</b><span class="ab-wann">wenn Reste anfallen</span></a></li>
+</ol>
+</nav>
 <section class="klapp"><details class="thema-d">
 <summary><h2 id="planen">Fachräume planen und einrichten</h2><span class="t-meta">für Neubau, Umbau und Neuorganisation</span></summary>
 <p>Für Neubauten, Umbauten und die Neuorganisation bestehender Fachräume. Anforderungen an Schulräume und Klassengrössen gibt in der Regel der Kanton vor, siehe <a href="#kantone">Kantonale Vorgaben</a>.</p>
@@ -1388,7 +1416,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 </div></section>
 
 <section class="panel" id="unterricht"><div class="text">
-<p class="einleitung reg-lead">Hier steht, was die Lehrperson mit der Klasse tut: Maschinen wählen, einführen, begleiten und im Notfall handeln. Sicherheit ist dabei auch Lerninhalt. Schon im Zyklus 1 lernen die Schülerinnen und Schüler, auf die Arbeitssicherheit zu achten, und übernehmen mit jeder Einführung mehr Verantwortung. Was sie dabei lernen, nützt ihnen auch beim Gestalten und Heimwerken in der Freizeit.</p>
+<p class="einleitung reg-lead">Was mit der Klasse besprochen und geübt ist, trägt im Fachraum, auch im Notfall. Darum lohnt sich die Zeit für eine sorgfältige Einführung. Sicherheit ist so zugleich Lerninhalt: Der Lehrplan 21 verlangt schon im Zyklus 1, auf die Arbeitssicherheit zu achten, bis zum Zyklus 3 lernen die Schülerinnen und Schüler, Werkzeuge und Maschinen selbstständig zu wählen. Das nützt ihnen auch beim Heimwerken in der Freizeit.</p>
 <section class="klapp"><details class="thema-d">
 <summary><h2 id="sicher-unterrichten">Sicher unterrichten</h2><span class="t-meta">Lehrperson wählt Maschinen, führt ein, beaufsichtigt laufend und hält fest</span></summary>
 <p>Unfallverhütung ist ein Zusammenspiel. Neben baulich-technischen Vorkehrungen braucht es Massnahmen im didaktisch-methodischen Bereich, für die einzelne Lehrperson und im Kollegium.</p>
@@ -1551,7 +1579,7 @@ table.mx{border-collapse:collapse;width:100%;min-width:48rem;font-size:.9rem;mar
 <p>Das bfu-Plakat ergänzt die Zuordnung um die Gefahrenkategorien A, B und C. Weil die Schülerinnen und Schüler «Materialien und Objekte aus ihrer Lebenswelt spielerisch und forschend erkunden» sollen (TTG.2.A.2.a, Zyklus 1), soll Material ohne Gefahrenkennzeichnung sichtbar und griffbereit sein. Gekennzeichnete Stoffe werden abgeschlossen gelagert, siehe <a href="#lagerung">Lagerung</a>.</p>
 <p>Im Themenfeld Elektrizität/Energie verlangt der Lehrplan, dass die Schülerinnen und Schüler «Sicherheitsregeln im Umgang mit Haushaltstrom (Steckdose) und Schwachstrom (Batterie)» kennen (TTG.2.B.1.5a). Die Quellen dieser Seite enthalten dazu keine eigenen Regeln.</p>
 <p>Die Verfahren selbst, etwa sägen, löten, kleben oder ölen, stehen in TTG.2.D.1 «handwerkliche Verfahren ausführen und bewusst einsetzen». Die Lehrplan-Zeilen bei den Themen nennen die Kompetenzstufe, z. B. TTG.2.D.1.3b weichlöten, Zyklus 2.</p>
-<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 20<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 4, 5<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://v-fe.lehrplan.ch/index.php?code=b%7C7%7C2">Lehrplan 21, TTG.2.E.1, TTG.2.A.2, TTG.2.B.1, TTG.2.D.1<span aria-hidden="true">&nbsp;↗</span></a></p></details></section>
+<p class="quelle"><a class="ql" href="https://www.bfu.ch/api/publications/bfu_2.524.01_Fachr%C3%A4ume%20Technisches%20und%20Textiles%20Gestalten%20einrichten%20%E2%80%93%20Ein%20Fokus%20auf%20die%20Sicherheit.pdf">bfu 2.524, S. 20<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://www.bfu.ch/api/publications/bfu_4.302.01_Technisch%20und%20Textiles%20Gestalten%20%E2%80%93%20Leitfaden%20f%C3%BCr%20Schulen.pdf">bfu 4.302, S. 3 bis 5<span aria-hidden="true">&nbsp;↗</span></a> · <a class="ql" href="https://v-fe.lehrplan.ch/index.php?code=b%7C7%7C2">Lehrplan 21, TTG.2.E.1, TTG.2.A.2, TTG.2.B.1, TTG.2.D.1<span aria-hidden="true">&nbsp;↗</span></a></p></details></section>
 
 </div></section>
 
