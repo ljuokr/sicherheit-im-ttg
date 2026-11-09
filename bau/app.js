@@ -124,6 +124,11 @@
   var haupt=$$('#tl-haupt [role=tab]');
   var SUBS={}; $$('#reg2 [role=tablist]').forEach(function(l){ SUBS[l.getAttribute('data-haupt')]=l; });
   var letzte={};
+  // Jeder Sprung wird ein Verlaufseintrag, damit die Zurück-Taste zum vorherigen Abschnitt führt.
+  // Beim Laden und beim Zurückgehen selbst nur ersetzen, sonst geht der Vorwärts-Verlauf verloren.
+  var still=true;
+  function setzeHash(h){ if(location.hash==='#'+h) return; try{ if(still) history.replaceState(null,'','#'+h); else history.pushState(null,'','#'+h); }catch(e){} }
+  window.TTG_HASH=setzeHash;
   $$('[role=tab]').forEach(function(t){
     var p=document.getElementById(t.getAttribute('aria-controls'));
     p.setAttribute('role','tabpanel'); p.setAttribute('aria-labelledby',t.id); p.tabIndex=-1;
@@ -146,7 +151,7 @@
       });
       letzte[hid]=sid;
     } else sid=null;
-    try{ history.replaceState(null,'','#'+(hash||sid||hid)); }catch(e){}
+    setzeHash(hash||sid||hid);
     hoehe();
   }
   function nachOben(){
@@ -443,7 +448,7 @@
     var a=e.target.closest('a[href^="#"]'); if(!a) return;
     if(gehe(decodeURIComponent(a.getAttribute('href').slice(1)),true)) e.preventDefault();
   });
-  window.addEventListener('hashchange',function(){ gehe(decodeURIComponent(location.hash.slice(1))); });
+  window.addEventListener('popstate',function(){ still=true; if(!gehe(decodeURIComponent(location.hash.slice(1))) && !location.hash) zeige('grundlage'); still=false; });
 
   render();
   // Links, die in ein anderes Register führen, mit dem Registernamen kennzeichnen
@@ -459,6 +464,8 @@
     var h=location.hash; zeige('grundlage');
     if(!h){ try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){} }
   }
+  // Erst nach dem ganzen Aufbau (auch dem Fenster unten) neue Verlaufseinträge anlegen
+  setTimeout(function(){ still=false; },0);
 })();
 
 /* Themen und Verfahren öffnen sich in einem Fenster statt in der langen Liste */
@@ -535,7 +542,7 @@
     if(f.hidden && von && !f.contains(von)) ausloeser=von;
     f.hidden=false; document.body.classList.add('f-offen'); var schmal=!window.matchMedia('(min-width:64rem)').matches; ['leiste','inhalt'].forEach(function(id){ var n=document.getElementById(id); if(n) n.inert=schmal; });
     f.scrollTop=0; f.focus({preventScroll:true});
-    try{ history.replaceState(null,'','#'+z.id); }catch(e){}
+    window.TTG_HASH(z.id);
   }
   function zu(){
     if(f.hidden) return;
@@ -579,7 +586,8 @@
     if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')) s.remove();
   });
   // Hash ändert sich bei offener Seite: Themen und Materialien im Fenster öffnen wie beim Laden
-  window.addEventListener('hashchange',function(){ var z2=document.getElementById(decodeURIComponent(location.hash.slice(1))); if(z2 && z2.matches('section.thema, section.verfahren, th.mx-zeile') && f.hidden){ document.getElementById('t-matrix').click(); oeffne(z2,null); } });
+  // Zurück-Taste oder geänderter Hash: Thema im Fenster öffnen, sonst Fenster schliessen
+  window.addEventListener('popstate',function(){ var z2=document.getElementById(decodeURIComponent(location.hash.slice(1))); if(z2 && z2.matches('section.thema, section.verfahren, th.mx-zeile')){ oeffne(z2,null); zuletzt=null; } else { ausloeser=null; zu(); } });
   var h=decodeURIComponent(location.hash.slice(1)), z=h&&document.getElementById(h);
   if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ document.getElementById('t-matrix').click(); oeffne(z,null); }
 })();
