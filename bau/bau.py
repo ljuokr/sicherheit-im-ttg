@@ -358,7 +358,7 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="verfahren"><div class="text">
-<p class="einleitung reg-lead">Welche Maschine eine Klasse bedienen kann, hängt vom Zyklus ab. Das bfu-Plakat teilt jede Maschine ein: A selbstständig nach Einführung, B unter Aufsicht der Lehrperson, C nur für Lehrpersonen. Im Zyklus 3 können die Schülerinnen und Schüler die meisten Maschinen auf dem Plakat benützen, viele davon nach der Einführung selbstständig. Eine Maschine antippen öffnet ihre Karte mit Hinweisen, Checkliste und Lernvideo.</p>
+<p class="einleitung reg-lead">Welche Maschine eine Klasse bedienen kann, hängt vom Zyklus ab. Das bfu-Plakat teilt jede Maschine ein: A selbstständig nach Einführung, B unter Aufsicht der Lehrperson, C nur für Lehrpersonen. Eine Maschine antippen öffnet ihre Karte mit Hinweisen, Checkliste und Lernvideo.</p>
 <section class="sub" id="plakat" data-titel="Übersicht">
 <h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen nach Zyklus</h2>
 <noscript><p>Die Maschinentabellen stehen bei den einzelnen Verfahren.</p></noscript>
