@@ -397,6 +397,15 @@ body = f'''<header class="kopf"><div class="in">
 
 <section class="panel" id="unterricht"><div class="text">
 <p class="einleitung reg-lead">Was mit der Klasse besprochen und geübt ist, trägt im Fachraum, auch im Notfall. Darum lohnt sich die Zeit für eine sorgfältige Einführung. Sicherheit ist so zugleich Lerninhalt: Der Lehrplan 21 verlangt schon im Zyklus 1, auf die Arbeitssicherheit zu achten, bis zum Zyklus 3 lernen die Schülerinnen und Schüler, Werkzeuge und Maschinen selbstständig zu wählen. Das nützt ihnen auch beim Heimwerken in der Freizeit.</p>
+<figure class="treppe" aria-labelledby="treppe-t">
+<figcaption id="treppe-t">Mehr Selbstständigkeit von Zyklus zu Zyklus</figcaption>
+<ol>
+<li><span class="tr-z">Zyklus 1</span><b>«unter Anleitung und Aufsicht»</b><span class="tr-bsp">etwa Schere, Handsäge, Thermoschneider</span></li>
+<li><span class="tr-z">Zyklus 2</span><b>«verantwortungsbewusst»</b><span class="tr-bsp">etwa Nähmaschine, Decoupiersäge, Ständerbohrmaschine</span></li>
+<li><span class="tr-z">Zyklus 3</span><b>«selbstständig wählen»</b><span class="tr-bsp">etwa Overlockmaschine, Stichsäge, Tellerschleifmaschine</span></li>
+</ol>
+<p class="tr-q">Lehrplan 21, <a href="#lehrplan">TTG.2.E.1.2a bis 2d</a>. Welche Maschine die Klasse wie benützen darf, regelt das <a href="#plakat">bfu-Plakat</a>.</p>
+</figure>
 {klapp(sicher, 'h2')}
 {klapp(allg, 'h2')}
 <section class="u-schutz">
