@@ -411,7 +411,7 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="recht"><div class="text">
-<p class="einleitung reg-lead">Die Gesetze sagen selten im Detail, wie ein Fachraum aussehen muss. Sie verlangen, was nach Erfahrung nötig und nach dem Stand der Technik anwendbar ist. Die Leitfäden von bfu und chemsuisse zeigen, was das heisst. Verursacht eine Lehrperson widerrechtlich einen Schaden, haftet in der Regel der Schulträger, Rückgriff auf sie ist meist nur bei grober Pflichtverletzung möglich. Das LCH-Merkblatt fasst es so zusammen: «Die Verantwortung ist gross, das Risiko klein.» <a class="ql" href="https://phbern.ch/media/3318/download">LCH (1998), S. 4&nbsp;↗</a></p>
+<p class="einleitung reg-lead">Die Gesetze sagen selten im Detail, wie ein Fachraum aussehen muss. Sie verlangen, was nach Erfahrung nötig und nach dem Stand der Technik anwendbar ist. Die Leitfäden von bfu und chemsuisse zeigen, was das heisst. Verursacht eine Lehrperson widerrechtlich einen Schaden, haftet in der Regel der Schulträger, Rückgriff auf sie ist meist nur bei grober Pflichtverletzung möglich. Das LCH-Merkblatt von 1998 fasst es so zusammen: «Die Verantwortung ist gross, das Risiko klein.» <a class="ql" href="https://phbern.ch/media/3318/download">LCH (1998), S. 4&nbsp;↗</a></p>
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#sorgfalt">Sorgfalts- und Obhutspflicht</a></li>
 <li><a href="#haftung">Haftung</a></li>
