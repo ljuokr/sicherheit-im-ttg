@@ -127,7 +127,9 @@
   // Jeder Sprung wird ein Verlaufseintrag, damit die Zurück-Taste zum vorherigen Abschnitt führt.
   // Beim Laden und beim Zurückgehen selbst nur ersetzen, sonst geht der Vorwärts-Verlauf verloren.
   var still=true;
-  function setzeHash(h){ if(location.hash==='#'+h) return; try{ if(still) history.replaceState(null,'','#'+h); else history.pushState(null,'','#'+h); }catch(e){} }
+  // Scrollen beim Zurückgehen steuert die Seite selbst (gehe), sonst springt der Browser zusätzlich
+  try{ history.scrollRestoration='manual'; }catch(e){}
+  function setzeHash(h,st,ersetzen){ if(location.hash==='#'+h) return; try{ if(still||ersetzen) history.replaceState(st&&history.state&&history.state.fenster?st:null,'','#'+h); else history.pushState(st||null,'','#'+h); }catch(e){} }
   window.TTG_HASH=setzeHash;
   $$('[role=tab]').forEach(function(t){
     var p=document.getElementById(t.getAttribute('aria-controls'));
@@ -167,8 +169,10 @@
       else if(e.key==='Home') n=0;
       else if(e.key==='End') n=tabs.length-1;
       if(n===null) return;
-      e.preventDefault(); tabs[n].focus(); tabs[n].click();
+      e.preventDefault(); tabs[n].focus();
+      var vorher=still; if(list._pfeil) still=true; tabs[n].click(); still=vorher; list._pfeil=true;
     });
+    list.addEventListener('focusout',function(e){ if(!list.contains(e.relatedTarget)) list._pfeil=false; });
   }
   haupt.forEach(function(t){ t.addEventListener('click',function(){ zeige(t.getAttribute('aria-controls')); nachOben(); }); });
   Object.keys(SUBS).forEach(function(k){
@@ -412,6 +416,7 @@
       if(!pop.hidden && !pop.contains(e.target)) schliessen(true);
     });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape') schliessen(); });
+    window.addEventListener('popstate',function(){ schliessen(true); });
     document.addEventListener('scroll',function(e){ if(!pop.hidden && offenVon && e.target!==document && e.target.contains && e.target.contains(offenVon)) schliessen(true); },true);
     // Mit Maus: nach einer halben Sekunde über dem Begriff öffnen, beim Verlassen wieder schliessen
     if(window.matchMedia && window.matchMedia('(hover:hover)').matches){
@@ -439,8 +444,9 @@
     var sub=z.closest('.sub'), auf=z.closest('details')||z.querySelector(':scope > details');
     if(auf) auf.open=true;
     var aus=z.closest('details'); if(aus && aus.parentNode) { var ob=aus.parentNode.closest('details'); if(ob) ob.open=true; }
+    var schonDa=!panel.hidden && (!sub || !sub.hidden);
     zeige(panel.id,sub?sub.id:null,id);
-    if(z===panel||z===sub) nachOben(); else z.scrollIntoView();
+    if(z===panel||z===sub){ if(!schonDa) nachOben(); } else z.scrollIntoView();
     if(fokus){ if(!z.hasAttribute('tabindex')) z.setAttribute('tabindex','-1'); z.focus({preventScroll:true}); }
     return true;
   }
@@ -448,7 +454,13 @@
     var a=e.target.closest('a[href^="#"]'); if(!a) return;
     if(gehe(decodeURIComponent(a.getAttribute('href').slice(1)),true)) e.preventDefault();
   });
-  window.addEventListener('popstate',function(){ still=true; if(!gehe(decodeURIComponent(location.hash.slice(1))) && !location.hash) zeige('grundlage'); still=false; });
+  window.addEventListener('popstate',function(){
+    still=true;
+    var id=decodeURIComponent(location.hash.slice(1)), z=id&&document.getElementById(id);
+    if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ if(!erg.hidden) beenden(); zeige('matrix',null,id); }
+    else if(!gehe(id)){ if(!erg.hidden) beenden(); if(!location.hash) zeige('grundlage'); }
+    still=false;
+  });
 
   render();
   // Links, die in ein anderes Register führen, mit dem Registernamen kennzeichnen
@@ -539,24 +551,28 @@
       }
     }
     [].forEach.call(document.querySelectorAll('.mchip, .mx-mat'),function(c){ c.setAttribute('aria-current',c.getAttribute('href')==='#'+z.id?'true':'false'); });
+    var warOffen=!f.hidden;
     if(f.hidden && von && !f.contains(von)) ausloeser=von;
     f.hidden=false; document.body.classList.add('f-offen'); var schmal=!window.matchMedia('(min-width:64rem)').matches; ['leiste','inhalt'].forEach(function(id){ var n=document.getElementById(id); if(n) n.inert=schmal; });
     f.scrollTop=0; f.focus({preventScroll:true});
-    window.TTG_HASH(z.id);
+    // Der Eintrag merkt sich die Adresse vor dem Fenster. Wechsel von Thema zu Thema im offenen Fenster ersetzt ihn nur.
+    window.TTG_HASH(z.id,warOffen&&history.state&&history.state.fenster?history.state:{fenster:true,vor:location.hash},warOffen);
   }
-  function zu(){
+  function zu(ausVerlauf){
     if(f.hidden) return;
     f.hidden=true; document.body.classList.remove('f-offen'); ['leiste','inhalt'].forEach(function(id){ var n=document.getElementById(id); if(n) n.inert=false; });
     var ers=ausloeser&&document.contains(ausloeser)?ausloeser:([].filter.call(document.querySelectorAll('.mchip[aria-current="true"], .mx-mat[aria-current="true"]'),function(c){ return c.getClientRects().length; })[0]||document.querySelector('#tl-haupt [aria-selected=true]'));
     if(ers) ers.focus({preventScroll:true});
     [].forEach.call(document.querySelectorAll('.mchip[aria-current="true"]'),function(c){ c.setAttribute('aria-current','false'); });
     ausloeser=null; zuletzt=null;
+    // Schliessen per Knopf oder Esc: Adresse auf den Stand vor dem Fenster, damit Neuladen es nicht wieder öffnet
+    if(ausVerlauf==='knopf' && history.state && history.state.fenster){ try{ history.replaceState(null,'',history.state.vor||location.pathname+location.search); }catch(e){} }
   }
-  document.getElementById('f-zu').addEventListener('click',zu);
+  document.getElementById('f-zu').addEventListener('click',function(){ zu('knopf'); });
   // Registerwechsel schliesst das Fenster
   document.addEventListener('click',function(e){ var t=e.target.closest('#tl-haupt [role=tab], #reg2 [role=tab]'); if(t && t.getAttribute('aria-selected')!=='true'){ ausloeser=null; zu(); } },true);
   // Capture-Phase: läuft vor dem Popover-Listener, sieht also noch, ob ein Popover offen ist
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !f.hidden && !document.querySelector('.b-pop:not([hidden])')) zu(); },true);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !f.hidden && !document.querySelector('.b-pop:not([hidden])')) zu('knopf'); },true);
   // Vor dem Register-Sprung von app.js abfangen
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href^="#"]'); if(!a || a.classList.contains('b-wort')) return;
@@ -587,7 +603,7 @@
   });
   // Hash ändert sich bei offener Seite: Themen und Materialien im Fenster öffnen wie beim Laden
   // Zurück-Taste oder geänderter Hash: Thema im Fenster öffnen, sonst Fenster schliessen
-  window.addEventListener('popstate',function(){ var z2=document.getElementById(decodeURIComponent(location.hash.slice(1))); if(z2 && z2.matches('section.thema, section.verfahren, th.mx-zeile')){ oeffne(z2,null); zuletzt=null; } else { ausloeser=null; zu(); } });
+  window.addEventListener('popstate',function(){ var z2=document.getElementById(decodeURIComponent(location.hash.slice(1))); if(z2 && z2.matches('section.thema, section.verfahren, th.mx-zeile')){ oeffne(z2,null); zuletzt=null; } else { zu(); } });
   var h=decodeURIComponent(location.hash.slice(1)), z=h&&document.getElementById(h);
   if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ document.getElementById('t-matrix').click(); oeffne(z,null); }
 })();

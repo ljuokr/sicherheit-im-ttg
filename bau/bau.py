@@ -229,7 +229,7 @@ KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschrifte
         'Entsorgung': 'gefährliche Chemikalien als Sonderabfall, nie in Kehricht oder Abwasser',
         'Fachräume planen und einrichten': 'für Neubau, Umbau und Neuorganisation',
         'Räume': 'Maschinenraum, Sichtkontakt, Zugang',
-        'Installationen und Bauteile': 'FI-Schalter, Not-Aus, Absaugung',
+        'Installationen und Bauteile': 'FI-Schutzschalter, Not-Aus, Absaugung',
         'Im Notfall': 'Notrufnummern und Abläufe, mit der Klasse besprochen',
         'Fachraum als Lernort': 'Raum für selbstständiges Arbeiten',
         'Regeln für die Klasse': 'nicht essen, wenig Staub, absaugen oder lüften, lösungsmittelfrei bevorzugen',
@@ -358,7 +358,7 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="verfahren"><div class="text">
-<p class="einleitung reg-lead">Welche Maschine eine Klasse bedienen kann, hängt vom Zyklus ab. Die Ständerbohrmaschine etwa ist im Zyklus 1 den Lehrpersonen vorbehalten, im Zyklus 2 steht sie unter Aufsicht, im Zyklus 3 arbeiten die Schülerinnen und Schüler nach der Einführung selbstständig daran. Aufsicht heisst, dass die Lehrperson im Fachraum anwesend ist. Hat der Kanton eine eigene Maschinenliste, etwa Luzern oder Zürich, gilt diese.</p>
+<p class="einleitung reg-lead">Welche Maschine eine Klasse bedienen kann, hängt vom Zyklus ab. Die Ständerbohrmaschine etwa ist im Zyklus 1 den Lehrpersonen vorbehalten, im Zyklus 2 steht sie unter Aufsicht, im Zyklus 3 arbeiten die Schülerinnen und Schüler nach der Einführung selbstständig daran.</p>
 <section class="sub" id="plakat" data-titel="Übersicht">
 <h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen nach Zyklus</h2>
 <noscript><p>Die Maschinentabellen stehen bei den einzelnen Verfahren.</p></noscript>
@@ -376,17 +376,17 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="matrix"><div class="text mx-text">
-<p class="einleitung reg-lead">Wie viel Schutz eine Arbeit braucht, entscheidet sich oft schon beim Einkauf. Mit bleifreiem Lot genügt für kurzes Löten ein gekipptes Fenster, mit Fichte statt Buche entsteht beim Schleifen kein als krebserzeugend eingestufter Staub. Darum nennt die Matrix bei den Materialien zuerst, was die Quellen bevorzugen.</p>
+<p class="einleitung reg-lead">Wie viel Schutz eine Arbeit braucht, entscheidet sich oft schon beim Einkauf. Bei richtiger Materialwahl genügt für kurzes Löten ein gekipptes Fenster, mit Fichte statt Buche entsteht beim Schleifen kein als krebserzeugend eingestufter Staub. Darum nennt die Matrix bei den Materialien zuerst, was die Quellen bevorzugen.</p>
 {matrix_html}
 {chr(10).join(mat_html)}
 </div></section>
 
 <section class="panel" id="fachraum"><div class="text">
-<p class="einleitung reg-lead">Ein gut eingerichteter Fachraum lässt die Klasse selbstständig arbeiten. Verbrauchsmaterial wie Schrauben, Farben und Schleifpapier steht sichtbar und griffbereit, abgeschlossen wird nur, was nach der Gefahrenkennzeichnung gefährlich ist. Was regelmässig zu prüfen ist, zeigen die Checklisten der bfu, von der täglichen Sichtkontrolle bis zu Abständen von mehreren Jahren.</p>
+<p class="einleitung reg-lead">Ein gut eingerichteter Fachraum lässt die Klasse selbstständig arbeiten. Material ohne Gefahrenkennzeichnung steht offen bereit, Gekennzeichnetes ist abgeschlossen. Wer wann was prüft, regeln die Checklisten der bfu.</p>
 <nav class="ablauf" aria-label="Ablauf im Fachraum">
 <ol>
-<li><a href="#planen"><span class="ab-nr">1</span><b>Planen und einrichten</b><span class="ab-wann">einmalig, bei Neubau, Umbau oder Anschaffung</span></a></li>
-<li><a href="#fachraum-betreiben"><span class="ab-nr">2</span><b>Betreiben</b><span class="ab-wann">in jeder Lektion</span></a></li>
+<li><a href="#planen"><span class="ab-nr">1</span><b>Planen und einrichten</b><span class="ab-wann">bei Neubau, Umbau oder Neuorganisation</span></a></li>
+<li><a href="#fachraum-betreiben"><span class="ab-nr">2</span><b>Betreiben</b><span class="ab-wann">im Schulalltag</span></a></li>
 <li><a href="#maschinen-warten"><span class="ab-nr">3</span><b>Warten und prüfen</b><span class="ab-wann">täglich bis alle paar Jahre</span></a></li>
 <li><a href="#lagerung"><span class="ab-nr">4</span><b>Stoffe lagern</b><span class="ab-wann">laufend</span></a></li>
 <li><a href="#entsorgung"><span class="ab-nr">5</span><b>Entsorgen</b><span class="ab-wann">wenn Reste anfallen</span></a></li>
@@ -411,7 +411,7 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="recht"><div class="text">
-<p class="einleitung reg-lead">Die Gesetze sagen selten im Detail, wie ein Fachraum aussehen muss. Sie verlangen, was nach Erfahrung nötig und nach dem Stand der Technik anwendbar ist, die Leitfäden von bfu und chemsuisse zeigen, was das heisst. Für Schäden im Unterricht haftet in der Regel der Schulträger, Rückgriff auf die Lehrperson ist meist nur bei grober Pflichtverletzung möglich. Das LCH-Merkblatt fasst es so zusammen: «Die Verantwortung ist gross, das Risiko klein.» <a class="ql" href="https://phbern.ch/media/3318/download">LCH (1998), S. 4&nbsp;↗</a></p>
+<p class="einleitung reg-lead">Die Gesetze sagen selten im Detail, wie ein Fachraum aussehen muss. Sie verlangen, was nach Erfahrung nötig und nach dem Stand der Technik anwendbar ist. Die Leitfäden von bfu und chemsuisse zeigen, was das heisst. Verursacht eine Lehrperson widerrechtlich einen Schaden, haftet in der Regel der Schulträger, Rückgriff auf sie ist meist nur bei grober Pflichtverletzung möglich. Das LCH-Merkblatt fasst es so zusammen: «Die Verantwortung ist gross, das Risiko klein.» <a class="ql" href="https://phbern.ch/media/3318/download">LCH (1998), S. 4&nbsp;↗</a></p>
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#sorgfalt">Sorgfalts- und Obhutspflicht</a></li>
 <li><a href="#haftung">Haftung</a></li>

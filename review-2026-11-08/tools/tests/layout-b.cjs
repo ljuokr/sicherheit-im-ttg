@@ -73,7 +73,7 @@ const L = require(process.env.ST_LIB);
   for (const dark of [false, true]) {
     ({ page, errors, close } = await L.open({ mobile: true, dark, hash: 'matrix' }));
     await page.click('#t-matrix'); await page.waitForTimeout(150);
-    const ids = await page.evaluate(() => [...document.querySelectorAll('#matrix .mchip, #matrix .mx-mat')].map(c => c.getAttribute('href')).filter((v, i, a) => a.indexOf(v) === i));
+    const ids = await page.evaluate(() => [...document.querySelectorAll('#matrix .mchip, #matrix .mx-mat')].map(c => c.getAttribute('href')).filter((v, i, a) => v && a.indexOf(v) === i));
     const probleme = [];
     for (const id of ids) {
       await page.evaluate(h => { const f = document.getElementById('fenster'); if (!f.hidden) document.getElementById('f-zu').click(); document.querySelector('#matrix [href="' + h + '"]').click(); }, id);
