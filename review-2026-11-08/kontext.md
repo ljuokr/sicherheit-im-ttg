@@ -24,6 +24,13 @@ Fehler der Art finden und beheben, wie sie zuletzt aufgefallen sind:
 - Abgrenzung Unterricht/Fachraum: Prüffrage «Tut das jemand mit der Klasse?».
 - Eigene Rolle von Lukas steht nicht in der Fusszeile.
 - Schreibregeln: Schweizer Rechtschreibung (ss), keine Ausrufezeichen, keine langen Gedankenstriche, Strichpunkte nur wenn unumgänglich, Schweizer Begriffe, Pflichten am Arbeitsplatz festmachen.
+- Runde 4 und 5: `review-2026-11-08/entscheid-text.md`, `umsetzung-c.md`, `r5-*.md`.
+- Seit 2026-11-09:
+  - Geschlechtergerecht und natürlich formulieren: kein generisches Maskulinum, keine maskulinen Komposita wie «Schülerarbeiten». Nie «Lernende» (wird als Lehrlinge gelesen), «SuS» nur notfalls bei Platzmangel. Zitate, Titel und Gesetzeswortlaut (z. B. «Arbeitgeber» im UVG) bleiben.
+  - Kein «Werk», «Werkstück», «Werkunterricht»: Material, Arbeit, Stück, TTG-Unterricht. Werkzeug, Werkstoff, Quellentitel bleiben.
+  - Nicht dramatisieren (z. B. «Körperverletzung» statt «Tötung»).
+  - LCH-Leitfaden 2025 (2. Auflage) ist die aktuelle Rechtsquelle. Der Lead im Register Recht behält bewusst das Zitat aus LCH (1998). Den Leitfaden 2025 gibt es nur gedruckt: Wortlaut nicht prüfbar, nur die Seitenzahlen gegen die Kurzfassung in `review-2026-11-08/lch-2025-notizen.md`.
+  - Neu seit Runde 5: Zurück-Taste (pushState), Fachraum-Ablaufleiste, Zyklus-Treppe im Unterricht, überarbeitete Leads je Register, Strafrechtssätze im Glossar gestrichen.
 
 ## Dateien
 - Seitentext nach Registern: `review-2026-11-08/seite-text.md` (Zeilen «> Zeile:» sind Aufklapp-Zeilen)

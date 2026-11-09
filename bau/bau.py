@@ -69,7 +69,7 @@ KURZ = {'Staub beim Sägen, Bohren und Schleifen': 'Staub beim Sägen, Bohren, S
         'Metall thermisch trennen': 'Thermisch trennen',
         'Giessen und Formen mit flüssigen Kunststoffen': 'Giessen mit flüssigen Kunststoffen',
         'Gasflaschen und Gasanlagen': 'Gasflaschen',
-        'Leinöl und ölgetränkte Lappen': 'Leinöl, ölige Lappen',
+        'Leinöl und ölgetränkte Lappen': 'Leinöl, getränkte Lappen',
         'Lösungsmittel, Verdünner, Pinselreiniger': 'Lösungsmittel, Verdünner',
         'Heissgeräte: Heissleimpistole, Lötkolben, Heissluftföhn, Bügeleisen': 'Heissgeräte'}
 # Fachraum im Lebenslauf des Raums: planen und einrichten, betreiben, warten, dann Lagerung und Entsorgung der Stoffe
@@ -110,15 +110,15 @@ ZUORDNUNG = {
  'Stichsäge': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen, auf die Kabelführung achten. Beim Einschalten darf das Sägeblatt das Material nicht berühren. Material mit Schraubzwinge befestigen, Stichsäge mit beiden Händen führen.', 'Lehrhilfen Technik und Design, S. 59', TK + '5']], 'video': [('Sägen mit der Stichsäge', TUD+'stichsaege')]},
  'Handbohrmaschine': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen, lange Haare zusammenbinden, Schmuck und Halstuch ablegen. Material mit Bohrbrett, Schraubstock oder Feilkloben gegen Mitdrehen sichern. Wechsel und Einstellungen nur im Stillstand.', 'Lehrhilfen Technik und Design, S. 62', TK + '8']]},
  'Ständerbohrmaschine': {'themen': ['bohrmaschine', 'holzstaub'], 'video': [('Bohren mit der Tischbohrmaschine', TUD+'tischbohrmaschine')]},
- 'Bandsäge': {'themen': ['holzstaub'], 'hinweis': [['Verdeckung bis höchstens 10 mm über das Material absenken. Hände mindestens eine Faustbreite vom Sägeband, sonst mit Stossholz arbeiten. Rundholz so führen, dass es sich nicht drehen kann, etwa in einem Prisma. Gehörschutz tragen.', 'Suva 67057, S. 2, Sicherheitsregeln · Lehrhilfen Technik und Design, S. 61', S67057]], 'video': [('Bandsäge', TUD+'bandsaege')]},
+ 'Bandsäge': {'themen': ['holzstaub'], 'hinweis': [['Verdeckung bis höchstens 10 mm über das Material absenken. Hände mindestens eine Faustbreite vom Sägeband, sonst mit Stossholz arbeiten. Rundholz so führen, dass es sich nicht drehen kann, etwa in einem Prisma. Gehörschutz tragen.', 'Suva 67057, S. 3, Frage 14, Sicherheitsregeln · Lehrhilfen Technik und Design, S. 61', S67057]], 'video': [('Bandsäge', TUD+'bandsaege')]},
  'Gehrungskappsäge': {'themen': ['holzstaub'], 'hinweis': [['Material am Anschlag fixieren, eine Faustbreite Abstand halten, nie in die Schnittebene greifen. Keine kleinen, unfixierten Teile sägen. Gehörschutz und Schutzbrille tragen.', 'Suva 67125, S. 3, Fragen 11 bis 13', S67125]]},
  'Lamellen-Dübelfräse': {'themen': ['holzstaub'], 'video': [('Runddübeln und Flachdübeln', TUD+'duebeln')]},
  'Holzdrechselbank': {'themen': ['holzstaub']},
  'Dreieckschleifer, Schwingschleifer': {'themen': ['holzstaub'], 'hinweis': [['Staubbeutel oder Staubsauger anschliessen.', 'Suva 67092, Frage 11', S67092]]},
  'Exzenterschleifer': {'themen': ['holzstaub'], 'hinweis': [['Staubbeutel oder Staubsauger anschliessen.', 'Suva 67092, Frage 11', S67092]]},
  'Akkubohrschrauber (kleine Bauweise)': {'hinweis': [['Material gegen Mitdrehen sichern. Schutzbrille tragen, lange Haare zusammenbinden, Schmuck ablegen.', 'Lehrhilfen Technik und Design, S. 62', TK + '8']]},
- 'Winkelschleifer mit stumpfen Aufsätzen**': {'hinweis': [['Nur mit montierter Schutzhaube und Zusatzhandgriff arbeiten. Nur Scheiben verwenden, die in Durchmesser und Drehzahl zur Maschine passen. Schutzbrille tragen.', 'Suva 67092, Fragen 4, 10, 14', S67092]]},
- 'Winkelschleifer mit Trennscheibenaufsätzen': {'hinweis': [['Nur mit montierter Schutzhaube und Zusatzhandgriff arbeiten. Nur Scheiben verwenden, die in Durchmesser und Drehzahl zur Maschine passen. Schutzbrille tragen.', 'Suva 67092, Fragen 4, 10, 14', S67092]]},
+ 'Winkelschleifer mit stumpfen Aufsätzen**': {'hinweis': [['Nur mit montierter Schutzhaube und Zusatzhandgriff arbeiten. Nur unbeschädigte Scheiben verwenden, die in Durchmesser und Drehzahl zur Maschine passen. Schutzbrille tragen.', 'Suva 67092, Fragen 4, 10, 14', S67092]]},
+ 'Winkelschleifer mit Trennscheibenaufsätzen': {'hinweis': [['Nur mit montierter Schutzhaube und Zusatzhandgriff arbeiten. Nur unbeschädigte Scheiben verwenden, die in Durchmesser und Drehzahl zur Maschine passen. Schutzbrille tragen.', 'Suva 67092, Fragen 4, 10, 14', S67092]]},
  'Tellerschleifmaschine': {'themen': ['holzstaub'], 'hinweis': [['Schutzbrille tragen. Nur auf der Seite schleifen, auf der sich die Scheibe nach unten bewegt, sonst kann das Stück weggeschleudert werden. Keine zu kleinen Stücke schleifen. Abstand zwischen Schleiftisch und Scheibe auf höchstens 3 mm einstellen.', 'Lehrhilfen Technik und Design, S. 64', TK + '10']], 'video': [('Schleifen an der Tellerschleifmaschine', TUD+'tellerschleifmaschine')]},
  'Bandschleifmaschine': {'themen': ['holzstaub']},
  'Overlockmaschine': {'hinweis': [['Nur wer an der Nähmaschine sicher arbeitet und von der Lehrperson eingeführt wurde. Die Maschine schneidet und näht zugleich: langsam und konzentriert nähen, keine Stecknadeln im Nähgut. Das Einfädeln übernimmt mit Vorteil die Lehrperson.', 'Lehrhilfen Technik und Design, S. 76', TK + '22']], 'video': [('Nähen mit der Overlockmaschine', TUD+'naehenmitderoverlockmaschine')]},
@@ -172,9 +172,8 @@ allg = h3zu2(teil('<h3>Regeln für die Klasse</h3>', '<h3 id="schutzmassnahmen">
 schutz = h3zu2(teil('<h3 id="schutzmassnahmen">', '<h3 id="einkauf">'))
 stoffe = h3zu2(teil('<h3 id="einkauf">', '<!-- Nur Quelle'))
 grund_ohne = grund_ohne[:grund_ohne.index('<h3 id="sicher-unterrichten">')]
-grund_ohne = re.sub(r'<h2 id="grundsatz">.*?</h2>\n', '', grund_ohne).replace('<h3 id="drei-fragen">Drei Fragen vor jeder Arbeit</h3>', '<h2 id="drei-fragen">Drei Fragen vor jeder Arbeit</h2>').replace('<h3 id="wichtigste">Das Wichtigste für den Anfang</h3>', '<h2 id="wichtigste">Das Wichtigste für den Anfang</h2>')
+grund_ohne = re.sub(r'<h2 id="grundsatz">.*?</h2>\n', '', grund_ohne).replace('<h3 id="drei-fragen">Drei Fragen vor jeder Arbeit</h3>', '<h2 id="drei-fragen">Drei Fragen vor jeder Arbeit</h2>')
 def ohne_erste_id(html, i): return html.replace('<h2 id="%s">' % i, '<h2>', 1)
-einleitung_verf = re.search(r'<p>Die folgenden Abschnitte.*?</p>', S).group(0)
 leer = re.search(r'<p id="leer" hidden>.*?</p>', S).group(0)
 lehrplan = zw('<h2 id="lehrplan">', '<h2 id="quellen">')
 kantone = zw('<h2 id="kantone">', '<h2 id="erschliessen">')
@@ -216,7 +215,7 @@ KERN = {'Warum Gesetze offen formuliert sind': 'Massstab statt Einzelvorschrifte
         'Sorgfalts- und Obhutspflicht': 'Aufsicht nach Alter und Tätigkeit, Lage laufend beurteilen, eingreifen oder abbrechen',
         'Haftung': 'in der Regel haftet der Schulträger, Rückgriff auf die Lehrperson meist nur bei grober Pflichtverletzung',
         'Gesundheitsschutz bei Mutterschaft': 'Arbeitsplätze mit bestimmten Stoffen vorsorglich beurteilen',
-        'Pflichten und Empfehlungen': 'neun Pflichten, dazu Empfehlungen von bfu und chemsuisse, mit Rhythmus',
+        'Pflichten und Empfehlungen': 'neun Pflichten, dazu Empfehlungen, vor allem der bfu, mit Rhythmus',
         'Wer kontrolliert': 'Arbeitsinspektorat, Suva nur Berufskrankheiten, bfu berät',
         'Wer an der Schule zuständig ist': 'Schulträger für Räume, Chemikalien-Ansprechperson, Aufgaben ins Pflichtenheft',
         'Fachraum betreiben': 'Fachraumordnung, Schutzausrüstung bereit, Notfallausstattung, Dokumentation',
@@ -270,10 +269,10 @@ def chip(i, kurz, lang):
 spalten = [v for v in VERF if v[0] != 'lehrpersonen']
 # Nicht verwenden: Kurzfassung der Warnkästen je Material, jeder Eintrag führt zur Regel mit Begründung
 VERBOTEN = {
- 'alle': [('Pigmente mit Arsen, Barium, Blei, Cadmium, Chromat, Quecksilber', 'farben-lacke-spruehen'), ('Zweikomponenten-Polyurethanlacke (2K)', 'farben-lacke-spruehen'),
+ 'alle': [('Pigmente mit Arsen, Barium (ausser Bariumsulfat), Blei, Cadmium, Chromat, Quecksilber', 'farben-lacke-spruehen'), ('Zweikomponenten-Polyurethanlacke (2K)', 'farben-lacke-spruehen'),
           ('Toluol, chlorierte Lösungsmittel', 'loesungsmittel-verduenner-pinselreiniger')],
  'holz': [('Imprägniertes Holz', 'holzstaub'), ('Holzschutzmittel mit Bioziden, innen gar keine', 'farben-lacke-spruehen'), ('Wachs mit MEKO', 'wachsen')],
- 'metall': [('Blei, Bleiblech, Altmetall mit Blei', 'mat-metall'), ('Bleihaltiges Zierzinn', 'metall-und-zinngiessen'), ('Bleihaltige Weichlote', 'weichloeten'),
+ 'metall': [('Blei, Bleiblech, Altmetall mit Blei', 'mat-metall'), ('Bleihaltiges Zierzinn, Woodsches Metall', 'metall-und-zinngiessen'), ('Bleihaltige Weichlote', 'weichloeten'),
             ('Cadmiumhaltige Hartlote', 'hartloeten'), ('Borhaltige Flussmittel', 'hartloeten'), ('Rostfreie, verchromte, vernickelte oder cadmierte Stähle schweissen', 'schweissen'),
             ('Beizmittel mit Flusssäure oder Chromsäure, Brüniermittel mit Selen', 'abbeizen-und-bruenieren'), ('Emaille mit Blei oder unbekannter Zusammensetzung', 'emaillieren-und-glasaetzen')],
  'kunststoff': [('Kunststoffe mit Carbonfasern bearbeiten', 'holzstaub'), ('PVC, Teflon, Polyurethan, bromierte Kunststoffe lasern', 'lasercutten'),
@@ -294,7 +293,7 @@ def bevorzugt(key): return ' · '.join('<a href="#%s">%s</a>' % (z, t) for t, z 
 def li_mit(anfang):
     i = S.index('<li>' + anfang); return S[i:S.index('</li>', i) + 5]
 EIGEN = {
- 'metall': (['Auf das Bearbeiten von Blei', 'Gegenstände aus dem Unterricht dürfen keine', 'Schmuck: Werkstoffe auf Nickel', 'Zinn möglichst rein'], 'chemsuisse, S. 8, 10, 11, 13'),
+ 'metall': (['Auf das Bearbeiten von Blei', 'Gegenstände aus dem Unterricht dürfen keine', 'Schmuck: Werkstoffe auf Nickel', 'Zinn möglichst rein'], 'chemsuisse, S. 8, 10, 11, 13, 21, 33'),
 }
 mx = ['<tr><td class="ecke"><span class="sr">Material und Verfahren</span></td>' + ''.join('<th scope="col">%s</th>' % v[1] for v in spalten) + '<th scope="col" class="mx-nv">Nicht verwenden</th></tr>']
 eigen_html = ''
@@ -358,7 +357,7 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="verfahren"><div class="text">
-<p class="einleitung reg-lead">Welche Maschine eine Klasse bedienen kann, hängt vom Zyklus ab. Die Ständerbohrmaschine etwa ist im Zyklus 1 den Lehrpersonen vorbehalten, im Zyklus 2 steht sie unter Aufsicht, im Zyklus 3 arbeiten die Schülerinnen und Schüler nach der Einführung selbstständig daran.</p>
+<p class="einleitung reg-lead">Welche Maschine eine Klasse bedienen kann, hängt vom Zyklus ab. Die Ständerbohrmaschine etwa benützen die Schülerinnen und Schüler im Zyklus 1 noch nicht, im Zyklus 2 nur unter Aufsicht und im Zyklus 3 nach der Einführung selbstständig.</p>
 <section class="sub" id="plakat" data-titel="Übersicht">
 <h2 id="maschinen" class="p-titel">Umgang mit Maschinen und Anlagen nach Zyklus</h2>
 <noscript><p>Die Maschinentabellen stehen bei den einzelnen Verfahren.</p></noscript>
@@ -376,13 +375,13 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="matrix"><div class="text mx-text">
-<p class="einleitung reg-lead">Wie viel Schutz eine Arbeit braucht, entscheidet sich oft schon beim Einkauf. Bei richtiger Materialwahl genügt für kurzes Löten ein gekipptes Fenster, mit Fichte statt Buche entsteht beim Schleifen kein als krebserzeugend eingestufter Staub. Darum nennt die Matrix bei den Materialien zuerst, was die Quellen bevorzugen.</p>
+<p class="einleitung reg-lead">Wie viel Schutz eine Arbeit braucht, entscheidet sich oft schon beim Einkauf. Bei richtiger Materialwahl genügt für kurzes Löten ein gekipptes Fenster, wer Fichte statt Buche schleift, vermeidet den als krebserzeugend geltenden Buchenstaub. Darum nennt die Matrix bei den Materialien zuerst, was die Quellen bevorzugen.</p>
 {matrix_html}
 {chr(10).join(mat_html)}
 </div></section>
 
 <section class="panel" id="fachraum"><div class="text">
-<p class="einleitung reg-lead">Ein gut eingerichteter Fachraum lässt die Klasse selbstständig arbeiten. Material ohne Gefahrenkennzeichnung steht offen bereit, Gekennzeichnetes ist abgeschlossen. Wer wann was prüft, regeln die Checklisten der bfu.</p>
+<p class="einleitung reg-lead">Ein gut eingerichteter Fachraum lässt die Klasse selbstständig arbeiten. Material ohne Gefahrenkennzeichnung steht offen bereit, Gekennzeichnetes ist abgeschlossen. Was wann zu prüfen ist, empfehlen die Checklisten der bfu.</p>
 <nav class="ablauf" aria-label="Ablauf im Fachraum">
 <ol>
 <li><a href="#planen"><span class="ab-nr">1</span><b>Planen und einrichten</b><span class="ab-wann">bei Neubau, Umbau oder Neuorganisation</span></a></li>
@@ -401,10 +400,10 @@ body = f'''<header class="kopf"><div class="in">
 <figcaption id="treppe-t">Mehr Selbstständigkeit von Zyklus zu Zyklus</figcaption>
 <ol>
 <li><span class="tr-z">Zyklus 1</span><b>«unter Anleitung und Aufsicht»</b><span class="tr-bsp">etwa Schere, Handsäge, Thermoschneider</span></li>
-<li><span class="tr-z">Zyklus 2</span><b>«verantwortungsbewusst»</b><span class="tr-bsp">etwa Nähmaschine, Decoupiersäge, Ständerbohrmaschine</span></li>
-<li><span class="tr-z">Zyklus 3</span><b>«selbstständig wählen»</b><span class="tr-bsp">etwa Overlockmaschine, Stichsäge, Tellerschleifmaschine</span></li>
+<li><span class="tr-z">Zyklus 2</span><b>«verantwortungsbewusst»</b><span class="tr-bsp">etwa Nähmaschine, Dekupiersäge, Ständerbohrmaschine</span></li>
+<li><span class="tr-z">Zyklus 3</span><b>«selbstständig wählen»</b><span class="tr-bsp">etwa Stichsäge, Tellerschleifmaschine</span></li>
 </ol>
-<p class="tr-q">Lehrplan 21, <a href="#lehrplan">TTG.2.E.1.2a bis 2d</a>. Welche Maschine die Klasse wie benützen darf, regelt das <a href="#plakat">bfu-Plakat</a>.</p>
+<p class="tr-q">Lehrplan 21, <a href="#lehrplan">TTG.2.E.1.2a bis 2d</a>. Welche Maschine die Klasse wie benützen darf, zeigt das <a href="#plakat">bfu-Plakat</a>. Massgebend ist die Vorgabe des <a href="#kantone">Kantons</a>.</p>
 </figure>
 {klapp(sicher, 'h2')}
 {klapp(allg, 'h2')}
@@ -420,7 +419,7 @@ body = f'''<header class="kopf"><div class="in">
 </div></section>
 
 <section class="panel" id="recht"><div class="text">
-<p class="einleitung reg-lead">Die Gesetze sagen selten im Detail, wie ein Fachraum aussehen muss. Sie verlangen, was nach Erfahrung nötig und nach dem Stand der Technik anwendbar ist. Die Leitfäden von bfu und chemsuisse zeigen, was das heisst. Verursacht eine Lehrperson widerrechtlich einen Schaden, haftet in der Regel der Schulträger, Rückgriff auf sie ist meist nur bei grober Pflichtverletzung möglich. Das LCH-Merkblatt von 1998 fasst es so zusammen: «Die Verantwortung ist gross, das Risiko klein.» <a class="ql" href="https://phbern.ch/media/3318/download">LCH (1998), S. 4&nbsp;↗</a></p>
+<p class="einleitung reg-lead">Die Gesetze sagen selten im Detail, wie ein Fachraum aussehen muss. Sie verlangen, was nach Erfahrung nötig und nach dem Stand der Technik anwendbar ist. Die Leitfäden von bfu und chemsuisse zeigen, was das heisst. Verursacht eine Lehrperson in ihrer dienstlichen Tätigkeit widerrechtlich einen Schaden, haftet in der Regel der Schulträger, Rückgriff auf sie ist meist nur bei grober Pflichtverletzung möglich. Das LCH-Merkblatt von 1998 fasst es so zusammen: «Die Verantwortung ist gross, das Risiko klein.» <a class="ql" href="https://phbern.ch/media/3318/download">LCH (1998), S. 4&nbsp;↗</a></p>
 <ul class="sprung" aria-label="In diesem Register">
 <li><a href="#sorgfalt">Sorgfalts- und Obhutspflicht</a></li>
 <li><a href="#haftung">Haftung</a></li>

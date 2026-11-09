@@ -10,7 +10,7 @@ Diese Seite ist nicht
 - vollständig.
 - ein Ersatz für die eigene Beurteilung vor Ort.
 Mehr unter Rechtlicher Rahmen .
-Ausgangspunkt ist das Unterrichtsvorhaben. Mit dem Lehrplan 21 stellen die Schülerinnen und Schüler nicht nur Gegenstände her, sie erschliessen Themen aus Design und Technik, indem sie herstellen, gebrauchen, bewerten und reflektieren. Je selbstständiger sie arbeiten, desto wichtiger sind drei Punkte:
+Ausgangspunkt ist das Unterrichtsvorhaben. Mit dem Lehrplan 21 erschliessen die Schülerinnen und Schüler Themen aus Design und Technik, indem sie Gegenstände herstellen, gebrauchen, bewerten und reflektieren. Je selbstständiger sie arbeiten, desto wichtiger sind drei Punkte:
 - Zugang zu Maschinen nach Zyklus regeln
 - Instruieren und begleiten, damit die Klasse Selbstverantwortung übernehmen kann
 - Klare Ordnung und Grundregeln im Fachraum festlegen
@@ -24,7 +24,7 @@ Zusammenstellung dieser Seite, gestützt auf: bfu 4.302, S. 2 ↗ · Merkblatt B
 
 ## REGISTER «Maschinen» (id verfahren)
 
-Welche Maschine eine Klasse bedienen kann, hängt vom Zyklus ab. Das bfu-Plakat teilt jede Maschine ein: A selbstständig nach Einführung, B unter Aufsicht der Lehrperson, C nur für Lehrpersonen. Eine Maschine antippen öffnet ihre Karte mit Hinweisen, Checkliste und Lernvideo.
+Welche Maschine eine Klasse bedienen kann, hängt vom Zyklus ab. Die Ständerbohrmaschine etwa ist im Zyklus 1 den Lehrpersonen vorbehalten, im Zyklus 2 steht sie unter Aufsicht, im Zyklus 3 arbeiten die Schülerinnen und Schüler nach der Einführung selbstständig daran.
 ### Umgang mit Maschinen und Anlagen nach Zyklus
 Die Maschinentabellen stehen bei den einzelnen Verfahren.
 Zyklus 1: Kindergarten bis 2. Klasse, Zyklus 2: 3. bis 6. Klasse, Zyklus 3: 7. bis 9. Klasse. Einige Kantone haben eigene Maschinenlisten, etwa Luzern und Zürich. Massgebend ist die Vorgabe des Kantons, siehe Kantone .
@@ -63,7 +63,7 @@ bfu 2.524, S. 20 ↗ · bfu-Plakat 4.301 ↗
 Handarbeit ohne Maschine: Blechschere , Japansäge , Metallsäge
 Zu diesem Material nennen die Quellen bei diesem Verfahren keine eigenen Regeln. Die allgemeinen Abschnitte und die Maschinentabelle gelten trotzdem.
 > Zeile: Staub beim Sägen, Bohren und Schleifen Holz, Kunststoff
-Feinstaub von Eichen- und Buchenholz ist krebserzeugend. Kunststoffstäube werden in der Lunge nicht abgebaut und können dort über längere Zeit Entzündungen verursachen. Je weniger Staub eingeatmet wird, desto geringer das Risiko.
+Feinstaub von Eichen- und Buchenholz gilt als krebserzeugend, ein erhöhtes Risiko hat, wer solchen Staub häufig einatmet. Kunststoffstäube werden in der Lunge nicht abgebaut und können dort über längere Zeit Entzündungen verursachen. Je weniger Staub eingeatmet wird, desto geringer das Risiko.
 ##### Materialwahl
 - Kein imprägniertes oder mit Holzschutzmittel behandeltes Holz. Warum: Mit Teeröl behandeltes Holz gilt als krebserzeugend, Holzschutzmittel enthalten biozide Wirkstoffe, die gesundheitlich relevant sind (chemsuisse, S. 6, 27, 33)
 - Keine mechanische Bearbeitung von Kunststoffen mit Carbonfasern. Warum: Dabei können lungengängige Carbonpartikel entstehen (chemsuisse, S. 15)
@@ -88,10 +88,10 @@ Feinstaub von Eichen- und Buchenholz ist krebserzeugend. Kunststoffstäube werde
 Lehrplan 21: TTG.2.D.1.1 sägen, bohren und TTG.2.D.1.2 feilen, schleifen, Zyklen 1 bis 3
 chemsuisse, S. V, 6, 7, 15, 16, 27, 33 ↗ · bfu 2.524, S. 14, 19 ↗ · bfu 4.323, S. 23, 25 ↗
 > Zeile: Ständerbohrmaschine (Säulen- und Tischbohrmaschine) alle Materialien
-- Handschuhverbot bei laufender Maschine. Warum: Rotierende Bohrer und Spindeln können den Handschuh erfassen und die Hand einziehen. Suva, Schutzhandschuhe ↗
+- Keine Handschuhe bei laufender Maschine. Warum: Rotierende Bohrer und Spindeln können den Handschuh erfassen und die Hand einziehen. Suva, Schutzhandschuhe ↗
 - Schutzbrille ist an der Bohrmaschine obligatorisch.
 - Enganliegende Kleidung, lange Haare zusammenbinden oder verdecken, keinen Hals-, Hand- oder Armschmuck. Keine Lappen in der Nähe des drehenden Bohrers.
-- Werkstück immer festspannen, nie bei laufender Maschine ein- oder ausspannen und nicht an der laufenden Spindel vorbeigreifen. Messen, Anzeichnen und Säubern nur bei Stillstand.
+- Material immer festspannen, nie bei laufender Maschine ein- oder ausspannen und nicht an der laufenden Spindel vorbeigreifen. Messen, Anzeichnen und Säubern nur bei Stillstand.
 - Späne mit Bürste, Handbesen oder Spänehaken entfernen, nie mit Druckluft.
 Lehrplan 21: TTG.2.E.1.2b Akku- und Ständerbohrmaschine, Zyklus 2, TTG.2.D.1.1b, 1c bohren, Zyklen 2 und 3
 Suva 67036, Fragen 9, 10, 14, 15 ↗
@@ -111,7 +111,7 @@ chemsuisse, S. 16 ↗
 chemsuisse, S. 12, 37 ↗
 > Zeile: Lasercutten bfu: nur Lehrpersonen, chemsuisse: unter Aufsicht, kein PVC, Teflon oder Polyurethan · Holz, Kunststoff, Textil
 - Keine Geräte der Laserklassen 3 und 4, keine Eingriffe oder Veränderungen am Gerät. Warum: Laser der Klassen 3 und 4 brauchen zusätzliche Schutzmassnahmen gegen die Strahlung und kommen für Schulen nicht in Betracht (chemsuisse, S. 19)
-- Nicht lasern: chlorhaltige Kunststoffe wie PVC, bromhaltige (bromierte Flammschutzmittel), fluorhaltige wie Teflon, Polyurethan, Materialien mit Carbonfasern, Leder mit Chrom(VI). Warum: Beim Lasern dieser Materialien entstehen gesundheitsgefährdende Emissionen, bei PVC zum Beispiel Salzsäure (chemsuisse, S. 16, 18)
+- Nicht lasern: chlorhaltige Kunststoffe wie PVC, bromhaltige (bromierte Flammschutzmittel), fluorhaltige wie Teflon, Polyurethan, Materialien mit Carbonfasern, Leder mit Chrom(VI). Warum: Beim Lasern dieser Materialien entstehen gesundheitsgefährdende Emissionen, bei PVC z. B. Salzsäure (chemsuisse, S. 16, 18)
 - Die bfu führt den Lasercutter unter den Maschinen für Lehrpersonen (bfu 2.524, S. 21). chemsuisse schreibt, die Bedienung solle nur unter Aufsicht einer Lehrperson stattfinden (S. 19). Das bfu-Plakat 4.301 führt ihn nicht auf. Massgebend ist die Vorgabe des Kantons.
 - Geräte der Laserklasse 1 bevorzugen, von namhaften Herstellern mit CE-Konformitätserklärung und Bedienungsanleitung.
 - Das Gerät braucht einen Feinstaubfilter, sonst eine lokale Absaugung. Wenn möglich in einem separaten Raum, gut belüftet, nicht im Unterrichtsraum.
@@ -211,19 +211,19 @@ chemsuisse, S. 10, 11, 33, 37 ↗
 - Grundsätzlich Quellenabsaugung, idealerweise gefiltert ins Freie. Bei kurzen MAG- oder MIG-Arbeiten an unlegiertem Stahl kann eine technische Raumlüftung reichen. Nur für Autogenschweissen an unlegiertem Stahl genügt ein gekipptes Fenster. Warum: Schweissrauch besteht aus feinsten Partikeln, die tief in die Lunge gelangen, dazu entstehen giftige Gase wie Ozon, Stickoxide und Kohlenmonoxid (chemsuisse, S. 9)
 - Vor dem Lichtbogenschweissen prüfen, ob Schweisskabel und Stecker einwandfrei sind und das Massekabel (Schweissstromrückleitung) richtig angeschlossen ist.
 - Stulpenhandschuhe, Lederschürze und geschlossene Schuhe, keine synthetische Kleidung. Beim Schutzgasschweissen und beim Verputzen Gehörschutz.
-- Augenschutz nach Verfahren: beim Gasschweissen Schweisserschutzbrille mit Schutzstufe 4 bis 7, beim Lichtbogenschweissen immer Schweissschild oder -helm mit Schutzstufe 8 bis 14, nie nur eine Brille. Stellwände oder Vorhänge schützen Umstehende vor der Strahlung.
+- Augenschutz nach Verfahren: beim Gasschweissen Schweissschutzbrille mit Schutzstufe 4 bis 7, beim Lichtbogenschweissen immer Schweissschild oder -helm mit Schutzstufe 8 bis 14, nie nur eine Brille. Stellwände oder Vorhänge schützen Umstehende vor der Strahlung.
 Lehrplan 21: TTG.2.D.1.3c hartlöten oder schweissen (z. B. mit Schutzgas), Zyklus 3
 chemsuisse, S. 8, 9, 37 ↗ · Suva 67104, Fragen 2, 4, 5, 8, 15, 17, 18 ↗ · Suva 67103, Frage 12 ↗ · Suva 84012 ↗
 > Zeile: Gasflaschen und Gasanlagen Metall
 - Nicht verwenden: improvisierte Anschlüsse oder Übergangsstücke. Warum: Anschlüsse sind je nach Gasart verschieden. Nur ein passender, dichter Anschluss verhindert Gasaustritt, Brand oder Explosion. Suva 67068, Fragen 2, 11 ↗
 - Gasanlagen für Hartlöten und Schweissen nehmen nur geschulte Lehrpersonen in und ausser Betrieb und stellen die Brenner ein. Gasflaschen und Druckreduzierstationen stellen Lehrpersonen selbst ein oder Schülerinnen und Schüler unter ihrer Aufsicht.
-- Gasanlagen mit allen Flaschen, auch Reserve- und alte Flaschen, nach Sicherheitsdatenblatt handhaben und periodisch von Fachleuten oder vom Hersteller prüfen lassen.
+- Gasanlagen mit allen Flaschen, auch Reserve- und alten Flaschen, nach Sicherheitsdatenblatt handhaben und periodisch von Fachleuten oder vom Hersteller prüfen lassen.
 - Vor der Verwendung müssen die Eigenschaften des Gases bekannt sein: Dichte, Entzündbarkeit, Giftigkeit, Erstickungsgefahr. Wer Gas verwendet, wird regelmässig instruiert.
 - Flaschen nur mit aufgesetzter Schutzkappe transportieren, nie mit aufgeschraubtem Druckreduzierventil, und mit einem Transportwagen, nicht rollen oder schleppen.
 - Flaschen mit einer Kette gegen Umfallen und Wegrollen sichern. Nicht neben Hitze- oder Zündquellen aufbewahren, Temperaturen über 40 °C vermeiden.
 - Im Fachraum nur so viele Flaschen, wie für den Arbeitsablauf nötig sind, Fluchtwege frei halten. Leere Flaschen getrennt aufbewahren und deutlich kennzeichnen.
 - Zwischen Gasflasche und Schlauch Flammenrückschlagventile mit mindestens drei Funktionen: Gasrücktrittventil, Flammensperre und Nachströmsperre. Gasschläuche regelmässig kontrollieren, schadhafte sofort ersetzen und mit Briden gegen Abgleiten sichern.
-- Armaturen für Sauerstoff öl- und fettfrei halten. Warum: Öl und Fett können in reinem Sauerstoff in Brand geraten (chemsuisse, S. 79).
+- Armaturen für Sauerstoff öl- und fettfrei halten. Warum: Öl und Fett können in reinem Sauerstoff in Brand geraten (chemsuisse, S. 79)
 - Acetylenflaschen stehend verwenden. Warum: Liegend tritt bei der Entnahme flüssiger Inhalt aus.
 - Flaschenventile von Hand und langsam öffnen, ohne Werkzeug.
 - Dichtheit nur mit Seifenwasser prüfen, nie mit einer Flamme. Bei Gasaustritt das Flaschenventil schliessen, wenn das gefahrlos geht, Zündquellen fernhalten und lüften.
@@ -233,10 +233,10 @@ chemsuisse, S. 9, 10, 78, 79 ↗ · bfu 2.524, S. 16 ↗ · Suva 66122, S. 6, 7,
 - Nicht verwenden: chlorierte Lösungsmittel wie Chloroform und Dichlormethan (etwa zum Kleben von Acrylglas), Gummikleber mit Trichlorethen (Trichlorethylen), Kontaktklebstoffe mit Cyclohexan, Klebstoffe mit Toluol. Gesetz: Chloroform und Trichlorethen generell verboten, ChemRRV Anhang 1.3 und 1.17 Warum: Chlorierte Lösungsmittel sind stärker gesundheitsschädlich und oft umweltschädlich, Chloroform und Trichlorethen gelten als krebserzeugend, Toluol steht im Verdacht, fortpflanzungsgefährdend zu sein (chemsuisse, S. 25, 33, 34)
 - Weissleim und Heissleim enthalten kaum gefährliche Inhaltsstoffe.
 - Polyurethan-Klebstoffe durch lösungsmittelfreie oder -arme Dispersionsklebstoffe ersetzen. Wo kein Ersatz möglich ist: Hautkontakt ausschliessen, Schutzhandschuhe nach Sicherheitsdatenblatt, gute Belüftung. Warum: Isocyanate können Haut und Atemwege stark sensibilisieren (chemsuisse, S. 23)
-- Epoxykleber: Hautkontakt vermeiden, Schutzhandschuhe und Schutzbrille, Raum gut lüften, danach Hände mit warmem Wasser und Seife waschen. Warum: Epoxyklebstoffe reizen und können Allergien auslösen (chemsuisse, S. 23)
+- Epoxidkleber: Hautkontakt vermeiden, Schutzhandschuhe und Schutzbrille, Raum gut lüften, danach Hände mit warmem Wasser und Seife waschen. Warum: Epoxidklebstoffe reizen und können Allergien auslösen (chemsuisse, S. 23)
 - Sekundenkleber: Schutzbrille, Haut- und Augenkontakt vermeiden, gute Belüftung. Bei Augenkontakt ärztlich untersuchen lassen. Warum: Sekundenkleber verklebt Haut und Augenlider in Sekunden (chemsuisse, S. 23)
 - Acrylglas kleben: gute Belüftung, Schutzbrille, bei sensibilisierenden Klebstoffen auch Schutzhandschuhe.
-- Epoxy-, Polyurethan- und Sekundenkleber verwenden Schülerinnen und Schüler nur nach Instruktion durch die Lehrperson.
+- Epoxid-, Polyurethan- und Sekundenkleber verwenden Schülerinnen und Schüler nur nach Instruktion durch die Lehrperson.
 Lehrplan 21: TTG.2.D.1.3a bis 3c kleben, Zyklen 1 bis 3
 chemsuisse, S. 16, 22, 23, 25, 33, 34 ↗
 ### Oberfläche verändern
@@ -280,7 +280,7 @@ chemsuisse, S. 26, 27 ↗
 - Behälter nicht offen stehen lassen. Getränkte Lappen in Abfalleimern aus Metall mit selbstschliessendem Deckel entsorgen, nie in Hosentaschen stecken.
 - Den Raum querlüften. Lösungsmitteldämpfe sind schwerer als Luft und brennbar. Zündquellen aus dem Raum entfernen.
 - Grundsätzlich Schutzbrille. Gegen einzelne Spritzer Einweghandschuhe, bei intensivem Hautkontakt Nitril- oder Butylkautschukhandschuhe. Haut nie mit Benzin, Nitroverdünner oder Pinselreiniger reinigen. Bei grossflächigen oder längeren Arbeiten und in Räumen ohne besondere Lüftung Halbmaske mit Filter Typ A.
-- Wer Pinselreiniger, Petroleum oder Terpentinersatz verschluckt, muss ärztlich untersucht werden. Kein Erbrechen herbeiführen, es besteht Lebensgefahr durch Aspiration.
+- Wer Pinselreiniger, Petroleum oder Terpentinersatz verschluckt, muss ärztlich untersucht werden. Kein Erbrechen herbeiführen, sonst kann die Flüssigkeit in die Lunge gelangen und sie schwer schädigen (Aspiration).
 chemsuisse, S. 24, 25 ↗
 > Zeile: Abbeizen und Brünieren Metall
 - Nicht verwenden: Beizmittel mit Flusssäure, Ammoniumhydrogenfluorid, Chromsäure oder hoch konzentrierten oxidierenden Säuren, Brüniermittel mit Selenverbindungen. Gesetz: Chromsäure generell verboten, ChemRRV Anhang 1.17 Warum: Flusssäure ist stark giftig und dringt tief ins Gewebe, Chromsäure ist krebserzeugend und erbgutverändernd, Selenverbindungen sind giftig (chemsuisse, S. 12, 13, 21, 33)
@@ -301,7 +301,7 @@ chemsuisse, S. 12, 13 ↗
 chemsuisse, S. 20, 21 ↗ · bfu-Plakat 4.301 ↗
 > Zeile: Emaillieren und Glasätzen Metall, Glas
 - Keine bleihaltige Emaille und keine Emaille unbekannter Zusammensetzung. Warum: Kommt bleihaltig glasierte Ware mit Lebensmitteln in Kontakt, löst sich das Blei und geht ins Lebensmittel über (chemsuisse, S. 21)
-- Nicht verwenden: Ätzmittel mit Flusssäure oder Ammoniumhydrogenfluorid. Glasätzen braucht normalerweise Flusssäure und eignet sich darum nicht für die Schule. Warum: Flusssäure dringt rasch in tiefere Gewebeschichten und Knochen ein und ist stark giftig, eine handflächengrosse Verätzung mit 40%iger Flusssäure gilt als tödlich (chemsuisse, S. 21)
+- Nicht verwenden: Ätzmittel mit Flusssäure oder Ammoniumhydrogenfluorid. Glasätzen braucht normalerweise Flusssäure und eignet sich darum nicht für die Schule. Warum: Flusssäure dringt rasch in tiefere Gewebeschichten und Knochen ein und ist stark giftig (chemsuisse, S. 21)
 chemsuisse, S. 21 ↗
 ### Nur für Lehrpersonen
 Diese Maschinen und Anlagen dürfen Schülerinnen und Schüler in keinem Zyklus benützen. In der Regel dienen sie der Unterrichtsvorbereitung. Die bfu empfiehlt den Lehrpersonen, sie nur nach entsprechender Schulung zu nutzen, in der Grundausbildung oder in einer Weiterbildung.
@@ -321,7 +321,7 @@ bfu 2.524, S. 20 ↗ · bfu-Plakat 4.301 ↗ · bfu 4.302, S. 2 ↗
 
 ## REGISTER «Verfahren und Material» (id matrix)
 
-Worauf zu achten ist, hängt davon ab, was bearbeitet wird und wie. Die Matrix verbindet Material und Verfahren: Ein Feld öffnet die Regeln dazu, «Bevorzugen» zeigt, was die Quellen empfehlen, «Nicht verwenden», was sie an Schulen ausschliessen. Für die meisten Vorhaben genügen gut gewählte Materialien und ein paar einfache Regeln.
+Wie viel Schutz eine Arbeit braucht, entscheidet sich oft schon beim Einkauf. Bei richtiger Materialwahl genügt für kurzes Löten ein gekipptes Fenster, mit Fichte statt Buche entsteht beim Schleifen kein als krebserzeugend eingestufter Staub. Darum nennt die Matrix bei den Materialien zuerst, was die Quellen bevorzugen.
 ### Verfahren und Material
 | Material und Verfahren Trennen Umformen Verbinden Oberfläche verändern Nicht verwenden
 | Alle Materialien Bevorzugen: Weissleim Acryl- und Dispersionsfarben lösungsmittelarme Lacke und Lasuren Ständerbohrmaschine Heissgeräte Heissgeräte Kleben Farben, Lacke, Sprühen Lösungsmittel, Verdünner Pigmente mit Arsen, Barium, Blei, Cadmium, Chromat, Quecksilber Zweikomponenten-Polyurethanlacke (2K) Toluol, chlorierte Lösungsmittel
@@ -406,13 +406,18 @@ Dasselbe Piktogramm kann für verschiedene Stufen stehen, etwa der Totenkopf ode
 - Zu jedem gefährlichen Produkt das Sicherheitsdatenblatt verlangen und aktuell halten (nach chemsuisse nicht älter als zwei Jahre). Vor dem Einsatz Etikette und Sicherheitsdatenblatt lesen. Zum Aufbewahren siehe Lagerung .
 - Für die Klasse kann ein kurzes Stoffmerkblatt die Gefahren, Schutz- und Erste-Hilfe-Massnahmen eines Stoffs zusammenfassen und beim Stoff liegen. Manche Lieferanten bieten solche Merkblätter an.
 - Produkte mit anderen Piktogrammen, etwa der Flamme bei Brennsprit: nach Etikette und Sicherheitsdatenblatt verwenden und lagern, siehe Lagerung .
-- Die Verbote der Chemikalien-Risikoreduktions-Verordnung ändern laufend. Nach chemsuisse muss die Schule sie darum periodisch nachschlagen, z. B. jährlich, und vorhandene Produkte mit verbotenen Stoffen fachgerecht entsorgen.
+- Die Verbote der Chemikalien-Risikoreduktions-Verordnung ändern sich laufend. Nach chemsuisse muss die Schule sie darum periodisch nachschlagen, z. B. jährlich, und vorhandene Produkte mit verbotenen Stoffen fachgerecht entsorgen.
 chemsuisse, S. 8, 23, 27, 31, 34, 35, 39 ↗
 
 
 ## REGISTER «Unterricht» (id unterricht)
 
-Hier steht, was die Lehrperson mit der Klasse tut: Maschinen wählen, einführen, begleiten und im Notfall handeln. Sicherheit ist dabei auch Lerninhalt. Schon im Zyklus 1 lernen die Schülerinnen und Schüler, auf die Arbeitssicherheit zu achten, und übernehmen mit jeder Einführung mehr Verantwortung.
+Was mit der Klasse besprochen und geübt ist, trägt im Fachraum, auch im Notfall. Darum lohnt sich die Zeit für eine sorgfältige Einführung. Sicherheit ist so zugleich Lerninhalt: Der Lehrplan 21 verlangt schon im Zyklus 1, auf die Arbeitssicherheit zu achten, bis zum Zyklus 3 lernen die Schülerinnen und Schüler, Werkzeuge und Maschinen selbstständig zu wählen. Das nützt ihnen auch beim Heimwerken in der Freizeit.
+Mehr Selbstständigkeit von Zyklus zu Zyklus
+- Zyklus 1 «unter Anleitung und Aufsicht» etwa Schere, Handsäge, Thermoschneider
+- Zyklus 2 «verantwortungsbewusst» etwa Nähmaschine, Decoupiersäge, Ständerbohrmaschine
+- Zyklus 3 «selbstständig wählen» etwa Overlockmaschine, Stichsäge, Tellerschleifmaschine
+Lehrplan 21, TTG.2.E.1.2a bis 2d . Welche Maschine die Klasse wie benützen darf, regelt das bfu-Plakat .
 > Zeile: Sicher unterrichten Lehrperson wählt Maschinen, führt ein, beaufsichtigt laufend und hält fest
 Unfallverhütung ist ein Zusammenspiel. Neben baulich-technischen Vorkehrungen braucht es Massnahmen im didaktisch-methodischen Bereich, für die einzelne Lehrperson und im Kollegium.
 - Voraussetzung ist die Fachkompetenz der Lehrperson im Umgang mit Werkzeugen, Maschinen, Geräten, Materialien und Hilfsstoffen. Sie entscheidet über deren Einsatz und muss ihr Gefahrenpotenzial kennen.
@@ -423,17 +428,18 @@ Unfallverhütung ist ein Zusammenspiel. Neben baulich-technischen Vorkehrungen b
 bfu 2.524, S. 6, 18 ↗ · bfu 4.302, S. 2 ↗ · Merkblatt Bern, Abschnitt 5 ↗ · Suva 67036, Frage 15 ↗ · Kanton Luzern, Sicherer Umgang mit Maschinen, S. 1 ↗
 ##### So sieht das im Unterricht aus
 - Maschinen wählen nur Lehrpersonen mit den nötigen Fachkenntnissen aus und führen sie ein, so etwa im Kanton Bern, siehe Kantone . Merkblatt Bern, Abschnitt 3 ↗
-- Zutritt zu den Maschinen erst nach der Einweisung.
+- Zutritt zu den Maschinen erst nach der Einführung.
 - An Maschinen der Kategorie B ist die Lehrperson im Fachraum anwesend, bei einem abgetrennten Maschinenraum mit Sichtkontakt durch Sicherheitsglas. Sie beurteilt die Lage laufend und greift ein oder bricht ab, wenn es nötig ist.
 - Über Schlüsselschalter und Not-Aus gibt die Lehrperson die Maschinen frei und stoppt sie zentral, siehe Installationen und Bauteile .
 - Die Fachraumordnung mit der Klasse besprechen und ihre Einhaltung einfordern. Was sie enthält, steht unter Fachraum betreiben .
+- Ein Aushang, auf den niemand hinweist, hilft wenig. Eine unterschriebene Vereinbarung belegt die Instruktion, überträgt die Verantwortung aber nicht auf die Schülerinnen und Schüler. LCH (2025), S. 61 ↗
 - Studierende klären im Praktikum mit der Praxislehrperson, welche Maschinen sie einführen und beaufsichtigen dürfen und welche Vorgaben des Kantons gelten, siehe Kantone .
 ##### Was festhalten
 - Welche Klasse wann an welcher Maschine instruiert wurde. Ob die Klasse über Bekleidungs- und Verhaltensregeln instruiert ist, fragt die bfu-Checkliste jährlich. bfu 4.323, S. 12 ↗
 - Was für den Raum festzuhalten ist, etwa Checklisten und Wartung, steht unter Dokumentation .
 Merkblatt Bern, Abschnitt 3, 4 ↗ · bfu 4.302, S. 2 ↗ · bfu 2.524, S. 7, 8, 14, 18 ↗ · bfu 4.323, S. 4, 8, 12 ↗ · bfu Rechtsfrage ↗
 > Zeile: Regeln für die Klasse nicht essen, wenig Staub, absaugen oder lüften, lösungsmittelfrei bevorzugen
-- Kein Essen und Trinken im Fachraum. Hände waschen vor den Pausen und am Ende des Unterrichts. Warum: So wird kein Staub über Hände und Nahrungsmittel aufgenommen, und Verwechslungen werden vermieden.
+- Kein Essen und Trinken im Fachraum. Hände waschen vor den Pausen und am Ende des Unterrichts. Warum: So wird kein Staub über Hände und Nahrungsmittel aufgenommen, und Stoffe werden nicht mit Lebensmitteln verwechselt.
 - Möglichst wenig Staub erzeugen, aufwirbeln und verschleppen. Warum: Zu viel Holzstaub reizt die Atemwege, Feinstaub von Eiche und Buche gilt als krebserzeugend. Je weniger eingeatmet wird, desto kleiner das Risiko.
 - Absaugen oder lüften, wo Staub, Rauch, Dämpfe oder Sprühnebel entstehen. Warum: Sonst gelangen sie in die Atemluft. Sprühen führt zu den höchsten Belastungen mit gefährlichen Stoffen.
 - Lösungsmittelfreie Farben, Lacke und Klebstoffe bevorzugen. Warum: Lösungsmitteldämpfe können Atemwege und Nervensystem schädigen und sind meist brennbar.
@@ -449,7 +455,7 @@ Schutzausrüstung ist die letzte Stufe. Zuerst kommt, was die Gefahr gar nicht e
 bfu 2.524, S. 18 ↗ · Merkblatt Bern, Abschnitt 5 ↗ · chemsuisse, S. V, 6 ↗
 Augen
 - Schutzbrille bei reizenden oder ätzenden Stoffen und bei Gefahr für die Augen, etwa am Brenner oder an schnell laufenden Maschinen, an der Bohrmaschine immer. Bei Splittern oder Spritzern auch für alle im Gefahrenbereich.
-- Gasschweissen: Schweisserschutzbrille, Schutzstufe 4 bis 7. Lichtbogenschweissen: immer Schild oder Helm, Schutzstufe 8 bis 14. Auch Umstehende brauchen Schutz, etwa durch Vorhänge.
+- Gasschweissen: Schweissschutzbrille, Schutzstufe 4 bis 7. Lichtbogenschweissen: immer Schild oder Helm, Schutzstufe 8 bis 14. Auch Umstehende brauchen Schutz, etwa durch Vorhänge.
 Gegen: Späne, Spritzer, Strahlung, ätzende und reizende Stoffe. Siehe Ständerbohrmaschine , Schweissen .
 Gehör
 - Technischer Lärmschutz, etwa ein abgetrennter Maschinenraum, hat Vorrang vor Gehörschutz. Lärmbedingte Hörschäden sind dauerhaft und nicht heilbar.
@@ -468,7 +474,7 @@ Körper und Füsse
 - Arbeitskleidung tragen und beim Verlassen des Fachraums ablegen. Schmuck wie Ringe und Ketten ablegen. An Maschinen mit drehenden Teilen enganliegende Kleidung, lange Haare zusammenbinden. Die Klasse wird darüber regelmässig instruiert.
 - Geschlossene Schuhe, auch für Lehrpersonen. Beim Schweissen Lederschürze, keine synthetische Kleidung.
 Gegen: Staub, Funken, Hitze, drehende Teile. Siehe Schweissen .
-chemsuisse, S. V, 6, 7, 8, 9, 24, 41 ↗ · Suva 67036, Frage 14 ↗ · bfu 2.524, S. 6-9, 16 ↗ · Suva, Lärm am Arbeitsplatz ↗ · Merkblatt Bern, Abschnitt 5 ↗ · bfu 4.323, S. 12 ↗
+chemsuisse, S. V, 6, 7, 8, 9, 24, 41 ↗ · Suva 67036, Frage 14 ↗ · bfu 2.524, S. 6 bis 9, 16 ↗ · Suva, Lärm am Arbeitsplatz ↗ · Merkblatt Bern, Abschnitt 5 ↗ · bfu 4.323, S. 12 ↗
 > Zeile: Im Notfall Notrufnummern und Abläufe, mit der Klasse besprochen
 Im Notfall liest niemand auf dieser Seite nach. Entscheidend ist, was mit der Klasse besprochen ist. Was im Raum bereitliegen muss, steht unter Notfallausstattung .
 | Notruf Nummer
@@ -477,7 +483,7 @@ Im Notfall liest niemand auf dieser Seite nach. Entscheidend ist, was mit der Kl
 | Tox Info Suisse (Vergiftungen, Verätzungen) 145
 | Polizei 117
 | Allgemeiner Notruf 112
-- Lehrpersonen dürfen nach eigenem Ermessen keine Medikamente abgeben, auch keine rezeptfreien. Warum: Das Heilmittelgesetz erlaubt die Abgabe von Arzneimitteln nur Fachpersonen. Auch rezeptfreie Mittel können Allergien und Wechselwirkungen auslösen. Kantonsapotheker Nordwestschweiz, S. 1-3 ↗
+- Lehrpersonen dürfen nach eigenem Ermessen keine Medikamente abgeben, auch keine rezeptfreien. Warum: Nach dem Heilmittelgesetz dürfen nur Fachpersonen aus Arztpraxis, Apotheke oder Drogerie Arzneimittel abgeben, ausgenommen frei verkäufliche. Auch rezeptfreie Mittel können Allergien und Wechselwirkungen auslösen. Ausnahmen gibt es nur nach Absprache mit den Erziehungsberechtigten, etwa bei chronischen Krankheiten. Pflaster, Verbände und Desinfizieren sind unproblematisch (LCH 2025, S. 64). Kantonsapotheker Nordwestschweiz, S. 1 bis 3 ↗
 - Vorgehen: schauen (was ist geschehen, wer ist betroffen), denken (Gefahren für Helfende und Betroffene), handeln (sich selbst schützen, Strom und Gas ausschalten, alarmieren, Nothilfe leisten).
 - Brand: Ruhe bewahren, 118 anrufen oder Feuermelder betätigen, Personen warnen und retten, das Gebäude über die Fluchtwege verlassen, nie mit dem Lift. Fenster und Türen schliessen. Mit Löschdecke oder Feuerlöscher löschen, auf die eigene Sicherheit achten. Feuerwehr zum Brand leiten.
 - Spritzer ins Auge: sofort und lange mit viel Wasser spülen, bei Säuren mindestens 15, bei Laugen mindestens 20 Minuten. Lider offen halten, das unverletzte Auge oben. Kontaktlinsen vorher entfernen, wenn das rasch geht. Danach ärztlich untersuchen lassen, bei Laugen in jedem Fall.
@@ -489,7 +495,8 @@ Im Notfall liest niemand auf dieser Seite nach. Entscheidend ist, was mit der Kl
 - Fremdkörper im Auge: lose Teilchen vorsichtig mit einem Taschentuch entfernen. Feststeckende stecken lassen und sofort augenärztlich untersuchen lassen.
 - Stromunfall: die Person nicht berühren, solange sie unter Spannung stehen könnte. Zuerst Stecker ziehen oder Sicherung ausschalten, dann 144. Danach immer ärztlich untersuchen lassen.
 - Die Sicherheitsdatenblätter der beteiligten Stoffe für die Rettungsdienste bereithalten.
-chemsuisse, S. 42-47 ↗ · Samariter, Was tun im Notfall, S. 1, 2 ↗ · Suva, Augenverletzungen ↗ · Suva, Stromschlag ↗
+- Lehrpersonen alarmieren und leisten Erste Hilfe, soweit es ihnen zumutbar ist. Einen Druckverband anlegen, reanimieren und einen Defibrillator bedienen sollten sie können und die Kenntnisse regelmässig auffrischen. Ist unklar, wie schwer eine Verletzung ist, ärztlichen Rat holen, besonders bei Kopfverletzungen. LCH (2025), S. 40, 65 ↗
+chemsuisse, S. 42 bis 47 ↗ · Samariter, Was tun im Notfall, S. 1, 2 ↗ · Suva, Augenverletzungen ↗ · Suva, Stromschlag ↗
 > Zeile: Vom Produktions- zum Erschliessungshandeln selbstständiger Arbeiten verändert Raum und Aufsicht
 Mit dem Lehrplan 21 verschiebt sich der Schwerpunkt im TTG. Früher stand die Herstellung eines Gegenstands im Zentrum, man spricht von Produktionshandeln. Heute erschliessen die Schülerinnen und Schüler Themen aus Design und Technik, indem sie herstellen, gebrauchen, bewerten und reflektieren, bis hin zur Entsorgung. Das ist Erschliessungshandeln. Sie arbeiten dabei selbstständiger, oft in Gruppen an verschiedenen Vorhaben und werkstoffübergreifend. Damit die Aufsicht gewährleistet bleibt, empfiehlt die bfu verbundene Fachräume mit Sichtkontakt durch Sicherheitsglas, siehe Räume .
 Was sich zwischen Produktions- und Erschliessungshandeln ändert:
@@ -500,7 +507,7 @@ Was sich zwischen Produktions- und Erschliessungshandeln ändert:
 Wie der Raum dazu passen kann, zeigt Fachraum als Lernort .
 bfu 2.524, S. 6, 7 ↗ · Technik und Design. Grundlagen, 3. Auflage 2020, S. 181, 182
 > Zeile: Was der Lehrplan 21 verlangt Sicherheit als Lerninhalt, Kompetenzstufen
-Sicherheit ist im TTG auch Lerninhalt: Schon in Zyklus 1 sollen die Schülerinnen und Schüler «auf die Arbeitssicherheit achten» (TTG.2.E.1). Die bfu nennt dazu, was die Schülerinnen und Schüler können sollen, etwa Maschinen unter Anleitung sicher ein- und ausschalten, Warnhinweise und Piktogramme kennen, die eigenen Fähigkeiten einschätzen und bei Bedarf einen Prozess stoppen oder Hilfe holen. In den Kompetenzstufen nennt der Lehrplan in Klammern Werkzeuge und Geräte, in Zyklus 3 mit «z. B.» ausdrücklich als Beispiele. Die Ziffer 2 in 2a bis 2d bezeichnet den Teil «Werkzeuge und Maschinen» der Kompetenz, nicht den Zyklus:
+Im Zyklus 1 sollen die Schülerinnen und Schüler «auf die Arbeitssicherheit achten» (TTG.2.E.1). Die bfu nennt dazu, was die Schülerinnen und Schüler können sollen, etwa Maschinen unter Anleitung sicher ein- und ausschalten, Warnhinweise und Piktogramme kennen, die eigenen Fähigkeiten einschätzen und bei Bedarf einen Prozess stoppen oder Hilfe holen. In den Kompetenzstufen nennt der Lehrplan in Klammern Werkzeuge und Geräte, in Zyklus 3 mit «z. B.» ausdrücklich als Beispiele. Die Ziffer 2 in 2a bis 2d bezeichnet den Teil «Werkzeuge und Maschinen» der Kompetenz, nicht den Zyklus:
 Zyklus 1 (2a): können ihrer feinmotorischen Entwicklung entsprechend Werkzeuge und einfache technische Geräte unter Anleitung und Aufsicht verwenden (Schere, Handsäge, Handbohrer, Thermoschneider, Einspannvorrichtung). Können dabei Druck, Kraft, Geschwindigkeit und Ausdauer steuern und auf die Arbeitssicherheit achten.
 Zyklus 2 (2b): können Werkzeuge und Maschinen verantwortungsbewusst und der feinmotorischen Entwicklung entsprechend korrekt einsetzen (Nähmaschine, Webgeräte, Decoupiersäge, Akku- und Ständerbohrmaschine).
 Zyklus 3 (2c): können Werkzeuge und Maschinen verantwortungsbewusst einsetzen und sachgerecht anwenden (z.B. Overlockmaschine, Stickcomputer, Tellerschleifmaschine, Stich- und Bandsäge, Lamellen-Dübelfräse).
@@ -508,23 +515,28 @@ Zyklus 3 (2d): können für die Bearbeitung von Materialien Werkzeuge und Maschi
 Das bfu-Plakat ergänzt die Zuordnung um die Gefahrenkategorien A, B und C. Weil die Schülerinnen und Schüler «Materialien und Objekte aus ihrer Lebenswelt spielerisch und forschend erkunden» sollen (TTG.2.A.2.a, Zyklus 1), soll Material ohne Gefahrenkennzeichnung sichtbar und griffbereit sein. Gekennzeichnete Stoffe werden abgeschlossen gelagert, siehe Lagerung .
 Im Themenfeld Elektrizität/Energie verlangt der Lehrplan, dass die Schülerinnen und Schüler «Sicherheitsregeln im Umgang mit Haushaltstrom (Steckdose) und Schwachstrom (Batterie)» kennen (TTG.2.B.1.5a). Die Quellen dieser Seite enthalten dazu keine eigenen Regeln.
 Die Verfahren selbst, etwa sägen, löten, kleben oder ölen, stehen in TTG.2.D.1 «handwerkliche Verfahren ausführen und bewusst einsetzen». Die Lehrplan-Zeilen bei den Themen nennen die Kompetenzstufe, z. B. TTG.2.D.1.3b weichlöten, Zyklus 2.
-bfu 2.524, S. 20 ↗ · bfu 4.302, S. 4, 5 ↗ · Lehrplan 21, TTG.2.E.1, TTG.2.A.2, TTG.2.B.1, TTG.2.D.1 ↗
+bfu 2.524, S. 20 ↗ · bfu 4.302, S. 3 bis 5 ↗ · Lehrplan 21, TTG.2.E.1, TTG.2.A.2, TTG.2.B.1, TTG.2.D.1 ↗
 
 
 ## REGISTER «Fachraum» (id fachraum)
 
-Hier steht, was im Raum bereit sein muss, bevor die Klasse kommt, und wer dafür sorgt. Die Abschnitte folgen dem Lauf des Raums: planen und einrichten, betreiben, warten und prüfen, dazu Lagerung und Entsorgung der Stoffe. Ein gut eingerichteter Fachraum macht selbstständiges Arbeiten erst möglich.
+Ein gut eingerichteter Fachraum lässt die Klasse selbstständig arbeiten. Material ohne Gefahrenkennzeichnung steht offen bereit, Gekennzeichnetes ist abgeschlossen. Wer wann was prüft, regeln die Checklisten der bfu.
+- 1 Planen und einrichten bei Neubau, Umbau oder Neuorganisation
+- 2 Betreiben im Schulalltag
+- 3 Warten und prüfen täglich bis alle paar Jahre
+- 4 Stoffe lagern laufend
+- 5 Entsorgen wenn Reste anfallen
 > Zeile: Fachräume planen und einrichten für Neubau, Umbau und Neuorganisation
 Für Neubauten, Umbauten und die Neuorganisation bestehender Fachräume. Anforderungen an Schulräume und Klassengrössen gibt in der Regel der Kanton vor, siehe Kantonale Vorgaben .
 > Zeile: Räume Maschinenraum, Sichtkontakt, Zugang
 - Ein abgetrennter Maschinenraum dient der Sicherheit und hält Staub und Lärm von den Schülerinnen und Schülern fern. Sichtkontakt über Trennwände aus Sicherheitsglas.
-- Metallarbeiten mit offener Flamme oder Funkenbildung in einem separaten Raum, sonst Brandschutz wie ein Schweisser-Schutzvorhang.
+- Metallarbeiten mit offener Flamme oder Funkenbildung in einem separaten Raum, sonst Brandschutz wie ein Schweiss-Schutzvorhang.
 - Hindernisfreier Zugang, damit Material geliefert und bei einem Notfall rasch evakuiert werden kann. Technik und Design empfiehlt einen direkten Ausgang ins Freie.
 - Zum Aufstellen des Keramikbrennofens siehe Glasieren und Brennen .
 Ideale Raumaufteilung der Fachräume TTG. Nachgebaut nach Stuber T. u. a. (2020): Technik und Design. Grundlagen, S. 185, Abb. 19.
-bfu 2.524, S. 6-9 ↗ · Technik und Design. Grundlagen, 3. Auflage 2020, S. 185
-> Zeile: Installationen und Bauteile FI-Schalter, Not-Aus, Absaugung
-- FI-Schutzschalter mit 30 mA in allen Fachräumen, bestehende nachrüsten. Gesetzlich vorgeschrieben sind sie bei neuen oder geänderten Installationen. Gesetz: Niederspannungs-Installationsnorm (NIN), bei neuen Installationen Warum: Er schaltet ab, wenn ein angeschlossenes Gerät, Kabel oder Stecker defekt sein könnte (bfu 2.524, S. 13)
+bfu 2.524, S. 6 bis 9 ↗ · Technik und Design. Grundlagen, 3. Auflage 2020, S. 185
+> Zeile: Installationen und Bauteile FI-Schutzschalter, Not-Aus, Absaugung
+- FI-Schutzschalter mit 30 mA in allen Fachräumen, bestehende nachrüsten. Gesetzlich vorgeschrieben sind sie bei neuen oder geänderten Installationen. Gesetz: Niederspannungs-Installationsverordnung (NIV) Art. 3, umgesetzt mit der Norm NIN 4.1.1.3.3, bei neuen Installationen Warum: Er schaltet ab, wenn ein angeschlossenes Gerät, Kabel oder Stecker defekt sein könnte (bfu 2.524, S. 13)
 - Die Stromversorgung der Maschinen über einen zentralen Schlüsselschalter, allenfalls mit zentralem Not-Aus. Die Absaugung soll dabei weiterlaufen (chemsuisse, S. 40). Maschinen mit grossem Gefährdungspotenzial müssen separat freigeschaltet und bei Bedarf mit dem Not-Aus gestoppt werden können.
 - Maschinen und Kleingeräte ohne Verlängerungskabel anschliessen, wo nötig über Hängesteckdosen.
 - Neben der natürlichen Lüftung eine Absauganlage für Staub und Rauch. Alle stauberzeugenden Maschinen und Handschleifmaschinen mit wirksamer Absaugung. Hartlöt- und Schutzgasschweissanlagen mit Quellenabsaugung, Abluft möglichst ins Freie, bei Umluft mit Partikelfilter. Wahl und Installation mit Fachpersonen.
@@ -544,7 +556,8 @@ Fachraum als Lernort ↗
 - Eine Fachraumordnung mit Bekleidungs- und Verhaltensregeln. Die Lehrperson bespricht sie mit der Klasse, siehe Sicher unterrichten .
 - Ordnungssysteme beschriften. Sicherheitshinweise mit QR-Codes oder Piktogrammen gut sichtbar anbringen, Bedienungsanleitungen direkt bei den Maschinen.
 - Bei Mehrfachnutzung empfiehlt die bfu ein Zutrittsmanagement.
-- Sicherheitshilfsmittel wie Anschlaghölzer und Werkstückhalter sowie Schutzbrillen und Gehörschutz in ausreichender Menge und passenden Grössen griffbereit halten. Den Zustand der Schutzausrüstung periodisch prüfen.
+- Unterrichten andere Fächer im Raum, etwa Bildnerisches Gestalten, lassen sich die Maschinen meist nicht wegschliessen. Sie sind dann gegen unbeabsichtigtes Einschalten zu sichern, etwa mit gezogenem Stecker und durch ihren Standort. LCH (2025), S. 61 ↗
+- Sicherheitshilfsmittel wie Anschlaghölzer und Spannmittel sowie Schutzbrillen und Gehörschutz in ausreichender Menge und passenden Grössen griffbereit halten. Den Zustand der Schutzausrüstung periodisch prüfen.
 bfu 2.524, S. 16, 18 ↗ · bfu 4.323, S. 12 ↗
 > Zeile: Notfallausstattung Notfallblatt, Erste-Hilfe-Kasten, Augendusche, Löscher, Fluchtwege
 - Ein Telefon für den Notruf. Ein Notfallblatt mit Ansprechpersonen und Notfallnummern, gut sichtbar aufgehängt und halbjährlich überprüft.
@@ -554,7 +567,7 @@ bfu 2.524, S. 16, 18 ↗ · bfu 4.323, S. 12 ↗
 - Ein Feuerlöscher neben der Tür in 80 bis 120 cm Höhe, auf die vorhandenen Stoffe abgestimmt, gewartet und der Einsatz geübt. Löschdecken gut sichtbar in allen Räumen.
 - Universalbindemittel für verschüttete Chemikalien, kein Sägemehl und kein Papier. Warum: Sägemehl und Papier können mit Oxidationsmitteln wie Wasserstoffperoxid oder Salpetersäure gefährlich reagieren (chemsuisse, S. 47)
 - Gekennzeichnete, freie Fluchtwege. Notausgänge lassen sich von innen jederzeit ohne Schlüssel öffnen.
-chemsuisse, S. 42-47 ↗ · bfu 4.323, S. 14, 15 ↗ · bfu 2.524, S. 19 ↗
+chemsuisse, S. 42 bis 47 ↗ · bfu 4.323, S. 14, 15 ↗ · bfu 2.524, S. 19 ↗
 > Zeile: Dokumentation Checklisten, Wartung, Chemikalienliste
 - Die ausgefüllten bfu-Checklisten mit Massnahme, Wer und Wann.
 - Wartung und Prüfungen der Maschinen und der Elektroinstallation.
@@ -573,10 +586,10 @@ bfu 2.524, S. 10, 14, 15, 16 ↗ · bfu 4.323, S. 19 ↗
 > Zeile: Checklisten bfu 4.323 mit Prüfintervall je Punkt
 bfu 4.323 enthält drei Checklisten zum Ankreuzen (Ja, Teils, Nein) mit empfohlenem Prüfintervall, von der täglichen Sichtkontrolle bis zu Abständen von mehreren Jahren, dazu situativ, etwa bei einer neuen Lehrperson. In den Spalten Massnahme, Wer und Wann wird festgehalten, was zu tun ist. So lässt sich zeigen, dass regelmässig geprüft wird.
 Für die Bohrmaschine eignet sich zusätzlich die Suva-Checkliste 67036. Die Suva empfiehlt, die Kontrolle alle 6 Monate zu wiederholen. chemsuisse bietet Checklisten (allgemein, Holz, Metall, chemische Hilfsstoffe) und eine Vorlage für die Chemikalienliste.
-bfu 4.323, S. 3, 4 ↗ · Suva 67036 ↗ · chemsuisse, S. 84-93 ↗
+bfu 4.323, S. 3, 4 ↗ · Suva 67036 ↗ · chemsuisse, S. 84 bis 93 ↗
 > Zeile: Lagerung gefährlicher Stoffe Kennzeichnung entscheidet, gefährliche Stoffe abschliessen
-Was abgeschlossen werden muss, entscheidet die Gefahrenkennzeichnung (GHS-Piktogramme, H-Sätze), nicht der Eindruck. Dispersions- und Acrylfarben gehören in der Regel nicht dazu. Verbrauchsmaterialien wie Schrauben, Nägel, Farben und Schleifpapier werden laut bfu «für die Lernenden sichtbar und griffbereit bereitgestellt».
-- Nie Getränkeflaschen, Konfitürengläser oder Konservendosen verwenden, sondern Originalgebinde. Behälter nach Gebrauch verschliessen, dauerhaft beschriften, Piktogramme anbringen. Warum: So besteht keine Verwechslungsgefahr mit Lebensmitteln (chemsuisse, S. 36)
+Was abgeschlossen werden muss, entscheidet die Gefahrenkennzeichnung (GHS-Piktogramme, H-Sätze). Dispersions- und Acrylfarben gehören in der Regel nicht dazu. Verbrauchsmaterialien wie Schrauben, Nägel, Farben und Schleifpapier stehen laut bfu für die Schülerinnen und Schüler sichtbar und griffbereit bereit.
+- Gefährliche Stoffe in Originalgebinden aufbewahren, nicht in Getränkeflaschen, Konfitürengläsern oder Konservendosen. Behälter nach Gebrauch verschliessen, dauerhaft beschriften, Piktogramme anbringen. Warum: So besteht keine Verwechslungsgefahr mit Lebensmitteln (chemsuisse, S. 36)
 - Räume und Schränke mit gefährlichen Stoffen vor unbefugtem Zutritt schützen. Zugang haben nur Personen mit den nötigen Fachkenntnissen, Schülerinnen und Schüler nicht.
 - Gekennzeichnete Chemikalien in einem feuerhemmenden, abschliessbaren Schrank, in Wannen, getrennt von anderen Produkten und von Lebensmitteln. Welche Stoffe nicht zusammen gelagert werden dürfen, steht im Sicherheitsdatenblatt, Abschnitte 7.2 und 10.3.
 - Schränke und Lagerräume mit Warnzeichen kennzeichnen (ätzend, giftig, feuergefährlich, Gasflaschen).
@@ -597,7 +610,7 @@ chemsuisse, S. 37, 38 ↗
 - Abfälle vermeiden: bedarfsgerecht einkaufen, möglichst kleine Mengen verwenden, giftige und umweltgefährliche Stoffe ersetzen.
 - Abfälle getrennt in dichten, mit «Sonderabfall» beschrifteten Behältern sammeln, nie in Getränkeflaschen, in Auffangwannen und für Unbefugte unzugänglich.
 - Sonderabfälle holt eine Entsorgungsfirma ab. Ob eine Sammelstelle sie annimmt, regelt der Kanton. Nicht selbst transportieren.
-- Die Schule stellt die Behälter, organisiert den Transport und informiert Hausdienst, Lehrpersonen sowie Schülerinnen und Schüler. Die Lehrperson entscheidet mit der Chemikalien-Ansprechperson der Schule über den Entsorgungsweg, im Zweifel fragt sie die kantonale Fachstelle.
+- Die Schule stellt die Behälter, organisiert den Transport und informiert Hausdienst, Lehrpersonen sowie Schülerinnen und Schüler. Die Lehrperson entscheidet in Absprache mit der oder dem Sicherheitsbeauftragten der Schule über den Entsorgungsweg, im Zweifel fragt sie die kantonale Fachstelle.
 - Metall, Glas, Karton, Batterien und Elektroschrott separat sammeln und rezyklieren. Sonst gelten die Vorgaben der Gemeinde.
 - Was für einzelne Verfahren gilt, etwa für getränkte Lappen, Kunststoff- und Glasurreste, steht beim jeweiligen Thema, z. B. Leinöl , Glasieren und Brennen .
 chemsuisse, S. 48 bis 51 ↗
@@ -606,69 +619,76 @@ chemsuisse, S. 48 bis 51 ↗
 ## REGISTER «Kantone» (id kantone)
 
 ### Kantonale Vorgaben
-Massgebend sind die Vorgaben des jeweiligen Kantons. Eine Suche in allen Deutschschweizer Kantonen ergab nur wenige eigene, öffentlich zugängliche Dokumente zur Sicherheit im TTG. Die meisten Kantone verweisen auf bfu, Suva und chemsuisse. Dass hier kein Dokument steht, heisst nicht, dass es keine Regelung gibt. Im Zweifel bei der für die Volksschule zuständigen Stelle des Kantons oder bei der Fachberatung nachfragen. Die Spalte «Auffälligkeiten» zeigt, wie alt ein Dokument ist und wo es von den Leitfäden von bfu und chemsuisse abweicht, Stand der Prüfung November 2026.
+Massgebend sind die Vorgaben des jeweiligen Kantons. Eigene, öffentlich zugängliche Dokumente zur Sicherheit im TTG haben nur wenige Kantone, die meisten verweisen auf bfu, Suva und chemsuisse. Einige dieser Dokumente sind älter als der Lehrplan 21, das Luzerner etwa stammt von 2003.
+Die Liste beruht auf einer Suche in allen Deutschschweizer Kantonen. Dass hier kein Dokument steht, heisst nicht, dass es keine Regelung gibt. Im Zweifel bei der für die Volksschule zuständigen Stelle des Kantons oder bei der Fachberatung nachfragen. Die Spalte «Auffälligkeiten» zeigt, wie alt ein Dokument ist und wo es von den Leitfäden von bfu und chemsuisse abweicht, Stand der Prüfung November 2026.
 | Kanton Dokument Was es festhält Auffälligkeiten
-| Aargau Schulportal, «Fachräume TTG in der Primarschule» und «Fachraum TTG in der Oberstufe» , Departement Bildung, Kultur und Sport, 2026 Raumvorgaben mit Sicherheitsbezug: Räume für 16 Schülerinnen und Schüler, Stromversorgung der Maschinen über Schlüsselschalter, Anschluss über Wand- oder Hängesteckdosen statt Verlängerungskabel, FI-Schutzschalter, Sichtkontakt zur Maschinenzone, wenn möglich ein Ausgang ins Freie, auch als Fluchtweg. Für die Oberstufe zusätzlich: eigene Maschinenräume für Holz und Metall, feuerhemmende Böden und Wände, wo mit Feuer und Hitze gearbeitet wird, Behälter mit Butan oder Propan nicht unterflur, darum Metallräume ebenerdig und gut gelüftet, Gase, Dämpfe, Rauch, Staub und Späne so nahe wie möglich an der Entstehungsstelle absaugen. Für die Sicherheit verweisen beide Seiten auf bfu und Suva. Rechnet mit 16 Schülerinnen und Schülern auf rund 75 m², die bfu mit 12 bis 14 auf mindestens 80 m². Verweist auf bfu-Webseiten, nicht auf die Fachdokumentationen 2.524 und 4.323.
+| Aargau Schulportal, «Fachräume TTG in der Primarschule» und «Fachraum TTG in der Oberstufe» , Departement Bildung, Kultur und Sport, 2026 Raumvorgaben mit Sicherheitsbezug, ausgelegt auf 16 Schülerinnen und Schüler, etwa Schlüsselschalter, FI-Schutzschalter, Sichtkontakt zur Maschinenzone und ein Ausgang ins Freie. Für die Oberstufe zusätzlich eigene Maschinenräume für Holz und Metall, Metallräume ebenerdig wegen der Gasflaschen und Absaugung möglichst nahe an der Entstehungsstelle. Für die Sicherheit verweisen beide Seiten auf bfu und Suva. Rechnet mit 16 Schülerinnen und Schülern auf rund 75 m², die bfu mit 12 bis 14 auf mindestens 80 m². Verweist auf bfu-Webseiten, nicht auf die Fachdokumentationen 2.524 und 4.323.
 | «Fachraum als Lernort» , Übersicht von Barbara Wyss, PH FHNW, 2019, auf dem Schulportal des Kantons Übersicht der Funktionsbereiche eines TTG-Fachraums, siehe Fachraum als Lernort . Undatiertes Schema, laut Dateidaten von 2019. Nennt Arbeitsplätze für 12 bis 16 Schülerinnen und Schüler, die bfu 12 bis 14.
-| Basel-Stadt eduBS, Fach Technisches Gestalten , Erziehungsdepartement Wer Technisches Gestalten in einem Spezialraum mit Maschinen unterrichtet, braucht dafür eine Berechtigung. Wer sie nicht aus der Ausbildung mitbringt, kann sie in einem Maschinenkurs am PZ.BS erwerben. Seite ohne Datum, zuletzt mindestens 2024 überarbeitet. Keine Maschinenliste, dafür eine formelle Berechtigung für Lehrpersonen, die über die bfu hinausgeht.
-| Bern Merkblatt «Sicherheit im Textilen und Technischen Gestalten» , Bildungs- und Kulturdirektion, Amt für Kindergarten, Volksschule und Beratung (AKVB) Rechtsgrundlagen (LAV, OR, ArG), Einführung in Maschinen nur durch Lehrpersonen mit Fachkenntnissen, Umgang mit Werk- und Hilfsstoffen, STOP-Prinzip. Der Lehrplan 21 Bern ( Allgemeine Hinweise und Bestimmungen , Kapitel 8.1.2 und 8.1.4) hält fest, dass die Sicherheitsbestimmungen der Fachbereiche in Merkblättern geregelt sind, übernimmt die drei Gefahrengruppen der bfu und verlangt, dass Lehrpersonen sowie Schülerinnen und Schüler über Erste Hilfe bei Schnitt-, Strom- und Brandverletzungen informiert sind. Ohne Datum, PDF von 2021. Keine eigene Maschinenliste, verweist auf bfu und Suva, nicht auf chemsuisse.
+| Basel-Stadt eduBS, Fach Technisches Gestalten , Erziehungsdepartement Wer Technisches Gestalten in einem Spezialraum mit Maschinen unterrichtet, braucht dafür eine Berechtigung. Wer sie nicht aus der Ausbildung mitbringt, kann sie in einem Maschinenkurs am PZ.BS erwerben. Seite ohne Datum, zuletzt 2024 oder später überarbeitet. Keine Maschinenliste, dafür eine formelle Berechtigung für Lehrpersonen, die über die bfu hinausgeht.
+| Bern Merkblatt «Sicherheit im Textilen und Technischen Gestalten» , Bildungs- und Kulturdirektion, Amt für Kindergarten, Volksschule und Beratung (AKVB) Rechtsgrundlagen (LAV, OR, ArG), Einführung in Maschinen nur durch Lehrpersonen mit Fachkenntnissen, Umgang mit Materialien und Hilfsstoffen, STOP-Prinzip. Der Lehrplan 21 Bern ( Allgemeine Hinweise und Bestimmungen , Kapitel 8.1.2 und 8.1.4) hält fest, dass die Sicherheitsbestimmungen der Fachbereiche in Merkblättern geregelt sind, übernimmt die drei Gefahrenkategorien der bfu und verlangt, dass Lehrpersonen sowie Schülerinnen und Schüler über Erste Hilfe bei Schnitt-, Strom- und Brandverletzungen informiert sind. Ohne Datum, PDF von 2021. Keine eigene Maschinenliste, verweist auf bfu und Suva, nicht auf chemsuisse.
 | Luzern «Sicherer Umgang mit Maschinen im Technischen Gestalten. Orientierungshilfe für Lehrpersonen» , Amt für Volksschulbildung, 2003, abgelegt auf zebis Eigene Maschinenliste nach Stufe und Hinweise zu Obhut, Aufsicht und Schlüsselschalter. Das Dokument ist von 2003, eine neuere Fassung wurde nicht gefunden. Vor dem Lehrplan 21, verweist noch auf das Suva-Merkblatt «Gift» und alte bfu-Broschüren. Keine Kategorie A, teils strenger, teils lockerer als die bfu, etwa Handoberfräse und Winkelschleifer ab Sek I.
 | Zug «Sicherer Umgang mit Chemikalien an Schulen» , Präsentation der Chemikalienfachstelle, 9. November 2023 Nennt TTG ausdrücklich. Pflichten nach Chemikalienrecht: Sicherheitskonzept, Chemikalien-Ansprechperson, verbotene und problematische Stoffe mit Ersatzstoffen, Inventar, Lagerung, Entsorgung und Aufräumaktion. Stützt sich auf den chemsuisse-Leitfaden für Schulen zu Chemikalien, Mikroorganismen und Strahlenquellen, nicht auf den TTG-Leitfaden von 2024. Präsentation, auf die Naturwissenschaften ausgerichtet. Nennt für Säure- und Laugenschränke 20 statt 25 Liter.
 | Zürich Empfehlung «Sicherheit beim Einsatz von Maschinen und Werkzeugen im Unterricht» , Fachberatung TTG des Kantons, 08/2026, PDF 14 MB Eigene Maschinenliste in vier Gruppen: für den 2. und 3. Zyklus, nur für den 3. Zyklus, im 3. Zyklus nur unter direkter Aufsicht, nur für Lehrpersonen, mit Sicherheitstipps je Gerät. Grundsatz: Lehrpersonen müssen an den Maschinen und Geräten, die sie verwenden, ausgebildet sein. Aktuell, verweist auf chemsuisse. Zyklus 1 nicht geregelt, Stichsäge, Ständerbohrmaschine und Schleifer erst ab Zyklus 3 (bfu: B ab Zyklus 2), CNC-Portalfräse nur Lehrperson.
-| «ASAschule» , Arbeitsinspektorat des Kantons Checkliste zur Umsetzung der EKAS-Richtlinie 6508 für die ganze Schule, mit einem Teil zu Maschinen im Werkunterricht (Augenschutz, Lärm, Holzstaub, Brandgefahr). Laut Dateidaten von 2013, zuletzt 2020 geändert. Beruht auf der EKAS-Richtlinie 6508 vor ihrer Überarbeitung 2025 und verweist auf bfu-Unterlagen, die vor 2.524 und 4.323 erschienen sind.
+| «ASAschule» , Arbeitsinspektorat des Kantons Checkliste zur Umsetzung der EKAS-Richtlinie 6508 für die ganze Schule, mit einem Teil zu Maschinen im TTG-Unterricht (Augenschutz, Lärm, Holzstaub, Brandgefahr). Laut Dateidaten von 2013, zuletzt 2020 geändert. Beruht auf der EKAS-Richtlinie 6508 vor ihrer Überarbeitung 2025 und verweist auf bfu-Unterlagen, die vor 2.524 und 4.323 erschienen sind.
 Kurse zum sicheren Umgang mit Maschinen bieten unter anderem die PH FHNW (für Lehrpersonen aus den Kantonen Aargau und Solothurn finanziert) und das PZ.BS in Basel an. An der PH St. Gallen ist ein Modul «BfU-Kurs Maschinenkenntnisse» Pflicht im Studium Technisches Gestalten für die Sekundarstufe I.
-Recherche bei allen Deutschschweizer Kantonen, Stand Oktober 2026, ohne Gewähr auf Vollständigkeit
+Recherche bei allen Deutschschweizer Kantonen im Oktober 2026, geprüft im November 2026, ohne Gewähr auf Vollständigkeit
 
 
 ## REGISTER «Recht» (id recht)
 
-Die Gesetze sagen selten im Detail, wie ein Fachraum aussehen muss. Sie verlangen, was nach Erfahrung nötig und nach dem Stand der Technik zumutbar ist, die Leitfäden von bfu und chemsuisse zeigen, was das heisst. Wer sorgfältig einführt, beaufsichtigt und festhält, handelt richtig.
+Die Gesetze sagen selten im Detail, wie ein Fachraum aussehen muss. Sie verlangen, was nach Erfahrung nötig und nach dem Stand der Technik anwendbar ist. Die Leitfäden von bfu und chemsuisse zeigen, was das heisst. Verursacht eine Lehrperson widerrechtlich einen Schaden, haftet in der Regel der Schulträger, Rückgriff auf sie ist meist nur bei grober Pflichtverletzung möglich. Das LCH-Merkblatt von 1998 fasst es so zusammen: «Die Verantwortung ist gross, das Risiko klein.» LCH (1998), S. 4 ↗
 - Sorgfalts- und Obhutspflicht
 - Haftung
 - Zuständigkeiten
 ### Rechtlicher Rahmen
 Schulträger
-Gemeinde oder Kanton: Räume, Ausstattung und Betriebssicherheit, haftet in der Regel für Schäden, die Lehrpersonen im Unterricht widerrechtlich verursachen, siehe Haftung .
+Gemeinde oder Kanton: Räume, Ausstattung und Betriebssicherheit, haftet in der Regel für Schäden, die Lehrpersonen in ihrer dienstlichen Tätigkeit widerrechtlich verursachen, und kann für Mängel an Gebäude und fest eingebauter Einrichtung haften, siehe Haftung .
 Schule und Schulleitung
 Klärt die Zuständigkeiten und bezeichnet eine Chemikalien-Ansprechperson, siehe Pflichten und Empfehlungen .
 Lehrperson
-Obhutspflicht im Unterricht, siehe Sorgfalts- und Obhutspflicht .
+Obhutspflicht im Unterricht, in den Pausen und bei schulischen Aktivitäten, siehe Sorgfalts- und Obhutspflicht .
 Schülerinnen und Schüler
 Keine Arbeitnehmenden. Wofür sie selbst verantwortlich sind, legt die Lehrperson fest und übt es mit der Klasse.
 Wer wofür zuständig ist. Zusammenstellung dieser Seite nach bfu 4.302, S. 2, 3, bfu Rechtsfrage und chemsuisse, S. 1. Die Einzelheiten stehen darunter.
 > Zeile: Warum Gesetze offen formuliert sind Massstab statt Einzelvorschriften
-Die Gesetze zur Arbeitssicherheit schreiben meist keine einzelnen Massnahmen vor. Sie legen einen Massstab fest: Verlangt wird, was nach der Erfahrung notwendig, nach dem Stand der Technik anwendbar und den Verhältnissen angemessen ist. So steht es im Unfallversicherungsgesetz (UVG Art. 82 Abs. 1). Für den Gesundheitsschutz gilt dasselbe nach dem Arbeitsgesetz (ArG Art. 6). Dessen Bestimmungen zum Gesundheitsschutz gelten nach Art. 3a auch für Kantone und Gemeinden, also auch an öffentlichen Schulen. So bleibt das Gesetz gültig, auch wenn sich Maschinen, Materialien und Unterricht verändern, und es passt auf jede Schule und jede Klasse.
-Was das konkret heisst, beschreiben Richtlinien und Merkblätter wie die von bfu, Suva und chemsuisse. Sie zeigen, was als Stand der Technik gilt. Nach einem Unfall wird geprüft, ob die nötigen Massnahmen getroffen wurden. Es hilft, wenn die Schule das belegen kann, siehe Dokumentation und Was festhalten . Die Merkblätter dienen dabei als Richtschnur. Ob das genügt, wird im Einzelfall beurteilt, abhängig von den Lernvoraussetzungen, der Klasse und der Situation.
+Die Gesetze zur Arbeitssicherheit schreiben meist keine einzelnen Massnahmen vor. Sie legen einen Massstab fest: Verlangt wird, was nach der Erfahrung notwendig, nach dem Stand der Technik anwendbar und den Verhältnissen angemessen ist. So steht es im Unfallversicherungsgesetz (UVG Art. 82 Abs. 1). Für den Gesundheitsschutz gilt dasselbe nach dem Arbeitsgesetz (ArG Art. 6). Dessen Bestimmungen zum Gesundheitsschutz gelten nach Art. 3a auch für Kantone und Gemeinden, also auch an öffentlichen Schulen. So bleibt das Gesetz gültig, auch wenn sich Maschinen und Materialien ändern.
+Was das konkret heisst, beschreiben Richtlinien und Merkblätter wie die von bfu, Suva und chemsuisse. Sie zeigen, was als Stand der Technik gilt. Nach einem Unfall wird geprüft, ob die nötigen Massnahmen getroffen wurden. Es hilft, wenn die Schule das belegen kann, siehe Dokumentation und Was festhalten . Gerichte ziehen die Merkblätter dabei als Mindestmass der Sorgfalt heran, obwohl sie kein Gesetz sind, und gewichten sie tendenziell höher als allgemeine Dienstanweisungen (LCH 2025, S. 17, 19). Ob das genügt, wird im Einzelfall beurteilt, abhängig von den Lernvoraussetzungen, der Klasse und der Situation.
 Diese Gesetze schützen die Lehrpersonen als Arbeitnehmende. Umgekehrt sind Arbeitnehmende verpflichtet, bei den Massnahmen zum Gesundheitsschutz mitzuwirken (ArG Art. 6 Abs. 3). Schülerinnen und Schüler sind keine Arbeitnehmenden. Für sie gilt die Obhutspflicht von Schule und Lehrperson.
-Zusammenstellung dieser Seite, gestützt auf: chemsuisse, S. 1, 54 ↗ · bfu 2.524, S. 22 ↗ · UVG, Art. 82 ↗ · Merkblatt Bern, Abschnitt 1 ↗ · bfu 4.302, S. 2 ↗ · bfu Rechtsfrage ↗
+Zusammenstellung dieser Seite, gestützt auf: chemsuisse, S. 1, 54 ↗ · bfu 2.524, S. 22 ↗ · UVG, Art. 82 ↗ · Merkblatt Bern, Abschnitt 1 ↗ · bfu 4.302, S. 2 ↗ · bfu Rechtsfrage ↗ · LCH (2025), S. 17, 19 ↗
 > Zeile: Sorgfalts- und Obhutspflicht Aufsicht nach Alter und Tätigkeit, Lage laufend beurteilen, eingreifen oder abbrechen
-- Lehrpersonen haben während der Unterrichtszeit eine Sorgfalts- und Obhutspflicht. Sie ergibt sich aus kantonalem Schulrecht, Arbeitsverhältnis und der tatsächlich übernommenen Aufsicht, z. B. Bern LAV Art. 52, Luzern VBG § 24 (angemessene Aufsicht), im Aargau die allgemeine Sorgfaltspflicht nach GAL § 25. Wer sie verletzt, kann strafrechtlich verantwortlich werden.
-- Wie viel Aufsicht nötig ist, hängt von Alter, Entwicklungsstand und Verhalten der Schülerinnen und Schüler und von der Tätigkeit ab. Die Lage ist laufend zu beurteilen, bei Bedarf wird eingegriffen oder abgebrochen. Gute Vorbereitung allein genügt nicht, so das Bundesgericht in einem Urteil vom 26. September 1996 zu einer Bergwanderung im Klassenlager, bei der ein Schüler tödlich verunglückte ( BGE 122 IV 303 ).
-bfu 4.302, S. 2 ↗ · bfu Rechtsfrage ↗ · LAV Bern ↗ · GAL Aargau ↗ · VBG Luzern ↗ · Merkblatt Bern, Abschnitt 1, 3 ↗
-> Zeile: Haftung in der Regel haftet der Schulträger, bestraft werden kann, wer fahrlässig jemanden verletzt oder tötet
-Verursacht eine Lehrperson im Unterricht widerrechtlich einen Schaden, etwa durch Verletzung der Sorgfaltspflicht, haftet in der Regel der öffentliche Schulträger, nach dem kantonalen Haftungsrecht. Geschädigte richten ihre Forderungen in der Regel an ihn, nicht an die Lehrperson. Rückgriff auf die Lehrperson, also sich den bezahlten Schaden von ihr zurückholen, kann er nach dem kantonalen Recht meist nur bei grober Pflichtverletzung nehmen, also bei Vorsatz oder grober Fahrlässigkeit.
-Davon getrennt ist das Strafrecht. Wird durch eine Verletzung der Sorgfaltspflicht jemand verletzt oder getötet, kann die verantwortliche Person persönlich bestraft werden: im Unterricht meist die Lehrperson, bei Mängeln in Organisation, Ausstattung oder Wartung auch Schulleitung oder Verantwortliche des Schulträgers. Fahrlässige Tötung und fahrlässige Körperverletzung sind strafbar, grobe Fahrlässigkeit braucht es dafür nicht (Strafgesetzbuch, StGB Art. 117 und 125). Einfache fahrlässige Körperverletzung wird nur auf Antrag verfolgt (StGB Art. 125 Abs. 1), schwere von Amtes wegen. Dazu können disziplinarische Massnahmen nach Personalrecht kommen, etwa ein Verweis.
+- Lehrpersonen haben im Unterricht, in den Pausen und bei schulischen Aktivitäten eine Sorgfalts- und Obhutspflicht. Sie ergibt sich aus kantonalem Schulrecht, Arbeitsverhältnis und der tatsächlich übernommenen Aufsicht, z. B. Bern LAV Art. 52, Luzern VBG § 24 (angemessene Aufsicht), im Aargau die allgemeine Sorgfaltspflicht nach GAL § 25.
+- Wie viel Aufsicht nötig ist, hängt von Alter, Entwicklungsstand und Verhalten der Schülerinnen und Schüler und von der Tätigkeit ab. Die Lage ist laufend zu beurteilen, bei Bedarf wird eingegriffen oder abgebrochen. Gute Vorbereitung allein genügt nicht, so das Bundesgericht in einem Urteil vom 26. September 1996 zu einer Bergwanderung im Klassenlager ( BGE 122 IV 303 ).
+- Verlangt sind alle zumutbaren Vorkehrungen. Abzusichern ist nicht jede denkbare Gefahr, aber jede, mit der man in der Situation nach allgemeiner Lebenserfahrung rechnen muss. TTG zählt der LCH zu den Fächern mit erhöhtem Gefahrenpotenzial, in denen entsprechend mehr Sorgfalt verlangt ist (LCH 2025, S. 12, 60).
+- Nach einem Unfall prüfen Gerichte vor allem drei Fragen: War der Unfall vorhersehbar? Hätte die Lehrperson ihn verhindern können? Ging sie ein unerlaubtes Risiko ein? (LCH 2025, S. 13, 17)
+- Wer eine Maschine oder ein Verfahren selbst nicht beherrscht, leitet es nicht an. Von einer Lehrperson ohne Fachausbildung wird zwar weniger Können erwartet, der Vorwurf kann aber gerade darin liegen, die Aufgabe trotzdem übernommen zu haben, man spricht von Übernahmeverschulden (LCH 2025, S. 22, 68).
+- Hätte die Lehrperson einen Defekt an einem Gerät bei ordentlicher Sorgfalt bemerken müssen, ist ein Unfall daran eine Pflichtverletzung. Verletzt sich jemand trotz Instruktion bei einer gewöhnlichen Arbeit, etwa mit dem Messer, liegt keine vor. So beurteilt der LCH ein Beispiel aus dem Unterricht in Wirtschaft, Arbeit, Haushalt (LCH 2025, S. 62).
+- Ein Fall aus dem TTG: Ein Schüler schaltete eine Holzdrehbank ein, die auf 2000 statt 400 Umdrehungen pro Minute eingestellt war. Die eingespannte Holzplatte zerbrach und verletzte ihn schwer am Kopf. Der Lehrer wurde freigesprochen, weil nicht zu beweisen war, ob er das Einschalten erlaubt hatte (Bundesgericht 1P.620/1996, nach LCH 2025, S. 32).
+- Ein Fall mit Scheren: In einem Hort verletzte sich ein Kind beim Basteln mit der Schere am Auge, weil ein anderes Kind daneben ein Rad schlug. Weil vorher Ruhe geherrscht hatte, war keine lückenlose Überwachung nötig. Kinder vorsorglich in Watte zu packen, sei nicht angemessen, so das Obergericht Zürich. Bei Anzeichen von Gefahr muss die Aufsicht aber sofort handeln (LCH 2025, S. 33).
+bfu 4.302, S. 2 ↗ · bfu Rechtsfrage ↗ · LAV Bern ↗ · GAL Aargau ↗ · VBG Luzern ↗ · Merkblatt Bern, Abschnitt 1, 3 ↗ · LCH (2025), S. 12, 13, 17, 22, 32, 33, 60, 62, 68 ↗
+> Zeile: Haftung in der Regel haftet der Schulträger, Rückgriff auf die Lehrperson meist nur bei grober Pflichtverletzung
+Verursacht eine Lehrperson in ihrer dienstlichen Tätigkeit widerrechtlich einen Schaden, etwa durch Verletzung der Sorgfaltspflicht, haftet in der Regel der öffentliche Schulträger, nach dem kantonalen Haftungsrecht. Geschädigte richten ihre Forderungen in der Regel an ihn, nicht an die Lehrperson. Rückgriff auf die Lehrperson nehmen, das heisst den bezahlten Schaden von ihr zurückfordern, kann er nach kantonalem Recht meist nur bei grober Pflichtverletzung, also bei Vorsatz oder grober Fahrlässigkeit. Die Haftung kann dabei gemildert werden, etwa wenn die Lehrperson selbst ungenügend instruiert oder beaufsichtigt wurde (LCH 2025, S. 36, 38). Unabhängig davon kann der Schulträger als Werkeigentümer für Mängel an Gebäude und fest eingebauter Einrichtung haften (Obligationenrecht, OR Art. 58).
+Davon getrennt ist das Strafrecht. Wird durch eine Verletzung der Sorgfaltspflicht jemand verletzt, kann die verantwortliche Person persönlich bestraft werden: im Unterricht meist die Lehrperson, bei Mängeln in Organisation, Ausstattung oder Wartung auch Schulleitung oder Verantwortliche des Schulträgers. Fahrlässige Körperverletzung ist strafbar, grobe Fahrlässigkeit braucht es dafür nicht (Strafgesetzbuch, StGB Art. 125). Anders als bei der Haftung kann sich der Schulträger im Strafverfahren nicht vor die Lehrperson stellen. Das Verfahren richtet sich direkt gegen sie, auch wenn sie am Ende freigesprochen wird (LCH 2025, S. 16).
 Was schützt: Maschinen einteilen, instruieren, beaufsichtigen, die Lage laufend beurteilen und das Wichtige festhalten, siehe Sicher unterrichten .
-bfu Rechtsfrage ↗ · BGE 122 IV 303 ↗ · Lehrplan 21 Bern, AHB 8.1.1 ↗
+bfu Rechtsfrage ↗ · BGE 122 IV 303 ↗ · bfu 2.524, S. 22 ↗ · OR, Art. 58 ↗ · Lehrplan 21 Bern, AHB 8.1.1 ↗ · LCH (2025), S. 16, 36, 38 ↗
 > Zeile: Gesundheitsschutz bei Mutterschaft Arbeitsplätze mit bestimmten Stoffen vorsorglich beurteilen
-Stoffe, die erbgutverändernd, krebserzeugend, fortpflanzungsgefährdend oder organschädigend sind ( H340 , H341 , H350 , H351 , H360 , H361 , H362 , H370 , H371 ), sowie Kohlenmonoxid, Quecksilber, Quecksilberverbindungen und Mitosehemmstoffe (hemmen die Zellteilung) gelten für Mutter und Kind als besonders gefährlich (Verordnung über gefährliche und beschwerliche Arbeiten bei Schwangerschaft und Mutterschaft, SR 822.111.52). Für Arbeitsplätze, an denen solche Stoffe vorkommen, veranlasst der Arbeitgeber vorsorglich eine Risikobeurteilung durch eine fachkundige Person, unabhängig von einer konkreten Schwangerschaft, und informiert die Lehrpersonen. Sie zeigt, ob eine Belastung besteht und mit welchen Schutzmassnahmen sie ausgeschlossen wird. Nur wenn sie zeigt, dass keine Belastung besteht oder Schutzmassnahmen sie ausschliessen, ist die Arbeit dort auch während Schwangerschaft und Stillzeit zulässig. Gesetz: ArG Art. 35, ArGV 1 Art. 62 und 63, SR 822.111.52 Art. 13
+Stoffe, die erbgutverändernd, krebserzeugend, fortpflanzungsgefährdend oder organschädigend sind ( H340 , H341 , H350 , H351 , H360 , H361 , H362 , H370 , H371 ), sowie Kohlenmonoxid, Quecksilber, Quecksilberverbindungen und Mitosehemmstoffe (hemmen die Zellteilung) gelten für Mutter und Kind als besonders gefährlich (Verordnung über gefährliche und beschwerliche Arbeiten bei Schwangerschaft und Mutterschaft, SR 822.111.52). Für Arbeitsplätze, an denen solche Stoffe vorkommen, veranlasst die Arbeitgeberin vorsorglich eine Risikobeurteilung durch eine fachkundige Person, unabhängig von einer konkreten Schwangerschaft, und informiert die Lehrpersonen. Sie zeigt, ob eine Belastung besteht und mit welchen Schutzmassnahmen sie ausgeschlossen wird. Nur wenn sie zeigt, dass keine Belastung besteht oder Schutzmassnahmen sie ausschliessen, ist die Arbeit dort auch während Schwangerschaft und Stillzeit zulässig. Gesetz: ArG Art. 35, ArGV 1 Art. 62 und 63, SR 822.111.52 Art. 13
 chemsuisse, S. 55 ↗
 ### Zuständigkeiten
 > Zeile: Pflichten und Empfehlungen neun Pflichten, dazu Empfehlungen von bfu und chemsuisse, mit Rhythmus
 | Aufgabe Verbindlichkeit Rhythmus
 | Chemikalien-Ansprechperson bezeichnen, der kantonalen Fachstelle auf Anfrage melden Pflicht (Chemikaliengesetz ChemG Art. 25 Abs. 2, Meldung nach Chemikalienverordnung ChemV Art. 59 und Verordnung des EDI über die Chemikalien-Ansprechperson) bei Wechsel
-| Arbeitssicherheit und Gesundheitsschutz der Lehrpersonen sicherstellen Pflicht des Arbeitgebers (UVG Art. 82, Verordnung über die Unfallverhütung VUV, ArG Art. 6) laufend
-| Arbeitssicherheit nach der EKAS-Richtlinie 6508 organisieren, etwa über eine Branchenlösung Pflicht des Arbeitgebers (VUV Art. 11a ff.) laufend
-| Lehrpersonen über Gefahren informieren und anleiten, während der Arbeitszeit Pflicht des Arbeitgebers (VUV Art. 6) bei Stellenantritt und wesentlichen Änderungen, etwa neuen Maschinen, nötigenfalls wiederholt
+| Arbeitssicherheit und Gesundheitsschutz der Lehrpersonen sicherstellen Pflicht der Arbeitgeberin (UVG Art. 82, Verordnung über die Unfallverhütung VUV, ArG Art. 6) laufend
+| Arbeitssicherheit nach der EKAS-Richtlinie 6508 organisieren, etwa über eine Branchenlösung Pflicht der Arbeitgeberin (VUV Art. 11a ff.) laufend
+| Lehrpersonen über Gefahren informieren und anleiten, während der Arbeitszeit Pflicht der Arbeitgeberin (VUV Art. 6) bei Stellenantritt und wesentlichen Änderungen, etwa neuen Maschinen, nötigenfalls wiederholt
 | Weiterbildung zu Maschinen ermöglichen nach Vorgabe des Kantons, sonst Empfehlung bei Bedarf
-| Risikobeurteilung zum Gesundheitsschutz bei Mutterschaft durch eine fachkundige Person veranlassen Pflicht des Arbeitgebers (ArG Art. 35, ArGV 1 Art. 63) vorsorglich für Arbeitsplätze mit solchen Stoffen, bei Änderungen aktualisieren
+| Risikobeurteilung zum Gesundheitsschutz bei Mutterschaft durch eine fachkundige Person veranlassen Pflicht der Arbeitgeberin (ArG Art. 35, ArGV 1 Art. 63) vorsorglich für Arbeitsplätze mit fortpflanzungsgefährdenden oder krebserzeugenden Stoffen, bei Änderungen aktualisieren
 | Zuständigkeiten für Wartung, Lager und Chemikalien festhalten Empfehlung bfu, schriftlich bei Wechsel
 | Ressourcen und Entschädigung für Fachraumaufgaben einplanen Empfehlung bfu jährlich im Budget
 | Fachräume mit den bfu-Checklisten prüfen Empfehlung bfu je Punkt, von täglich bis alle paar Jahre
 | Notfallblatt und Evakuationspläne überprüfen Empfehlung bfu jährlich, Notfallblatt halbjährlich
-| Elektroinstallation periodisch durch ein unabhängiges Kontrollorgan prüfen lassen (Sicherheitsnachweis) Pflicht des Eigentümers (Niederspannungs-Installationsverordnung, NIV Art. 36 und Anhang Ziff. 2.3.8) bei Schulhäusern alle 5 Jahre, die Netzbetreiberin fordert dazu auf
-| Maschinen und Geräte instand halten, Schutzeinrichtungen prüfen Pflicht des Arbeitgebers (VUV Art. 32b), Intervalle nach bfu je Punkt der bfu-Checklisten
-| Chemikalienliste führen Empfehlung chemsuisse laufend nachführen, sonst periodisch erheben
+| Elektroinstallation periodisch durch ein unabhängiges Kontrollorgan prüfen lassen (Sicherheitsnachweis) Pflicht der Eigentümerin (Niederspannungs-Installationsverordnung, NIV Art. 36 und Anhang Ziff. 2.3.8) bei Schulhäusern alle 5 Jahre, die Netzbetreiberin fordert dazu auf
+| Maschinen und Geräte instand halten, Schutzeinrichtungen prüfen Pflicht der Arbeitgeberin (VUV Art. 32b), Intervalle nach bfu je Punkt der bfu-Checklisten
+| Chemikalienliste führen erforderlich nach chemsuisse, Teil der Sorgfaltspflicht (S. 36) laufend nachführen, sonst periodisch erheben
 | Alte und unbekannte Chemikalien aussortieren und entsorgen Pflicht (Chemikalienrecht, nach chemsuisse, S. 38) periodisch
 | Sicherheitsdatenblätter aufbewahren und zugänglich halten Pflicht (nach chemsuisse, S. 32) laufend
 Zusammenstellung dieser Seite, gestützt auf: chemsuisse, S. 1 ↗ · Merkblatt Bern, Abschnitt 1 ↗ · bfu 4.323, S. 4, 14, 15 ↗ · bfu 2.524, S. 14, 18, 19 ↗
@@ -689,26 +709,27 @@ chemsuisse, S. 1 ↗ · bfu 2.524, S. 5, 6, 18, 19, 22 ↗ · bfu 4.302, S. 2, 3
 
 ## REGISTER «Quellen» (id quellen)
 
-Die Dokumente, auf die sich die Seite stützt, mit Links zu den Originalen, dazu die wichtigsten Begriffe. Wer genauer nachlesen will, findet hier alles an einem Ort.
+Die meisten Angaben dieser Seite stammen aus Dokumenten, die für Schulen geschrieben sind: den Unterlagen der bfu zu Maschinen und Fachräumen und dem Leitfaden von chemsuisse zu Materialien und Stoffen. Ältere Merkblätter wie «Sicherheit im Werkraum» der bfu von 2001 sind ersetzt und stehen nur noch im Archiv. Alle Links sind im November 2026 geprüft.
 - Quellen und Downloads
 - Begriffe
 ### Quellen und Downloads
-Grundlage sind Dokumente für Schulen. Ergänzend stützt sich die Seite auf Suva-Merkblätter, Gesetzestexte und einzelne Fachquellen, jeweils an der Stelle angegeben. Links geprüft im November 2026. Die Links zu den Dokumenten führen direkt auf das PDF, ausser wo vermerkt.
-chemsuisse (2024): Sicherer Umgang mit Materialien und Stoffen im Fachbereich Gestalten. Leitfaden für Verantwortliche und Lehrpersonen an Schulen in den Fächern TTG und BG. Version 1.0, 108 Seiten. PDF, 4.6 MB (wird heruntergeladen, nicht angezeigt). Übersichtsseite chemsuisse
-Beer R., Stuber T. (2024): Fachräume Technisches und Textiles Gestalten einrichten. Ein Fokus auf die Sicherheit. Bern: bfu, Fachdokumentation 2.524, 28 Seiten. PDF, 3.6 MB
-bfu (2020): Umgang mit Maschinen und Anlagen. Gefahrenkategorien nach Zyklus. Bern: bfu, Safety Tool 4.301, Plakat A2. PDF, 0.5 MB
-bfu (2019): Sicherheit im Technischen und Textilen Gestalten. Leitfaden für Schulen. Bern: bfu, 4.302, 6 Seiten. PDF, 0.4 MB
-Beer R. (2021): Sicherheit im Technischen Gestalten. Checklisten zur Überprüfung der Fachräume. Bern: bfu, Fachdokumentation 4.323, 28 Seiten. PDF, 0.5 MB
+Ergänzend stützt sich die Seite auf Suva-Merkblätter, Gesetzestexte und einzelne Fachquellen, jeweils an der Stelle angegeben. Die Links zu den Dokumenten führen direkt auf das PDF, ausser wo vermerkt.
+chemsuisse (2024): Sicherer Umgang mit Materialien und Stoffen im Fachbereich Gestalten. Leitfaden für Verantwortliche und Lehrpersonen an Schulen in den Fächern TTG und BG. Version 1.0, 108 Seiten. PDF, 4,6 MB (wird heruntergeladen, nicht angezeigt). Übersichtsseite chemsuisse
+Beer R., Stuber T. (2024): Fachräume Technisches und Textiles Gestalten einrichten. Ein Fokus auf die Sicherheit. Bern: bfu, Fachdokumentation 2.524, 28 Seiten. PDF, 3,6 MB
+bfu (2020): Umgang mit Maschinen und Anlagen. Gefahrenkategorien nach Zyklus. Bern: bfu, Safety Tool 4.301, Plakat A2. PDF, 0,5 MB
+bfu (2019): Sicherheit im Technischen und Textilen Gestalten. Leitfaden für Schulen. Bern: bfu, 4.302, 6 Seiten. PDF, 0,4 MB
+Beer R. (2021): Sicherheit im Technischen Gestalten. Checklisten zur Überprüfung der Fachräume. Bern: bfu, Fachdokumentation 4.323, 28 Seiten. PDF, 0,5 MB
 Suva (2026): Säulen- und Tischbohrmaschinen. Checkliste 67036, 4 Seiten. Download-Seite bei Suva (PDF-Button auf der Seite)
+- LCH (2025): Rechtliche Verantwortlichkeit von Lehrpersonen. Ein Leitfaden für Lehrpersonen. 2. Auflage, ergänzt mit konkreten Fragen und Antworten. Zürich: Dachverband Lehrerinnen und Lehrer Schweiz. 68 Seiten, Eintrag auf edudoc.ch . Kapitel G behandelt TTG.
 - Kanton Bern, Bildungs- und Kulturdirektion, Amt für Kindergarten, Volksschule und Beratung (o. J.): Sicherheit im Textilen und Technischen Gestalten. Merkblatt 2019.ERZ.6383, 2 Seiten. PDF auf faechernet.bkd.be.ch
 - D-EDK (2016): Lehrplan 21. Gestalten, Textiles und Technisches Gestalten. Online: v-fe.lehrplan.ch, TTG
 - Stuber T. u. a. (2020): Technik und Design. Grundlagen. 3. Auflage. hep Verlag. ISBN 978-3-0355-1758-3.
 - Stuber T. u. a. (2023): Technik und Design. Lehrhilfen, Technologiekarten. hep Verlag. Lehrhilfen, Teil Technologiekarten (PDF) . Arbeitsschritte je Verfahren mit kurzen Sicherheitshinweisen, verweist für Sicherheit auf bfu und Suva. Bei den Maschinenkarten verlinkt, ebenso die Lernvideos auf tud.ch . Sie zeigen die Arbeitstechnik.
 - Suva-Checklisten zu einzelnen Maschinen und Themen, jeweils Download-Seite: Tischkreissäge 67002 , Merkblatt Tischkreissäge 44023 , Bandsäge 67057 , Abrichthobelmaschine 67058 , Handkreissäge 67016 , Kapp- und Gehrungskreissäge 67125 , Tisch- und Ständerschleifmaschinen 67037 , Elektrohandwerkzeuge 67092 , Lärm am Arbeitsplatz 67009 , Gesundheitsgefährdende Stäube 67077 , Persönliche Schutzausrüstungen 67091 , Schweissen und Schneiden (Lichtbogenverfahren) 67104 , Schweissen, Schneiden, Löten und Wärmen (Flammenverfahren) 67103 , Gasflaschen 67068 , Stopp dem Manipulieren von Schutzeinrichtungen 67146 .
 - Übersicht und Bestellung der bfu-Dokumente: bfu-Ratgeber Technisches Gestalten
-- Archiv, historisch und nicht mehr massgebend: bfu (2001): Sicherheit im Werkraum. Informationsblatt Ib 9021, PDF . bfu (o. J.): Chemische Stoffe. Sicherheit im Werkraum, Ib 9301, nach dem 2005 aufgehobenen Giftgesetz, PDF . Beide Abdruck unter Quellenangabe, ersetzt durch bfu 4.301, 4.302, 2.524 und chemsuisse. LCH (1998): Verantwortlichkeit und Haftpflicht der Lehrpersonen. Merkblatt, PDF bei der PHBern , heute ersetzt durch Merker M., Sturm L., Meyer S. (2025): Rechtliche Verantwortlichkeit von Lehrpersonen. Ein Leitfaden für Lehrpersonen. 2. Auflage. Zürich: LCH, Eintrag bei edudoc .
+- Archiv, historisch und nicht mehr massgebend: bfu (2001): Sicherheit im Werkraum. Informationsblatt Ib 9021, PDF . bfu (o. J.): Chemische Stoffe. Sicherheit im Werkraum, Ib 9301, nach dem 2005 aufgehobenen Giftgesetz, PDF . Abdruck bei beiden mit Quellenangabe gestattet. Beide sind ersetzt durch bfu 4.301, 4.302, 2.524 und chemsuisse. LCH (1998): Verantwortlichkeit und Haftpflicht der Lehrpersonen. Merkblatt, PDF bei der PHBern , heute ersetzt durch Merker M., Sturm L., Meyer S. (2025): Rechtliche Verantwortlichkeit von Lehrpersonen. Ein Leitfaden für Lehrpersonen. 2. Auflage. Zürich: LCH, Eintrag bei edudoc .
 ### Begriffe
-Kurze Erklärungen zu Fachbegriffen, die auf dieser Seite vorkommen. Im Text lassen sich die Begriffe wählen, sie öffnen eine kurze Erklärung.
+Kurze Erklärungen zu Fachbegriffen, die auf dieser Seite vorkommen. Im Text lassen sich die Begriffe wählen, dann öffnet sich die Erklärung.
 #### GHS-Gefahrenpiktogramme
 Die rot umrandeten Rauten auf Etiketten zeigen, welche Gefahr von einem Produkt ausgeht. GHS ist das weltweit einheitliche System zur Einstufung und Kennzeichnung von Chemikalien. Zum Piktogramm gehört ein Signalwort, «Gefahr» oder «Achtung».
 Explodierende Bombe: explosive Stoffe
@@ -734,7 +755,7 @@ Partikelfiltrierende Halbmasken gegen Staub. Die Zahl gibt die Schutzstufe an, 3
 chemsuisse, S. 6, 16, 24 ↗
 #### Quellenabsaugung
 Foto (Ausschnitt): Jens Eickhoff, gemeinfrei, Wikimedia Commons
-Absaugung direkt dort, wo Staub, Rauch oder Dämpfe entstehen, zum Beispiel ein Absaugarm über dem Lötplatz oder der Absauganschluss an einer Schleifmaschine. So gelangen die Stoffe gar nicht erst in die Raumluft. Beim Schweissen, Hart- und Weichlöten und beim thermischen Trennen verlangt chemsuisse sie grundsätzlich.
+Absaugung direkt dort, wo Staub, Rauch oder Dämpfe entstehen, z. B. ein Absaugarm über dem Lötplatz oder der Absauganschluss an einer Schleifmaschine. So gelangen die Stoffe gar nicht erst in die Raumluft. Beim Schweissen, Hart- und Weichlöten und beim thermischen Trennen verlangt chemsuisse sie grundsätzlich.
 chemsuisse, S. 6, 8, 10, 11, 12 ↗
 #### Schweissverfahren MIG, MAG, Autogen
 Foto: Luke Haggart, CC BY-SA 4.0, Wikimedia Commons
@@ -796,19 +817,19 @@ chemsuisse, S. 14, 23 ↗
 Der Lehrplan 21 gliedert die Volksschule in drei Zyklen. Zyklus 1 umfasst die zwei Jahre Kindergarten und die 1. und 2. Klasse, Zyklus 2 die 3. bis 6. Klasse, Zyklus 3 die 7. bis 9. Klasse.
 Lehrplan 21 ↗
 #### Sorgfalts- und Obhutspflicht
-Pflicht der Lehrperson, während der Unterrichtszeit für die Sicherheit der anvertrauten Schülerinnen und Schüler zu sorgen. Laut bfu ergibt sie sich aus dem Strafgesetzbuch, dem kantonalen Schulrecht, dem Arbeitsverhältnis und der übernommenen Aufsicht. In Bern steht sie im Berufsauftrag (LAV Art. 52), im Aargau als allgemeine Sorgfaltspflicht im Dienst (GAL § 25), in Luzern als Pflicht zur angemessenen Aufsicht (VBG § 24).
+Pflicht der Lehrperson, im Unterricht, in den Pausen und bei schulischen Aktivitäten für die Sicherheit der anvertrauten Schülerinnen und Schüler zu sorgen. Sie ergibt sich aus dem kantonalen Schulrecht, dem Arbeitsverhältnis und der übernommenen Aufsicht. In Bern steht sie im Berufsauftrag (LAV Art. 52), im Aargau als allgemeine Sorgfaltspflicht im Dienst (GAL § 25), in Luzern als Pflicht zur angemessenen Aufsicht (VBG § 24). Was bei Schäden gilt, steht unter Haftung .
 bfu Rechtsfrage ↗ · bfu 4.302, S. 2 ↗
 #### Chemikalien-Ansprechperson
 Person, die eine Schule für Fragen zu gefährlichen Chemikalien bezeichnen muss, etwa die verantwortliche Person für die Chemikalien oder die Schulleitung. Sie wird der kantonalen Fachstelle auf Anfrage gemeldet, siehe Pflichten und Empfehlungen .
 ChemG Art. 25 Abs. 2, ChemV Art. 59 · chemsuisse, S. 1 ↗
 #### Sonderabfall
-Abfall, der wegen seiner gefährlichen Eigenschaften nicht in den Kehricht oder ins Abwasser darf und fachgerecht gesammelt und entsorgt wird. Die Lehrperson entscheidet mit der Chemikalien-Ansprechperson der Schule über den Entsorgungsweg, im Zweifel mit der kantonalen Fachstelle.
+Abfall, der wegen seiner gefährlichen Eigenschaften nicht in den Kehricht oder ins Abwasser darf und fachgerecht gesammelt und entsorgt wird. Die Lehrperson entscheidet in Absprache mit der oder dem Sicherheitsbeauftragten der Schule über den Entsorgungsweg, im Zweifel mit der kantonalen Fachstelle.
 chemsuisse, S. 48 ↗
 #### Schulträger
-Die öffentliche Körperschaft, die eine Schule führt, bei der Volksschule meist die Gemeinde, teils der Kanton. Sie ist in der Regel Eigentümerin der Schulgebäude und für Verfügbarkeit und Betriebssicherheit der Fachräume zuständig. Als Arbeitgeberin trägt sie die Hauptverantwortung für den Schutz der Lehrpersonen, und für Schäden, die eine Lehrperson im Unterricht widerrechtlich verursacht, haftet in der Regel sie. Rückgriff auf die Lehrperson kann sie nach kantonalem Recht meist nur bei Vorsatz oder grober Fahrlässigkeit nehmen. Das Strafrecht trifft jede Person persönlich, siehe Haftung .
-bfu 4.302, S. 3 ↗ · bfu 2.524, S. 6 ↗ · Merkblatt Bern, Abschnitt 1 ↗ · bfu Rechtsfrage ↗
+Die öffentliche Körperschaft, die eine Schule führt, bei der Volksschule meist die Gemeinde, teils der Kanton. Sie ist in der Regel Eigentümerin der Schulgebäude und für Verfügbarkeit und Betriebssicherheit der Fachräume zuständig. Als Arbeitgeberin trägt sie die Hauptverantwortung für den Schutz der Lehrpersonen. Für Schäden, die eine Lehrperson in ihrer dienstlichen Tätigkeit widerrechtlich verursacht, haftet in der Regel sie, nicht die Lehrperson. Als Werkeigentümerin kann sie zudem für Mängel an Gebäude und fest eingebauter Einrichtung haften (OR Art. 58). Rückgriff auf die Lehrperson kann sie nach kantonalem Recht meist nur bei Vorsatz oder grober Fahrlässigkeit nehmen.
+bfu 4.302, S. 3 ↗ · bfu 2.524, S. 6 ↗ · Merkblatt Bern, Abschnitt 1 ↗ · bfu Rechtsfrage ↗ · OR, Art. 58 ↗
 #### Bundesgerichtsurteil vom 26. September 1996 (BGE 122 IV 303)
-Bei einer Bergwanderung im Klassenlager verunglückte ein Schüler auf einem Schneefeld tödlich. Das Bundesgericht hielt fest: Gute Vorbereitung genügt nicht, die Lage muss laufend beurteilt werden. Die bfu führt den Fall als Beispiel dafür an, was Aufsicht verlangt.
+Bei einer Bergwanderung im Klassenlager verunglückte ein Schüler auf einem Schneefeld. Das Bundesgericht hielt fest: Gute Vorbereitung genügt nicht, die Lage muss laufend beurteilt werden. Die bfu führt den Fall als Beispiel dafür an, was Aufsicht verlangt.
 bfu Rechtsfrage ↗ · BGE 122 IV 303 ↗
 #### Unfallversicherungsgesetz (UVG)
 Bundesgesetz über die Unfallversicherung. Es regelt auch die Verhütung von Berufsunfällen und Berufskrankheiten. Art. 82 verpflichtet den Arbeitgeber zu den Massnahmen, die nach der Erfahrung notwendig, nach dem Stand der Technik anwendbar und den Verhältnissen angemessen sind. Konkretisiert wird das in Verordnungen und in den Richtlinien der EKAS.
@@ -922,7 +943,7 @@ chemsuisse, Anhang D, S. 71 ↗ · Was H-Sätze sind
 #### H410
 Sehr giftig für Wasserorganismen, mit langfristiger Wirkung.
 chemsuisse, Anhang D, S. 71 ↗ · Was H-Sätze sind
-Diese Seite ist lediglich eine Zusammenstellung der genannten Dokumente und ersetzt sie nicht. Alle Angaben sind sorgfältig zusammengestellt, aber ohne Gewähr für Vollständigkeit und Aktualität. Massgebend sind die verlinkten Originaldokumente und die Vorgaben des jeweiligen Kantons. Für die Inhalte verlinkter Seiten sind deren Betreiber verantwortlich. Stand November 2026.
+Diese Seite ist lediglich eine Zusammenstellung der genannten Dokumente und ersetzt sie nicht. Alle Angaben sind sorgfältig zusammengestellt, aber ohne Gewähr für Vollständigkeit und Aktualität. Massgebend sind die verlinkten Originaldokumente und die Vorgaben des jeweiligen Kantons. Für die Inhalte verlinkter Seiten sind die jeweiligen Stellen verantwortlich. Stand November 2026.
 Fragen zur Sicherheit an der eigenen Schule bitte an die zuständige Stelle richten: Schulleitung, Schulträger oder die kantonalen Fachstellen, etwa Arbeitsinspektorat oder Chemikalienfachstelle. Diese Seite ist keine Rechtsberatung, bei rechtlichen Fragen helfen die Rechtsdienste von Kanton, Schulträger oder Berufsverband.
 Lukas Jordi, in Co-Autorschaft mit Claude (KI-Assistent von Anthropic). Rückmeldungen zur Seite an lukas.jordi@phbern.ch .
 Die Seite steht unter der Lizenz Creative Commons BY-NC-SA 4.0. Ausgenommen sind Bilder und Darstellungen Dritter, auch Titelseiten und Nachbauten nach bfu, chemsuisse, PH FHNW und Technik und Design. Dafür gelten die Rechte der jeweiligen Herausgeber, die Lizenz von Bildern steht jeweils beim Bild.
@@ -931,7 +952,7 @@ Die Seite steht unter der Lizenz Creative Commons BY-NC-SA 4.0. Ausgenommen sind
 ## MATERIALFENSTER eigen-metall
 
 - Auf das Bearbeiten von Blei und bleihaltigen Materialien verzichten, auch bei Bleiblech, Bleiruten und Altmetall. Warum: Blei ist giftig und fortpflanzungsgefährdend (chemsuisse, S. 8, 11)
-- Gegenstände aus dem Unterricht dürfen keine Stoffe enthalten, von deren Verwendung chemsuisse abrät oder die verboten sind (Blei, Cadmium usw.). Das ist besonders wichtig, wenn sie mit der Haut oder mit Lebensmitteln in Kontakt kommen. Warum: Blei und Cadmium in Gegenständen mit Haut- oder Lebensmittelkontakt sind gesundheitsschädlich, Blei kann sich zum Beispiel aus Glasuren in Lebensmittel lösen (chemsuisse, S. 10, 13, 21, 33)
+- Gegenstände aus dem Unterricht dürfen keine Stoffe enthalten, von deren Verwendung chemsuisse abrät oder die verboten sind (Blei, Cadmium usw.). Das ist besonders wichtig, wenn sie mit der Haut oder mit Lebensmitteln in Kontakt kommen. Warum: Blei und Cadmium in Gegenständen mit Haut- oder Lebensmittelkontakt sind gesundheitsschädlich, Blei kann sich z. B. aus Glasuren in Lebensmittel lösen (chemsuisse, S. 10, 13, 21, 33)
 - Schmuck: Werkstoffe auf Nickel prüfen, fast jeder zehnte Mensch reagiert allergisch darauf. Nickeltests gibt es in Apotheken.
 - Zinn möglichst rein verwenden und eher dekorative Gegenstände ohne Hautkontakt herstellen als Körperschmuck. Warum: Gebräuchliches Zinn kann Blei oder Antimon enthalten und ist beim Verarbeiten oder bei regelmässigem Hautkontakt gesundheitsschädlich (chemsuisse, S. 13)
 chemsuisse, S. 8, 10, 11, 13 ↗

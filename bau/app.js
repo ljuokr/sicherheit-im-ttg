@@ -352,13 +352,13 @@
     var idVon={}; woerter.forEach(function(x){ idVon[x.w]=x.id; });
     // Abschnitte, in denen je Begriff nur das erste Vorkommen verlinkt wird
     var bloecke=$$('#register .thema, #register .sub, #grundlage, #verfahren > .text > section:not(.verfahren), #matrix .mat-teil, #fachraum, #unterricht, #kantone, #recht, #quellen');
-    var NICHT=['A','BUTTON','H2','H3','H4','TH','FIGCAPTION','LABEL','OPTION','SCRIPT','STYLE','SUMMARY'];
+    var NICHT=['A','BUTTON','H2','H3','H4','TH','FIGCAPTION','LABEL','OPTION','SCRIPT','STYLE','SUMMARY','DT','svg'];
     bloecke.forEach(function(blk){
       if(blk.closest('.begriff')) return;
       var gesehen={};
       var walker=document.createTreeWalker(blk,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
         var p=n.parentNode;
-        while(p && p!==blk){ if(NICHT.indexOf(p.tagName)>-1 || (p.classList && (p.classList.contains('quelle')||p.classList.contains('begriff')||p.classList.contains('vb')||p.classList.contains('uebersicht')||p.classList.contains('lernort')||p.classList.contains('vw-t'))) || (p.getAttribute && p.getAttribute('aria-hidden')==='true')) return NodeFilter.FILTER_REJECT; p=p.parentNode; }
+        while(p && p!==blk){ if(NICHT.indexOf(p.tagName)>-1 || (p.classList && (p.classList.contains('quelle')||p.classList.contains('begriff')||p.classList.contains('vb')||p.classList.contains('uebersicht')||p.classList.contains('lernort')||p.classList.contains('vw-t')||p.classList.contains('p-zyklen'))) || (p.getAttribute && p.getAttribute('aria-hidden')==='true')) return NodeFilter.FILTER_REJECT; p=p.parentNode; }
         return NodeFilter.FILTER_ACCEPT;
       }});
       var knoten=[]; while(walker.nextNode()) knoten.push(walker.currentNode);
@@ -415,6 +415,8 @@
       if(b){ e.preventDefault(); e.stopImmediatePropagation(); clearTimeout(tAuf); if(offenVon===b && perHover){ perHover=false; return; } if(offenVon===b) schliessen(); else oeffnen(b); return; }
       if(!pop.hidden && !pop.contains(e.target)) schliessen(true);
     });
+    // Interner Link im Popup: Popup schliessen, bevor Fenster oder Sprung das Ereignis abfangen
+    document.addEventListener('click',function(e){ if(!pop.hidden && pop.contains(e.target) && e.target.closest('a[href^="#"]')) schliessen(true); },true);
     document.addEventListener('keydown',function(e){ if(e.key==='Escape') schliessen(); });
     window.addEventListener('popstate',function(){ schliessen(true); });
     document.addEventListener('scroll',function(e){ if(!pop.hidden && offenVon && e.target!==document && e.target.contains && e.target.contains(offenVon)) schliessen(true); },true);
@@ -444,9 +446,8 @@
     var sub=z.closest('.sub'), auf=z.closest('details')||z.querySelector(':scope > details');
     if(auf) auf.open=true;
     var aus=z.closest('details'); if(aus && aus.parentNode) { var ob=aus.parentNode.closest('details'); if(ob) ob.open=true; }
-    var schonDa=!panel.hidden && (!sub || !sub.hidden);
     zeige(panel.id,sub?sub.id:null,id);
-    if(z===panel||z===sub){ if(!schonDa) nachOben(); } else z.scrollIntoView();
+    if(z===panel||z===sub) nachOben(); else z.scrollIntoView();
     if(fokus){ if(!z.hasAttribute('tabindex')) z.setAttribute('tabindex','-1'); z.focus({preventScroll:true}); }
     return true;
   }
@@ -457,8 +458,9 @@
   window.addEventListener('popstate',function(){
     still=true;
     var id=decodeURIComponent(location.hash.slice(1)), z=id&&document.getElementById(id);
-    if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ if(!erg.hidden) beenden(); zeige('matrix',null,id); }
-    else if(!gehe(id)){ if(!erg.hidden) beenden(); if(!location.hash) zeige('grundlage'); }
+    if(window.TTG_OHNE_SPRUNG){ window.TTG_OHNE_SPRUNG=false; var pz=z&&z.closest('.panel'); if(pz&&pz.hidden) gehe(id); still=false; return; }
+    if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){ if(!erg.hidden) beenden(); var vz=history.state&&history.state.vor&&document.getElementById(decodeURIComponent(history.state.vor.slice(1))), vp=vz&&vz.closest('.panel'); zeige(vp?vp.id:'matrix',null,id); }
+    else if(!gehe(id,true)){ if(!erg.hidden) beenden(); if(!location.hash) zeige('grundlage'); }
     still=false;
   });
 
@@ -566,7 +568,7 @@
     [].forEach.call(document.querySelectorAll('.mchip[aria-current="true"]'),function(c){ c.setAttribute('aria-current','false'); });
     ausloeser=null; zuletzt=null;
     // Schliessen per Knopf oder Esc: Adresse auf den Stand vor dem Fenster, damit Neuladen es nicht wieder öffnet
-    if(ausVerlauf==='knopf' && history.state && history.state.fenster){ try{ history.replaceState(null,'',history.state.vor||location.pathname+location.search); }catch(e){} }
+    if(ausVerlauf==='knopf'){ if(history.state && history.state.fenster){ window.TTG_OHNE_SPRUNG=true; history.back(); } else { try{ history.replaceState(null,'','#'+document.querySelector('#tl-haupt [aria-selected=true]').getAttribute('aria-controls')); }catch(e){} } }
   }
   document.getElementById('f-zu').addEventListener('click',function(){ zu('knopf'); });
   // Registerwechsel schliesst das Fenster
@@ -590,7 +592,7 @@
     if(z && z.matches('section.thema, section.verfahren, th.mx-zeile')){
       e.preventDefault(); e.stopPropagation();
       // Zweiter Klick auf das Feld, dessen Fenster offen ist, schliesst es wieder
-      if(!f.hidden && (a.getAttribute('aria-current')==='true' || a===zuletzt)){ zu(); return; }
+      if(!f.hidden && (a.getAttribute('aria-current')==='true' || a===zuletzt)){ zu('knopf'); return; }
       oeffne(z,a); zuletzt=a; return;
     }
     // Link auf einen gewöhnlichen Abschnitt: Fenster schliessen, sonst liegt es über dem Ziel
